@@ -2,6 +2,11 @@
 
 Data, code and slides for the postgraduate course that will be held in Rio Cuarto (Cordoba, Argentina) on October, 2018
 
+## Links
+
+[intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_intro&grs=gitlab)
+[raster](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_raster&grs=gitlab)
+
 ## Software
 
 We will use **GRASS GIS 7.4.1** (current stable version). It can be installed either 
