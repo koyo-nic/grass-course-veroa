@@ -240,7 +240,7 @@ The simplest way to execute a Python script is through the "Simple Python editor
  r.colors(map=output, color="elevation")
 ``` 
 
-+++?code=https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/91211294babd1b1c38df7d7f179e26491ade2431/intro/grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
++++?code=code/01_intro_grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
 
 <br>
 Credits: Pietro Zambelli. See [grass-session GitHub](https://github.com/zarch/grass-session) for further details.
