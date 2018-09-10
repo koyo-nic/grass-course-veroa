@@ -1,8 +1,10 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
+@snap[north]
 ## Procesamiento de series de tiempo en @color[green](GRASS GIS)
 ### Aplicaciones en Ecologia y Ambiente
+@snapend
 
 @snap[south]
 @size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
@@ -49,21 +51,19 @@ Well, except for this...
 ## Basic notions
 
 @ul
-
 - The @color[green](**GRASS DATABASE**) (or "GISDBASE") is an existing directory containing all GRASS GIS LOCATIONs. 
 - A @color[green](**LOCATION**) is defined by its coordinate system, map projection and geographical boundaries.
 - @color[green](**MAPSET**) is a subdirectory within Locations. In a **MAPSET** you can organize GIS maps thematically, geographically, by project or however you prefer.
-
 @ulend
 
 +++
 
-When GRASS GIS is started, it connects to a Database, Location and Mapset specified by the user.
+When GRASS GIS is started, it connects to the Database, Location and Mapset specified by the user
 
-<img src="assets/img/grass_database.png" width="70%">
+<img src="assets/img/grass_database.png" width="65%">
 
-@size[22px](<a href="https://grass.osgeo.org/grass74/manuals/grass_database.html">GRASS database</a>)
-<br>
+@size[24px](<a href="https://grass.osgeo.org/grass74/manuals/grass_database.html">GRASS database</a>)
+<br><br>
 
 +++
 
@@ -81,14 +81,14 @@ When GRASS GIS is started, it connects to a Database, Location and Mapset specif
  - The GRASS DATABASE can be @color[green](*local or remote*), and @color[green](*special permissions*) can be set to specific mapsets in a LOCATION.
  - All data in a LOCATION have necessarily the @color[green](same CRS).
 
-+++?image=template/img/bg/green.jpg&position=right&size=50% 100%
++++?image=template/img/bg/green.jpg&position=left&size=40% 100%
 @title[Data types in GRASS GIS]
 
-@snap[west split-screen-heading text-green span-40]
+@snap[west split-screen-heading text-white span-40]
 Data types in GRASS GIS
 @snapend
 
-@snap[east text-white span-60]
+@snap[east text-green span-60]
 @ol[split-screen-list](false)
 - [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html) (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
 - [3D raster or voxel](https://grass.osgeo.org/grass74/manuals/raster3dintro.html)
