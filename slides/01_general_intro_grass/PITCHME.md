@@ -81,14 +81,14 @@ When GRASS GIS is started, it connects to the Database, Location and Mapset spec
  - The GRASS DATABASE can be @color[green](*local or remote*), and @color[green](*special permissions*) can be set to specific mapsets in a LOCATION.
  - All data in a LOCATION have necessarily the @color[green](same CRS).
 
-+++?image=template/img/bg/green.jpg&position=left&size=40% 100%
++++?image=template/img/bg/green.jpg&position=left&size=46% 100%
 @title[Data types in GRASS GIS]
 
-@snap[west split-screen-heading text-white span-40]
+@snap[west split-screen-heading text-white span-45]
 Data types in GRASS GIS
 @snapend
 
-@snap[east text-green span-60]
+@snap[east text-green span-55]
 @ol[split-screen-list](false)
 - [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html) (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
 - [3D raster or voxel](https://grass.osgeo.org/grass74/manuals/raster3dintro.html)
