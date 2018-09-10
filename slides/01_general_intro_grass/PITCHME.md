@@ -289,15 +289,16 @@ GRASS GIS and R can be used together in two ways:
 <br>
 - Using [R within a GRASS GIS session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#R_within_GRASS),
 - Using [GRASS GIS within an R session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#GRASS_within_R),
+<br>
+
+@size[18px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
 
 +++
 
 ![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
 
-@size[18px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
-
 @snap[south-east]
-@size[20px](We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!)
+@size[22px](We'll study this on Friday morning. Stay tuned) @fa[grin-wink fa-spin]!
 @snapend
 
 ---
