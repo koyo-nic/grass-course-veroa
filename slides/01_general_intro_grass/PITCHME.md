@@ -4,11 +4,7 @@
 ## Procesamiento de series de tiempo en @color[green](GRASS GIS)
 ### Aplicaciones en Ecologia y Ambiente
 
-Dra. Veronica Andreo
-
-CONICET - INMeT
-
-Rio Cuarto - Octubre, 2018
+@size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
 
 ---
 @title[About the trainer]
@@ -22,20 +18,16 @@ Rio Cuarto - Octubre, 2018
 @snap[east]
 @css[bio-headline](About me)
 <br>
-![myphoto](intro-inmet/img/vero_round_small.png)
+![myphoto](assets/img/vero_round_small.png)
 <br>
-@css[bio-byline](@fa[gitlab pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo)
-<br>
-@css[bio-byline](@fa[globe pad-fa] <a href="https://www.google.com/maps/place/Iguazu+Falls/@-27.9964934,-59.6329992,1429823m/data=!3m1!1e3!4m6!3m5!1s0x94f6ea0ca3aa1b6d:0x917b75179c5e987e!4b1!8m2!3d-25.695259!4d-54.4366662">Puerto Iguazu, Argentina</a>)
+@css[bio-byline](@fa[gitlab pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo<br>@fa[envelope pad-fa] veroandreo@gmail.com)
 @snapend
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 # Introduction to GRASS GIS
 
-### Conceptos Basicos
-
-**Rio Cuarto, Octubre 2018**
+### Basic concepts
 
 ---
 
@@ -49,12 +41,11 @@ Rio Cuarto - Octubre, 2018
 
 Well, except for this...
 
-<img src="img/start_screen1.png" width="70%">
+<img src="img/start_screen1.png" width="50%">
 
 ---
 
-## Basic concepts: 
-### GRASS DATABASE, LOCATION and MAPSET
+## Basic concepts: GRASS DATABASE, LOCATION and MAPSET
 
 @ul
 
@@ -68,16 +59,19 @@ Well, except for this...
 
 When GRASS GIS is started, it connects to a Database, Location and Mapset specified by the user.
 
-![GRASS DATABASE, LOCATIONs, and MAPSETs](img/grass_database.png)
+<img src="assets/img/grass_database.png" width="70%">
 
-[GRASS database](https://grass.osgeo.org/grass74/manuals/grass_database.html) 
+@size[18px](<a href="https://grass.osgeo.org/grass74/manuals/grass_database.html">GRASS database]</a>)
 
 +++
 
 - **Why this structure?**
 
  - GRASS GIS has a @color[green](*native format*) for raster and vector data, therefore
-   they must be imported or linked into a GRASS Location/Mapset.
+   they must be imported or linked into a GRASS Location/Mapset (see 
+   [r|v.external](https://grass.osgeo.org/grass74/manuals/r.external.html)).
+
++++
 
 - **What are the advantages?**
 
@@ -226,7 +220,7 @@ The most powerful way to use GRASS GIS!!
 
 The GUI's simplified command line offers a *Command prompt* button to save the history to a file
 
-<img src="img/command_prompt_gui.png" width="70%">
+<img src="img/command_prompt_gui.png" width="60%">
 
 +++
 
@@ -234,7 +228,7 @@ The GUI's simplified command line offers a *Command prompt* button to save the h
 
 The simplest way to execute a Python script is through the *Simple Python editor*
 
-![Python console and simple python editor](img/simple_python_editor.png)
+<img src="assets/img/simple_python_editor.png" width="80%">
 
 +++
 
@@ -258,10 +252,13 @@ The simplest way to execute a Python script is through the *Simple Python editor
  r.colors(map=output, color="elevation")
 ``` 
 
-+++?code=code/01_intro_grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
++++?code=code/01_intro_grass_session_vector_import.py&lang=python
 
-<br>
 @size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
+
+@snap[north-east template-note text-gray]
+Using GRASS GIS through **grass-session** Python library
+@snapend
 
 +++
 
@@ -299,8 +296,8 @@ GRASS GIS and R can be used together in two ways:
 
 @size[18px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
 
-@snap[south-west]
-We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!
+@snap[south-east]
+@size[20px](We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!)
 @snapend
 
 ---
@@ -354,7 +351,7 @@ We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!
   These modules remove maps from the GRASSDBASE, rename maps and copy
   maps either in the same mapset or from other mapset. 
   
-@css[message-box](**IMPORTANT**: Always perform these tasks from within a GRASS session.)
+@css[message-box](Always perform these tasks from within a GRASS session)
 
 +++
 
@@ -477,7 +474,7 @@ We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!
 
 ## QUESTIONS
 
-<img src="img/gummy-question.png" width="47%">
+<img src="img/gummy-question.png" width="45%">
 
 ---
 

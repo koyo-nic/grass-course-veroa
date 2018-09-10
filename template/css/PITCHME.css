@@ -435,7 +435,8 @@
 .message-box {
   width: 100%;
   border-radius: 15px;
-  background-color: green;
-  opacity: 70%;
+  background-color: rgb(41, 204, 41);
+  opacity: 30%;
   padding: 7px 7px !important;
+  word-wrap: normal;
 }
