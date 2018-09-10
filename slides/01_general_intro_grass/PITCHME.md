@@ -1,8 +1,8 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
-# Procesamiento de series de tiempo en @color[green](GRASS GIS)
-## Aplicaciones en Ecologia y Ambiente
+### Procesamiento de series de tiempo en @color[green](GRASS GIS)
+#### Aplicaciones en Ecologia y Ambiente
 
 Dra. Veronica Andreo
 
