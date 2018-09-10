@@ -2,13 +2,14 @@
 @title[Front page]
 
 @snap[north span-100]
+<br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
 <h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
 
 @snap[south]
 @size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
-<br><br><br>
+<br><br>
 @snapend
 
 ---
@@ -51,9 +52,9 @@ Well, except for this...
 ## Basic notions
 
 @ul
-- The @color[green](**GRASS DATABASE**) (or "GISDBASE") is an existing directory containing all GRASS GIS LOCATIONs. 
-- A @color[green](**LOCATION**) is defined by its coordinate system, map projection and geographical boundaries.
-- @color[green](**MAPSET**) is a subdirectory within Locations. In a **MAPSET** you can organize GIS maps thematically, geographically, by project or however you prefer.
+- The @color[text-green](**GRASS DATABASE**) (or "GISDBASE") is an existing directory containing all GRASS GIS LOCATIONs. 
+- A @color[text-green](**LOCATION**) is defined by its coordinate system, map projection and geographical boundaries.
+- @color[text-green](**MAPSET**) is a subdirectory within Locations. In a **MAPSET** you can organize GIS maps thematically, geographically, by project or however you prefer.
 @ulend
 
 +++
@@ -69,7 +70,7 @@ When GRASS GIS is started, it connects to the Database, Location and Mapset spec
 
 - **Why this structure?**
 
- - GRASS GIS has a @color[green](*native format*) for raster and vector data, therefore
+ - GRASS GIS has a @color[text-green](*native format*) for raster and vector data, therefore
    they must be imported or linked into a GRASS Location/Mapset (see 
    [r|v.external](https://grass.osgeo.org/grass74/manuals/r.external.html)).
 
@@ -77,9 +78,9 @@ When GRASS GIS is started, it connects to the Database, Location and Mapset spec
 
 - **What are the advantages?**
 
- - GRASS DATABASE, LOCATIONs and MAPSETs are folders that @color[green](*can be easily shared with other users*).
- - The GRASS DATABASE can be @color[green](*local or remote*), and @color[green](*special permissions*) can be set to specific mapsets in a LOCATION.
- - All data in a LOCATION have necessarily the @color[green](same CRS).
+ - GRASS DATABASE, LOCATIONs and MAPSETs are folders that @color[text-green](*can be easily shared with other users*).
+ - The GRASS DATABASE can be @color[text-green](*local or remote*), and @color[text-green](*special permissions*) can be set to specific mapsets in a LOCATION.
+ - All data in a LOCATION have necessarily the @color[text-green](same CRS).
 
 +++?image=template/img/bg/green.jpg&position=left&size=46% 100%
 @title[Data types in GRASS GIS]
@@ -89,12 +90,12 @@ Data types in GRASS GIS
 @snapend
 
 @snap[east text-green span-55]
-@ol[split-screen-list](false)
+@ul[split-screen-list](false)
 - [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html) (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
 - [3D raster or voxel](https://grass.osgeo.org/grass74/manuals/raster3dintro.html)
 - [Vector](https://grass.osgeo.org/grass74/manuals/vectorintro.html): point, line, boundary, area, face
 - [Space-time datasets](https://grass.osgeo.org/grass74/manuals/temporalintro.html): collections of raster (**STRDS**), raster 3D (**STR3DS**) or vector (**STVDS**) maps
-@olend
+@ulend
 @snapend
 
 ---
@@ -148,10 +149,10 @@ or from github (or similar repositories) using the command
 +++
 
 @snap[west]
-The @color[green](**computational region**) is the *actual setting of the region 
+The @color[text-green](**computational region**) is the *actual setting of the region 
 boundaries and the actual raster resolution*.
 <br><br>
-The @color[green](**computational region**) can be set and changed by means of
+The @color[text-green](**computational region**) can be set and changed by means of
 [g.region](https://grass.osgeo.org/grass74/manuals/g.region.html) to the
 extent of a vector map, a raster map or manually to some area of interest. 
 <br><br>
@@ -259,11 +260,11 @@ The simplest way to execute a Python script is through the *Simple Python editor
 
 +++?code=code/01_intro_grass_session_vector_import.py&lang=python
 
-@size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
-
 @snap[north-east template-note text-gray]
 Using GRASS GIS through **grass-session** Python library
 @snapend
+
+@size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
 
