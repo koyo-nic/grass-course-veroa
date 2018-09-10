@@ -1,7 +1,7 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
-@snap[north]
+@snap[north span-100]
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
 <h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
