@@ -1,3 +1,21 @@
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+@title[Front page]
+
+# Procesamiento de series de tiempo en @color[green](GRASS GIS)
+## Aplicaciones en Ecologia y Ambiente
+
+Dra. Veronica Andreo
+
+CONICET - INMeT
+
+Rio Cuarto - Octubre, 2018
+
+---
+@title[About the trainer]
+
+
+---
+
 # Introduction to GRASS GIS
 
 ### Conceptos Basicos
