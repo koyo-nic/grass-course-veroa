@@ -9,9 +9,9 @@
 
 @snap[south]
 @size[28px](Dra. Veronica Andreo<br>CONICET - INMeT)
-<br><br>
+<br><br><br>
 @css[byline](Rio Cuarto, 2018)
-<br><br>
+<br>
 @snapend
 
 ---
