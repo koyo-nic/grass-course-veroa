@@ -311,7 +311,7 @@
  * LINKS
  *********************************************/
 .reveal a {
-  color: #8b743d;
+  color: green;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -431,6 +431,6 @@
 .message-box {
   width: 100%;
   border-radius: 15px;
-  background-color: #b5ad86;
+  background-color: green;
   padding: 7px 7px !important;
 }
