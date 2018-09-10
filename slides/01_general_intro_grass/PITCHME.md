@@ -1,7 +1,12 @@
 # Introduction to GRASS GIS
 
-### GEOSTAT Summer School
-**Prague, August 2018** - [Web site](https://geostat-course.org/2018)
+### Conceptos Basicos
+
+**Rio Cuarto, Octubre 2018**
+
+---
+
+<iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
 
 ---
 
@@ -441,12 +446,8 @@ GRASS GIS and R can be used together in two ways:
 
 ![GRASS GIS logo](img/grass_logo_alphab.png)
 
-@snap[south-west]
+@snap[south]
 @css[bio-byline](@fa[gitlab  pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo)
-@snapend
-
-@snap[south-east]
-@css[bio-byline](@fa[gitlab pad-fa] neteler @fa[twitter pad-fa] @MarkusNeteler)
 @snapend
 
 <!--- ?include=tgrass/PITCHME.md --->

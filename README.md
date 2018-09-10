@@ -2,10 +2,15 @@
 
 Data, code and slides for the postgraduate course that will be held in Rio Cuarto (Cordoba, Argentina) on October, 2018
 
-## Links
+## Links to units
 
-[intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_intro&grs=gitlab)
-[raster](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_raster&grs=gitlab)
+- [Installation guide](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab)
+- [GRASS GIS intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab)
+- [GRASS GIS general capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab)
+- [Raster data](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab)
+- [Satellite Imagery](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/04_imagery&grs=gitlab)
+- [Temporal data](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
+- [GRASS and R interface](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab)
 
 ## Software
 
@@ -50,6 +55,16 @@ sudo apt-get install grass
 
 For other Linux distributions including **Fedora** and **openSuSe**, simply install GRASS GIS with the respective package manager. See also [here](https://grass.osgeo.org/download/software/)
 
+##### Extra dependencies
+
+- pymodis
+- PLY
+- sentinelsat
+- pandas
+- scikit-learn
+- matplotlib
+
+<!---
 ### OSGeo-live: 
 
 [OSGeo-live](https://live.osgeo.org/) is a self-contained bootable DVD, USB thumb
@@ -61,6 +76,7 @@ different options to run OSGeo-live:
 * [Run OSGeo-live from a bootable USB flash drive](https://live.osgeo.org/en/quickstart/usb_quickstart.html)
 
 For a quick-start guide, see: https://live.osgeo.org/en/quickstart/osgeolive_quickstart.html
+--->
 
 ### GRASS GIS Add-ons
 
@@ -71,6 +87,9 @@ Install with `g.extension extension=name_of_addon`
 
 ## Data
 
+TBD
+
+<!---
 For the **Analysing environmental data with GRASS GIS** tutorial, we will use the following datasets:
 
 * [ECA&D elevation (GeoTiff file)](https://gitlab.com/neteler/grass-gis-geostat-2018/tree/master/intro/aux_data/ecad_elev_v17.zip): download and unzip into the `$HOME/geodata` folder (create folder if needed).
@@ -80,6 +99,7 @@ For the **Spatio-temporal data processing and visualization** tutorial, we will 
 
 * [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`. 
 * [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
+--->
 
 ## Author
 
@@ -87,7 +107,7 @@ For the **Spatio-temporal data processing and visualization** tutorial, we will 
 
 ## License
 
-The course text and images:
+The course material:
 
 [![Creative Commons License](img/ccbysa.png)](http://creativecommons.org/licenses/by-sa/4.0/) Creative Commons Attribution-ShareAlike 4.0 International License
 
