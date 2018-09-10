@@ -317,6 +317,10 @@
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
   
+.reveal a:hover {
+  color: #3DCD0E;
+  text-shadow: none;
+  border: none; }
 
 /*********************************
  * tables (copied from beige.css) 
