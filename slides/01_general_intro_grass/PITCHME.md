@@ -2,13 +2,13 @@
 @title[Front page]
 
 @snap[north]
-## Procesamiento de series de tiempo en @color[green](GRASS GIS)
-### Aplicaciones en Ecologia y Ambiente
+<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
 
 @snap[south]
 @size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
-<br><br>
+<br><br><br>
 @snapend
 
 ---
@@ -225,7 +225,7 @@ The most powerful way to use GRASS GIS!!
 
 The GUI's simplified command line offers a *Command prompt* button to save the history to a file
 
-<img src="assets/img/command_prompt_gui.png" width="48%">
+<img src="assets/img/command_prompt_gui.png" width="43%">
 
 +++
 
