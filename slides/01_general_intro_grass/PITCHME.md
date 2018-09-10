@@ -8,7 +8,8 @@
 @snapend
 
 @snap[south]
-@size[28px](Dra. Veronica Andreo<br>CONICET - INMeT<br><br>)
+@size[28px](Dra. Veronica Andreo<br>CONICET - INMeT)
+<br><br><br><br>
 @css[byline](Rio Cuarto, 2018)
 <br><br>
 @snapend
@@ -24,9 +25,9 @@
 
 @snap[east]
 @css[bio-headline](About me)
-<br>
+<br><br>
 ![myphoto](assets/img/vero_round_small.png)
-<br>
+<br><br>
 @css[bio-byline](@fa[gitlab pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo<br>@fa[envelope pad-fa] veroandreo@gmail.com)
 @snapend
 
