@@ -6,6 +6,7 @@
 
 @snap[south]
 @size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
+<br><br>
 @snapend
 
 ---
@@ -61,7 +62,8 @@ When GRASS GIS is started, it connects to a Database, Location and Mapset specif
 
 <img src="assets/img/grass_database.png" width="70%">
 
-@size[18px](<a href="https://grass.osgeo.org/grass74/manuals/grass_database.html">GRASS database]</a>)
+@size[22px](<a href="https://grass.osgeo.org/grass74/manuals/grass_database.html">GRASS database</a>)
+<br>
 
 +++
 
@@ -80,20 +82,18 @@ When GRASS GIS is started, it connects to a Database, Location and Mapset specif
  - All data in a LOCATION have necessarily the @color[green](same CRS).
 
 +++?image=template/img/bg/green.jpg&position=right&size=50% 100%
-@title[Data types in GRASS GIS
+@title[Data types in GRASS GIS]
 
-@snap[west split-screen-heading text-green span-45]
+@snap[west split-screen-heading text-green span-40]
 Data types in GRASS GIS
 @snapend
 
-@snap[east text-white span-50]
+@snap[east text-white span-60]
 @ol[split-screen-list](false)
-- [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html)
-  (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
+- [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html) (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
 - [3D raster or voxel](https://grass.osgeo.org/grass74/manuals/raster3dintro.html)
 - [Vector](https://grass.osgeo.org/grass74/manuals/vectorintro.html): point, line, boundary, area, face
-- [Space-time datasets](https://grass.osgeo.org/grass74/manuals/temporalintro.html):
-  collections of raster (**STRDS**), raster 3D (**STR3DS**) or vector (**STVDS**) maps
+- [Space-time datasets](https://grass.osgeo.org/grass74/manuals/temporalintro.html): collections of raster (**STRDS**), raster 3D (**STR3DS**) or vector (**STVDS**) maps
 @olend
 @snapend
 
@@ -146,8 +146,6 @@ or from github (or similar repositories) using the command
 ![Show computational region](img/region.png)
 
 +++
-
-## Computational region
 
 @snap[west]
 The @color[green](**computational region**) is the *actual setting of the region 
@@ -227,7 +225,7 @@ The most powerful way to use GRASS GIS!!
 
 The GUI's simplified command line offers a *Command prompt* button to save the history to a file
 
-<img src="img/command_prompt_gui.png" width="55%">
+<img src="assets/img/command_prompt_gui.png" width="48%">
 
 +++
 
