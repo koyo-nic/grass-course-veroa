@@ -1,8 +1,8 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
-### Procesamiento de series de tiempo en @color[green](GRASS GIS)
-#### Aplicaciones en Ecologia y Ambiente
+## Procesamiento de series de tiempo en @color[green](GRASS GIS)
+### Aplicaciones en Ecologia y Ambiente
 
 Dra. Veronica Andreo
 
@@ -13,6 +13,21 @@ Rio Cuarto - Octubre, 2018
 ---
 @title[About the trainer]
 
+@snap[west]
+@css[bio-about](Lic. y Dra. Cs. Biológicas<br>Mgter. en Aplicaciones Espaciales de Alerta y<br>Respuesta Temprana a Emergencias<br>Aplicaciones de RS & GIS en Ecologia<br><br><i>Keywords:</i> RS, GIS, Time series, SDM,<br>Disease Ecology, Rodents, Hantavirus)
+<br><br>
+@css[bio-about](FOSS4G enthusiast and advocate<br><a href="https://grass.osgeo.org/">GRASS GIS</a> Dev Team<br><a href="https://www.osgeo.org/">OSGeo</a> Charter member)
+@snapend
+
+@snap[east]
+@css[bio-headline](About me)
+<br>
+![myphoto](intro-inmet/img/vero_round_small.png)
+<br>
+@css[bio-byline](@fa[gitlab pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo)
+<br>
+@css[bio-byline](@fa[globe pad-fa] <a href="https://www.google.com/maps/place/Iguazu+Falls/@-27.9964934,-59.6329992,1429823m/data=!3m1!1e3!4m6!3m5!1s0x94f6ea0ca3aa1b6d:0x917b75179c5e987e!4b1!8m2!3d-25.695259!4d-54.4366662">Puerto Iguazu, Argentina</a>)
+@snapend
 
 ---
 
@@ -34,11 +49,12 @@ Rio Cuarto - Octubre, 2018
 
 Well, except for this...
 
-<img class="plain" src="img/start_screen1.png">
+<img src="img/start_screen1.png" width="70%">
 
 ---
 
-## NOTIONS: GRASS DATABASE, LOCATION and MAPSET
+## Basic concepts: 
+### GRASS DATABASE, LOCATION and MAPSET
 
 @ul
 
@@ -100,7 +116,7 @@ More than [500 modules](https://grass.osgeo.org/grass74/manuals/full_index.html)
 
 +++
 
-<img class="wide" src="img/module_tree_and_search.png">
+<img src="img/module_tree_and_search.png" width="70%">
 <br>
 Module tree and module search engine
 
@@ -132,6 +148,7 @@ or from github (or similar repositories) using the command
 
 ## Computational region
 
+@snap[north-west]
 The @color[green](**computational region**) is the *actual setting of the region 
 boundaries and the actual raster resolution*.
 <br><br>
@@ -142,6 +159,7 @@ extent of a vector map, a raster map or manually to some area of interest.
 Output raster maps will have their extent and resolution equal to
 those of the current computational region, while vector maps are 
 always considered in their original extent.
+@snapend
 
 +++
 
@@ -155,7 +173,7 @@ always considered in their original extent.
   - Fine-tune the settings of a certain module
   - Run different processes in different areas
 
-@size[16px](More details at the [Computational region wiki](https://grasswiki.osgeo.org/wiki/Computational_region))
+@size[18px](More details at the [Computational region wiki](https://grasswiki.osgeo.org/wiki/Computational_region))
 
 ---
 
@@ -168,7 +186,7 @@ or creating a raster map called `MASK`.
 
 ![MASK](img/masks.png)
 <br>
-@size[16px](Examples of masking: b- Only the raster data inside the masked area are used for further analysis. c- Inverse mask.)
+@size[18px](Examples of masking: b- Only the raster data inside the masked area are used for further analysis. c- Inverse mask.)
 
 ---
 
@@ -190,11 +208,11 @@ GRASS GIS offers different interfaces for the interaction between user and softw
 
 The most powerful way to use GRASS GIS!!
 
-<img class="plain" src="img/grass_command_line.png">
+<img src="img/grass_command_line.png" width="70%">
 
 +++
 
-**Advantages of the command line**
+#### Advantages of the command line
 
 @ul
 - Run "history" to see all your previous commands
@@ -208,13 +226,13 @@ The most powerful way to use GRASS GIS!!
 
 The GUI's simplified command line offers a *Command prompt* button to save the history to a file
 
-<img class="plain" src="img/command_prompt_gui.png">
+<img src="img/command_prompt_gui.png" width="70%">
 
 +++
 
 ### Python
 
-The simplest way to execute a Python script is through the "Simple Python editor"
+The simplest way to execute a Python script is through the *Simple Python editor*
 
 ![Python console and simple python editor](img/simple_python_editor.png)
 
@@ -243,7 +261,7 @@ The simplest way to execute a Python script is through the "Simple Python editor
 +++?code=code/01_intro_grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
 
 <br>
-Credits: Pietro Zambelli. See [grass-session GitHub](https://github.com/zarch/grass-session) for further details.
+@size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
 
@@ -258,13 +276,13 @@ There are two ways to use GRASS GIS functionalities within QGIS:
 
 ![GRASS modules through GRASS Plugin](img/qgis_grass_plugin.png)
 <br>
-@size[16px](Using GRASS GIS modules through the GRASS Plugin in QGIS)
+@size[18px](Using GRASS GIS modules through the GRASS Plugin in QGIS)
 
 +++
 
 ![GRASS modules through Processing Toolbox](img/qgis_processing.png)
 <br>
-@size[16px](Using GRASS GIS modules through the Processing Toolbox)
+@size[18px](Using GRASS GIS modules through the Processing Toolbox)
 
 +++
 
@@ -279,7 +297,11 @@ GRASS GIS and R can be used together in two ways:
 
 ![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
 
-@size[16px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
+@size[18px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
+
+@snap[south-west]
+We'll study this on Friday morning. Stay tuned @fa[grin-wink fa-spin]!
+@snapend
 
 ---
 
@@ -305,10 +327,11 @@ GRASS GIS and R can be used together in two ways:
 
  ## IMPORT VECTOR DATA
  
- # import SHAPE file, clip to region extent and reproject to current location projection
+ # import SHAPE file, clip to region extent and reproject to 
+ # current location projection
  v.import input=research_area.shp output=research_area extent=region
 ``` 
-                
+
 +++
 
 - [g.list](https://grass.osgeo.org/grass74/manuals/g.list.html): Lists
@@ -331,7 +354,7 @@ GRASS GIS and R can be used together in two ways:
   These modules remove maps from the GRASSDBASE, rename maps and copy
   maps either in the same mapset or from other mapset. 
   
-  **IMPORTANT**: Always perform these tasks from within a GRASS session.
+@css[message-box](**IMPORTANT**: Always perform these tasks from within a GRASS session.)
 
 +++
 
@@ -352,8 +375,6 @@ GRASS GIS and R can be used together in two ways:
  d.rast elevation
  d.rast new_elev
 ``` 
-
-<!--- example of saving the region? ---> 
 
 +++
 
@@ -414,11 +435,11 @@ GRASS GIS and R can be used together in two ways:
                 
 ---
 
-# HELP!!!
+# **HELP!!!**
 
 +++
 
-## KEEP CALM and GRASS GIS
+### KEEP CALM and GRASS GIS
 
 - [g.manual](https://grass.osgeo.org/grass74/manuals/g.manual.html):
   in the main GUI under Help or just pressing *F1*
@@ -454,9 +475,9 @@ GRASS GIS and R can be used together in two ways:
 
 ---
 
-# QUESTIONS
+## QUESTIONS
 
-<img class="plain" src="img/gummy-question.png">
+<img src="img/gummy-question.png" width="47%">
 
 ---
 
@@ -464,8 +485,5 @@ GRASS GIS and R can be used together in two ways:
 
 ![GRASS GIS logo](img/grass_logo_alphab.png)
 
-@snap[south]
-@css[bio-byline](@fa[gitlab  pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo)
-@snapend
-
+<!--- ADD LINK TO THE NEXT PRESENTATION --->
 <!--- ?include=tgrass/PITCHME.md --->

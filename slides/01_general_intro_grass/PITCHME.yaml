@@ -48,6 +48,7 @@ highlight : atom-one-dark
 # Layout Setting
 # Doc: https://gitpitch.com/docs/settings/layout
 #
+
 layout : center
 
 #

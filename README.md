@@ -57,14 +57,13 @@ For other Linux distributions including **Fedora** and **openSuSe**, simply inst
 
 ##### Extra dependencies
 
-- pymodis
+- [pymodis](www.pymodis.org) 
 - PLY
 - sentinelsat
 - pandas
 - scikit-learn
 - matplotlib
 
-<!---
 ### OSGeo-live: 
 
 [OSGeo-live](https://live.osgeo.org/) is a self-contained bootable DVD, USB thumb
@@ -76,7 +75,6 @@ different options to run OSGeo-live:
 * [Run OSGeo-live from a bootable USB flash drive](https://live.osgeo.org/en/quickstart/usb_quickstart.html)
 
 For a quick-start guide, see: https://live.osgeo.org/en/quickstart/osgeolive_quickstart.html
---->
 
 ### GRASS GIS Add-ons
 
@@ -103,7 +101,7 @@ For the **Spatio-temporal data processing and visualization** tutorial, we will 
 
 ## Author
 
-* **Veronica Andreo.** [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina
+* **Veronica Andreo.** [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina
 
 ## License
 
