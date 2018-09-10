@@ -4,7 +4,9 @@
 ## Procesamiento de series de tiempo en @color[green](GRASS GIS)
 ### Aplicaciones en Ecologia y Ambiente
 
+@snap[south]
 @size[24px](Dra. Veronica Andreo<br>CONICET - INMeT<br>Rio Cuarto - Octubre, 2018)
+@snapend
 
 ---
 @title[About the trainer]
@@ -27,8 +29,6 @@
 
 # Introduction to GRASS GIS
 
-### Basic concepts
-
 ---
 
 <iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
@@ -45,7 +45,7 @@ Well, except for this...
 
 ---
 
-## Basic concepts: GRASS DATABASE, LOCATION and MAPSET
+## Basic notions
 
 @ul
 
@@ -79,16 +79,23 @@ When GRASS GIS is started, it connects to a Database, Location and Mapset specif
  - The GRASS DATABASE can be @color[green](*local or remote*), and @color[green](*special permissions*) can be set to specific mapsets in a LOCATION.
  - All data in a LOCATION have necessarily the @color[green](same CRS).
 
----
++++?image=template/img/bg/green.jpg&position=right&size=50% 100%
+@title[Data types in GRASS GIS
 
-## Data types in GRASS GIS
+@snap[west split-screen-heading text-green span-45]
+Data types in GRASS GIS
+@snapend
 
+@snap[east text-white span-50]
+@ol[split-screen-list](false)
 - [Raster](https://grass.osgeo.org/grass74/manuals/rasterintro.html)
   (including [satellite imagery](https://grass.osgeo.org/grass74/manuals/imageryintro.html))
 - [3D raster or voxel](https://grass.osgeo.org/grass74/manuals/raster3dintro.html)
 - [Vector](https://grass.osgeo.org/grass74/manuals/vectorintro.html): point, line, boundary, area, face
 - [Space-time datasets](https://grass.osgeo.org/grass74/manuals/temporalintro.html):
   collections of raster (**STRDS**), raster 3D (**STR3DS**) or vector (**STVDS**) maps
+@olend
+@snapend
 
 ---
 
@@ -142,7 +149,7 @@ or from github (or similar repositories) using the command
 
 ## Computational region
 
-@snap[north-west]
+@snap[west]
 The @color[green](**computational region**) is the *actual setting of the region 
 boundaries and the actual raster resolution*.
 <br><br>
@@ -206,7 +213,7 @@ The most powerful way to use GRASS GIS!!
 
 +++
 
-#### Advantages of the command line
+### Advantages of the command line
 
 @ul
 - Run "history" to see all your previous commands
@@ -220,7 +227,7 @@ The most powerful way to use GRASS GIS!!
 
 The GUI's simplified command line offers a *Command prompt* button to save the history to a file
 
-<img src="img/command_prompt_gui.png" width="60%">
+<img src="img/command_prompt_gui.png" width="55%">
 
 +++
 
@@ -289,16 +296,17 @@ GRASS GIS and R can be used together in two ways:
 <br>
 - Using [R within a GRASS GIS session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#R_within_GRASS),
 - Using [GRASS GIS within an R session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#GRASS_within_R),
-<br>
+<br><br><br>
 
-@size[18px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
+@size[22px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
 
 +++
 
 ![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
 
 @snap[south-east]
-@size[22px](We'll study this on Friday morning. Stay tuned) @fa[grin-wink fa-spin]!
+@size[22px](We'll study this on Friday morning. Stay tuned!) 
+@fa[grin fa-spin]
 @snapend
 
 ---
@@ -352,7 +360,7 @@ GRASS GIS and R can be used together in two ways:
   These modules remove maps from the GRASSDBASE, rename maps and copy
   maps either in the same mapset or from other mapset. 
   
-@css[message-box](Always perform these tasks from within a GRASS session)
+@css[message-box](Always perform these tasks from within GRASS)
 
 +++
 
@@ -473,7 +481,7 @@ GRASS GIS and R can be used together in two ways:
 
 ---
 
-## QUESTIONS
+## QUESTIONS?
 
 <img src="img/gummy-question.png" width="45%">
 
