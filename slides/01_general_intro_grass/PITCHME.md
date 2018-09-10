@@ -35,7 +35,7 @@
 
 # Introduction to GRASS GIS
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 <iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
 
