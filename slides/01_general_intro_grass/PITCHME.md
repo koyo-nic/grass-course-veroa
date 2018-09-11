@@ -7,11 +7,8 @@
 <h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
 
-@snap[south]
-@size[28px](Dra. Veronica Andreo<br>CONICET - INMeT)
-<br><br><br>
-@css[byline](Rio Cuarto, 2018)
-<br>
+@snap[south message-box-white]
+@size[28px](Dra. Veronica Andreo<br>CONICET - INMeT<br><br><br>Rio Cuarto, 2018<br>)
 @snapend
 
 ---
