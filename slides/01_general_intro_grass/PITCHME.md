@@ -501,7 +501,7 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 ![GRASS GIS logo](img/grass_logo_alphab.png)
 
-<br><br><br><br>
+<br><br>
 
 @size[20px](Presentation powered by)
 
@@ -512,7 +512,7 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 @transition[zoom]
 
-<p class="byline">Join and enjoy GRASS GIS!!</p>
+<p style="color:white">Join and enjoy GRASS GIS!!</p>
 
 <!--- ADD LINK TO THE NEXT PRESENTATION --->
 <!--- ?include=tgrass/PITCHME.md --->

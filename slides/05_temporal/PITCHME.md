@@ -107,7 +107,9 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 ---?code=code/05_temporal_code.sh&lang=bash
 
+@snap[north-east template-note text-gray]
 Set computational region and apply MASK
+@snapend
 
 @[32-40]
 @[43-61]
@@ -439,10 +441,9 @@ mapview(raleigh_sf[,6:17])
 
 ![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
-<br><br>
+<br>
 
 @size[20px](Presentation powered by)
 
-<a href="https://gitpitch.com/">
-<img src="assets/img/gitpitch_logo.png" width="20%"></a>
+<a href="https://gitpitch.com/"><img src="assets/img/gitpitch_logo.png" width="20%"></a>
 
