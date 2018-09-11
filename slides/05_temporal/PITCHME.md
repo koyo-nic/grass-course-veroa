@@ -443,7 +443,7 @@ mapview(raleigh_sf[,6:17])
 
 <br>
 
-@size[20px](Presentation powered by)
+@size[18px](Presentation powered by)
 
 <a href="https://gitpitch.com/"><img src="assets/img/gitpitch_logo.png" width="20%"></a>
 
