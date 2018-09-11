@@ -501,11 +501,6 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 ![GRASS GIS logo](img/grass_logo_alphab.png)
 
-@size[18px](Presentation powered by)
-
-<a href="https://gitpitch.com/">
-<img src="assets/img/gitpitch_logo.png" width="20%"></a>
-
 ---?image=https://grass.osgeo.org/uploads/images/grass_sprint2018_bonn_fotowall_medium.jpg&size=cover
 
 @transition[zoom]
@@ -514,3 +509,12 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 <!--- ADD LINK TO THE NEXT PRESENTATION --->
 <!--- ?include=tgrass/PITCHME.md --->
+
+---
+
+@snap[south span-50]
+@size[18px](Presentation powered by)
+
+<a href="https://gitpitch.com/">
+<img src="assets/img/gitpitch_logo.png" width="20%"></a>
+@snapend

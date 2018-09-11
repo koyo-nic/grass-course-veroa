@@ -441,8 +441,11 @@ mapview(raleigh_sf[,6:17])
 
 ![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
+---
+
+@snap[south span-50]
 @size[18px](Presentation powered by)
 
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
-
+@snapend
