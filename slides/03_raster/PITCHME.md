@@ -283,3 +283,132 @@ Reclassify to
 10,11,15,18  → 4  Forest
 20  →  5  Water Bodies
 21  → 6  Unconsolidated Sediment
+
+---
+
+Creación de Location y Mapset
+=============================
+
+---
+
+Overview
+========
+
+ Crear locations de diferentes formas
+
+ Crear mapsets
+
+ Cambiar de mapsets
+
+ Importar mapas
+
+ Establecer región de trabajo
+
+ Reproyectar mapas raster y vectoriales
+
+---
+
+Cuando abrimos GRASS...
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image2.png){width="7.046805555555555in" height="6.448333333333333in"} Crear un nuevo location con el sistem
+
+Crear un mapset para poner los datos.
+
+O entramos directamente y creamos lo
+
+ Manage Location and Mapsets from GUI
+
+ ![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image3.jpg){width="6.343334426946631in"
+ height="3.4983333333333335in"}
+
+odemos cambiar a otro o agregar mapsets a la lista de mapsets accesibles
+(para tener acceso a los ma
+
+ También podemos cambiar de Location y mapset, y crear nuevos location
+ y mapsets
+
+Desde la línea de comandos...
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image4.jpg){width="9.468333333333334in"
+height="2.564000437445319in"}
+
+ Crear un nuevo mapset:
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image5.jpg){width="9.291666666666666in"
+height="1.6481944444444445in"}
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image6.jpg){width="4.821666666666666in"
+height="0.48833333333333334in"}
+
+Crear nuevo Location
+====================
+
+1. Desde codigo EPSG
+
+ EPSG: European Petroleum Survey Group
+
+ (International Association of Oil & Gas Producers)
+
+ EPSG codes are standardized numbers for national and international
+ coordinate reference systems and coordinate transformations -- used by
+ many GIS software packages.
+
+ Also used in PROJ4: [<http://trac.osgeo.org/proj/]{.underline} and
+ GDAL: [[http://www.gdal.org/]{.underline}](http://www.gdal.org/)
+
+ Codes available as SQL database from
+ [[http://www.epsg.org]{.underline}](http://www.epsg.org/) or found in
+ the PROJ4 installation at /usr/share/proj/epsg
+
+ Useful Web sites:
+ [[http://www.epsg-registry.org](http://www.epsg-registry.org/)]{.underline}
+ and [[http://epsg.io/]{.underline}](http://epsg.io/)
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image7.png){width="10.0in"
+height="7.230001093613298in"}
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image9.png){width="11.0in"
+height="7.736666666666666in"}
+
+2.  A partir de un archivo georreferenciado
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image7.png){width="10.16in"
+height="6.45in"}
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image10.png){width="10.939998906386702in"
+height="7.75in"}
+
+![](../repos/gitlab/curso-grass-gis-rioiv/extra/media_2_2/media/image15.png){width="10.535511811023621in" height="6.448333333333333in"}Creación de Mapset 
+==========================================================================================================================================================
+
+ Región Computacional
+
+
+
+Ejercicios
+----------
+
+ Importar al Location nc_spm_08_grass7 un vector y luego reproyectar al Location LatLong
+
+ Desde el location LatLong exportar el vector en formato shape e importarlo y reproyectarlo al Location nc_spm_08_grass7
+
+Trabajar sin importar los datos
+
+ # register GeoTIFF file in GRASS database:                           
+                                                                       
+ r.external input=tempmap1.tif output=modis_celsius                   
+                                                                       
+ # define output directory for files resulting from GRASS             
+ calculation: 
+ 
+ r.external.out directory=$HOME/gisoutput/ format="GTiff"                                                      
+                                                                       
+ # perform GRASS calculation (here: extract pixels  20 deg C) 
+ # write output directly as GeoTIFF:                                     
+                                                                       
+ r.mapcalc "warm.tif = if(modis_celsius  20.0, modis_celsius, null())"                                                            
+                                                                       
+ # cease GDAL output connection and turn back to write GRASS raster files: 
+ r.external.out -r                                              
+                                                                       
+ # use the result elsewhere qgis $HOME/gisoutput/warm.tif            
