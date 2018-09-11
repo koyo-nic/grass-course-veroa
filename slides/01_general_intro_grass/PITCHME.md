@@ -34,6 +34,10 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
+@snap[north span-90]
+A bit of (geek) history...
+@snapend
+
 <iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
 
 ---
@@ -70,8 +74,7 @@ When GRASS GIS is started, it connects to the Database, Location and Mapset spec
 - **Why this structure?**
 
  - GRASS GIS has a @color[#8EA33B](*native format*) for raster and vector data, therefore
-   they must be imported or linked into a GRASS Location/Mapset (see 
-   [r|v.external](https://grass.osgeo.org/grass74/manuals/r.external.html)).
+   they must be *imported* or *linked* into a GRASS Location/Mapset (see [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html) for example).
 
 +++
 
@@ -112,7 +115,7 @@ More than [500 modules](https://grass.osgeo.org/grass74/manuals/full_index.html)
 | [i.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#i)    | imagery          | imagery processing                  | [i.pca](https://grass.osgeo.org/grass74/manuals/i.pca.html): Principal Components Analysis on imagery group
 | [r3.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#r3)  | voxel            | 3D raster processing                | [r3.stats](https://grass.osgeo.org/grass74/manuals/r3.stats.html): voxel statistics
 | [db.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#db)  | database         | database management                 | [db.select](https://grass.osgeo.org/grass74/manuals/db.select.html): select value(s) from table
-| [ps.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#ps)  | postscript       | map creation in PostScript format   | [ps.map](https://grass.osgeo.org/grass74/manuals/ps.map.html): PostScript map creation
+| [ps.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#ps)  | postscript       | PostScript map creation   | [ps.map](https://grass.osgeo.org/grass74/manuals/ps.map.html): PostScript map creation
 | [t.\*](https://grass.osgeo.org/grass74/manuals/full_index.html#t)    | temporal         | space-time datasets                 | [t.rast.aggregate](https://grass.osgeo.org/grass74/manuals/t.rast.aggregate.html): raster time series aggregation
 
 +++
@@ -263,6 +266,11 @@ The simplest way to execute a Python script is through the *Simple Python editor
 Using GRASS GIS through **grass-session** Python library
 @snapend
 
+@[17-28](Import libraries)
+@[36-48](Create Location and Mapset)
+@[50-66](Run modules)
+@[68-69](Clean and close)
+
 @size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
@@ -305,6 +313,13 @@ GRASS GIS and R can be used together in two ways:
 @snap[south-east]
 We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 @snapend
+
++++
+
+### WPS - OGC Web Processing Service
+
+- [Web Processing Service](https://en.wikipedia.org/wiki/Web_Processing_Service) is an [OGC](https://en.wikipedia.org/wiki/Open_Geospatial_Consortium) standard. 
+- [ZOO-Project](http://zoo-project.org/) and [PyWPS](http://pywps.org/) allow the user to run GRASS GIS commands in a simple way through the web.
 
 ---
 
@@ -470,23 +485,33 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 ## References
 
-- Neteler, M., Mitasova, H. (2008): *Open Source GIS: A GRASS GIS
-  Approach*. Third edition. ed. Springer, New York. [Book site](https://grassbook.org/)
-- Neteler, M., Bowman, M.H., Landa, M. and Metz, M. (2012): *GRASS
-  GIS: a multi-purpose Open Source GIS*. Environmental Modelling &
-  Software, 31: 124-130 [DOI](http://dx.doi.org/10.1016/j.envsoft.2011.11.014)
+- Neteler, M., Mitasova, H. (2008): *Open Source GIS: A GRASS GIS Approach*. Third edition. ed. Springer, New York. [Book site](https://grassbook.org/)
+- Neteler, M., Bowman, M.H., Landa, M. and Metz, M. (2012): *GRASS GIS: a multi-purpose Open Source GIS*. Environmental Modelling & Software, 31: 124-130 [DOI](http://dx.doi.org/10.1016/j.envsoft.2011.11.014)
 
 ---
 
 ## QUESTIONS?
 
-<img src="img/gummy-question.png" width="45%">
+<img src="assets/img/gummy-question.png" width="45%">
 
 ---
 
 **Thanks for your attention!!**
 
 ![GRASS GIS logo](img/grass_logo_alphab.png)
+
+<br><br><br><br>
+
+@size[20px](Presentation powered by)
+
+<a href="https://gitpitch.com/">
+<img src="assets/img/gitpitch_logo.png" width="20%"></a>
+
+---?image=https://grass.osgeo.org/uploads/images/grass_sprint2018_bonn_fotowall_medium.jpg&size=cover
+
+@transition[zoom]
+
+<p class="byline">Join and enjoy GRASS GIS!!</p>
 
 <!--- ADD LINK TO THE NEXT PRESENTATION --->
 <!--- ?include=tgrass/PITCHME.md --->

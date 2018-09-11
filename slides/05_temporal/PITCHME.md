@@ -1,27 +1,19 @@
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+@title[Front page]
 
-<h1 class="headline">Spatio-temporal data processing & visualization in GRASS GIS</h1>
-<br><br>
-#### GEOSTAT Summer School - Prague, 2018
-
----
-@transition[none]
-
-@snap[west]
-@css[bio-about](PhD in Biology<br>MSc in Remote Sensing and GIS<br>Researcher @ Tropical Medicine Institute<br>Applications of RS & GIS for disease ecology)
-<br><br><br>
-@css[bio-about](FOSS4G enthusiast and advocate<br>GRASS GIS Dev Team<br>OSGeo Charter member)
+@snap[north span-100]
+<br>
+<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
 
-@snap[east]
-@css[bio-headline](Veronica Andreo)
-<br>
-![](img/vero_round_small.png)
-<br>
-@css[bio-byline](@fa[gitlab pad-fa] veroandreo @fa[twitter pad-fa] @VeronicaAndreo)
-<br>
-@css[bio-byline](@fa[globe pad-fa] <a href="https://www.google.com/maps/place/Iguazu+Falls/@-27.9964934,-59.6329992,1429823m/data=!3m1!1e3!4m6!3m5!1s0x94f6ea0ca3aa1b6d:0x917b75179c5e987e!4b1!8m2!3d-25.695259!4d-54.4366662">Puerto Iguazu, Argentina</a>)
+@snap[south message-box-white]
+<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
 @snapend
+
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+
+## Spatio-temporal data processing & visualization in GRASS GIS
 
 ---
 
@@ -94,7 +86,7 @@ STDS in each mapset.
 
 ## TGRASS framework and workflow
 
-+++?image=img/tgrass_flowchart.png&position=center&size=auto 93%
++++?image=assets/img/tgrass_flowchart.png&position=center&size=auto 93%
 
 ---
 
@@ -109,7 +101,7 @@ STDS in each mapset.
 <br><br><br>
 ... and start GRASS GIS in `$HOME/grassdata/nc_spm_08_grass7/modis_lst`
 
----?code=tgrass/code.sh&lang=bash&title=Set computational region and apply MASK
+---?code=code/05_temporal_code.sh&lang=bash&title=Set computational region and apply MASK
 
 @[32-40]
 @[43-61]
@@ -127,11 +119,11 @@ STDS in each mapset.
   - *type of maps* (raster, raster3d or vector)
   - *type of time* (absolute or relative)
 
-+++?code=tgrass/code.sh&lang=bash&title=Create a raster time series (STRDS)
++++?code=code/05_temporal_code.sh&lang=bash&title=Create a raster time series (STRDS)
 
 @[70-75]
 @[77-78]
-@[80-81]        
+@[80-81]
 
 ---  
 
@@ -146,7 +138,7 @@ STDS in each mapset.
   - the *start date*,
   - *increment* option along with the *-i* flag for interval creation 
 
-+++?code=tgrass/code.sh&lang=bash&title=Register maps in STRDS (assign time stamps)
++++?code=code/05_temporal_code.sh&lang=bash&title=Register maps in STRDS (assign time stamps)
 
 @[84-89]
 @[91-94]
@@ -161,13 +153,13 @@ manual and related
 [map registration wiki](https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration)
 page.
 
-+++?code=tgrass/code.sh&lang=bash&title=Graphical Representation of the STRDS
++++?code=code/05_temporal_code.sh&lang=bash&title=Graphical Representation of the STRDS
 
 @[106-107]
 
 +++
 
-![g.gui.timeline example](img/g_gui_timeline_monthly.png)
+![g.gui.timeline example](assets/img/g_gui_timeline_monthly.png)
 
 <br>
 See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html) manual page
@@ -188,13 +180,13 @@ See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html
 <br><br>
 **they can be combined in complex expressions!!**
 
-+++?code=tgrass/code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
++++?code=code/05_temporal_code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
 
 @[110-114]
 @[116-117]
 @[119-121]
 
-+++?code=tgrass/code.sh&lang=bash&title=Time series plot
++++?code=code/05_temporal_code.sh&lang=bash&title=Time series plot
 
 @[126-128]
 @[130-135]
@@ -203,7 +195,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 
 +++
 
-![g.gui.tplot: LST time series for Raleigh](img/g_gui_tplot_final.png)
+![g.gui.tplot: LST time series for Raleigh](assets/img/g_gui_tplot_final.png)
 
 @size[20px](Point coordinates can be typed directly, copied from the map display and pasted or directly chosen from the main map display.)
 
@@ -215,14 +207,14 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 - **[t.rast.list](https://grass.osgeo.org/grass74/manuals/t.rast.list.html)** for maps in raster time series, and
 - **[t.vect.list](https://grass.osgeo.org/grass74/manuals/t.vect.list.html)** for maps in vector time series.
 
-+++?code=tgrass/code.sh&lang=bash&title=Listing examples
++++?code=code/05_temporal_code.sh&lang=bash&title=Listing examples
 
 @[140-151]
 @[153-166]
 @[168-176]
 @[178-185]
 
----?code=tgrass/code.sh&lang=bash&title=Descriptive statistics of LST time series
+---?code=code/05_temporal_code.sh&lang=bash&title=Descriptive statistics of LST time series
 
 @[188-198]
 @[200-201]
@@ -237,19 +229,19 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 - Aggregates full STRDS or parts of it using the *where* option
 - Different methods available: average, minimum, maximum, median, mode, etc.
 
-+++?code=tgrass/code.sh&lang=bash&title=Maximum and minimum LST in the past 3 years
++++?code=code/05_temporal_code.sh&lang=bash&title=Maximum and minimum LST in the past 3 years
 
 @[208-212]
 @[214-216]
 @[218-219]
 
-+++?code=tgrass/code.sh&lang=bash&title=Compare maps with the Mapswipe tool
++++?code=code/05_temporal_code.sh&lang=bash&title=Compare maps with the Mapswipe tool
 
 @[222-228]
 
 +++
 
-![mapswipe and lst max](img/g_gui_mapswipe_lstmax.png)
+![mapswipe and lst max](assets/img/g_gui_mapswipe_lstmax.png)
 
 +++
 
@@ -265,7 +257,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 - It allows for *spatial and temporal operators*, as well as *internal variables* in the expression string
 - The temporal variables include: *start_time(), end_time(), start_month(), start_doy()*, etc. 
 
-+++?code=tgrass/code.sh&lang=bash&title=Which is the month of the maximum LST?
++++?code=code/05_temporal_code.sh&lang=bash&title=Which is the month of the maximum LST?
 
 @[231-236]
 @[238-239]
@@ -274,7 +266,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 
 @size[20px](**Note**: We could do this year-wise in order to know when the annual max LST occurs and then e.g. assess trends)
 
-+++?code=tgrass/code.sh&lang=bash&title=Display the resulting map from the CLI
++++?code=code/05_temporal_code.sh&lang=bash&title=Display the resulting map from the CLI
 
 @[252-255]
 @[257-258]
@@ -286,7 +278,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 
 +++
 
-![Month of maximum LST](img/month_max_lst.png)
+![Month of maximum LST](assets/img/month_max_lst.png)
 
 ---
 
@@ -298,7 +290,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 - *where* option allows to set specific dates for the aggregation
 - Different methods available: average, minimum, maximum, median, mode, etc.
 
-+++?code=tgrass/code.sh&lang=bash&title=From monthly to seasonal LST
++++?code=code/05_temporal_code.sh&lang=bash&title=From monthly to seasonal LST
 
 @[278-284]
 @[286-287]
@@ -315,7 +307,7 @@ Compare the monthly and sesonal timelines with
 g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 ```
 
-+++?code=tgrass/code.sh&lang=bash&title=Display seasonal LST using frames in wx monitor
++++?code=code/05_temporal_code.sh&lang=bash&title=Display seasonal LST using frames in wx monitor
 
 @[307-310]
 @[312-314]
@@ -327,7 +319,7 @@ g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 
 +++
 
-![Sesonal LST by frames](img/frames.png)
+![Sesonal LST by frames](assets/img/frames.png)
 
 @size[26px](3-month average LST in 2015)
 
@@ -357,9 +349,9 @@ t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
 
 ### Animations
 
-![Animation 3month LST](img/3month_lst_anim_small.gif)
+![Animation 3month LST](assets/img/3month_lst_anim_small.gif)
 
-+++?code=tgrass/code.sh&lang=bash&title=Animation of seasonal LST time series
++++?code=code/05_temporal_code.sh&lang=bash&title=Animation of seasonal LST time series
 
 @[344-347]
 
@@ -373,7 +365,7 @@ See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.ht
 <br>
 - Allows to obtain spatially aggregated time series data for polygons in a vector map
 
-+++?code=tgrass/code.sh&lang=bash&title=Extract mean LST for Raleigh (NC) urban area
++++?code=code/05_temporal_code.sh&lang=bash&title=Extract mean LST for Raleigh (NC) urban area
 
 @[350-353]
 @[355-358]
@@ -383,7 +375,7 @@ See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.ht
 @size[20px](This vector map can be read-in in R and plotted with sf and ggplot, for example.)
 --->
 
-+++?code=tgrass/code.sh&lang=R&title=Read and plot Raleigh vector in RStudio 
++++?code=code/05_temporal_code.sh&lang=R&title=Read and plot Raleigh vector in RStudio 
 
 @[367-377]
 @[379-380]
@@ -391,9 +383,9 @@ See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.ht
 
 +++
 
-![spplot output](img/spplot_output.png)
+![spplot output](assets/img/spplot_output.png)
 
-+++?code=tgrass/code.sh&lang=R&title=Read and plot Raleigh vector in RStudio
++++?code=code/05_temporal_code.sh&lang=R&title=Read and plot Raleigh vector in RStudio
 
 @[385-386]
 @[388-394]
@@ -401,7 +393,7 @@ See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.ht
 
 +++
 
-![sf + ggplot output](img/ggplot_output.png)
+![sf + ggplot output](assets/img/ggplot_output.png)
 
 +++
 
@@ -410,13 +402,13 @@ See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.ht
 mapview(raleigh_sf[,6:17])
 ```
 
-![mapview output](img/mapview.png)
+![mapview output](assets/img/mapview.png)
 
 ---
 
-# QUESTIONS
+## QUESTIONS?
 
-<img class="plain" src="img/gummy-question.png">
+<img src="assets/img/gummy-question.png" width="45%">
 
 ---
 
@@ -432,23 +424,19 @@ mapview(raleigh_sf[,6:17])
 
 ## References
 
-- Gebbert, S., Pebesma, E. (2014). *A temporal GIS for field based
-  environmental modeling*. Environmental Modelling & Software, 53,
-  1-12. [DOI](https://doi.org/10.1016/j.envsoft.2013.11.001)
-- Gebbert, S., Pebesma, E. (2017). *The GRASS GIS temporal framework*.
-  International Journal of Geographical Information Science 31,
-  1273-1292. [DOI](http://dx.doi.org/10.1080/13658816.2017.1306862)
+- Gebbert, S., Pebesma, E. (2014). *A temporal GIS for field based environmental modeling*. Environmental Modelling & Software, 53, 1-12. [DOI](https://doi.org/10.1016/j.envsoft.2013.11.001)
+- Gebbert, S., Pebesma, E. (2017). *The GRASS GIS temporal framework*. International Journal of Geographical Information Science 31, 1273-1292. [DOI](http://dx.doi.org/10.1080/13658816.2017.1306862)
 
 ---
 
 **Thanks for your attention!!**
 
-![GRASS GIS logo](img/grass_logo_alphab.png)
-<br><br>
-@css[bio-about](@fa[gitlab pad-fa] <a href="https://gitlab.com/veroandreo/grass-gis-geostat-2018" target="_blank">https://gitlab.com/veroandreo/grass-gis-geostat-2018</a>)
+![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
----?image=https://grass.osgeo.org/uploads/images/grass_sprint2018_bonn_fotowall_medium.jpg&size=cover
+<br><br><br><br>
 
-@transition[zoom]
+@size[20px](Presentation powered by)
 
-<p class="byline">Join and enjoy GRASS GIS!!</p>
+<a href="https://gitpitch.com/">
+<img src="assets/img/gitpitch_logo.png" width="20%"></a>
+
