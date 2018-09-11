@@ -445,9 +445,9 @@
 .message-box-white {
   width: 100%;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.800);
+  background-color: rgba(255, 255, 255, 0.700);
   opacity: 30%;
   padding: 7px 15px 7px 15px !important;
   word-wrap: normal;
-  font-size: 0.5em;
+  font-size: 0.6em;
 }

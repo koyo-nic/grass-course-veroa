@@ -8,7 +8,7 @@
 @snapend
 
 @snap[south message-box-white]
-@size[28px](Dra. Veronica Andreo<br>CONICET - INMeT<br><br><br>Rio Cuarto, 2018<br>)
+<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
 @snapend
 
 ---
