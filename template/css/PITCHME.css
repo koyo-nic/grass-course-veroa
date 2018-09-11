@@ -264,6 +264,7 @@
   }
 }
 
+/*
 .reveal pre {
   display: block;
   position: relative;
@@ -275,13 +276,23 @@
   line-height: 1.1em;
   word-wrap: break-word;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+*/
 
+.reveal pre {
+  width: 98%;
+  margin: 0px;
+  box-shadow: none;
+}
+
+/*
 .reveal code {
   font-family: monospace; 
   font-size: 0.55em; }
+*/
 
+/*
 .reveal pre code {
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.2;
   display: block;
   padding: 5px;
@@ -289,6 +300,15 @@
   max-height: 55vh !important;
   word-wrap: normal; 
   border-radius: 10px; }
+*/
+
+.reveal pre code {
+  font-size: 1.1em;
+  line-height: 1.1;
+  border-radius: 10px;
+  max-height: 55vh !important;
+  overflow: hidden !important;
+}
 
 .reveal .slides section .code-presenting-annotation {
   color: white;
@@ -299,9 +319,9 @@
   font-size: 50% !important;
 }
 
-/*.hljs {
+.hljs {
   background: none;
-}*/
+}
 
 .reveal p span.slide-title {
   display: none;
