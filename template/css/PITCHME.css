@@ -291,7 +291,6 @@
   word-wrap: normal; 
 }
 
-
 .reveal .slides section .code-presenting-annotation {
   color: white;
   background: #b5ad86;
@@ -301,9 +300,9 @@
   font-size: 50% !important;
 }
 
-.hljs {
+/*.hljs {
   background: none;
-}
+}*/
 
 .reveal p span.slide-title {
   display: none;
