@@ -306,7 +306,7 @@ GRASS GIS and R can be used together in two ways:
 ![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
 
 @snap[south-east]
-@size[22px](We'll study this on Friday morning. Stay tuned! @fa[grin])
+We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin]
 @snapend
 
 ---
