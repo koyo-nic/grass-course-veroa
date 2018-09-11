@@ -4,11 +4,59 @@
 # For details, visit Wiki:
 # https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
 #
-theme : night
-theme-override : assets/css/PITCHME.css
-# theme-override : assets/css/PITCHME.codemax.css
-highlight : atom-one-dark
-logo : assets/image/logo.png
-transition : none
+
+stealth : daithi
 published : true
-footnote : "GitPitch [ Black ] Presentation Template"
+
+#
+# Theme Setting
+# Doc: https://gitpitch.com/docs/settings/theme
+#
+
+theme : simple
+
+#
+# Theme-Override Setting
+# Doc: https://gitpitch.com/docs/settings/custom-theme
+#
+
+theme-override : template/css/PITCHME.css
+
+#
+# Logo Setting
+# https://gitpitch.com/docs/settings/logo
+#
+
+logo : img/grassgis_logo_colorlogo_text_alphabg.png
+logo-position: top-left
+
+#
+# Footnote Setting
+# Doc: https://gitpitch.com/docs/settings/footnote
+#
+
+footnote : "Curso GRASS GIS - UNRC 2018"
+
+#
+# Highlight (Code) Setting
+# Doc: https://gitpitch.com/docs/settings/highlight
+#
+
+highlight : atom-one-dark
+
+#
+# Layout Setting
+# Doc: https://gitpitch.com/docs/settings/layout
+#
+
+layout : center
+
+#
+# Transition Setting
+# This template uses GitPitch Snap-Layouts extensively. For this
+# reason THIS VALUE SHOULD NOT BE MODIFIED. See:
+# https://gitpitch.com/docs/layout-features/snap-layout-slide-transitions
+#
+
+transition : none
+slide-number : true 
