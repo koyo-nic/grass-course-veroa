@@ -63,7 +63,7 @@ STDS in each mapset.
 
 - @color[green](Topology) refers to temporal relations between time intervals in a STDS.
 
-<img class="plain" src="img/temp_relation.png">
+<img class="plain" src="assets/img/temp_relation.png">
 
 +++
 
@@ -71,7 +71,7 @@ STDS in each mapset.
 
 - @color[green](Temporal sampling) is used to determine the state of one process during a second process.
 
-<img class="plain" src="img/temp_samplings.png">
+<img class="plain" src="assets/img/temp_samplings.png">
 
 +++
 
@@ -94,14 +94,20 @@ STDS in each mapset.
 
 ---
 
-#### Let's first get the data
-<br><br>
+### Let's first get the data
+<br>
 - [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`. 
 - [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
-<br><br><br>
+<br><br>
 ... and start GRASS GIS in `$HOME/grassdata/nc_spm_08_grass7/modis_lst`
 
----?code=code/05_temporal_code.sh&lang=bash&title=Set computational region and apply MASK
+```bash
+grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
+```
+
+---?code=code/05_temporal_code.sh&lang=bash
+
+Set computational region and apply MASK
 
 @[32-40]
 @[43-61]
@@ -245,7 +251,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 
 +++
 
-![mapswipe and lst min](img/g_gui_mapswipe_lstmin.png)
+![mapswipe and lst min](assets/img/g_gui_mapswipe_lstmin.png)
 
 ---
 
@@ -433,7 +439,7 @@ mapview(raleigh_sf[,6:17])
 
 ![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
-<br><br><br><br>
+<br><br>
 
 @size[20px](Presentation powered by)
 
