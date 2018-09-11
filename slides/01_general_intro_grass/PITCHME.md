@@ -514,7 +514,7 @@ We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
 
 @snap[south span-50]
 @size[18px](Presentation powered by)
-
+<br>
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
