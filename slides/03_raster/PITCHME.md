@@ -94,23 +94,23 @@ from the source location
 Raster map import/export in GRASS GIS
 -------------------------------------
 
-> **IMPORT**
->
-> Módulos r.in.\*
->
-> r.import (también ofrece reproyección al vuelo)
->
-> Siempre se importan los raster completos
->
-> **EXPORT**
->
-> Modulos r.out.\*
->
-> Raster export adheres to computational region (extent and resolution)
-> and respec
->
-> [Note:]{.underline} In import and export, vector maps are always
-> considered completely
+**IMPORT**
+
+Módulos r.in.\*
+
+r.import (también ofrece reproyección al vuelo)
+
+Siempre se importan los raster completos
+
+**EXPORT**
+
+Modulos r.out.\*
+
+Raster export adheres to computational region (extent and resolution)
+and respec
+
+[Note:]{.underline} In import and export, vector maps are always
+considered completely
 
 Raster algebra
 --------------
@@ -178,40 +178,35 @@ Learn more
 FAQ and problems with raster display
 ------------------------------------
 
-> Q: I don\'t see anything!
->
-> A: Typically the computational region is set to an area not covering
-> the raster map of interest. U g.region rast=myrastermap -p
->
-> Q: I want to subset a raster map!
->
-> A: While this is done on the fly by setting the computational region
-> properly, you can still creat r.mapcalc \"subset = original\_map\"
+Q: I don\'t see anything!
+
+A: Typically the computational region is set to an area not covering
+ the raster map of interest. U g.region rast=myrastermap -p
+
+Q: I want to subset a raster map!
+
+A: While this is done on the fly by setting the computational region
+properly, you can still creat r.mapcalc \"subset = original\_map\"
 
 FAQ and problems with raster display
 ------------------------------------
 
-> Q: The resolution of my region is not the one I asked for!
->
-> A: Sometimes, the resolution of the computational region is not
-> matching exactly the resolution g.region rast=myrastermap res=1 -p
->
-> (\...)
->
-> Nsres: 0.9993515
->
-> ewres: 1.00025576
->
-> (\...)
->
-> To force the computational region to match the resolution entered, you
-> need to use the -a flag: g.region rast=myrastermap res=1 -ap
->
-> (\...) nsres: 1
->
-> ewres: 1
->
-> (\...)
+Q: The resolution of my region is not the one I asked for!
+
+A: Sometimes, the resolution of the computational region is not
+matching exactly the resolution g.region rast=myrastermap res=1 -p
+
+(\...)
+Nsres: 0.9993515
+ewres: 1.00025576
+(\...)
+
+To force the computational region to match the resolution entered, you
+need to use the -a flag: g.region rast=myrastermap res=1 -ap
+
+(\...) nsres: 1
+ewres: 1
+(\...)
 
 Ejercicios
 ----------
@@ -412,3 +407,99 @@ Trabajar sin importar los datos
  r.external.out -r                                              
                                                                        
  # use the result elsewhere qgis $HOME/gisoutput/warm.tif            
+
+
+Landscape structure analysis
+----------------------------
+
+For the following examples we will use raster `landuse96_28m` from our
+North Carolina dataset, where patches represent different land cover. We
+will use module and addons and . Install the addon first:
+
+` g.extension r.diversity`
+` g.extension r.forestfrag`
+
+Then close GRASS GUI and open it again.
+
+**Richness**
+
+First, we compute richness (number of unique classes) using . By using
+moving window analysis, we create a raster representing spatially
+variable richness. The window size is in cells.
+
+` g.region raster=landuse96_28m`
+` r.neighbors input=landuse96_28m output=richness method=diversity size=15`
+
+**Landscape indices**
+
+Addon computes landscape indices using moving window. It is based on
+modules for landscape structure analysis. In this example, we compute
+Simpson, Shannon, and Renyi diversity indices with a range of window
+sizes:
+
+` r.diversity input=landuse96_28m prefix=index alpha=0.8 size=9-21 method=simpson,shannon,renyi`
+
+This generates 9 rasters with names like `index_simpson_size_9`. We can
+add them to Map Display using *Add multiple raster or vector layers* in
+Layer manager toolbar (top).
+
+For viewing, we should set the same color table for rasters maps of the
+same index.
+
+` r.colors map=index_shannon_size_21,index_shannon_size_15,index_shannon_size_9 color=viridis`
+` r.colors map=index_renyi_size_21_alpha_0.8,index_renyi_size_15_alpha_0.8,index_renyi_size_15_alpha_0.8 color=viridis`
+` # we use grey1.0 color ramp because simpson is from 0-1`
+` r.colors map=index_simpson_size_21,index_simpson_size_15,index_simpson_size_9 color=grey1.0`
+
+**Forest fragmentation** ![Forest fragmentation computed with addon
+r.forestfrag](Forest_fragmentation.png "fig:Forest fragmentation computed with addon r.forestfrag")
+Module computes the forest fragmentation following the methodology
+proposed by [Riitters et al.
+(2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
+
+First mark all cells which are forest as 1 and everything else as zero:
+
+` # first set region`
+` g.region raster=landclass96`
+` # list classes:`
+` r.category map=landclass96`
+` # select classes `
+` r.mapcalc "forest = if(landclass96 == 5, 1, 0)"`
+
+Use the new forest presence raster map to compute the forest
+fragmentation index with window size 15:
+
+`r.forestfrag input=forest output=fragmentation window=15`
+
+Report the distribution of the fragmentation categories:
+
+`r.report map=fragmentation units=k,p`
+
+## Patch analysis
+
+FOR ANALYSIS ON A MOVING WINDOW
+
+```
+# Convert vector to raster
+v.to.rast input=FragmentsAO_OneForest@garzonc type=area output=FragmentsAO_Forest use=cat label_column=Name --o
+
+# Select the window and create a mask
+
+r.mask vector=Cluster1@garzonc
+r.mapcalc expression="Cluster4_withP1 = FragmentsAO_withP1" --o
+
+# Set the config file in the g.gui.rlisetup config window
+
+#Compute the patch metrics
+
+r.li.edgedensity input=FragmentsAO_withP1@garzonc config=cluster4 output=cluster4edgeDP1@garzonc
+r.li.shape input=FragmentsAO_withP1@garzonc config=cluster4 output=cluster4indexP1
+r.li.patchnum input=FragmentsAO_withP1@garzonc config=cluster4 output=cluster4fragNumP1
+r.li.mps input=FragmentsAO_withP1@garzonc config=cluster4 output=cluster4mpsP1@garzonc
+
+# Remove the mask
+
+r.mask -r
+
+#The results can be found at .grass7/r.li/output
+```
