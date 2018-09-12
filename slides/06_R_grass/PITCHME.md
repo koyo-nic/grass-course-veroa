@@ -669,3 +669,23 @@ out of disk space easily.
 ---
 
 Note: include link2GI way as well (see tom's and Chris' github)
+
+(Tom's example)
+
+library(rgrass7)
+rname <- "./data/Boulder_mDLSM_30m.tif"
+# Set GRASS environment and database location 
+loc <- initGRASS("/usr/lib/grass74", home="/data/tmp/", 
+                 gisDbase="GRASS_TEMP", override=TRUE)
+execGRASS("r.in.gdal", flags="o", parameters=list(input=rname, output="mDLSM"))
+execGRASS("g.region", parameters=list(raster="mDLSM"))
+execGRASS("r.geomorphon", parameters=list(elevation="mDLSM", forms="mDLSMg"))
+#plot(readRAST("mDLSMg"))
+execGRASS("r.out.gdal", parameters=list(input="mDLSMg",
+          output="./data/Boulder_mDLSMg_30m.tif", 
+          type="Byte", createopt="COMPRESS=DEFLATE"))
+## clean-up
+unlink("./GRASS_TEMP", recursive = TRUE)
+unset.GIS_LOCK()
+unlink_.gislock()
+remove_GISRC()
