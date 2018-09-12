@@ -32,6 +32,43 @@
 
 # Introduction to GRASS GIS
 
+---
+
+# Brief intro to FOSS and OSGeo
+
+Free and Open Source Software (FOSS)
+
+![foss img](assets/img/foss.png)
+
+is computer software that can be classified as both free software and open-source software. That is, anyone is freely licensed to use,
+copy, study, and change the software in any way. The source code is openly shared so that people are encouraged to voluntarily improve the design of the software. This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden from the users. See Free and open-source software article on Wikipedia for more information.
+
+---
+
+# Brief intro to FOSS and OSGeo
+
+FOSS for Geospatial
+
+In 2006, the [OSGeo Foundation](https://www.osgeo.org/) was created to support the collaborative development of open source geospatial software, and promote its widespread use.
+
+The foundation has adopted principles to ensure that projects under OSGeo umbrella will satisfy basic quality requirements, namely:
+- Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginning users to advanced developers.
+- Contributors are the scarce resource and successful projects court and encourage them.
+- Projects are encouraged to adopt open standards and collaborate with other OSGeo projects.
+- Projects are responsible for reviewing and controlling their code bases to insure the integrity of the open source baselines.
+
+This principles ensure that OSGeo projects are well established, stable, mature and sustainable.
+
+---
+
+# Brief story about GRASS GIS
+
+GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
+
+GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
+
+It was originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995, see history of GRASS 1.0-4.2 and 5beta) as a tool for land management and environmental planning by the military.
+
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 @snap[north span-90]
@@ -43,75 +80,34 @@ A bit of (geek) GRASS GIS history...
 
 ---
 
-# Brief intro to FOSS and OSGeo
-
-TBD
-
-<!--- 
-Free and Open Source Software (FOSS)
-
-_images/foss.png
-Fig. 1 FOSS software overview (source).
-
-Free and open-source software (FOSS) is computer software that can be classified as both free software and open-source software. That is, anyone is freely licensed to
-
-    use,
-    copy,
-    study, and
-    change
-
-the software in any way. The source code is openly shared so that people are encouraged to voluntarily improve the design of the software. This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden from the users. See Free and open-source software article on Wikipedia for more information.
-
-FOSS for Geospatial
-
-In 2006 was founded OSGeo Foundation to support the collaborative development of open source geospatial software, and promote its widespread use.
-
-The foundation has adopted principles to ensure that projects under OSGeo umbrella will satisfy basic quality requirements, namely:
-
-- Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginning users to advanced developers.
-- Contributors are the scarce resource and successful projects court and encourage them.
-- Projects are encouraged to adopt open standards and collaborate with other OSGeo projects.
-- Projects are responsible for reviewing and controlling their code bases to insure the integrity of the open source baselines.
-
-This principles ensure that OSGeo projects are well established, stable, mature and sustainable.
-
-GRASS
-
-GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
-
-Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995, see history of GRASS 1.0-4.2 and 5beta), a branch of the US Army Corp of Engineers, as a tool for land management and environmental planning by the military, GRASS GIS has evolved into a powerful utility with a wide range of applications in many different areas of applications and scientific research. (source: https://grass.osgeo.org)
-
 Advantages:
 
-    open source, you can use it freely, modify, improve, share
-    strong user community, commercial support
-    large scale functionality, large amount of tools (2D/3D raster/vector, topology, imagery, map production, spatial-temporal data, …)
-    both GUI and CMD (easy for scripting) user interface
-    Python API and libraries
+- open source, you can use it freely, modify, improve, share
+- strong user community, commercial support
+- large scale functionality, large amount of tools (2D/3D raster/vector, topology, imagery, map production, spatial-temporal data, …)
+- both GUI and CLI (easy for scripting) user interface
+- Python API and libraries
+- vector topology
 
 Disadvantages (turning out to be advantages in some cases):
 
-    open source ;-)
-    complicated startup for newcomers
-    native format (requires importing data, be aware of possibility of linking external formats)
-    vector topology (confusing for GIS beginners, sometimes tricky to import broken GIS data)
+- open source ;-)
+- complicated startup for newcomers
+- native format (requires importing data, be aware of possibility of linking external formats)
+- vector topology (confusing for GIS beginners, sometimes tricky to import broken GIS data)
 
 When to use GRASS GIS?
 
-    doing data analysis
-    working with topological vector data
-    analysing spatial-temporal datasets
-    doing Python scripting
-    deploying server-side applications (e.g. as WPS process)
-    add your point here…
+- doing (heavy) geospatial data analysis
+- working with topological vector data
+- analysing space-time datasets
+- doing Python scripting
+- deploying server-side applications (e.g. as WPS process)
 
 When to use rather something else?
 
-    want to vizualize geodata in easy and quick way (use QGIS instead)
-    being scared of location and mapsets ;-)
-    add your point here…
-
---->
+- want to vizualize geodata in easy and quick way (use QGIS instead)
+- being scared of location and mapsets ;-)
 
 ---
 
