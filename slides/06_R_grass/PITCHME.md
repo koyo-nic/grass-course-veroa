@@ -887,3 +887,4 @@ system('t.rast.algebra --overwrite basename=LST_Day_monthly_celsius expression="
 # Check info
 system('t.info LST_Day_monthly_celsius')
 
+![vignette on how to set GRASS database with link2GI](https://github.com/gisma/link2gi2018/tree/master/R/vignette)
