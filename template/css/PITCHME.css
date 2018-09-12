@@ -287,14 +287,14 @@
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 55vh !important;
+  max-height: 52vh !important;
   word-wrap: normal; 
 }
 
 .reveal .slides section .code-presenting-annotation {
   color: white;
   background: #b5ad86;
-  padding: 1px 15px;
+  padding: 0px 15px;
   border-radius: 15px;
   opacity: 0.75 !important;
   font-size: 50% !important;
@@ -305,7 +305,7 @@
 }*/
 
 .reveal p span.slide-title {
-  display: none;
+/*  display: none; */
 }
 
 
