@@ -107,7 +107,7 @@ For the **Spatio-temporal data processing and visualization** tutorial, we will 
 
 The course material:
 
-[![Creative Commons License](img/ccbysa.png)](http://creativecommons.org/licenses/by-sa/4.0/) Creative Commons Attribution-ShareAlike 4.0 International License
+[![Creative Commons License](assets/img/ccbysa.png)](http://creativecommons.org/licenses/by-sa/4.0/) Creative Commons Attribution-ShareAlike 4.0 International License
 
 Presentations were created with [gitpitch](https://gitpitch.com/):
 
