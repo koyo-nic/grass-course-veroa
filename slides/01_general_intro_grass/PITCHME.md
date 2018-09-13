@@ -58,10 +58,11 @@ Free and Open Source Software (FOSS) means that anyone is freely licensed to use
 <br><br>
 @snapend
 
-@snap[midpoint span-100]
+@snap[south span-100]
 The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support the collaborative development of open source geospatial software, and promote its widespread use.
-<br>
+<br><br>
 <img src="assets/img/osgeo-logo.png" width="50%">
+<br><br>
 @snapend
 
 +++
