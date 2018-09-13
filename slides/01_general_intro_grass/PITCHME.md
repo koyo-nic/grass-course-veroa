@@ -34,7 +34,7 @@
 
 ---
 
-# Brief intro to FOSS and OSGeo
+## Brief intro to FOSS and OSGeo
 
 Free and Open Source Software (FOSS)
 
@@ -45,7 +45,7 @@ copy, study, and change the software in any way. The source code is openly share
 
 ---
 
-# Brief intro to FOSS and OSGeo
+## Brief intro to FOSS and OSGeo
 
 FOSS for Geospatial
 
@@ -61,7 +61,7 @@ This principles ensure that OSGeo projects are well established, stable, mature 
 
 ---
 
-# Brief story about GRASS GIS
+## Brief story about GRASS GIS
 
 GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
 
@@ -79,7 +79,9 @@ A bit of (geek) GRASS GIS history...
 <iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
 
 ---
+@title[Advantages and Disadvantages]
 
+@snap[north-west span-50]
 Advantages:
 
 - open source, you can use it freely, modify, improve, share
@@ -88,14 +90,18 @@ Advantages:
 - both GUI and CLI (easy for scripting) user interface
 - Python API and libraries
 - vector topology
+@snapend
 
+@snap[north-east span-50]
 Disadvantages (turning out to be advantages in some cases):
 
 - open source ;-)
 - complicated startup for newcomers
 - native format (requires importing data, be aware of possibility of linking external formats)
 - vector topology (confusing for GIS beginners, sometimes tricky to import broken GIS data)
+@snapend
 
+@snap[south-west span-50]
 When to use GRASS GIS?
 
 - doing (heavy) geospatial data analysis
@@ -103,12 +109,14 @@ When to use GRASS GIS?
 - analysing space-time datasets
 - doing Python scripting
 - deploying server-side applications (e.g. as WPS process)
+@snapend
 
+@snap[south-east span-50]
 When to use rather something else?
 
 - want to vizualize geodata in easy and quick way (use QGIS instead)
 - being scared of location and mapsets ;-)
-
+@snapend
 ---
 
 @size[56px](Working with GRASS GIS is not much different than any other GIS...)
