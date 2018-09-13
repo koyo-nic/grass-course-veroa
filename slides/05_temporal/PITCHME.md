@@ -166,7 +166,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 @snap[north span-100]
 <h3>Operations with temporal algebra</h3>
-@spanend
+@snapend
 
 @snap[south list-content-verbose span-100]
 <br>
