@@ -16,7 +16,7 @@
 ## Let's install GRASS GIS
 
 ![Download software section](assets/img/grass_gis_download_software.png)
-<br>
+
 [https://grass.osgeo.org/download/software/](https://grass.osgeo.org/download/software/)
 
 ---
@@ -34,7 +34,7 @@ Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 @ol
 - Select **Advance install**
 - Select **Install from internet**
-- Leave the "Install directory" set by default)
+- Leave the "Install directory" set by default
 - Choose *osgeo* server to download software from
 - Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
 - Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
@@ -74,7 +74,7 @@ Select **Install from internet**
 @snapend
 
 @snap[east span-70]
-Select "Install directory"
+Leave the "Install directory" set by default
 <br>
 <img src="assets/img/osgeo4w_step_3.png">
 @snapend
@@ -86,7 +86,7 @@ Select "Install directory"
 @snapend
 
 @snap[east span-70]
-Choose *osgeo* server to download software from
+Choose *osgeo* server
 <br>
 <img src="assets/img/osgeo4w_step_4.png">
 @snapend
@@ -98,7 +98,7 @@ Choose *osgeo* server to download software from
 @snapend
 
 @snap[east span-70]
-Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
+Under *Desktop applications*, select **GRASS GIS** and **QGIS desktop**
 <br>
 <img src="assets/img/osgeo4w_step_5.png">
 @snapend
@@ -110,7 +110,7 @@ Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
 @snapend
 
 @snap[east span-70]
-Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
+Under *Lib*, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
 <br>
 <img src="assets/img/osgeo4w_step_6.png">
 @snapend
@@ -122,12 +122,15 @@ Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **
 @snapend
 
 @snap[east span-70]
-Under **Command line utilities** select **msys**
+Under *Command line utilities* select **msys**
 <br>
 <img src="assets/img/osgeo4w_step_7.png">
 @snapend
 <br>
-@size[22px](**Note**: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected)
+
+@snap[south span-90]
+@size[22px](**Note**: the installer will fetch all other needed dependencies for the applications selected)
+@snapend
 
 +++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
@@ -136,7 +139,7 @@ Under **Command line utilities** select **msys**
 @snapend
 
 @snap[east span-70]
-Wait for download and installation, and done
+Wait for download and installation, and done :)
 <br>
 ![last step](assets/img/osgeo4w_step_10.png)
 @snapend
@@ -151,7 +154,7 @@ To update, just open the "OSGeo4W Setup" and start again
 
 There's also the WINGRASS standalone installer, but...
 <br><br>
-**we strongly recommend installing GRASS GIS through the OSGeo4W package**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *nice bash shell features*.
+**@color[#8EA33B](we strongly recommend installing GRASS GIS through the OSGeo4W package)**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *@color[#8EA33B](nice bash shell features)*.
 
 +++
 
@@ -173,7 +176,7 @@ Download GRASS GIS 7.4.1 stable from: <http://grassmac.wikidot.com/downloads>
 
 ### Linux users
 
-- Ubuntu: Install GRASS GIS 7.4 from the "unstable" package repository:
+- **Ubuntu**: Install GRASS GIS 7.4 from the "unstable" package repository
 <br>
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
@@ -185,13 +188,13 @@ sudo apt-get install grass
 
 ### Linux users
 
-- Fedora: Simply install GRASS GIS from the package manager
+- **Fedora**: Simply install GRASS GIS from the package manager
 <br>
 ```bash
 sudo dnf install grass
 ```
 <br>
-See other links here: https://grass.osgeo.org/download/software/
+Other distros: https://grass.osgeo.org/download/software/
 
 ---
 
@@ -208,6 +211,7 @@ See other links here: https://grass.osgeo.org/download/software/
 ### Install pymodis and sentinelsat in Windows
 
 - Open OSGeo4W shell and run:
+
 <br>
 ```python
 pip install setuptools
@@ -220,6 +224,7 @@ pip install sentinelsat
 ### Install pymodis and sentinelsat in Mac and Linux
 
 - Open a terminal and run 
+
 <br>
 ```python
 pip install setuptools
@@ -245,13 +250,3 @@ pip install sentinelsat
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
-
-<!---
-
-1.  WinGRASS stand-alone installer
-> Important:
-> Right-click over the installer and execute with **Administrator** privileges
-Be sure to check "Important Microsoft Runtime Libraries". The rest is all **Ok** until the end.
-Note: dependencies needed by core modules are shipped with the installer, no need to worry about them now.
-
---->
