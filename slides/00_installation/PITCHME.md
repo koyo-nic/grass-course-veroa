@@ -27,7 +27,6 @@
 
 We will use the @color[green](OSGeo4W installer) that provides all of the OSGeo software for Windows
 <br>
-
 First, download the installer here: https://trac.osgeo.org/osgeo4w
 
 > Important:
@@ -48,59 +47,45 @@ First, download the installer here: https://trac.osgeo.org/osgeo4w
 
 ---
 
-@snap[north span-100]
 1. Select **Advance install**
 <br>
 <img src="assets/img/osgeo4w_step_1.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 2. Select **Install from internet**
 <br>
 <img src="assets/img/osgeo4w_step_2.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 3. Select "Install directory"
 <br>
 <img src="assets/img/osgeo4w_step_3.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 4. Choose *osgeo* server to download software from
 <br>
 <img src="assets/img/osgeo4w_step_4.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 5. Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
 <br>
 <img src="assets/img/osgeo4w_step_5.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 6. Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
 <br>
 <img src="assets/img/osgeo4w_step_6.png">
-@snapend
 
 ---
 
-@snap[north span-100]
 7. Under **Command line utilities** select **msys**
 <br>
 <img src="assets/img/osgeo4w_step_7.png">
-@snapend
 
 @size[22px](**Note**: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected)
 
@@ -142,9 +127,7 @@ Download GRASS GIS 7.4.1 stable from: <http://grassmac.wikidot.com/downloads>
 
 ### Linux users
 
-- Ubuntu
-<br>
-Install GRASS GIS 7.4 from the "unstable" package repository:
+- Ubuntu: Install GRASS GIS 7.4 from the "unstable" package repository:
 <br>
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
@@ -158,7 +141,6 @@ sudo apt-get install grass
 
 - Fedora, openSuSe Linux and others: Simply install GRASS GIS with the respective package manager, for example:
 <br>
-
 ```bash
 sudo dnf install grass
 ```
@@ -203,7 +185,7 @@ pip install pymodis
 pip install sentinelsat
 ```
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ## **We are set, let's start!**
 
