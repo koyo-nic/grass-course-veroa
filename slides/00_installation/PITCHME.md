@@ -65,7 +65,7 @@ There's also the standalone installer, but...
 
 ---
 
-To allow bash tricks in Windows, just open GRASS GIS and in the black terminal, run
+To allow bash tricks in Windows, just open GRASS GIS and in the black terminal run:
 
 ```
 bash.exe
