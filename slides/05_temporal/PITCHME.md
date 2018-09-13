@@ -96,9 +96,9 @@ STDS in each mapset.
 
 ### Let's first get the data
 <br>
-- [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`. 
+- [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`
 - [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in 
-`$HOME/grassdata/nc_spm_08_grass7`.
+`$HOME/grassdata/nc_spm_08_grass7`
 <br>
 ... and start GRASS GIS
 ```bash
