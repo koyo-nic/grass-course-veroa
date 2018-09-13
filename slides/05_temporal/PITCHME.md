@@ -193,7 +193,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++
 
-<img src="assets/img/g_gui_tplot_final.png" width="70%">
+<img src="assets/img/g_gui_tplot_final.png" width="80%">
 
 @size[24px](Point coordinates can be typed directly, copied from the map display and pasted or directly chosen from the main map display.)
 
@@ -262,7 +262,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 @[241-242]
 @[244-249]
 
-@size[24px](**Note**: We could do this year-wise in order to know when the annual max LST occurs and then e.g. assess trends)
+@size[24px](We could do this year-wise to know when the annual max LST occurs and assess trends)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Display the resulting map from the CLI
 
@@ -298,8 +298,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 @size[38px](***Exercise***)
 <br><br>
-Compare the monthly and sesonal timelines with 
-![g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html)
+Compare the monthly and sesonal timelines
 <br>
 ```bash
 g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
