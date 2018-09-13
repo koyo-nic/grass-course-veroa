@@ -80,6 +80,7 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 - Projects are encouraged to adopt open standards and collaborate with other OSGeo projects.
 - Projects are responsible for reviewing and controlling their code bases to assure integrity.
 @olend
+<br><br>
 @snapend
 
 ---
@@ -96,6 +97,7 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 - Used in academic and commercial settings around the world, as well as by many governmental agencies and consulting companies.
 - Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
 @ulend
+<br>
 @snapend
 
 +++?image=template/img/grass.png&position=bottom&size=100% 30%
