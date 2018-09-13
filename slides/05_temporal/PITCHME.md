@@ -169,7 +169,6 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 @snapend
 
 @snap[south list-content-verbose span-100]
-<br>
 **[t.rast.algebra](https://grass.osgeo.org/grass74/manuals/t.rast.algebra.html)**
 <br>
 @ul[](false)
