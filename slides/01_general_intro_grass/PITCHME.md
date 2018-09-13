@@ -37,6 +37,7 @@
 
 @snap[north span-100]
 <h2>Brief intro to FOSS</h2>
+<br><br>
 @snapend
 
 @snap[east split-screen-text]
@@ -54,11 +55,12 @@ Free and Open Source Software (FOSS) means that anyone is freely licensed to use
 
 @snap[north span-100]
 <h2>Brief intro to OSGeo</h2>
+<br><br>
 @snapend
 
 @snap[midpoint span-100]
 The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support the collaborative development of open source geospatial software, and promote its widespread use.
-<br><br>
+<br><br><br>
 <img src="assets/img/osgeo-logo.png" width="50%">
 @snapend
 
@@ -70,12 +72,12 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 <br><br>
 @snapend
 
-@snap[west list-content-verbose span-100]
+@snap[south-west list-content-verbose span-100]
 @ol[](false)
-- Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginers to advanced developers.
+- Projects should manage themselves, striving for consensus and encouraging participation from all contributors.
 - Contributors are the scarce resource and successful projects court and encourage them.
 - Projects are encouraged to adopt open standards and collaborate with other OSGeo projects.
-- Projects are responsible for reviewing and controlling their code bases to insure the integrity of the open source baselines.
+- Projects are responsible for reviewing and controlling their code bases to assure integrity.
 @olend
 @snapend
 
