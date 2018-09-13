@@ -33,8 +33,11 @@
 # Introduction to GRASS GIS
 
 ---
+@title[Intro FOSS]
 
-## Brief intro to FOSS
+@snap[north span-100]
+<h2>Brief intro to FOSS</h2>
+@snapend
 
 @snap[east split-screen-text]
 Free and Open Source Software (FOSS) means that anyone is freely licensed to use, copy, study, and change the software. The source code is openly shared so that people are encouraged to voluntarily improve it.
@@ -47,14 +50,22 @@ Free and Open Source Software (FOSS) means that anyone is freely licensed to use
 <!--- This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden. --->
 
 ---
+@title[Intro OSGeo 1]
 
 ## Brief intro to OSGeo
 
-In 2006, the [OSGeo Foundation](https://www.osgeo.org/) was created to support the collaborative development of open source geospatial software, and promote its widespread use.
+The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support the collaborative development of open source geospatial software, and promote its widespread use.
 
-<img src="assets/img/osgeo-logo.png" width="30%">
+<img src="assets/img/osgeo-logo.png" width="40%">
 
-@snap[south-west list-content-verbose span-100]
++++
+@title[Intro OSGeo 1]
+
+@snap[north span-100]
+<h2>Brief intro to OSGeo</h2>
+@snapend
+
+@snap[west list-content-verbose span-100]
 The foundation has adopted principles to ensure that projects under OSGeo umbrella are well established, stable, mature and sustainable:
 @ol[](false)
 - Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginers to advanced developers.
@@ -65,6 +76,7 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 @snapend
 
 ---
+@title[GRASS GIS history 1]
 
 @snap[nort span-80]
 <h2>Brief history about GRASS GIS</h2>
@@ -79,6 +91,7 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 @snapend
 
 +++?image=template/img/grass.png&position=bottom&size=100% 30%
+@title[GRASS GIS history 2]
 
 @snap[north span-90]
 <br>
