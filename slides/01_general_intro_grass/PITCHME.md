@@ -36,7 +36,7 @@
 
 ## Brief intro to FOSS
 
-@snap[east split-screen-byline]
+@snap[east split-screen-text]
 Free and Open Source Software (FOSS) means that anyone is freely licensed to use, copy, study, and change the software. The source code is openly shared so that people are encouraged to voluntarily improve it.
 @snapend
 
@@ -65,6 +65,7 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 @snapend
 
 ---
+
 @snap[nort span-80]
 <h2>Brief history about GRASS GIS</h2>
 @snapend
@@ -77,7 +78,7 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 @ulend
 @snapend
 
----?image=template/img/grass.png&position=bottom&size=100% 30%
++++?image=template/img/grass.png&position=bottom&size=100% 30%
 
 @snap[north span-90]
 <br>
@@ -96,7 +97,7 @@ Advantages
 - open source, you can use, modify, improve, share
 - strong user community, commercial support
 - large amount of tools for 2D/3D raster/vector, topology, imagery, spatio-temporal data
-- both GUI and CLI (easy for scripting) user interface
+- both GUI and CLI (easy for scripting) interface
 - Python API and libraries
 @ulend
 @snapend
@@ -111,7 +112,7 @@ Disadvantages
 @ulend
 @snapend
 
----?image=template/img/bg/green.jpg&position=left&size=50% 100%
++++?image=template/img/bg/green.jpg&position=left&size=50% 100%
 @title[When to use and not to use GRASS]
 
 @snap[west text-white span-50]
