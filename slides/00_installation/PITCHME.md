@@ -194,7 +194,7 @@ sudo apt-get install grass
 sudo dnf install grass
 ```
 <br>
-Other distros: https://grass.osgeo.org/download/software/
+@size[28px](Other distros: https://grass.osgeo.org/download/software/)
 
 ---
 
@@ -209,7 +209,7 @@ Other distros: https://grass.osgeo.org/download/software/
 +++
 
 ### Install pymodis and sentinelsat in Windows
-
+<br>
 - Open OSGeo4W shell and run:
 
 <br>
@@ -222,7 +222,7 @@ pip install sentinelsat
 +++
 
 ### Install pymodis and sentinelsat in Mac and Linux
-
+<br>
 - Open a terminal and run 
 
 <br>
