@@ -16,34 +16,38 @@
 ## Let's install GRASS GIS
 
 ![Download software section](assets/img/grass_gis_download_software.png)
-<br><br>
+<br>
 [https://grass.osgeo.org/download/software/](https://grass.osgeo.org/download/software/)
 
 ---
 
 ### MS Windows users
-
-Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 <br>
-> @size[28px](Important:)
+Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
+<br><br>
+> *@size[28px](Important:)*
 > @size[28px](Right-click over installer and execute with **Administrator** privileges)
 
----
++++
 
+@snap[north-west]
 Overview of steps
+@snapend
 
+@snap[south-west list-content-concise span-100]
 @ol
 - Select **Advance install**
 - Select **Install from internet**
-- Select the "Install directory" (leave the one by-default)
+- Leave the "Install directory" set by default)
 - Choose *osgeo* server to download software from
 - Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
 - Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
 - Under **Command line utilities** select **msys**
 - Wait for download and installation of packages, and done!
 @olend
+@snapend
 
----?image=template/img/bg/green.jpg&position=left&size=30% 50%
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
 @snap[west text-white]
 @size[3em](1.)
@@ -147,13 +151,13 @@ To update, just open the "OSGeo4W Setup" and start again
 <br><br>
 **Super easy!**
 
----
++++
 
 There's also the WINGRASS standalone installer, but...
 <br><br>
 **we strongly recommend installing GRASS GIS through the OSGeo4W package**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *nice bash shell features*.
 
----
++++
 
 To allow bash tricks in Windows, just open GRASS GIS and, in the black terminal, run:
 <br>
@@ -246,10 +250,12 @@ pip install sentinelsat
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
 
-<!--- 
+<!---
+
 1.  WinGRASS stand-alone installer
 > Important:
 > Right-click over the installer and execute with **Administrator** privileges
 Be sure to check "Important Microsoft Runtime Libraries". The rest is all **Ok** until the end.
 Note: dependencies needed by core modules are shipped with the installer, no need to worry about them now.
+
 --->
