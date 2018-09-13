@@ -253,8 +253,8 @@
 
 .reveal blockquote {
     width: 100%;
-    padding: 17px;
-    border-radius: 17px;
+    padding: 12px;
+    border-radius: 12px;
     background: rgba(255,255,255,0.2);
 }
 
@@ -287,7 +287,7 @@
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 52vh !important;
+  max-height: 50vh !important;
   word-wrap: normal; 
 }
 
