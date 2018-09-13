@@ -36,9 +36,9 @@ Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 - Select **Install from internet**
 - Leave the "Install directory" set by default
 - Choose *osgeo* server to download software from
-- Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
-- Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
-- Under **Command line utilities** select **msys**
+- Under *Desktop applications*, select **GRASS GIS stable** and **QGIS desktop**
+- Under *Lib*, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
+- Under *Command line utilities* select **msys**
 - Wait for download and installation of packages, and done!
 @olend
 @snapend
@@ -177,7 +177,7 @@ Download GRASS GIS 7.4.1 stable from: <http://grassmac.wikidot.com/downloads>
 ### Linux users
 
 - **Ubuntu**: Install GRASS GIS 7.4 from the "unstable" package repository
-<br>
+
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 sudo apt-get update
@@ -189,11 +189,12 @@ sudo apt-get install grass
 ### Linux users
 
 - **Fedora**: Simply install GRASS GIS from the package manager
-<br>
+
 ```bash
 sudo dnf install grass
 ```
 <br>
+
 @size[28px](Other distros: https://grass.osgeo.org/download/software/)
 
 ---
