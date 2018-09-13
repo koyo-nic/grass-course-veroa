@@ -164,10 +164,15 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 ---
 
-### Operations with temporal algebra
-
+@snap[north span-100]
+<h3>Operations with temporal algebra</h3>
+<br>
 **[t.rast.algebra](https://grass.osgeo.org/grass74/manuals/t.rast.algebra.html)**
 <br>
+@spanend
+
+@snap[midpoint list-content-verbose span-100]
+@ul[](false)
 - Performs a wide range of temporal and spatial map algebra operations based on map's temporal topology 
 - Provides:
   - Temporal operators: union, intersection, etc.
@@ -175,8 +180,12 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
   - Spatial operators (subset of [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html))
   - Temporal neighbourhood modifier: *[x,y,t]*
   - Other temporal functions like *tsnap()*, *buff_t()* or *tshift()*
-<br>
+@ulend
+@snapend
+
+@snap[south span-100]
 **they can be combined in complex expressions!!**
+@snapend
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
 
