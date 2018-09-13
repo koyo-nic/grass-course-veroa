@@ -159,9 +159,10 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++
 
-![g.gui.timeline example](assets/img/g_gui_timeline_monthly.png)
+<img src="assets/img/g_gui_timeline_monthly.png" width="70%">
 
-See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html) manual page
+<br>
+@size[24px](See <a href="https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html">g.gui.timeline</a> manual page)
 
 ---
 
@@ -176,7 +177,7 @@ See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html
   - Spatial operators (subset of [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html))
   - Temporal neighbourhood modifier: *[x,y,t]*
   - Other temporal functions like *tsnap()*, *buff_t()* or *tshift()*
-<br><br>
+<br>
 **they can be combined in complex expressions!!**
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
@@ -190,13 +191,13 @@ See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html
 @[126-128]
 @[130-135]
 
-For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html). For a vector of points, see [t.rast.what](https://grass.osgeo.org/grass74/manuals/t.rast.what.html).
+@size[24px](For a single point, see <a href="https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html">g.gui.tplot</a>. For a vector of points, see <a href="https://grass.osgeo.org/grass74/manuals/t.rast.what.html">t.rast.what</a>.)
 
 +++
 
-![g.gui.tplot: LST time series for Raleigh](assets/img/g_gui_tplot_final.png)
+<img src="assets/img/g_gui_tplot_final.png" width="70%">
 
-@size[20px](Point coordinates can be typed directly, copied from the map display and pasted or directly chosen from the main map display.)
+@size[24px](Point coordinates can be typed directly, copied from the map display and pasted or directly chosen from the main map display.)
 
 ---
 
@@ -263,7 +264,7 @@ For a single point, see [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.
 @[241-242]
 @[244-249]
 
-@size[20px](**Note**: We could do this year-wise in order to know when the annual max LST occurs and then e.g. assess trends)
+@size[24px](**Note**: We could do this year-wise in order to know when the annual max LST occurs and then e.g. assess trends)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Display the resulting map from the CLI
 
@@ -320,7 +321,7 @@ g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 
 ![Sesonal LST by frames](assets/img/frames.png)
 
-@size[26px](3-month average LST in 2015)
+@size[24px](3-month average LST in 2015)
 
 ---
 
@@ -354,7 +355,7 @@ t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
 
 @[344-347]
 
-See [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html) manual for further options and tweaks 
+@size[24px](See <a href="https://grass.osgeo.org/grass74/manuals/g.gui.animation.html">g.gui.animation</a> manual for further options and tweaks)
 
 ---
 
