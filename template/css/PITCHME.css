@@ -55,7 +55,11 @@
 }
 
 .list-content-verbose ul {
-  list-style-type: square;
+  list-style-type: disc;
+}
+
+.list-content-verbose ul ul {
+  list-style-type: square
 }
 
 .list-content-verbose li {
