@@ -58,10 +58,6 @@
   list-style-type: disc;
 }
 
-.list-content-verbose ul ul {
-  list-style-type: square
-}
-
 .list-content-verbose li {
   font-size: 0.8em;
   margin:0 0 15px 0;
@@ -243,6 +239,10 @@
   border-radius: 3px;
   background-color: #F26225;
   content: counter(step-counter);
+}
+
+.reveal ul ul {
+  list-style-type: square; 
 }
 
 .reveal section img {
