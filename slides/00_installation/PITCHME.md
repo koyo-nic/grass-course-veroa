@@ -32,18 +32,18 @@ GRASS esta disponible para todos los sistemas operativos mas comunes y algunos o
 2 options:
 
 - Standalone installer
-- OSGeo4W installer
+- OSGeo4W installer (recommended)
 
 ---
 
 1.  WinGRASS stand-alone installer
 
 > Important:
-> Right-click over installer, execute with **Administrator** privileges
+> Right-click over the installer and execute with **Administrator** privileges
 
 ---
 
-Be sure to check "Important Microsoft Runtime Libraries" and the rest is all **Ok** till the end 
+Be sure to check "Important Microsoft Runtime Libraries". The rest is all **Ok** until the end.
 
 Note: dependencies needed by core modules are shipped with the installer, no need to worry about them now.
 
@@ -52,15 +52,17 @@ Note: dependencies needed by core modules are shipped with the installer, no nee
 2. OSGeo4W installer
 
 > Important:
-> Right-click over installer, execute with **Administrator** privileges
+> Right-click over installer and execute with **Administrator** privileges
 
 ---
 
 @ol
 - Select **Advance install**
-- Select install from internet
+- Select **Install from internet**
+- Choose *osgeo* server
 - Under **Desktop** applications, select **GRASS GIS 7.4.1** and **QGIS**
-- Under **Lib**, select **qgis-grass-plugin7** and **msys**
+- Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **pip**, **ply**, and **pandas** 
+- Under **Command line utilities** select **msys**
 @olend
 
 Note: the installer will fetch all needed dependencies for the core modules of the desktop applications selected
