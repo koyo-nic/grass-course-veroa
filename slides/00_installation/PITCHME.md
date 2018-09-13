@@ -49,7 +49,7 @@ Steps:
 - Under **Command line utilities** select **msys**
 @olend
 
-Note: the installer will fetch all needed dependencies for the core modules of the desktop applications selected
+Note: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected
 
 ---
 
