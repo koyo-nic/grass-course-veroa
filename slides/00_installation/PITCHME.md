@@ -30,10 +30,6 @@ Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 
 +++
 
-@snap[north-west]
-Overview of steps
-@snapend
-
 @snap[south-west list-content-concise span-100]
 @ol
 - Select **Advance install**
