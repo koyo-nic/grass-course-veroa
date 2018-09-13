@@ -27,7 +27,7 @@ GRASS esta disponible para todos los sistemas operativos mas comunes y algunos o
 
 ---
 
-#### Windows users
+#### MS Windows users
 
 We will use the OSGeo4W installer that provides all of OSGeo software for Windows
 
@@ -53,19 +53,74 @@ Note: the installer will fetch all other needed dependencies for the core module
 
 ---
 
+@snap[west span-50]
+1. Select **Advance install**
+<br>
+<img src="assets/img/osgeo4w_step_1.png" width="50%">
+@snapend
+
+@snap[east span-50]
+2. Select **Install from internet**
+<br>
+<img src="assets/img/osgeo4w_step_2.png" width="50%">
+@snapend
+
+---
+
+@snap[west span-50]
+3. Select "Install directory"
+<br>
+<img src="assets/img/osgeo4w_step_3.png" width="50%">
+@snapend
+
+@snap[east span-50]
+4. Choose *osgeo* server to download software from
+<br>
+<img src="assets/img/osgeo4w_step_4.png" width="50%">
+@snapend
+
+---
+
+@snap[west span-100]
+5. Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
+<img src="assets/img/osgeo4w_step_5.png" width="90%">
+@snapend
+
+---
+
+@snap[west span-100]
+6. Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
+<img src="assets/img/osgeo4w_step_6.png" width="90%">
+@snapend
+
+---
+
+@snap[west span-100]
+7. Under **Command line utilities** select **msys**
+<img src="assets/img/osgeo4w_step_7.png" width="90%">
+@snapend
+
+---
+
+Wait for download and installation, and done
+
+![last step](assets/img/osgeo4w_step_10.png)
+
+---
+
 To update, just open the "OSGeo4W Setup" and start again
 
 Super easy!
 
 ---
 
-There's also the standalone installer, but...
+There's also the WINGRASS standalone installer, but...
 
-**For Windows users, we strongly recommend installing GRASS GIS through the OSGeo4W package**, since it allows to install all OSGeo software. The latter one will allow the use of loops, back ticks, autocomplete, history and other nice bash shell features.
+**For Windows users, we strongly recommend installing GRASS GIS through the OSGeo4W package**, since it allows to install all OSGeo software; esp. *msys* which will allow the use of loops, back ticks, autocomplete, history and other *nice bash shell features*.
 
 ---
 
-To allow bash tricks in Windows, just open GRASS GIS and in the black terminal run:
+To allow bash tricks in Windows, just open GRASS GIS and, in the black terminal, run:
 
 ```
 bash.exe
@@ -75,7 +130,7 @@ Done!
 
 ---
 
-#### Mac OS
+#### Mac OS users
 
 Download GRASS GIS 7.4.1 stable from: <http://grassmac.wikidot.com/downloads>
 
@@ -101,16 +156,16 @@ For other Linux distributions including **Fedora** and **openSuSe**, simply inst
 
 ---
 
-### Extra software we will use
+### Other software we will use
 
-- [pymodis](http://www.pymodis.org/): library to work with MODIS data. It offers bulk-download for user selected time ranges, mosaicking of MODIS tiles, and the reprojection from Sinusoidal to other projections, convert HDF format to other formats and the extraction of data quality information. This library is needed by GRASS GIS add-on [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html).
-- [sentinelsat](https://github.com/sentinelsat/sentinelsat): Utility to search and download Copernicus Sentinel satellite images from the [Copernicus Open Access Hub](https://scihub.copernicus.eu/). This library is needed by the GRASS GIS add-on [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html).
+- **[pymodis](http://www.pymodis.org/)**: library to work with MODIS data. It offers bulk-download for user selected time ranges, mosaicking of MODIS tiles, and the reprojection from Sinusoidal to other projections, convert HDF format to other formats and the extraction of data quality information. This library is needed by GRASS GIS add-on *[i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)*.
+- **[sentinelsat](https://github.com/sentinelsat/sentinelsat)**: Utility to search and download Copernicus Sentinel satellite images from the [Copernicus Open Access Hub](https://scihub.copernicus.eu/). This library is needed by the GRASS GIS add-on *[i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html)*.
 
 ---
 
 ### Install pymodis and sentinelsat in Windows
 
-- Open osgeo4w shell and run:
+- Open OSGeo4W shell and run:
 
 ```python
 pip install setuptools
@@ -129,6 +184,10 @@ pip install setuptools
 pip install pymodis
 pip install sentinelsat
 ```
+
+---
+
+We are set, let's start!
 
 ---
 
