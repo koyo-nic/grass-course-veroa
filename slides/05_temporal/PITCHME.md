@@ -63,7 +63,7 @@ STDS in each mapset.
 
 - @color[green](Topology) refers to temporal relations between time intervals in a STDS.
 
-<img class="plain" src="assets/img/temp_relation.png">
+<img src="assets/img/temp_relation.png">
 
 +++
 
@@ -71,7 +71,7 @@ STDS in each mapset.
 
 - @color[green](Temporal sampling) is used to determine the state of one process during a second process.
 
-<img class="plain" src="assets/img/temp_samplings.png">
+<img src="assets/img/temp_samplings.png" width="65%">
 
 +++
 
