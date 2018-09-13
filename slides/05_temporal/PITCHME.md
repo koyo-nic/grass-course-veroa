@@ -71,7 +71,7 @@ STDS in each mapset.
 
 - @color[green](Temporal sampling) is used to determine the state of one process during a second process.
 
-<img src="assets/img/temp_samplings.png" width="65%">
+<img src="assets/img/temp_samplings.png" width="55%">
 
 +++
 
