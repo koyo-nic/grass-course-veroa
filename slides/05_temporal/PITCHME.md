@@ -151,11 +151,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 @[102-103]
 
 <br>
-For more options, check the
-[t.register](https://grass.osgeo.org/grass74/manuals/t.register.html)
-manual and related 
-[map registration wiki](https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration)
-page.
+@size[24px](For more options, check the <a href="https://grass.osgeo.org/grass74/manuals/t.register.html">t.register</a> manual and related <a href="https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration">map registration wiki</a> page.)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Graphical Representation of the STRDS
 
@@ -165,7 +161,6 @@ page.
 
 ![g.gui.timeline example](assets/img/g_gui_timeline_monthly.png)
 
-<br>
 See [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html) manual page
 
 ---
