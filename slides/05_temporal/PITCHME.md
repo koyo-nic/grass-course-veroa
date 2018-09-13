@@ -98,18 +98,14 @@ STDS in each mapset.
 <br>
 - [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`. 
 - [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
-<br><br>
+<br>
 ... and start GRASS GIS in `$HOME/grassdata/nc_spm_08_grass7/modis_lst`
 
 ```bash
 grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 ```
 
----?code=code/05_temporal_code.sh&lang=bash
-
-@snap[north-east template-note text-gray]
-Set computational region and apply MASK
-@snapend
+---?code=code/05_temporal_code.sh&lang=bash&title=Set computational region and apply MASK
 
 @[32-40]
 @[43-61]
