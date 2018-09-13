@@ -78,12 +78,11 @@ A bit of (geek) GRASS GIS history...
 
 <iframe width="560" height="315" scrolling="no" src="//av.tib.eu/player/12963" frameborder="0" allowfullscreen></iframe>
 
----
++++?image=template/img/bg/green.jpg&position=left&size=50% 100%
 @title[Advantages and Disadvantages]
 
-@snap[north-west span-50]
-Advantages:
-@ul
+@snap[west text-green span-50]
+@ul[split-screen-list](false)
 - open source, you can use it freely, modify, improve, share
 - strong user community, commercial support
 - large scale functionality, large amount of tools (2D/3D raster/vector, topology, imagery, map production, spatial-temporal data, …)
@@ -93,11 +92,8 @@ Advantages:
 @ulend
 @snapend
 
-@snap[north-east span-50]
-@ul
-Disadvantages (turning out to be advantages in some cases):
-
-- open source ;-)
+@snap[east text-white span-50]
+@ul[split-screen-list](false)
 - complicated startup for newcomers
 - native format (requires importing data, be aware of possibility of linking external formats)
 - vector topology (confusing for GIS beginners, sometimes tricky to import broken GIS data)
@@ -107,9 +103,9 @@ Disadvantages (turning out to be advantages in some cases):
 ---
 @title[When to use and not to use GRASS]
 
-@snap[south-west span-50]
+@snap[west text-green span-50]
 When to use GRASS GIS?
-@ul
+@ul[split-screen-list](false)
 - doing (heavy) geospatial data analysis
 - working with topological vector data
 - analysing space-time datasets
@@ -118,9 +114,9 @@ When to use GRASS GIS?
 @ulend
 @snapend
 
-@snap[south-east span-50]
+@snap[east text-white span-50]
 When to use rather something else?
-@ul
+@ul[split-screen-list](false)
 - want to vizualize geodata in easy and quick way (use QGIS instead)
 - being scared of location and mapsets ;-)
 @ulend
