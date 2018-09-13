@@ -38,7 +38,7 @@
 
 Free and Open Source Software (FOSS)
 
-<img src="assets/img/foss.png" width="60%">
+<img src="assets/img/foss.png" width="40%">
 
 anyone is freely licensed to use, copy, study, and change the software. The source code is openly shared so that people are encouraged to voluntarily improve the design of the software. This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden.
 ---
@@ -47,25 +47,30 @@ anyone is freely licensed to use, copy, study, and change the software. The sour
 
 In 2006, the [OSGeo Foundation](https://www.osgeo.org/) was created to support the collaborative development of open source geospatial software, and promote its widespread use.
 
-<img src="assets/img/osgeo-logo.png" width="50%">
+<img src="assets/img/osgeo-logo.png" width="30%">
 
-The foundation has adopted principles to ensure that projects under OSGeo umbrella will satisfy basic quality requirements, namely:
+@snap[south-west list-content-verbose span-100]
+The foundation has adopted principles to ensure that projects under OSGeo umbrella are well established, stable, mature and sustainable:
+@ol[](false)
 - Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginers to advanced developers.
 - Contributors are the scarce resource and successful projects court and encourage them.
 - Projects are encouraged to adopt open standards and collaborate with other OSGeo projects.
 - Projects are responsible for reviewing and controlling their code bases to insure the integrity of the open source baselines.
-
-These principles ensure that OSGeo projects are well established, stable, mature and sustainable.
+@olend
+@snapend
 
 ---
-
+@snap[nort span-80]
 ## Brief story about GRASS GIS
+@snapend
 
-GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
-
-GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
-
-It was originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
+@snap[west list-content-verbose span-100]
+@ul[](false)
+- GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
+- GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
+- It was originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
+@ulend
+@spanend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
