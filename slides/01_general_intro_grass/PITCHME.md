@@ -82,6 +82,8 @@ A bit of (geek) GRASS GIS history...
 @title[Advantages and Disadvantages]
 
 @snap[west text-green span-50]
+Advantages
+<br>
 @ul[split-screen-list](false)
 - open source, you can use it freely, modify, improve, share
 - strong user community, commercial support
@@ -92,7 +94,9 @@ A bit of (geek) GRASS GIS history...
 @ulend
 @snapend
 
-@snap[east text-white span-50]
+@snap[east text-white span-45]
+Disadvantages
+<br>
 @ul[split-screen-list](false)
 - complicated startup for newcomers
 - native format (requires importing data, be aware of possibility of linking external formats)
@@ -105,6 +109,7 @@ A bit of (geek) GRASS GIS history...
 
 @snap[west text-green span-50]
 When to use GRASS GIS?
+<br>
 @ul[split-screen-list](false)
 - doing (heavy) geospatial data analysis
 - working with topological vector data
@@ -114,8 +119,9 @@ When to use GRASS GIS?
 @ulend
 @snapend
 
-@snap[east text-white span-50]
+@snap[east text-white span-45]
 When to use rather something else?
+<br>
 @ul[split-screen-list](false)
 - want to vizualize geodata in easy and quick way (use QGIS instead)
 - being scared of location and mapsets ;-)
