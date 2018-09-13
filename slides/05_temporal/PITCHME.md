@@ -166,12 +166,12 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 @snap[north span-100]
 <h3>Operations with temporal algebra</h3>
+@spanend
+
+@snap[south list-content-verbose span-100]
 <br>
 **[t.rast.algebra](https://grass.osgeo.org/grass74/manuals/t.rast.algebra.html)**
 <br>
-@spanend
-
-@snap[midpoint list-content-verbose span-100]
 @ul[](false)
 - Performs a wide range of temporal and spatial map algebra operations based on map's temporal topology 
 - Provides:
@@ -181,9 +181,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
   - Temporal neighbourhood modifier: *[x,y,t]*
   - Other temporal functions like *tsnap()*, *buff_t()* or *tshift()*
 @ulend
-@snapend
-
-@snap[south span-100]
+<br>
 **they can be combined in complex expressions!!**
 @snapend
 
