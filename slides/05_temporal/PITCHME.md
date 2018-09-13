@@ -174,7 +174,6 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 <br>
 @ul[](false)
 - Performs a wide range of temporal and spatial map algebra operations based on map's temporal topology 
-- Provides:
   - Temporal operators: union, intersection, etc.
   - Temporal functions: *start_time()*, *start_doy()*, etc.
   - Spatial operators (subset of [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html))
