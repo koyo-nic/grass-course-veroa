@@ -30,8 +30,6 @@ We will use the @color[green](OSGeo4W installer) that provides all of the OSGeo 
 
 First, download the installer here: https://trac.osgeo.org/osgeo4w
 
-<br>
-
 > Important:
 > Right-click over installer and execute with **Administrator** privileges
 
@@ -48,56 +46,63 @@ First, download the installer here: https://trac.osgeo.org/osgeo4w
 - Wait for download and installation of packages, and done!
 @olend
 
-@size[22px](**Note**: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected)
-
 ---
 
-@snap[west span-50]
+@snap[north span-100]
 1. Select **Advance install**
 <br>
-<img src="assets/img/osgeo4w_step_1.png" width="70%">
+<img src="assets/img/osgeo4w_step_1.png">
 @snapend
 
-@snap[east span-50]
+---
+
+@snap[north span-100]
 2. Select **Install from internet**
 <br>
-<img src="assets/img/osgeo4w_step_2.png" width="70%">
+<img src="assets/img/osgeo4w_step_2.png">
 @snapend
 
 ---
 
-@snap[west span-50]
+@snap[north span-100]
 3. Select "Install directory"
 <br>
-<img src="assets/img/osgeo4w_step_3.png" width="70%">
-@snapend
-
-@snap[east span-50]
-4. Choose *osgeo* server to download software from
-<br>
-<img src="assets/img/osgeo4w_step_4.png" width="70%">
+<img src="assets/img/osgeo4w_step_3.png">
 @snapend
 
 ---
 
-@snap[west span-100]
+@snap[north span-100]
+4. Choose *osgeo* server to download software from
+<br>
+<img src="assets/img/osgeo4w_step_4.png">
+@snapend
+
+---
+
+@snap[north span-100]
 5. Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
+<br>
 <img src="assets/img/osgeo4w_step_5.png">
 @snapend
 
 ---
 
-@snap[west span-100]
+@snap[north span-100]
 6. Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
+<br>
 <img src="assets/img/osgeo4w_step_6.png">
 @snapend
 
 ---
 
-@snap[west span-100]
+@snap[north span-100]
 7. Under **Command line utilities** select **msys**
+<br>
 <img src="assets/img/osgeo4w_step_7.png">
 @snapend
+
+@size[22px](**Note**: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected)
 
 ---
 
