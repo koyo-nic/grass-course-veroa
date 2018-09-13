@@ -52,11 +52,15 @@ Free and Open Source Software (FOSS) means that anyone is freely licensed to use
 ---
 @title[Intro OSGeo 1]
 
-## Brief intro to OSGeo
+@snap[north span-100]
+<h2>Brief intro to OSGeo</h2>
+@snapend
 
+@snap[midpoint span-100]
 The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support the collaborative development of open source geospatial software, and promote its widespread use.
-
-<img src="assets/img/osgeo-logo.png" width="40%">
+<br>
+<img src="assets/img/osgeo-logo.png" width="50%">
+@snapend
 
 +++
 @title[Intro OSGeo 1]
@@ -66,7 +70,6 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 @snapend
 
 @snap[west list-content-verbose span-100]
-The foundation has adopted principles to ensure that projects under OSGeo umbrella are well established, stable, mature and sustainable:
 @ol[](false)
 - Projects should manage themselves, striving for consensus and encouraging participation from all contributors - from beginers to advanced developers.
 - Contributors are the scarce resource and successful projects court and encourage them.
@@ -78,14 +81,15 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 ---
 @title[GRASS GIS history 1]
 
-@snap[nort span-80]
+@snap[nort span-100]
 <h2>Brief history about GRASS GIS</h2>
 @snapend
 
-@snap[west list-content-verbose span-100]
+@snap[south-west list-content-verbose span-100]
 @ul[](false)
-- GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
-- Currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
+- GRASS GIS (Geographic Resources Analysis Support System), is a FOSS GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
+- Used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies.
+- Founding member of OSGeo.
 - Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
 @ulend
 @snapend
