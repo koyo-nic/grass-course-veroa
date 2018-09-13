@@ -94,7 +94,7 @@ Advantages
 @ulend
 @snapend
 
-@snap[east text-white span-45]
+@snap[east text-white span-50]
 Disadvantages
 <br>
 @ul[split-screen-list](false)
@@ -104,7 +104,7 @@ Disadvantages
 @ulend
 @snapend
 
----
+---?image=template/img/bg/green.jpg&position=left&size=50% 100%
 @title[When to use and not to use GRASS]
 
 @snap[west text-green span-50]
@@ -119,7 +119,7 @@ When to use GRASS GIS?
 @ulend
 @snapend
 
-@snap[east text-white span-45]
+@snap[east text-white span-50]
 When to use rather something else?
 <br>
 @ul[split-screen-list](false)
