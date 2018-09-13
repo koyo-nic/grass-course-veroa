@@ -416,10 +416,10 @@ There are two ways to use GRASS GIS functionalities within QGIS:
 ### R + rgrass7
 
 GRASS GIS and R can be used together in two ways:
-<br>
+<br><br>
 - Using [R within a GRASS GIS session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#R_within_GRASS),
 - Using [GRASS GIS within an R session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#GRASS_within_R),
-<br><br><br>
+<br><br>
 
 @size[22px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
 
@@ -428,7 +428,7 @@ GRASS GIS and R can be used together in two ways:
 ![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
 
 @snap[south-east]
-We'll study this on Friday morning. Stay tuned! @fa[smile-o fa-spin text-green]
+@size[24px](We'll study this on Friday morning. Stay tuned!) @fa[smile-o fa-spin text-green]
 @snapend
 
 +++
