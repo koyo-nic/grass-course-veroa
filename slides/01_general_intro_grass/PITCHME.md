@@ -81,7 +81,7 @@ A bit of (geek) GRASS GIS history...
 +++?image=template/img/bg/green.jpg&position=left&size=50% 100%
 @title[Advantages and Disadvantages]
 
-@snap[west text-green span-50]
+@snap[west text-white span-50]
 Advantages
 <br>
 @ul[split-screen-list](false)
@@ -94,7 +94,7 @@ Advantages
 @ulend
 @snapend
 
-@snap[east text-white span-50]
+@snap[east text-green span-50]
 Disadvantages
 <br>
 @ul[split-screen-list](false)
@@ -107,7 +107,7 @@ Disadvantages
 ---?image=template/img/bg/green.jpg&position=left&size=50% 100%
 @title[When to use and not to use GRASS]
 
-@snap[west text-green span-50]
+@snap[west text-white span-50]
 When to use GRASS GIS?
 <br>
 @ul[split-screen-list](false)
@@ -119,7 +119,7 @@ When to use GRASS GIS?
 @ulend
 @snapend
 
-@snap[east text-white span-50]
+@snap[east text-green span-50]
 When to use rather something else?
 <br>
 @ul[split-screen-list](false)
