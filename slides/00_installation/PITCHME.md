@@ -178,6 +178,7 @@ Download GRASS GIS 7.4.1 stable from: <http://grassmac.wikidot.com/downloads>
 
 - **Ubuntu**: Install GRASS GIS 7.4 from the "unstable" package repository
 
+
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 sudo apt-get update
@@ -189,6 +190,7 @@ sudo apt-get install grass
 ### Linux users
 
 - **Fedora**: Simply install GRASS GIS from the package manager
+
 
 ```bash
 sudo dnf install grass
@@ -213,7 +215,7 @@ sudo dnf install grass
 <br>
 - Open OSGeo4W shell and run:
 
-<br>
+
 ```python
 pip install setuptools
 pip install pymodis
@@ -226,7 +228,7 @@ pip install sentinelsat
 <br>
 - Open a terminal and run 
 
-<br>
+
 ```python
 pip install setuptools
 pip install pymodis
