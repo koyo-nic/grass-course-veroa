@@ -179,7 +179,6 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
   - Temporal neighbourhood modifier: *[x,y,t]*
   - Other temporal functions like *tsnap()*, *buff_t()* or *tshift()*
 @ulend
-
 **@size[30px](they can be combined in complex expressions!!)**
 @snapend
 
