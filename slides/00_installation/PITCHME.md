@@ -15,22 +15,18 @@
 
 ## Let's install GRASS GIS
 
----
-
-[https://grass.osgeo.org/download/software/](https://grass.osgeo.org/download/software/)
-<br><br>
 ![Download software section](assets/img/grass_gis_download_software.png)
+<br><br>
+[https://grass.osgeo.org/download/software/](https://grass.osgeo.org/download/software/)
 
 ---
 
 ### MS Windows users
 
-We will use the @color[green](OSGeo4W installer) that provides all of the OSGeo software for Windows
+Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 <br>
-First, download the installer here: https://trac.osgeo.org/osgeo4w
-
-> Important:
-> Right-click over installer and execute with **Administrator** privileges
+> @size[28px](Important:)
+> @size[28px](Right-click over installer and execute with **Administrator** privileges)
 
 ---
 
@@ -71,45 +67,81 @@ Select **Install from internet**
 <img src="assets/img/osgeo4w_step_2.png">
 @snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-3. Select "Install directory"
+@snap[west text-white]
+@size[3em](3.)
+@snapend
+
+@snap[east span-70]
+Select "Install directory"
 <br>
 <img src="assets/img/osgeo4w_step_3.png">
+@snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-4. Choose *osgeo* server to download software from
+@snap[west text-white]
+@size[3em](4.)
+@snapend
+
+@snap[east span-70]
+Choose *osgeo* server to download software from
 <br>
 <img src="assets/img/osgeo4w_step_4.png">
+@snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-5. Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
+@snap[west text-white]
+@size[3em](5.)
+@snapend
+
+@snap[east span-70]
+Under **Desktop** applications, select **GRASS GIS stable** and **QGIS desktop**
 <br>
 <img src="assets/img/osgeo4w_step_5.png">
+@snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-6. Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
+@snap[west text-white]
+@size[3em](6.)
+@snapend
+
+@snap[east span-70]
+Under **Lib**, select **qgis-grass-plugin7**, **matplotlib**, **python-pip**, **python-ply** and **python-pandas** 
 <br>
 <img src="assets/img/osgeo4w_step_6.png">
+@snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-7. Under **Command line utilities** select **msys**
+@snap[west text-white]
+@size[3em](7.)
+@snapend
+
+@snap[east span-70]
+Under **Command line utilities** select **msys**
 <br>
 <img src="assets/img/osgeo4w_step_7.png">
-
+@snapend
+<br>
 @size[22px](**Note**: the installer will fetch all other needed dependencies for the core modules of the desktop applications selected)
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
+@snap[west text-white]
+@size[3em](8.)
+@snapend
+
+@snap[east span-70]
 Wait for download and installation, and done
-
+<br>
 ![last step](assets/img/osgeo4w_step_10.png)
+@snapend
 
----
++++
 
 To update, just open the "OSGeo4W Setup" and start again
 <br><br>
@@ -149,11 +181,11 @@ sudo apt-get update
 sudo apt-get install grass
 ```
 
----
++++
 
 ### Linux users
 
-- Fedora, openSuSe Linux and others: Simply install GRASS GIS with the respective package manager, for example:
+- Fedora: Simply install GRASS GIS from the package manager
 <br>
 ```bash
 sudo dnf install grass
@@ -166,33 +198,29 @@ See other links here: https://grass.osgeo.org/download/software/
 ### Other software we will use
 
 @ul
-- **[pymodis](http://www.pymodis.org/)**: library to work with MODIS data. It offers bulk-download, mosaicking of tiles, reprojection from Sinusoidal, conversion from HDF format and extraction of data quality information. This library is needed by *[i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)* add-on.
+- **[pymodis](http://www.pymodis.org/)**: library to work with MODIS data. It offers bulk-download, mosaicking, reprojection, conversion from HDF format and extraction of data quality information. This library is needed by *[i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)* add-on.
 
 - **[sentinelsat](https://github.com/sentinelsat/sentinelsat)**: Utility to search and download Copernicus Sentinel satellite images from the [Copernicus Open Access Hub](https://scihub.copernicus.eu/). This library is needed by *[i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html)* add-on.
 @ulend
 
----
++++
 
 ### Install pymodis and sentinelsat in Windows
 
 - Open OSGeo4W shell and run:
-
 <br>
-
 ```python
 pip install setuptools
 pip install pymodis
 pip install sentinelsat
 ```
 
----
++++
 
 ### Install pymodis and sentinelsat in Mac and Linux
 
 - Open a terminal and run 
-
 <br>
-
 ```python
 pip install setuptools
 pip install pymodis
