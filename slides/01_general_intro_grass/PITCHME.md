@@ -58,7 +58,7 @@ Free and Open Source Software (FOSS) means that anyone is freely licensed to use
 
 @snap[midpoint span-100]
 The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support the collaborative development of open source geospatial software, and promote its widespread use.
-<br>
+<br><br>
 <img src="assets/img/osgeo-logo.png" width="50%">
 @snapend
 
@@ -81,14 +81,14 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 ---
 @title[GRASS GIS history 1]
 
-@snap[nort span-100]
-<h2>Brief history about GRASS GIS</h2>
+@snap[north span-100]
+<h2>GRASS GIS: Brief history</h2>
 @snapend
 
 @snap[south-west list-content-verbose span-100]
 @ul[](false)
 - GRASS GIS (Geographic Resources Analysis Support System), is a FOSS GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
-- Used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies.
+- Used in academic and commercial settings around the world, as well as by many governmental agencies and consulting companies.
 - Founding member of OSGeo.
 - Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
 @ulend
