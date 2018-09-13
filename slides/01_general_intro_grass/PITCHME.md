@@ -67,6 +67,7 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 
 @snap[north span-100]
 <h2>Brief intro to OSGeo</h2>
+<br><br>
 @snapend
 
 @snap[west list-content-verbose span-100]
@@ -83,13 +84,13 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 
 @snap[north span-100]
 <h2>GRASS GIS: Brief history</h2>
+<br><br>
 @snapend
 
 @snap[south-west list-content-verbose span-100]
 @ul[](false)
 - GRASS GIS (Geographic Resources Analysis Support System), is a FOSS GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
 - Used in academic and commercial settings around the world, as well as by many governmental agencies and consulting companies.
-- Founding member of OSGeo.
 - Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
 @ulend
 @snapend
@@ -109,7 +110,7 @@ A bit of (geek) GRASS GIS history...
 
 @snap[west text-white span-50]
 Advantages
-<br>
+<br><br>
 @ul[split-screen-list](false)
 - open source, you can use, modify, improve, share
 - strong user community, commercial support
@@ -121,7 +122,7 @@ Advantages
 
 @snap[east text-green span-50]
 Disadvantages
-<br>
+<br><br>
 @ul[split-screen-list](false)
 - complicated startup for newcomers
 - native format (requires importing data, be aware of the possibility of linking external formats)
@@ -134,7 +135,7 @@ Disadvantages
 
 @snap[west text-white span-50]
 When to use GRASS GIS?
-<br>
+<br><br>
 @ul[split-screen-list](false)
 - doing (heavy) geospatial data analysis
 - working with topological vector data
@@ -146,7 +147,7 @@ When to use GRASS GIS?
 
 @snap[east text-green span-50]
 When to use rather something else?
-<br>
+<br><br>
 @ul[split-screen-list](false)
 - want to vizualize geodata in easy and quick way (use QGIS instead)
 - scared of location and mapsets ;-)
