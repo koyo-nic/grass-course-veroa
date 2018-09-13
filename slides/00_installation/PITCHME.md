@@ -34,6 +34,8 @@ First, download the installer here: https://trac.osgeo.org/osgeo4w
 
 ---
 
+Overview of steps
+
 @ol
 - Select **Advance install**
 - Select **Install from internet**
@@ -45,17 +47,29 @@ First, download the installer here: https://trac.osgeo.org/osgeo4w
 - Wait for download and installation of packages, and done!
 @olend
 
----
+---?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-1. Select **Advance install**
+@snap[west text-white]
+@size[3em](1.)
+@snapend
+
+@snap[east span-70]
+Select **Advance install**
 <br>
 <img src="assets/img/osgeo4w_step_1.png">
+@snapend
 
----
++++?image=template/img/bg/green.jpg&position=left&size=30% 50%
 
-2. Select **Install from internet**
+@snap[west text-white]
+@size[3em](2.)
+@snapend
+
+@snap[east span-70]
+Select **Install from internet**
 <br>
 <img src="assets/img/osgeo4w_step_2.png">
+@snapend
 
 ---
 
