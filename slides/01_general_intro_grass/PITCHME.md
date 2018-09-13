@@ -36,11 +36,16 @@
 
 ## Brief intro to FOSS
 
-Free and Open Source Software (FOSS)
+@snap[east split-screen-byline]
+Free and Open Source Software (FOSS) means that anyone is freely licensed to use, copy, study, and change the software. The source code is openly shared so that people are encouraged to voluntarily improve it.
+@snapend
 
-<img src="assets/img/foss.png" width="40%">
+@snap[west split-screen-img]
+<img src="assets/img/foss.png">
+@snapend
 
-anyone is freely licensed to use, copy, study, and change the software. The source code is openly shared so that people are encouraged to voluntarily improve the design of the software. This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden.
+<!--- This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden. --->
+
 ---
 
 ## Brief intro to OSGeo
@@ -61,16 +66,16 @@ The foundation has adopted principles to ensure that projects under OSGeo umbrel
 
 ---
 @snap[nort span-80]
-## Brief story about GRASS GIS
+<h2>Brief history about GRASS GIS</h2>
 @snapend
 
 @snap[west list-content-verbose span-100]
 @ul[](false)
 - GRASS GIS, commonly referred as GRASS (Geographic Resources Analysis Support System), is a free and open source GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
-- GRASS GIS is currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
-- It was originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
+- Currently used in academic and commercial settings around the world, as well as by many governmental agencies and environmental consulting companies. It is a founding member of the Open Source Geospatial Foundation (OSGeo).
+- Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
 @ulend
-@spanend
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
