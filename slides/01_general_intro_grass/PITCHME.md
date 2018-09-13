@@ -83,40 +83,49 @@ A bit of (geek) GRASS GIS history...
 
 @snap[north-west span-50]
 Advantages:
-
+@ul
 - open source, you can use it freely, modify, improve, share
 - strong user community, commercial support
 - large scale functionality, large amount of tools (2D/3D raster/vector, topology, imagery, map production, spatial-temporal data, …)
 - both GUI and CLI (easy for scripting) user interface
 - Python API and libraries
 - vector topology
+@ulend
 @snapend
 
 @snap[north-east span-50]
+@ul
 Disadvantages (turning out to be advantages in some cases):
 
 - open source ;-)
 - complicated startup for newcomers
 - native format (requires importing data, be aware of possibility of linking external formats)
 - vector topology (confusing for GIS beginners, sometimes tricky to import broken GIS data)
+@ulend
 @snapend
+
+---
+@title[When to use and not to use GRASS]
 
 @snap[south-west span-50]
 When to use GRASS GIS?
-
+@ul
 - doing (heavy) geospatial data analysis
 - working with topological vector data
 - analysing space-time datasets
 - doing Python scripting
 - deploying server-side applications (e.g. as WPS process)
+@ulend
 @snapend
 
 @snap[south-east span-50]
 When to use rather something else?
-
+@ul
 - want to vizualize geodata in easy and quick way (use QGIS instead)
 - being scared of location and mapsets ;-)
+@ulend
 @snapend
+
 ---
 
 @size[56px](Working with GRASS GIS is not much different than any other GIS...)
