@@ -15,40 +15,71 @@
 
 ## GRASS GIS: An overview of general capabilities
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+
+### Interoperability
+
++++
+
+Modules for import/export of vector and raster maps
+
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Raster processing
 
----
++++
+
+#### Raster menu
+
++++
+
+Resampling
+
++++
+
+Raster overlay
+
++++
+
+Hydrological modeling
+
++++
+
+Landscape analysis
+
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Satellite imagery processing
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### 3D raster processing
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Vector processing
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Time series
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Visualization tools
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Graphical modeller
 
-
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Cartographic composer
 
 <!--- <p><span class="slide-title">JavaScript Block</span></p> --->
+
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+
+### Add-ons
 
 ---
 
