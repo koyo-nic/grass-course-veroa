@@ -15,9 +15,9 @@
 
 ## Let's install GRASS GIS
 
-![Download software section](assets/img/grass_gis_download_software.png)
-
 [https://grass.osgeo.org/download/software/](https://grass.osgeo.org/download/software/)
+
+![Download software section](assets/img/grass_gis_download_software.png)
 
 ---
 
