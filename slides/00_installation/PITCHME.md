@@ -31,7 +31,7 @@ Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 +++
 
 @snap[south-west list-content-concise span-100]
-@ol
+@ol[](false)
 - Select **Advance install**
 - Select **Install from internet**
 - Leave the "Install directory" set by default
@@ -144,21 +144,21 @@ Wait for download and installation, and done :)
 ![last step](assets/img/osgeo4w_step_10.png)
 @snapend
 
-+++
++++?image=template/img/grass.png&position=bottom&size=100% 30%
 
 To update, just open the "OSGeo4W Setup" and start again
 <br><br>
-**Super easy!**
+**@size[64px](Super easy!)**
 
 +++
 
 There's also the WINGRASS standalone installer, but...
 <br><br>
-**@color[#8EA33B](we strongly recommend installing GRASS GIS through the OSGeo4W package)**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *@color[#8EA33B](nice bash shell features)*.
+**@color[#F26225](we strongly recommend installing GRASS GIS through the OSGeo4W package)**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *@color[#F26225](nice bash shell features)*.
 
 +++
 
-To allow bash tricks in Windows, just open GRASS GIS and, in the black terminal, run:
+To @color[#8EA33B](allow bash tricks in Windows), just open GRASS GIS and, in the black terminal, run:
 <br>
 ```
 bash.exe
@@ -185,10 +185,6 @@ sudo apt-get update
 sudo apt-get install grass
 ```
 
-+++
-
-### Linux users
-
 - **Fedora**: Simply install GRASS GIS from the package manager
 
 
@@ -213,7 +209,7 @@ sudo dnf install grass
 
 ### Install pymodis and sentinelsat in Windows
 <br>
-- Open OSGeo4W shell and run:
+- Open the **OSGeo4W shell** and run:
 
 
 ```python
