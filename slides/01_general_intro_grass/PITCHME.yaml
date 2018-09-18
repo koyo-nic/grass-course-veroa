@@ -27,7 +27,7 @@ theme-override : template/css/PITCHME.css
 # https://gitpitch.com/docs/settings/logo
 #
 
-logo : img/grassgis_logo_colorlogo_text_alphabg.png
+logo : assets/img/grassgis_logo_colorlogo_text_alphabg.png
 logo-position: top-left
 
 #

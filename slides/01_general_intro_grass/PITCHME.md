@@ -167,7 +167,7 @@ When to use rather something else?
 
 Well, except for this...
 
-<img src="img/start_screen1.png" width="50%">
+<img src="assets/img/start_screen1.png" width="50%">
 
 ---
 
@@ -239,7 +239,7 @@ More than [500 modules](https://grass.osgeo.org/grass74/manuals/full_index.html)
 
 +++
 
-<img src="img/module_tree_and_search.png" width="70%">
+<img src="assets/img/module_tree_and_search.png" width="70%">
 <br>
 Module tree and module search engine
 
@@ -265,7 +265,7 @@ or from github (or similar repositories) using the command
 
 ## Computational region
 
-![Show computational region](img/region.png)
+![Show computational region](assets/img/region.png)
 
 +++
 
@@ -305,7 +305,7 @@ the masked area(s). Masks are set with
 [r.mask](https://grass.osgeo.org/grass74/manuals/r.mask.html) 
 or creating a raster map called `MASK`.
 
-![MASK](img/masks.png)
+![MASK](assets/img/masks.png)
 <br>
 @size[18px](Examples of masking: b- Only the raster data inside the masked area are used for further analysis. c- Inverse mask.)
 
@@ -321,7 +321,7 @@ GRASS GIS offers different interfaces for the interaction between user and softw
 
 ### Graphical User Interface (GUI)
 
-![GRASS GIS GUI](img/GUI_description.png)
+![GRASS GIS GUI](assets/img/GUI_description.png)
 
 +++
 
@@ -329,7 +329,7 @@ GRASS GIS offers different interfaces for the interaction between user and softw
 
 The most powerful way to use GRASS GIS!!
 
-<img src="img/grass_command_line.png" width="70%">
+<img src="assets/img/grass_command_line.png" width="70%">
 
 +++
 
@@ -403,13 +403,13 @@ There are two ways to use GRASS GIS functionalities within QGIS:
 
 +++
 
-![GRASS modules through GRASS Plugin](img/qgis_grass_plugin.png)
+![GRASS modules through GRASS Plugin](assets/img/qgis_grass_plugin.png)
 <br>
 @size[18px](Using GRASS GIS modules through the GRASS Plugin in QGIS)
 
 +++
 
-![GRASS modules through Processing Toolbox](img/qgis_processing.png)
+![GRASS modules through Processing Toolbox](assets/img/qgis_processing.png)
 <br>
 @size[18px](Using GRASS GIS modules through the Processing Toolbox)
 
@@ -427,7 +427,7 @@ GRASS GIS and R can be used together in two ways:
 
 +++
 
-![Calling R from within GRASS](img/RwithinGRASS_and_Rstudio_from_grass.png)
+![Calling R from within GRASS](assets/img/RwithinGRASS_and_Rstudio_from_grass.png)
 
 @snap[south-east]
 @size[24px](We'll study this on Friday morning. Stay tuned!) @fa[smile-o fa-spin text-green]
