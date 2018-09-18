@@ -193,9 +193,8 @@ sudo apt-get install grass
 ```bash
 sudo dnf install grass
 ```
-<br>
 
-@size[28px](Other distros: https://grass.osgeo.org/download/software/)
+@size[26px](Other distros: https://grass.osgeo.org/download/software/)
 
 ---
 
