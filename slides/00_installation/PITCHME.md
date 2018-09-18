@@ -185,13 +185,17 @@ sudo apt-get update
 sudo apt-get install grass
 ```
 
++++
+
+### Linux users
+
 - **Fedora**: Install GRASS GIS from the package manager
 
 
 ```bash
 sudo dnf install grass
 ```
-
+<br>
 @size[26px](Other distros: https://grass.osgeo.org/download/software/)
 
 ---
