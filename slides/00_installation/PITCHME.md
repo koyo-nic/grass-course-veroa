@@ -184,8 +184,8 @@ sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 sudo apt-get update
 sudo apt-get install grass
 ```
-<br>
-- **Fedora**: Simply install GRASS GIS from the package manager
+
+- **Fedora**: Install GRASS GIS from the package manager
 
 
 ```bash
