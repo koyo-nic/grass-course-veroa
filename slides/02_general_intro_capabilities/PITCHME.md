@@ -127,19 +127,35 @@ voxel data
 
 +++
 
+Vector menu
+
+<img src="assets/img/Vector_menu.png">
+
++++
+
 Topology maintenance
+
+<img src="assets/img/Vector_topology_maint.png">
 
 +++
 
 Selection and overlaying
 
+<img src="assets/img/Vector_select.png">
+
+<img src="assets/img/Vector_overlay.png">
+
 +++
 
 Network analysis
 
+<img src="assets/img/Vector_network_analysis.png">
+
 +++
 
 Report and stats
+
+<img src="assets/img/Vector_report_stats.png">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -147,7 +163,11 @@ Report and stats
 
 +++
 
-General (we'll see this on thursday)
+General 
+
+<img src="assets/img/Temporal_menu.png">
+
+(we'll see this on thursday)
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
