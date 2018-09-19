@@ -175,9 +175,19 @@ General
 
 +++
 
-Flowchart view plus Python translation
+<p><span class="slide-title">Flowchart view plus Python translation</span></p>
 
+@snap[west span-50]
+<img src="assets/img/graphical_modeller.png">
+@snapend 
+
+@snap[east span-50]
+<img src="assets/img/graphical_modeller_python.png">
+@snapend
+
+@snap[south span-100]
 See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html) manual page for further details.
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -187,27 +197,68 @@ See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html
 
 Map display
 
+<img src="assets/img/map_display_and_gui_console.png">
+
++++
+
+Map display
+
+<img src="assets/img/map_display_and_data_tab.png">
+
 +++
 
 3D view
+
+<img src="assets/img/3d_view.png">
 
 +++
 
 wx-monitor
 
+@snap[west span-40]
+Run in the terminal:
+
+```bash
+d.mon wx0
+d.rast map=elevation
+d.vect map=roadsmajor
+```
+<br>
+@snapend
+
+@snap[east span-60]
+<img src="assets/img/wx_monitor.png">
+@snapend
+
 +++
 
 Map-swipe
+
+<img src="assets/img/map_swipe.png">
 
 +++
 
 Animation tool
 
+<img src="assets/img/lsat5_animation.gif">
+
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Cartographic composer
 
-<!--- <p><span class="slide-title">JavaScript Block</span></p> --->
++++
+
+<img src="assets/img/cartographic_comp_draft.png">
+
++++
+
+<img src="assets/img/elevation.pdf">
+
++++?code=code/elevation.psmap
+
+@[19](raster map)
+@[21-29](vector of areas)
+@[30-40](vector of lines)
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
