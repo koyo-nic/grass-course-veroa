@@ -24,11 +24,11 @@ OSGeo software and packages).
 
 There are two different options:
 1. Standalone installer: [32-bit version](https://grass.osgeo.org/grass74/binary/mswindows/native/x86/WinGRASS-7.4.1-1-Setup-x86.exe) | [64-bit version](https://grass.osgeo.org/grass74/binary/mswindows/native/x86_64/WinGRASS-7.4.1-1-Setup-x86_64.exe) 
-2. OSGeo4W package (network installer for advanced users): [32-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe) | [64-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe) 
+2. OSGeo4W package (network installer): [32-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe) | [64-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe) 
 
-**For Windows users, we strongly recommend installing GRASS GIS through the OSGeo4W package**, 
+For Windows users, **we strongly recommend installing GRASS GIS through the OSGeo4W package**, 
 since it allows to install all OSGeo software. If you choose this option, 
-*make sure you select GRASS GIS, QGIS and msys*. The latter one will allow 
+*make sure you select GRASS GIS and msys*. The latter one will allow 
 the use of loops, back ticks, autocomplete, history and other nice bash shell
 features.
 
@@ -57,9 +57,8 @@ For other Linux distributions including **Fedora** and **openSuSe**, simply inst
 
 ##### Extra dependencies
 
-- [pymodis](www.pymodis.org) 
-- PLY
-- sentinelsat
+- [pyModis](www.pymodis.org) 
+- [sentinelsat](https://github.com/sentinelsat/sentinelsat)
 - pandas
 - scikit-learn
 - matplotlib
@@ -78,6 +77,8 @@ For a quick-start guide, see: https://live.osgeo.org/en/quickstart/osgeolive_qui
 
 ### GRASS GIS Add-ons
 
+* [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
+* [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
 * [v.strds.stats](https://grass.osgeo.org/grass74/manuals/addons/v.strds.stats.html): Zonal statistics from given space-time raster datasets based on a polygons vector map 
 * [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression of GRASS GIS raster maps using the python scikit-learn package
 
@@ -85,17 +86,14 @@ Install with `g.extension extension=name_of_addon`
 
 ## Data
 
-TBD
+* [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`.
+* To be added
 
 <!---
-For the **Analysing environmental data with GRASS GIS** tutorial, we will use the following datasets:
-
 * [ECA&D elevation (GeoTiff file)](https://gitlab.com/neteler/grass-gis-geostat-2018/tree/master/intro/aux_data/ecad_elev_v17.zip): download and unzip into the `$HOME/geodata` folder (create folder if needed).
+
 * [ecad17_ll location](https://gitlab.com/neteler/grass-gis-geostat-2018/tree/master/intro/aux_data/grassdata_ecad17_ll.zip): download and unzip into the `$HOME/grassdata` folder (create folder if needed).
-
-For the **Spatio-temporal data processing and visualization** tutorial, we will use the following datasets:
-
-* [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`. 
+ 
 * [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
 --->
 
@@ -105,7 +103,7 @@ For the **Spatio-temporal data processing and visualization** tutorial, we will 
 
 ## License
 
-The course material:
+All the course material:
 
 [![Creative Commons License](assets/img/ccbysa.png)](http://creativecommons.org/licenses/by-sa/4.0/) Creative Commons Attribution-ShareAlike 4.0 International License
 
