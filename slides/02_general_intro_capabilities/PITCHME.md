@@ -59,6 +59,8 @@ Manage colors
 
 Classification and Segmentation
 
++ many add-ons: r.learn.ml, i.segment.\*, i.superpixels.slic, i.ann.\*
+
 +++
 
 Generic tools and tools for specific sensors
@@ -67,9 +69,15 @@ Generic tools and tools for specific sensors
 
 Products
 
++ Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lswt, etc.
+
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### 3D raster processing
+
++++
+
+voxel data
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -94,6 +102,10 @@ Report and stats
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Time series
+
++++
+
+General (we'll see this on thursday)
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
