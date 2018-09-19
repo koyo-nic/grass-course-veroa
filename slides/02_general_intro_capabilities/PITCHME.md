@@ -45,11 +45,27 @@ Hydrological modeling
 
 +++
 
-Landscape analysis
+Landscape and patch analysis
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Satellite imagery processing
+
++++
+
+Manage colors
+
++++
+
+Classification and Segmentation
+
++++
+
+Generic tools and tools for specific sensors
+
++++
+
+Products
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -58,6 +74,22 @@ Landscape analysis
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Vector processing
+
++++
+
+Topology maintenance
+
++++
+
+Selection and overlaying
+
++++
+
+Network analysis
+
++++
+
+Report and stats
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
