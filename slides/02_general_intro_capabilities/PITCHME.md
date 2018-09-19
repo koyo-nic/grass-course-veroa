@@ -23,6 +23,8 @@
 
 Modules for import/export of vector and raster maps
 
+<img src="assets/img/File_raster_import.png">
+
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Raster processing
@@ -31,21 +33,33 @@ Modules for import/export of vector and raster maps
 
 #### Raster menu
 
+<img src="assets/img/Raster_menu.png">
+
 +++
 
 Resampling
+
+<img src="assets/img/Raster_resample_options.png">
 
 +++
 
 Raster overlay
 
+<img src="assets/img/Raster_overlay_options.png">
+
 +++
 
 Hydrological modeling
 
+<img src="assets/img/Raster_hydro.png">
+
 +++
 
 Landscape and patch analysis
+
+<img src="assets/img/Raster_landscape.png">
+
+<img src="assets/img/Raster_r_pi_addons.png">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -53,11 +67,27 @@ Landscape and patch analysis
 
 +++
 
+Imagery menu
+
+<img src="assets/img/Imagery_menu.png">
+
++++
+
 Manage colors
+
+<img src="assets/img/Imagery_colors.png">
+
++++
+
+Transform
+
+<img src="assets/img/Imagery_transform.png">
 
 +++
 
 Classification and Segmentation
+
+<img src="assets/img/Imagery_classification.png">
 
 + many add-ons: r.learn.ml, i.segment.\*, i.superpixels.slic, i.ann.\*
 
@@ -65,11 +95,23 @@ Classification and Segmentation
 
 Generic tools and tools for specific sensors
 
+<img src="assets/img/Imagery_satellite_especif_tools.png">
+
++ Add-ons for MODIS, Sentinel, Landsat, SRTM, GPM, etc.
+
 +++
 
 Products
 
+<img src="assets/img/Imagery_products.png">
+
 + Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lswt, etc.
+
++++
+
+Evapotranspiration
+
+<img src="assets/img/Imagery_ET.png">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
