@@ -33,7 +33,9 @@ Modules for import/export of vector and raster maps
 
 #### Raster menu
 
-<img src="assets/img/Raster_menu.png">
+<img src="assets/img/Raster_menu.png" width="70%">
+
+[Raster processing](https://grass.osgeo.org/grass74/manuals/rasterintro.html) manual
 
 +++
 
@@ -70,6 +72,8 @@ Landscape and patch analysis
 Imagery menu
 
 <img src="assets/img/Imagery_menu.png">
+
+[Image processing](https://grass.osgeo.org/grass74/manuals/imageryintro.html) manual
 
 +++
 
@@ -119,7 +123,9 @@ Evapotranspiration
 
 +++
 
-voxel data
+<img src="assets/img/3D_raster_menu.png">
+
+[3D raster processing](https://grass.osgeo.org/grass74/manuals/raster3dintro.html) manual
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -129,7 +135,9 @@ voxel data
 
 Vector menu
 
-<img src="assets/img/Vector_menu.png">
+<img src="assets/img/Vector_menu.png" width="70%">
+
+[Vector processing](https://grass.osgeo.org/grass74/manuals/vectorintro.html) manual
 
 +++
 
@@ -167,15 +175,17 @@ General
 
 <img src="assets/img/Temporal_menu.png">
 
-(we'll see this on thursday)
+We'll see this on thursday @fa[smile-o fa-spin text-green]
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Graphical modeller
+### Graphical modeler
 
 +++
 
-<p><span class="slide-title">Flowchart view plus Python translation</span></p>
+@snap[north span-100]
+Flowchart view plus Python translation
+@snapend
 
 @snap[west span-50]
 <img src="assets/img/graphical_modeller.png">
@@ -197,19 +207,19 @@ See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html
 
 Map display
 
-<img src="assets/img/map_display_and_gui_console.png">
+<img src="assets/img/map_display_and_gui_console.png" width="70%">
 
 +++
 
 Map display
 
-<img src="assets/img/map_display_and_data_tab.png">
+<img src="assets/img/map_display_and_data_tab.png" width="70%">
 
 +++
 
 3D view
 
-<img src="assets/img/3d_view.png">
+<img src="assets/img/3d_view.png" width="70%">
 
 +++
 
@@ -218,7 +228,7 @@ wx-monitor
 @snap[west span-40]
 Run in the terminal:
 
-```bash
+```
 d.mon wx0
 d.rast map=elevation
 d.vect map=roadsmajor
@@ -234,13 +244,13 @@ d.vect map=roadsmajor
 
 Map-swipe
 
-<img src="assets/img/map_swipe.png">
+<img src="assets/img/map_swipe.png" width="70%">
 
 +++
 
 Animation tool
 
-<img src="assets/img/lsat5_animation.gif">
+<img src="assets/img/lsat5_animation.gif" width="80%">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -248,11 +258,11 @@ Animation tool
 
 +++
 
-<img src="assets/img/cartographic_comp_draft.png">
+<img src="assets/img/cartographic_comp_draft.png" width="80%">
 
 +++
 
-<img src="assets/img/elevation.pdf">
+<img src="assets/img/elevation.png">
 
 +++?code=code/elevation.psmap
 
@@ -280,3 +290,5 @@ Animation tool
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
+
+<!--- <p><span class="slide-title">Flowchart view plus Python translation</span></p> --->
