@@ -21,6 +21,10 @@
 
 +++
 
+<img src="assets/img/grass_database_vs_geodata.png" width="90%">
+
++++
+
 Modules for import/export of vector and raster maps
 
 <img src="assets/img/File_raster_import.png">
