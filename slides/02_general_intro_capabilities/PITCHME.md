@@ -65,11 +65,37 @@ Landscape analysis
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Visualization tools
+### Graphical modeller
+
++++
+
+Flowchart view plus Python translation
+
+See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html) manual page for further details.
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Graphical modeller
+### Visualization tools
+
++++
+
+Map display
+
++++
+
+3D view
+
++++
+
+wx-monitor
+
++++
+
+Map-swipe
+
++++
+
+Animation tool
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
