@@ -105,7 +105,7 @@ Generic tools and tools for specific sensors
 
 <img src="assets/img/Imagery_satellite_especif_tools.png">
 
-+ Add-ons for MODIS, Sentinel, Landsat, SRTM, GPM, etc.
+Add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.
 
 +++
 
@@ -113,13 +113,15 @@ Products
 
 <img src="assets/img/Imagery_products.png">
 
-+ Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lswt, etc.
+Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lswt, etc.
 
 +++
 
 Evapotranspiration
 
 <img src="assets/img/Imagery_ET.png">
+
+... and in add-ons
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -171,11 +173,17 @@ Report and stats
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Time series
+### Database
 
 +++
 
-General 
+<img src="assets/img/DB_menu.png">
+
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+
+### Time series
+
++++
 
 <img src="assets/img/Temporal_menu.png">
 
@@ -211,25 +219,27 @@ See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html
 
 Map display
 
-<img src="assets/img/map_display_and_gui_console.png" width="70%">
+<img src="assets/img/map_display_and_gui_console.png" width="80%">
 
 +++
 
 Map display
 
-<img src="assets/img/map_display_and_data_tab.png" width="70%">
+<img src="assets/img/map_display_and_data_tab.png" width="80%">
 
 +++
 
 3D view
 
-<img src="assets/img/3d_view.png" width="70%">
+<img src="assets/img/3d_view.png" width="80%">
 
 +++
 
+@snap[north span-100]
 wx-monitor
+@snapend
 
-@snap[west span-40]
+@snap[west span-30]
 Run in the terminal:
 
 ```
@@ -240,7 +250,7 @@ d.vect map=roadsmajor
 <br>
 @snapend
 
-@snap[east span-60]
+@snap[east span-70]
 <img src="assets/img/wx_monitor.png">
 @snapend
 
@@ -265,6 +275,8 @@ Animation tool
 <img src="assets/img/cartographic_comp_draft.png" width="80%">
 
 +++
+
+Export as .ps .eps or .pdf
 
 <img src="assets/img/elevation.png">
 
