@@ -34,16 +34,12 @@ features.
 
 ##### Mac OS
 
-Install GRASS GIS 7.4 using homebrew [osgeo4mac](https://github.com/OSGeo/homebrew-osgeo4mac):
+Download GRASS GIS 7.4.1 stable from: http://grassmac.wikidot.com/downloads
 
-```
-brew tap osgeo/osgeo4mac
-brew install grass7
-```
 
 ##### Ubuntu Linux
 
-Install GRASS GIS 7.4 from the "unstable" package repository:
+Install GRASS GIS 7.4.1 from the "unstable" package repository:
 
 ```
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
