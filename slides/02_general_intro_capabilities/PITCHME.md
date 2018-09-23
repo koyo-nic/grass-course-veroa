@@ -40,7 +40,7 @@ Modules for import/export of vector and raster maps
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Raster processing
+### Raster data processing
 
 +++
 
@@ -70,11 +70,17 @@ Hydrological modeling
 
 +++
 
+@snap[north span-100]
 Landscape and patch analysis
+@snapend
 
+@snap[west span-40]
 <img src="assets/img/Raster_landscape.png">
+@snapend
 
+@snap[east span-60]
 <img src="assets/img/Raster_r_pi_addons.png">
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -106,7 +112,7 @@ Classification and Segmentation
 
 <img src="assets/img/Imagery_classification.png">
 
-+ many add-ons: r.learn.ml, i.segment.\*, i.superpixels.slic, i.ann.\*
+... plus many add-ons: r.learn.ml, i.segment.\*, i.superpixels.slic, i.ann.\*
 
 +++
 
@@ -114,7 +120,7 @@ Generic tools and tools for specific sensors
 
 <img src="assets/img/Imagery_satellite_especif_tools.png">
 
-Add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.
+... plus add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.
 
 +++
 
@@ -144,7 +150,7 @@ Evapotranspiration
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Vector processing
+### Vector data processing
 
 +++
 
@@ -182,7 +188,7 @@ Report and stats
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Database
+### Database management
 
 +++
 
@@ -190,7 +196,7 @@ Report and stats
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Time series
+### Temporal data processing
 
 +++
 
@@ -305,7 +311,7 @@ Export as .ps .eps or .pdf
 
 ---
 
-Some cool add-ons:
+Some cool add-ons we'll use:
 
 @ul
 - [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)
