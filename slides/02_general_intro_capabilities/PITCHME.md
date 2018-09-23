@@ -24,10 +24,19 @@
 <img src="assets/img/grass_database_vs_geodata.png" width="90%">
 
 +++
+@title[Import/Export]
 
+@snap[north span-100]
 Modules for import/export of vector and raster maps
+@snapend
 
+@snap[west span-50]
 <img src="assets/img/File_raster_import.png">
+@snapend
+
+@snap[east span-50]
+<img src="assets/img/File_raster_export.png">
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -187,7 +196,7 @@ Report and stats
 
 <img src="assets/img/Temporal_menu.png">
 
-We'll see this on thursday @fa[smile-o fa-spin text-green]
+We'll see this in more detail on Thursday @fa[smile-o fa-spin text-green]
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -217,19 +226,19 @@ See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html
 
 +++
 
-Map display
+Map display: console tab
 
 <img src="assets/img/map_display_and_gui_console.png" width="80%">
 
 +++
 
-Map display
+Map display: data tab
 
 <img src="assets/img/map_display_and_data_tab.png" width="80%">
 
 +++
 
-3D view
+Map display: 3D view
 
 <img src="assets/img/3d_view.png" width="80%">
 
@@ -252,6 +261,10 @@ d.vect map=roadsmajor
 
 @snap[east span-70]
 <img src="assets/img/wx_monitor.png">
+@snapend
+
+@snap[south span-100]
+wx-monitors have the same "buttons" than the main Map Display in the GUI
 @snapend
 
 +++
@@ -290,9 +303,21 @@ Export as .ps .eps or .pdf
 
 ### Add-ons
 
-<!--- Introduce some other useful add-ons --->
-
 ---
+
+Some cool add-ons:
+
+@ul
+- [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)
+- [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html)
+- [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html)
+- [r.hants](https://grass.osgeo.org/grass74/manuals/addons/r.hants.html)
+- [r.series.lwr](https://grass.osgeo.org/grass74/manuals/addons/r.series.lwr.html)
+- [r.seasons](https://grass.osgeo.org/grass74/manuals/addons/r.seasons.html)
+- [r.bioclim](https://grass.osgeo.org/grass74/manuals/addons/r.bioclim.html)
+@ulend
+
+--- 
 
 **Thanks for your attention!!**
 
