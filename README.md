@@ -34,11 +34,7 @@ features.
 
 ##### Mac OS
 
-Download GRASS GIS 7.4.1 stable from: 
-
-http://grassmac.wikidot.com/downloads 
-
-and follow the instructions under *Installing GRASS for Mac*.
+Download GRASS GIS 7.4.1 stable from: http://grassmac.wikidot.com/downloads and follow the instructions under *Installing GRASS for Mac*.
 
 ##### Ubuntu Linux
 
