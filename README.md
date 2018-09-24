@@ -1,6 +1,6 @@
 # curso-grass-gis-rioiv
 
-Data, code and slides for the postgraduate course that will be held in Rio Cuarto (Cordoba, Argentina) on October, 2018
+Data, code and slides for the graduate course that will be held in Rio Cuarto (Cordoba, Argentina) on October, 2018
 
 ## Links to units
 
@@ -74,8 +74,8 @@ For a quick-start guide, see: https://live.osgeo.org/en/quickstart/osgeolive_qui
 
 * [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
 * [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
-* [v.strds.stats](https://grass.osgeo.org/grass74/manuals/addons/v.strds.stats.html): Zonal statistics from given space-time raster datasets based on a polygons vector map 
 * [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression of GRASS GIS raster maps using the python scikit-learn package
+* [v.strds.stats](https://grass.osgeo.org/grass74/manuals/addons/v.strds.stats.html): Zonal statistics from given space-time raster datasets based on a polygons vector map
 
 Install with `g.extension extension=name_of_addon`
 
