@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## GRASS GIS: An overview of general capabilities
+## GRASS GIS: Overview of general capabilities
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -46,7 +46,7 @@ Modules for import/export of vector and raster maps
 
 #### Raster menu
 
-<img src="assets/img/Raster_menu.png" width="70%">
+<img src="assets/img/Raster_menu.png" width="60%">
 
 [Raster processing](https://grass.osgeo.org/grass74/manuals/rasterintro.html) manual
 
@@ -54,19 +54,19 @@ Modules for import/export of vector and raster maps
 
 Resampling
 
-<img src="assets/img/Raster_resample_options.png">
+<img src="assets/img/Raster_resample_options.png" width="60%">
 
 +++
 
 Raster overlay
 
-<img src="assets/img/Raster_overlay_options.png">
+<img src="assets/img/Raster_overlay_options.png" width="60%">
 
 +++
 
 Hydrological modeling
 
-<img src="assets/img/Raster_hydro.png">
+<img src="assets/img/Raster_hydro.png" width="60%">
 
 +++
 
@@ -90,7 +90,7 @@ Landscape and patch analysis
 
 Imagery menu
 
-<img src="assets/img/Imagery_menu.png">
+<img src="assets/img/Imagery_menu.png" width="60%">
 
 [Image processing](https://grass.osgeo.org/grass74/manuals/imageryintro.html) manual
 
@@ -98,19 +98,19 @@ Imagery menu
 
 Manage colors
 
-<img src="assets/img/Imagery_colors.png">
+<img src="assets/img/Imagery_colors.png" width="60%">
 
 +++
 
 Transform
 
-<img src="assets/img/Imagery_transform.png">
+<img src="assets/img/Imagery_transform.png" width="60%">
 
 +++
 
 Classification and Segmentation
 
-<img src="assets/img/Imagery_classification.png">
+<img src="assets/img/Imagery_classification.png" width="60%">
 
 ... plus many add-ons: r.learn.ml, i.segment.\*, i.superpixels.slic, i.ann.\*
 
@@ -118,7 +118,7 @@ Classification and Segmentation
 
 Generic tools and tools for specific sensors
 
-<img src="assets/img/Imagery_satellite_especif_tools.png">
+<img src="assets/img/Imagery_satellite_especif_tools.png" width="60%">
 
 ... plus add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.
 
@@ -126,7 +126,7 @@ Generic tools and tools for specific sensors
 
 Products
 
-<img src="assets/img/Imagery_products.png">
+<img src="assets/img/Imagery_products.png" width="60%">
 
 Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lswt, etc.
 
@@ -134,7 +134,7 @@ Add-ons: [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html), i.lsw
 
 Evapotranspiration
 
-<img src="assets/img/Imagery_ET.png">
+<img src="assets/img/Imagery_ET.png" width="60%">
 
 ... and in add-ons
 
@@ -144,7 +144,7 @@ Evapotranspiration
 
 +++
 
-<img src="assets/img/3D_raster_menu.png">
+<img src="assets/img/3D_raster_menu.png" width="60%">
 
 [3D raster processing](https://grass.osgeo.org/grass74/manuals/raster3dintro.html) manual
 
@@ -156,7 +156,7 @@ Evapotranspiration
 
 Vector menu
 
-<img src="assets/img/Vector_menu.png" width="70%">
+<img src="assets/img/Vector_menu.png" width="60%">
 
 [Vector processing](https://grass.osgeo.org/grass74/manuals/vectorintro.html) manual
 
@@ -164,27 +164,27 @@ Vector menu
 
 Topology maintenance
 
-<img src="assets/img/Vector_topology_maint.png">
+<img src="assets/img/Vector_topology_maint.png" width="60%">
 
 +++
 
 Selection and overlaying
 
-<img src="assets/img/Vector_select.png">
+<img src="assets/img/Vector_select.png" width="60%">
 
-<img src="assets/img/Vector_overlay.png">
+<img src="assets/img/Vector_overlay.png" width="60%">
 
 +++
 
 Network analysis
 
-<img src="assets/img/Vector_network_analysis.png">
+<img src="assets/img/Vector_network_analysis.png" width="60%">
 
 +++
 
 Report and stats
 
-<img src="assets/img/Vector_report_stats.png">
+<img src="assets/img/Vector_report_stats.png" width="60%">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -192,7 +192,7 @@ Report and stats
 
 +++
 
-<img src="assets/img/DB_menu.png">
+<img src="assets/img/DB_menu.png" width="60%">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -200,7 +200,7 @@ Report and stats
 
 +++
 
-<img src="assets/img/Temporal_menu.png">
+<img src="assets/img/Temporal_menu.png" width="60%">
 
 We'll see this in more detail on Thursday @fa[smile-o fa-spin text-green]
 
@@ -219,7 +219,7 @@ Flowchart view plus Python translation
 @snapend 
 
 @snap[east span-50]
-<img src="assets/img/graphical_modeller_python.png">
+<img src="assets/img/graphical_modeller_python.png" width="50%">
 @snapend
 
 @snap[south span-100]
@@ -266,11 +266,11 @@ d.vect map=roadsmajor
 @snapend
 
 @snap[east span-70]
-<img src="assets/img/wx_monitor.png">
+<img src="assets/img/wx_monitor.png" width="60%">
 @snapend
 
 @snap[south span-100]
-wx-monitors have the same "buttons" than the main Map Display in the GUI
+@size[24px](wx-monitors have the same "buttons" than the main Map Display in the GUI)
 @snapend
 
 +++
@@ -291,19 +291,22 @@ Animation tool
 
 +++
 
-<img src="assets/img/cartographic_comp_draft.png" width="80%">
+<img src="assets/img/cartographic_comp_draft.png" width="60%">
 
 +++
 
 Export as .ps .eps or .pdf
 
-<img src="assets/img/elevation.png">
+<img src="assets/img/elevation.png" width="60%">
 
 +++?code=code/elevation.psmap
 
 @[19](raster map)
 @[21-29](vector of areas)
 @[30-40](vector of lines)
+@[41-49](color table, i.e., raster legend)
+@[50-57](vector legend)
+@[58-67](scale bar)
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
