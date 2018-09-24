@@ -27,7 +27,7 @@
 @title[Import/Export]
 
 @snap[north span-100]
-Modules for import/export of vector and raster maps
+Modules for import/export of raster maps
 @snapend
 
 @snap[west span-50]
@@ -49,13 +49,15 @@ Raster menu
 @snapend
 
 @snap[west span-60]
-<img src="assets/img/Raster_menu.png" width="40%">
+<img src="assets/img/Raster_menu.png">
 @snapend
 
 @snap[east span-40]
 Most of these modules will work with:
+@ul(false)
 - Raster data: DEMs, land cover, climatic maps...
 - Imagery data: Landsat, MODIS, SPOT, QuickBird...
+@ulend
 @snapend
 
 @snap[south span-100]
@@ -69,13 +71,15 @@ Resampling
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Raster_resample_options.png" width="60%">
+<img src="assets/img/Raster_resample_options.png">
 @snapend
 
 @snap[east span-50]
 Examples:
+@ul(false)
 - [r.resamp.interp](https://grass.osgeo.org/grass74/manuals/r.resamp.interp.html): Resamples raster map to a finer grid using interpolation (nearest, bilinear, bicubic)
 - [r.resamp.stats](https://grass.osgeo.org/grass74/manuals/r.resamp.stats.html): Resamples raster map layers to a coarser grid using aggregation
+@ulend
 @snapend
 
 +++
@@ -85,15 +89,19 @@ Raster overlay
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Raster_overlay_options.png" width="60%">
-<br>
+<img src="assets/img/Raster_overlay_options.png">
+@snapend
+
+@snap[south-west span-50]
 <img src="assets/img/r_patch.png">
 @snapend
 
 @snap[east span-50]
 Examples:
+@ul(false)
 - [r.series](https://grass.osgeo.org/grass74/manuals/r.series.html): Allows to aggregate a list of maps with different methods, i.e., average, minimum, maximum, etc.
 - [r.patch](https://grass.osgeo.org/grass74/manuals/r.patch.html): Creates a composite raster map using known category values from one (or more) map(s) to fill in areas of "no data" in another map
+@ulend
 @snapend
 
 +++
@@ -103,11 +111,11 @@ Hydrological modeling
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Raster_hydro.png" width="60%">
+<img src="assets/img/Raster_hydro.png">
 @snapend
 
 @snap[east span-50]
-... plus several other add-ons, including
+@size[20px](... plus several other add-ons, for example:)
 
 <img src="assets/img/r_stream_addons.jpg">
 
@@ -117,7 +125,7 @@ Hydrological modeling
 +++
 
 @snap[north span-100]
-Landscape and patch analysis
+Landscape analysis
 @snapend
 
 @snap[west span-40]
@@ -125,9 +133,11 @@ Landscape and patch analysis
 @snapend
 
 @snap[east span-60]
-... plus several add-ons for "patch analysis"
+@size[20px](... plus several add-ons for "patch analysis")
 
 <img src="assets/img/Raster_r_pi_addons.png">
+
+<a href="https://doi.org/10.1111/2041-210X.12827">Wegman et al., 2017</a>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -136,11 +146,21 @@ Landscape and patch analysis
 
 +++
 
+@snap[north span-100]
 Imagery menu
+@snapend
 
-<img src="assets/img/Imagery_menu.png" width="60%">
+@snap[west span-40]
+<img src="assets/img/Imagery_menu.png">
+@snapend
 
+@snap[east span-60]
+<img src="assets/img/Imaging-Spectroscopy-Concept.png">
+@snapend
+
+@snap[south span-100]
 [Image processing](https://grass.osgeo.org/grass74/manuals/imageryintro.html) manual
+@snapend
 
 +++
 
@@ -149,30 +169,32 @@ Manage colors
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Imagery_colors.png" width="60%">
+<img src="assets/img/Imagery_colors.png">
 @snapend
 
 @snap[east span-50]
 [i.colors.enhance](https://grass.osgeo.org/grass74/manuals/i.colors.enhance.html)
 
-<img src="assets/img/i.colors.enhance.jpg">
+<img src="assets/img/i_colors_enhance.jpg">
 @snapend
 
 +++
 
 @snap[north span-100]
-Transform
+Imagery transformations
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Imagery_transform.png" width="60%">
+<img src="assets/img/Imagery_transform.png">
 @snapend
 
 @snap[east span-50]
 Examples:
+@ul(false)
 - [i.pca](https://grass.osgeo.org/grass74/manuals/i.pca.html): Principal components analysis (PCA) for image processing
 - [i.fft](https://grass.osgeo.org/grass74/manuals/i.fft.html): Fast Fourier Transform (FFT) for image processing
-- [i.pansharpen](https://grass.osgeo.org/grass74/manuals/i.pansharpen.html): Image fusion algorithms to sharpen multispectral with high-res panchromatic channels 
+- [i.pansharpen](https://grass.osgeo.org/grass74/manuals/i.pansharpen.html): Image fusion algorithms to sharpen multispectral with high-res panchromatic channels
+@ulend
 @snapend
 
 +++
@@ -182,9 +204,9 @@ Classification and Segmentation
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Imagery_classification.png" width="60%">
+<img src="assets/img/Imagery_classification.png">
 
-@ul
+@ul(false)
 - Supervised (maxlik, smap)
 - Unsupervised
 - Segmentation
@@ -193,11 +215,13 @@ Classification and Segmentation
 
 @snap[east span-50]
 ... plus many add-ons: 
+@ul(false)
 - r.learn.ml 
 - i.segment.\*
 - i.superpixels.slic
 - i.ann.\*
 - and more...
+@ulend
 @snapend
 
 @snap[south span-100]
@@ -211,12 +235,12 @@ Generic RS tools and tools for specific sensors
 @snapend
 
 @snap[west span-60]
-<img src="assets/img/Imagery_satellite_especif_tools.png" width="60%">
+<img src="assets/img/Imagery_satellite_especif_tools.png">
 
-... plus add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.
+@size[20px](... plus add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.)
 @snapend
 
-@snap
+@snap[east span-40]
 <img src="assets/img/i_atcor_B02_atcorr.png">
 
 @size[18px](Sentinel-2A Band 02 with applied atmospheric correction)
@@ -229,16 +253,18 @@ RS derived products
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Imagery_products.png" width="60%">
+<img src="assets/img/Imagery_products.png">
 @snapend
 
 @snap[east span-50]
 Add-ons: 
+@ul(false)
 - [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html)
 - [i.lswt](https://grass.osgeo.org/grass74/manuals/addons/i.lswt.html)
 - [i.landsat8.swlst](https://grass.osgeo.org/grass74/manuals/addons/i.landsat8.swlst.html)
 - [i.rh](https://grass.osgeo.org/grass74/manuals/addons/i.rh.html)
 - [i.water](https://grass.osgeo.org/grass74/manuals/addons/i.water.html)
+@ulend
 @snapend
 
 +++
@@ -248,7 +274,7 @@ Evapotranspiration
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Imagery_ET.png" width="60%">
+<img src="assets/img/Imagery_ET.png">
 @snapend
 
 @snap[east span-50]
@@ -268,7 +294,7 @@ Evapotranspiration
 @snap[east span-50]
 <img src="assets/img/raster3d_layout.png">
 <br>
-@size[18px](3D raster map coordinate system and internal tile layout)
+@size[20px](3D raster map coordinate system and internal tile layout)
 @snapend
 
 @snap[south span-100]
@@ -292,7 +318,7 @@ Vector menu
 @snap[east span-50]
 <img src="assets/img/vector_types.png">
 
-Topological vector formats in GRASS GIS
+@size[20px](Topological vector formats in GRASS GIS)
 @snapend
 
 @snap[south span-100]
@@ -306,11 +332,11 @@ Topology maintenance
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Vector_topology_maint.png">
+<img src="assets/img/Vector_topology_maint.png"><br>
+<img src="assets/img/v_clean.png" width="85%">
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/v_clean.png"><br>
 <img src="assets/img/v_generalize_smooth.png"><br>
 See also: [v.generalize](https://grasswiki.osgeo.org/wiki/V.generalize_tutorial) tutorial
 @snapend
@@ -322,16 +348,16 @@ Selection and overlaying
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Vector_select.png" width="60%">
+<img src="assets/img/Vector_select.png">
 <br>
-<img src="assets/img/Vector_overlay.png" width="60%">
+<img src="assets/img/Vector_overlay.png">
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/v_select_op_touches.png">
+<img src="assets/img/v_select_op_touches.png" width="60%">
 <br>
-<img src="assets/img/v_overlay_op_not.png">
-@spanend
+<img src="assets/img/v_overlay_op_not.png" width="60%">
+@snapend
 
 +++
 @snap[north span-100]
@@ -340,7 +366,7 @@ Network analysis
 
 @snap[west span-50]
 <img src="assets/img/Vector_network_analysis.png">
-@spanend
+@snapend
 
 @snap[east span-50]
 <img src="assets/img/v_net_distance.png">
@@ -350,7 +376,7 @@ Network analysis
 
 @snap[west span-50]
 Report and stats
-
+<br>
 <img src="assets/img/Vector_report_stats.png">
 
 <img src="assets/img/v_univar.png">
@@ -370,8 +396,8 @@ Update attributes
 
 +++
 
-@snap[nort-west span-50]
-<img src="assets/img/DB_menu.png" width="50%">
+@snap[north-west span-50]
+<img src="assets/img/DB_menu.png">
 @snapend
 
 @snap[south-west span-50]
@@ -411,7 +437,7 @@ Flowchart view plus Python translation
 @snapend 
 
 @snap[east span-50]
-<img src="assets/img/graphical_modeller_python.png" width="80%">
+<img src="assets/img/graphical_modeller_python.png" width="90%">
 @snapend
 
 @snap[south span-100]
@@ -426,19 +452,19 @@ See [g.gui.gmodeler](https://grass.osgeo.org/grass74/manuals/wxGUI.gmodeler.html
 
 Map display: console tab
 
-<img src="assets/img/map_display_and_gui_console.png" width="80%">
+<img src="assets/img/map_display_and_gui_console.png" width="85%">
 
 +++
 
 Map display: data tab
 
-<img src="assets/img/map_display_and_data_tab.png" width="80%">
+<img src="assets/img/map_display_and_data_tab.png" width="85%">
 
 +++
 
 Map display: 3D view
 
-<img src="assets/img/3d_view.png" width="80%">
+<img src="assets/img/3d_view.png" width="85%">
 
 +++
 
@@ -446,7 +472,7 @@ Map display: 3D view
 Wx-monitors
 @snapend
 
-@snap[west span-35]
+@snap[west span-40]
 Run in the terminal:
 <br>
 ```
@@ -457,12 +483,12 @@ d.vect map=roadsmajor
 <br>
 @snapend
 
-@snap[east span-65]
-<img src="assets/img/wx_monitor.png" width="80%">
+@snap[east span-60]
+<img src="assets/img/wx_monitor.png" width="90%">
 @snapend
 
 @snap[south span-100]
-@size[24px](The wx-monitors have the same "buttons" than the main Map Display in the GUI)
+@size[24px](The wx-monitors have the same **buttons** than the main Map Display in the GUI)
 @snapend
 
 +++
@@ -471,7 +497,9 @@ Map-swipe
 
 <img src="assets/img/map_swipe.png" width="70%">
 
+@snap[south span-100]
 [g.gui.mapswipe](https://grass.osgeo.org/grass74/manuals/g.gui.mapswipe.html)
+@snapend
 
 +++
 
@@ -479,7 +507,9 @@ Animation tool
 
 <img src="assets/img/lsat5_animation.gif" width="80%">
 
+@snap[south span-100]
 [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html)
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -489,8 +519,9 @@ Animation tool
 
 <img src="assets/img/cartographic_comp_draft.png" width="60%">
 
+@snap[south span-100]
 [g.gui.psmap](https://grass.osgeo.org/grass77/manuals/g.gui.psmap.html)
-
+@snapend
 +++
 
 Export as .ps .eps or .pdf
@@ -514,22 +545,20 @@ Example of a .psmap file to automatize cartographic composition
 
 ### Add-ons
 
----
++++
 
-Some other cool add-ons we'll use:
+Some other cool add-ons:
 
-@ul
 - [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html)
 - [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html)
 - [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html)
 - [r.hants](https://grass.osgeo.org/grass74/manuals/addons/r.hants.html)
 - [r.seasons](https://grass.osgeo.org/grass74/manuals/addons/r.seasons.html)
 - [r.bioclim](https://grass.osgeo.org/grass74/manuals/addons/r.bioclim.html)
-@ulend
 
 Just don't forget to check <br>
 https://grass.osgeo.org/grass74/manuals/addons/ <br>
-from time to time @fa[grin-alt text-green]
+from time to time @fa[grin #8EA33B]
 
 --- 
 
