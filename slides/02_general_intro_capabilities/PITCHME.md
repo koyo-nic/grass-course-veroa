@@ -42,9 +42,9 @@ Modules for import/export of raster maps
 
 ### Raster data processing
 
-+++
++++?image=template/img/bg/green.jpg&position=top&size=100% 15%
 
-@snap[north span-100]
+@snap[north text-white span-100]
 Raster menu
 @snapend
 
