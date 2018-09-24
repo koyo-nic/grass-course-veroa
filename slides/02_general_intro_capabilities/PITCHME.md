@@ -46,7 +46,7 @@ Modules for import/export of vector and raster maps
 
 #### Raster menu
 
-<img src="assets/img/Raster_menu.png" width="60%">
+<img src="assets/img/Raster_menu.png" width="50%">
 
 [Raster processing](https://grass.osgeo.org/grass74/manuals/rasterintro.html) manual
 
@@ -144,7 +144,7 @@ Evapotranspiration
 
 +++
 
-<img src="assets/img/3D_raster_menu.png" width="60%">
+<img src="assets/img/3D_raster_menu.png" width="50%">
 
 [3D raster processing](https://grass.osgeo.org/grass74/manuals/raster3dintro.html) manual
 
@@ -156,7 +156,7 @@ Evapotranspiration
 
 Vector menu
 
-<img src="assets/img/Vector_menu.png" width="60%">
+<img src="assets/img/Vector_menu.png" width="40%">
 
 [Vector processing](https://grass.osgeo.org/grass74/manuals/vectorintro.html) manual
 
@@ -192,7 +192,7 @@ Report and stats
 
 +++
 
-<img src="assets/img/DB_menu.png" width="60%">
+<img src="assets/img/DB_menu.png" width="50%">
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -200,7 +200,7 @@ Report and stats
 
 +++
 
-<img src="assets/img/Temporal_menu.png" width="60%">
+<img src="assets/img/Temporal_menu.png" width="50%">
 
 We'll see this in more detail on Thursday @fa[smile-o fa-spin text-green]
 
@@ -219,7 +219,7 @@ Flowchart view plus Python translation
 @snapend 
 
 @snap[east span-50]
-<img src="assets/img/graphical_modeller_python.png" width="50%">
+<img src="assets/img/graphical_modeller_python.png" width="70%">
 @snapend
 
 @snap[south span-100]
@@ -256,7 +256,7 @@ wx-monitor
 
 @snap[west span-30]
 Run in the terminal:
-
+<br>
 ```
 d.mon wx0
 d.rast map=elevation
@@ -266,11 +266,11 @@ d.vect map=roadsmajor
 @snapend
 
 @snap[east span-70]
-<img src="assets/img/wx_monitor.png" width="60%">
+<img src="assets/img/wx_monitor.png" width="80%">
 @snapend
 
 @snap[south span-100]
-@size[24px](wx-monitors have the same "buttons" than the main Map Display in the GUI)
+@size[24px](The wx-monitors have the same "buttons" than the main Map Display in the GUI)
 @snapend
 
 +++
@@ -300,6 +300,10 @@ Export as .ps .eps or .pdf
 <img src="assets/img/elevation.png" width="60%">
 
 +++?code=code/elevation.psmap
+
+@snap[north-east template-note text-gray]
+Example of a .psmap file to automatize cartographic composition
+@snapend
 
 @[19](raster map)
 @[21-29](vector of areas)
