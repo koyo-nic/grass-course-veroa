@@ -46,7 +46,7 @@ Modules for import/export of vector and raster maps
 
 #### Raster menu
 
-<img src="assets/img/Raster_menu.png" width="50%">
+<img src="assets/img/Raster_menu.png" width="40%">
 
 [Raster processing](https://grass.osgeo.org/grass74/manuals/rasterintro.html) manual
 
@@ -219,7 +219,7 @@ Flowchart view plus Python translation
 @snapend 
 
 @snap[east span-50]
-<img src="assets/img/graphical_modeller_python.png" width="70%">
+<img src="assets/img/graphical_modeller_python.png" width="80%">
 @snapend
 
 @snap[south span-100]
