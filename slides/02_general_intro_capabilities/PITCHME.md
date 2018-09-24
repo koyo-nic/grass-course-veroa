@@ -334,6 +334,13 @@ Some cool add-ons we'll use:
 
 ---
 
+@snap[north span-90]
+<br><br><br>
+Move on to: 
+<br>
+[Raster data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab#/)
+@snapend
+
 @snap[south span-50]
 @size[18px](Presentation powered by)
 <br>

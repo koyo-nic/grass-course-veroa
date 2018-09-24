@@ -631,7 +631,7 @@ GRASS GIS and R can be used together in two ways:
 ---
 
 @snap[north span-90]
-<br><br>
+<br><br><br>
 Move on to: 
 <br>
 [GRASS GIS Installation party](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab#/)
