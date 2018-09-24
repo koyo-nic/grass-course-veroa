@@ -380,20 +380,18 @@ The simplest way to execute a Python script is through the *Simple Python editor
  r.colors(map=output, color="elevation")
 ``` 
 
-+++?code=code/01_intro_grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
++++?code=code/01_intro_grass_session_vector_import.py&lang=python
 
-<!---
 @snap[north-east template-note text-gray]
 Using GRASS GIS through **grass-session** Python library
 @snapend
---->
 
 @[17-28](Import libraries)
 @[36-48](Create Location and Mapset)
 @[50-66](Run modules)
 @[68-69](Clean and close)
 
-@size[14px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
+@size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
 
