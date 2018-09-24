@@ -393,7 +393,7 @@ Using GRASS GIS through **grass-session** Python library
 @[50-66](Run modules)
 @[68-69](Clean and close)
 
-@size[16px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
+@size[14px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
 
