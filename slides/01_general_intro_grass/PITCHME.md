@@ -393,7 +393,7 @@ Using GRASS GIS through **grass-session** Python library
 @[50-66](Run modules)
 @[68-69](Clean and close)
 
-@size[18px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
+@size[16px](Credits: Pietro Zambelli. See <a href="https://github.com/zarch/grass-session">grass-session GitHub</a> for further details.)
 
 +++
 
@@ -637,7 +637,7 @@ GRASS GIS and R can be used together in two ways:
 Move on to: 
 <br>
 [GRASS GIS Installation party](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab#/)
-@spanend
+@snapend
 
 @snap[south span-50]
 @size[18px](Presentation powered by)
