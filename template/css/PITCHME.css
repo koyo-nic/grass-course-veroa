@@ -237,7 +237,7 @@
   padding: 3px 10px;
   margin-right: 15px;
   border-radius: 3px;
-  background-color: #F26225;
+  background-color: #8EA33B;
   content: counter(step-counter);
 }
 
