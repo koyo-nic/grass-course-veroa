@@ -66,7 +66,7 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 @snapend
 
 +++
-@title[Intro OSGeo 1]
+@title[Intro OSGeo 2]
 
 @snap[north span-100]
 <h2>Brief intro to OSGeo</h2>
@@ -180,6 +180,7 @@ Well, except for this...
 @ulend
 
 +++
+@title[GRASS DB, Location and Mapsets]
 
 When GRASS GIS is started, it connects to the Database, Location and Mapset specified by the user
 
@@ -379,11 +380,13 @@ The simplest way to execute a Python script is through the *Simple Python editor
  r.colors(map=output, color="elevation")
 ``` 
 
-+++?code=code/01_intro_grass_session_vector_import.py&lang=python
++++?code=code/01_intro_grass_session_vector_import.py&lang=python&title=Using GRASS GIS through **grass-session** Python library
 
+<!---
 @snap[north-east template-note text-gray]
 Using GRASS GIS through **grass-session** Python library
 @snapend
+--->
 
 @[17-28](Import libraries)
 @[36-48](Create Location and Mapset)
@@ -403,7 +406,7 @@ There are two ways to use GRASS GIS functionalities within QGIS:
 
 +++
 
-![GRASS modules through GRASS Plugin](assets/img/qgis_grass_plugin.png)
+![GRASS GIS modules through GRASS Plugin](assets/img/qgis_grass_plugin.png)
 <br>
 @size[18px](Using GRASS GIS modules through the GRASS Plugin in QGIS)
 
@@ -625,10 +628,16 @@ GRASS GIS and R can be used together in two ways:
 
 <p style="color:white">Join and enjoy GRASS GIS!!</p>
 
-<!--- ADD LINK TO THE NEXT PRESENTATION --->
 <!--- ?include=tgrass/PITCHME.md --->
 
 ---
+
+@snap[north span-90]
+<br><br>
+Move on to: 
+<br>
+[GRASS GIS Installation party](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab#/)
+@spanend
 
 @snap[south span-50]
 @size[18px](Presentation powered by)
