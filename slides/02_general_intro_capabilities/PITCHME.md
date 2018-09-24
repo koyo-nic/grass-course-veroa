@@ -265,10 +265,10 @@ Evapotranspiration
 <img src="assets/img/3D_raster_menu.png" width="50%">
 @snapend
 
-@snap[west span-50]
+@snap[east span-50]
 <img src="assets/img/raster3d_layout.png">
 <br>
-@size[18px](The 3D raster map coordinate system and the internal tile layout of the RASTER3D library)
+@size[18px](3D raster map coordinate system and internal tile layout)
 @snapend
 
 @snap[south span-100]
@@ -306,7 +306,7 @@ Topology maintenance
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/Vector_topology_maint.png" width="60%">
+<img src="assets/img/Vector_topology_maint.png">
 @snapend
 
 @snap[east span-50]
@@ -328,21 +328,41 @@ Selection and overlaying
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/v_select_op_touches.png"><br>
+<img src="assets/img/v_select_op_touches.png">
+<br>
 <img src="assets/img/v_overlay_op_not.png">
 @spanend
 
 +++
-
+@snap[north span-100]
 Network analysis
+@snapend
 
-<img src="assets/img/Vector_network_analysis.png" width="60%">
+@snap[west span-50]
+<img src="assets/img/Vector_network_analysis.png">
+@spanend
+
+@snap[east span-50]
+<img src="assets/img/v_net_distance.png">
+@snapend
 
 +++
 
+@snap[west span-50]
 Report and stats
 
-<img src="assets/img/Vector_report_stats.png" width="60%">
+<img src="assets/img/Vector_report_stats.png">
+
+<img src="assets/img/v_univar.png">
+@snapend
+
+@snap[east span-50]
+Update attributes
+
+<img src="assets/img/Vector_update_attr.png">
+
+<img src="assets/img/v_rast_stats.png">
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -350,7 +370,17 @@ Report and stats
 
 +++
 
+@snap[nort-west span-50]
 <img src="assets/img/DB_menu.png" width="50%">
+@snapend
+
+@snap[south-west span-50]
+<img src="assets/img/db_execute.png">
+@snapend
+
+@snap[east span-50]
+<img src="assets/img/vector_db_connections.png">
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -413,7 +443,7 @@ Map display: 3D view
 +++
 
 @snap[north span-100]
-wx-monitor
+Wx-monitors
 @snapend
 
 @snap[west span-35]
@@ -441,11 +471,15 @@ Map-swipe
 
 <img src="assets/img/map_swipe.png" width="70%">
 
+[g.gui.mapswipe](https://grass.osgeo.org/grass74/manuals/g.gui.mapswipe.html)
+
 +++
 
 Animation tool
 
 <img src="assets/img/lsat5_animation.gif" width="80%">
+
+[g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html)
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -454,6 +488,8 @@ Animation tool
 +++
 
 <img src="assets/img/cartographic_comp_draft.png" width="60%">
+
+[g.gui.psmap](https://grass.osgeo.org/grass77/manuals/g.gui.psmap.html)
 
 +++
 
@@ -487,12 +523,14 @@ Some other cool add-ons we'll use:
 - [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html)
 - [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html)
 - [r.hants](https://grass.osgeo.org/grass74/manuals/addons/r.hants.html)
-- [r.series.lwr](https://grass.osgeo.org/grass74/manuals/addons/r.series.lwr.html)
 - [r.seasons](https://grass.osgeo.org/grass74/manuals/addons/r.seasons.html)
 - [r.bioclim](https://grass.osgeo.org/grass74/manuals/addons/r.bioclim.html)
 @ulend
 
-Just don't forget to check https://grass.osgeo.org/grass74/manuals/addons/ for more @fa[smile]
+Just don't forget to check <br>
+https://grass.osgeo.org/grass74/manuals/addons/ <br>
+from time to time @fa[grin-alt text-green]
+
 --- 
 
 **Thanks for your attention!!**
