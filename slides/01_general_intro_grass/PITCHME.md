@@ -363,7 +363,7 @@ The simplest way to execute a Python script is through the *Simple Python editor
 ... or write your Python script in your favorite editor and run it:
 
 ```python
- !/usr/bin/env python
+ #!/usr/bin/env python
 
  # simple example for pyGRASS usage: raster processing via modules approach
  from grass.pygrass.modules.shortcuts import general as g
