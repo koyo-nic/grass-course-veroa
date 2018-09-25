@@ -96,7 +96,7 @@ Resampling
 <img src="assets/img/Raster_resample_options.png">
 @snapend
 
-@snap[south-east span-60]
+@snap[south span-60]
 <img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
 @snapend
 
@@ -111,7 +111,7 @@ Raster overlay
 <br><br>
 @snapend
 
-@snap[south-west span-60]
+@snap[south span-60]
 <img src="assets/img/r_patch.png" width="70%">
 <br>
 @size[16px](Patching 2 raster maps containing NULLs)
