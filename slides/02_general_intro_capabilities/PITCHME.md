@@ -90,11 +90,12 @@ Resampling
 - [r.resamp.interp](https://grass.osgeo.org/grass74/manuals/r.resamp.interp.html): Resamples raster map to a finer grid using interpolation (nearest, bilinear, bicubic)
 - [r.resamp.stats](https://grass.osgeo.org/grass74/manuals/r.resamp.stats.html): Resamples raster map layers to a coarser grid using aggregation
 @ulend
+<br>
 @snapend
 
 @snap[south-west span-60]
-<img src="assets/img/r_resamp_stats_6m_20m.png" width="40%">
-
+<img src="assets/img/r_resamp_stats_6m_20m.png" width="50%">
+<br>
 @size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
 @snapend
 
@@ -110,14 +111,13 @@ Raster overlay
 @snapend
 
 @snap[west span-50]
-<br>
 <img src="assets/img/Raster_overlay_options.png">
 <br><br>
 @snapend
 
 @snap[south-west span-60]
-<img src="assets/img/r_patch.png" width="90%">
-
+<img src="assets/img/r_patch.png" width="70%">
+<br>
 @size[16px](Patching 2 raster maps containing NULLs)
 @snapend
 
