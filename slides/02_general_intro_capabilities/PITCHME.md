@@ -254,12 +254,14 @@ Generic RS tools and tools for specific sensors
 @snapend
 
 @snap[west span-60]
+<br>
 <img src="assets/img/Imagery_satellite_especif_tools.png">
 <br>
 @size[20px](... plus add-ons for MODIS, Sentinel2, Landsat, SRTM, GPM, etc.)
 @snapend
 
 @snap[east span-40]
+<br>
 <img src="assets/img/i_atcorr_B02_atcorr.png" width="85%">
 
 @size[16px](Sentinel-2A Band 02 after *i.atcorr*)
@@ -272,6 +274,7 @@ RS derived products
 @snapend
 
 @snap[west span-50]
+<br>
 <img src="assets/img/Imagery_products.png">
 <br>
 <img src="assets/img/ndvi.png" width="70%">
@@ -313,11 +316,13 @@ Evapotranspiration
 @snapend
 
 @snap[west span-50]
+<br>
 <img src="assets/img/3D_raster_menu.png">
 <br><br>
 @snapend
 
 @snap[east span-50]
+<br>
 <img src="assets/img/raster3d_layout.png" width="85%">
 
 @size[18px](3D raster coordinate system and internal tile layout)
@@ -359,7 +364,7 @@ Topology maintenance
 
 @snap[midpoint span-90]
 <img src="assets/img/Vector_topology_maint.png">
-<br><br>
+<br><br><br><br>
 @snapend
 
 @snap[south-west span-50]
@@ -385,10 +390,12 @@ Selection and overlaying
 @snapend
 
 @snap[east span-50]
+<br><br>
 @size[16px](v.select operator *TOUCHES*)
 <img src="assets/img/v_select_op_touches.png" width="60%">
-<br><br><br>
+<br><br>
 @size[16px](v.overlay operator *NOT*)
+
 <img src="assets/img/v_overlay_op_not.png" width="50%">
 @snapend
 
@@ -438,16 +445,16 @@ Database management menu
 
 @snap[west span-50]
 <img src="assets/img/DB_menu.png">
-<br><br>
+<br><br><br>
 @snapend
 
 @snap[east span-50]
 <img src="assets/img/vector_db_connections.png">
-<br><br>
+<br><br><br>
 @snapend
 
 @snap[south span-50]
-<img src="assets/img/db_execute.png" width="75%">
+<img src="assets/img/db_execute.png" width="65%">
 
 @size[20px](Run any SQL query with *db.execute*)
 @snapend
@@ -526,7 +533,9 @@ Map display: console tab
 Map display: data tab
 @snapend
 
+@snap[south span-100]
 <img src="assets/img/map_display_and_data_tab.png" width="85%">
+@snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
 
