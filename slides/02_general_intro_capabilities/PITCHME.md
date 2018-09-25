@@ -245,15 +245,15 @@ Classification
 
 @snap[east span-50]
 @ul[header-footer-list-shrink](false)
-- [r.learn.ml](): Supervised classification and regression of GRASS rasters using the python scikit-learn package (note also v.class.ml and similar for vector data)
-- r.fuzzy.\*():
-- [i.ann.\*]():
-- [i.object.activelearning](https://grass.osgeo.org/grass74/manuals/addons/r.object.activelearning.html):
+- [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression with Machine Learning
+- [r.fuzzy.system](https://grass.osgeo.org/grass74/manuals/addons/r.fuzzy.system.html): Full fuzzy logic standalone classification system
+- [i.ann.maskrcnn](https://grass.osgeo.org/grass74/manuals/addons/i.ann.maskrcnn.html): Supervised classification using convolutional neural networks
+- [i.object.activelearning](https://grass.osgeo.org/grass74/manuals/addons/r.object.activelearning.html): Active learning for classifying raster objects
 @ulend
 @snapend
 
 @snap[south span-100]
-Supervised and Unsupervised methods available. See <a href="https://grasswiki.osgeo.org/wiki/Image_classification">Image classification</a> wiki for details and mini tutorial.
+@size[20px](Supervised and Unsupervised methods available. See <a href="https://grasswiki.osgeo.org/wiki/Image_classification">Image classification</a> wiki for details and mini tutorial)
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -262,19 +262,18 @@ Supervised and Unsupervised methods available. See <a href="https://grasswiki.os
 Segmentation and OBIA
 @snapend
 
-@snap[west span-50]
-OBIA-automated classification
+@snap[west span-40]
+@size[20px](OBIA-automated classification)
 <img src="assets/img/remotesensing_grass_obia.png">
 @snapend
 
-@snap[east span-50]
+@snap[east span-60]
 @ul[header-footer-list-shrink](false)
 - [i.segment](https://grass.osgeo.org/grass77/manuals/i.segment.html): Identifies segments (objects) from imagery data
-- [r.clump](https://grass.osgeo.org/grass74/manuals/r.clump.html): Recategorizes data by grouping cells that form discrete areas
 - [i.segment.hierarchical](https://grass.osgeo.org/grass74/manuals/addons/i.segment.hierarchical.html): Hierarchical segmentation
 - [i.segment.stats](https://grass.osgeo.org/grass74/manuals/addons/i.segment.stats.html): Calculates statistics describing raster areas
 - [i.segment.uspo](https://grass.osgeo.org/grass74/manuals/addons/i.segment.uspo.html): Unsupervised segmentation parameter optimization
-- [i.superpixels.slic](https://grass.osgeo.org/grass74/manuals/addons/i.superpixels.slic.html): Performs image segmentation using the SLIC segmentation method
+- [i.superpixels.slic](https://grass.osgeo.org/grass74/manuals/addons/i.superpixels.slic.html): Performs image segmentation using SLIC method
 @ulend
 @snapend
 
@@ -308,18 +307,18 @@ Generic RS tools and tools for specific sensors
 RS derived products
 @snapend
 
-@snap[west span-50]
+@snap[west span-40]
 <br>
 <img src="assets/img/Imagery_products.png">
 <br>
-<img src="assets/img/ndvi.png" width="70%">
+<img src="assets/img/ndvi.png" width="80%">
 @snapend
 
-@snap[east span-50]
+@snap[east span-60]
 @ul[header-footer-list-shrink](false)
 - [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html): Calculates different types of water indices
-- [i.lswt](https://grass.osgeo.org/grass74/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures (inland water bodies) from TOA Brightness Temperatures
-- [i.landsat8.swlst](https://grass.osgeo.org/grass74/manuals/addons/i.landsat8.swlst.html): Split-window algorithm estimating Land Surface Temperature from Landsat 8 OLI/TIRS
+- [i.lswt](https://grass.osgeo.org/grass74/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures from TOA Brightness Temperatures
+- [i.landsat8.swlst](https://grass.osgeo.org/grass74/manuals/addons/i.landsat8.swlst.html): Split-window algorithm estimating LST from Landsat 8 OLI/TIRS
 - [i.rh](https://grass.osgeo.org/grass74/manuals/addons/i.rh.html): Water in atmosphere: relative humidity, water vapour
 - [i.water](https://grass.osgeo.org/grass74/manuals/addons/i.water.html): Water detection from satellite data derived indices
 @ulend
@@ -383,16 +382,16 @@ Topology maintenance
 @snapend
 
 @snap[midpoint span-90]
-<img src="assets/img/Vector_topology_maint.png">
+<img src="assets/img/Vector_topology_maint.png" width="90%">
 <br><br><br><br>
 @snapend
 
-@snap[south-west span-50]
+@snap[south-west span-65]
 <img src="assets/img/v_clean.png" width="65%"><br>
 @size[16px](Cleaning topological errors in vector map)
 @snapend
 
-@snap[south-east span-50]
+@snap[south-east span-65]
 <img src="assets/img/v_generalize_smooth.png" width="65%"><br>
 @size[16px](Smoothing. See also the <a href="https://grasswiki.osgeo.org/wiki/V.generalize_tutorial">v.generalize</a> wiki)
 @snapend
@@ -567,20 +566,12 @@ Map display: 3D view
 Wx-monitors
 @snapend
 
-@snap[west span-45]
-Run in the GRASS terminal:
-<br>
-```
-d.mon wx0
-
-d.rast map=elevation
-
-d.vect map=roadsmajor
-```
-<br>
+@snap[west span-40]
+From the GRASS terminal:
+<img src="assets/img/terminal_wx0_call.png">
 @snapend
 
-@snap[east span-55]
+@snap[east span-60]
 <img src="assets/img/wx_monitor.png" width="90%">
 @snapend
 
@@ -669,7 +660,7 @@ Some (other) cool add-ons
 - [r.hants](https://grass.osgeo.org/grass74/manuals/addons/r.hants.html): Approximates a periodic time series with harmonics
 - [r.seasons](https://grass.osgeo.org/grass74/manuals/addons/r.seasons.html): Extracts seasons from a time series
 - [r.bioclim](https://grass.osgeo.org/grass74/manuals/addons/r.bioclim.html): Calcuates bioclimatic indices
-- and **other 300+ more in the official repo**
+- ... and **other 300+ more in the official repo!!**
 @ulend
 @snapend
 
