@@ -445,7 +445,7 @@ Database management menu
 @snapend
 
 @snap[south span-60]
-<img src="assets/img/db_execute.png" width="35%">
+<img src="assets/img/db_execute.png" width="55%">
 @snapend
 
 
