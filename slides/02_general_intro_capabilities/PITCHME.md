@@ -86,10 +86,11 @@ Resampling
 @snapend
 
 @snap[east span-50]
+<br>
 <img src="assets/img/Raster_resample_options.png">
 
 <img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
-
+<br>
 @size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
 @snapend
 
