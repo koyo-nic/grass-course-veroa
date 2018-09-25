@@ -150,8 +150,8 @@ Hydrological modeling
 @size[20px](<a href="https://doi.org/10.1016/j.cageo.2011.03.003">Jasiewics and Metz, 2011</a>)
 @snapend
 
-@snap[south span-60]
-<img src="assets/img/r_stream_collage.png" width="60%">
+@snap[south span-70]
+<img src="assets/img/r_stream_collage.png" width="80%">
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -171,7 +171,7 @@ Landscape analysis
 @snapend
 
 @snap[south span-80]
-<img src="assets/img/r_pi_searchtime.png" width="60%">
+<img src="assets/img/r_pi_searchtime.png" width="45%">
 @size[20px](<a href="https://doi.org/10.1111/2041-210X.12827">Wegman et al., 2017</a>)
 @snapend
 
@@ -244,6 +244,7 @@ Classification
 @snapend
 
 @snap[east span-50]
+<br>
 @ul[header-footer-list-shrink](false)
 - [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression with Machine Learning
 - [r.fuzzy.system](https://grass.osgeo.org/grass74/manuals/addons/r.fuzzy.system.html): Full fuzzy logic standalone classification system
@@ -263,11 +264,13 @@ Segmentation and OBIA
 @snapend
 
 @snap[west span-40]
+<br>
 @size[20px](OBIA-automated classification)
-<img src="assets/img/remotesensing_grass_obia.png">
+<img src="assets/img/remotesensing_grass_obia.png" width="85%">
 @snapend
 
 @snap[east span-60]
+<br>
 @ul[header-footer-list-shrink](false)
 - [i.segment](https://grass.osgeo.org/grass77/manuals/i.segment.html): Identifies segments (objects) from imagery data
 - [i.segment.hierarchical](https://grass.osgeo.org/grass74/manuals/addons/i.segment.hierarchical.html): Hierarchical segmentation
@@ -278,7 +281,7 @@ Segmentation and OBIA
 @snapend
 
 @snap[south span-100]
-[OBIA processing chain](https://github.com/tgrippa/Opensource_OBIA_processing_chain)
+@size[26](<a href="https://github.com/tgrippa/Opensource_OBIA_processing_chain">OBIA processing chain</a>)
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -315,6 +318,7 @@ RS derived products
 @snapend
 
 @snap[east span-60]
+<br>
 @ul[header-footer-list-shrink](false)
 - [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html): Calculates different types of water indices
 - [i.lswt](https://grass.osgeo.org/grass74/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures from TOA Brightness Temperatures
@@ -382,17 +386,17 @@ Topology maintenance
 @snapend
 
 @snap[midpoint span-90]
-<img src="assets/img/Vector_topology_maint.png" width="90%">
+<img src="assets/img/Vector_topology_maint.png" width="80%">
 <br><br><br><br>
 @snapend
 
 @snap[south-west span-65]
-<img src="assets/img/v_clean.png" width="65%"><br>
+<img src="assets/img/v_clean.png" width="60%"><br>
 @size[16px](Cleaning topological errors in vector map)
 @snapend
 
 @snap[south-east span-65]
-<img src="assets/img/v_generalize_smooth.png" width="65%"><br>
+<img src="assets/img/v_generalize_smooth.png" width="60%"><br>
 @size[16px](Smoothing. See also the <a href="https://grasswiki.osgeo.org/wiki/V.generalize_tutorial">v.generalize</a> wiki)
 @snapend
 
@@ -567,7 +571,7 @@ Wx-monitors
 @snapend
 
 @snap[west span-40]
-From the GRASS terminal:
+From the terminal:
 <img src="assets/img/terminal_wx0_call.png">
 @snapend
 
