@@ -452,9 +452,8 @@ Database management menu
 <br><br><br>
 @snapend
 
-@snap[south span-50]
+@snap[south-west span-100]
 <img src="assets/img/db_execute.png" width="65%">
-
 @size[16px](Run any SQL query with *db.execute*)
 @snapend
 
