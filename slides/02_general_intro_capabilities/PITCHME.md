@@ -224,16 +224,9 @@ Classification and Segmentation
 
 @snap[west span-50]
 <img src="assets/img/Imagery_classification.png">
-
-@ul[header-footer-list-shrink](false)
-- Supervised (maxlik, smap)
-- Unsupervised
-- Segmentation
-@ulend
 @snapend
 
 @snap[east span-50]
-... and many add-ons: 
 @ul[header-footer-list-shrink](false)
 - r.learn.ml 
 - i.segment.\*
