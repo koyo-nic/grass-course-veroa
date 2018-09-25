@@ -113,8 +113,6 @@ Raster overlay
 
 @snap[south span-60]
 <img src="assets/img/r_patch.png" width="70%">
-<br>
-@size[16px](Patching 2 raster maps containing NULLs)
 @snapend
 
 @snap[east span-50]
