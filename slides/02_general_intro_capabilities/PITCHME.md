@@ -93,13 +93,12 @@ Resampling
 <br><br>
 @snapend
 
-@snap[south-west span-60]
-<img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
+@snap[east span-50]
+<img src="assets/img/Raster_resample_options.png">
 @snapend
 
-@snap[east span-50]
-<br>
-<img src="assets/img/Raster_resample_options.png">
+@snap[south-east span-60]
+<img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
