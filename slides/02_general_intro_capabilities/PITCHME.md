@@ -85,20 +85,20 @@ Raster menu
 Resampling
 @snapend
 
-@snap[east span-50]
-<br>
-<img src="assets/img/Raster_resample_options.png">
-
-<img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
-<br>
-@size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
-@snapend
-
 @snap[west span-50]
 @ul[header-footer-list-shrink](false)
 - [r.resamp.interp](https://grass.osgeo.org/grass74/manuals/r.resamp.interp.html): Resamples raster map to a finer grid using interpolation (nearest, bilinear, bicubic)
 - [r.resamp.stats](https://grass.osgeo.org/grass74/manuals/r.resamp.stats.html): Resamples raster map layers to a coarser grid using aggregation
 @ulend
+@snapend
+
+@snap[east span-50]
+<br>
+<img src="assets/img/Raster_resample_options.png">
+
+<img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
+
+@size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -110,7 +110,7 @@ Raster overlay
 @snap[west span-50]
 <br>
 <img src="assets/img/Raster_overlay_options.png">
-<br>
+<br><br>
 <img src="assets/img/r_patch.png">
 
 @size[16px](Patching 2 raster maps containing NULLs)
@@ -445,10 +445,12 @@ Database management menu
 <br><br><br>
 @snapend
 
+<!---
 @snap[south-west span-100]
 <img src="assets/img/db_execute.png" width="35%">
 @size[16px](Run any SQL query with *db.execute*)
 @snapend
+--->
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -477,10 +479,6 @@ Temporal menu
 @snap[south span-100]
 We'll see this in more detail on Thursday @fa[smile-o fa-spin text-green]
 @snapend
-
-+++
-
-<img src="assets/img/tgrass_flowchart.png" width=80%>
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
