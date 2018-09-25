@@ -393,7 +393,7 @@ Selection and overlaying
 <br>
 <img src="assets/img/v_select_op_touches.png" width="60%">
 @size[15px](v.select operator *TOUCHES*)
-<br>
+<br><br><br>
 <img src="assets/img/v_overlay_op_not.png" width="50%">
 @size[15px](v.overlay operator *NOT*)
 @snapend
