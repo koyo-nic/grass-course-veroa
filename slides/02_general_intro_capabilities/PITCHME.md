@@ -151,7 +151,7 @@ Hydrological modeling
 @snapend
 
 @snap[south span-70]
-<img src="assets/img/r_stream_collage.png" width="80%">
+<img src="assets/img/r_stream_collage.png" width="75%">
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -571,7 +571,7 @@ Wx-monitors
 @snapend
 
 @snap[west span-40]
-From the terminal:
+In the terminal:
 <img src="assets/img/terminal_wx0_call.png">
 @snapend
 
