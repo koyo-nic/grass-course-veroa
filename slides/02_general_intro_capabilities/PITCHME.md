@@ -95,8 +95,6 @@ Resampling
 
 @snap[south-west span-60]
 <img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
-<br>
-@size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
 @snapend
 
 @snap[east span-50]
