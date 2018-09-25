@@ -390,12 +390,12 @@ Selection and overlaying
 @snapend
 
 @snap[east span-50]
-<br><br>
-<img src="assets/img/v_select_op_touches.png" width="60%"><br>
-@size[16px](v.select operator *TOUCHES*)
 <br>
-<img src="assets/img/v_overlay_op_not.png" width="50%"><br>
-@size[16px](v.overlay operator *NOT*)
+<img src="assets/img/v_select_op_touches.png" width="60%">
+@size[15px](v.select operator *TOUCHES*)
+<br>
+<img src="assets/img/v_overlay_op_not.png" width="50%">
+@size[15px](v.overlay operator *NOT*)
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
