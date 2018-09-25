@@ -38,6 +38,10 @@ Modules for import/export of raster maps
 <img src="assets/img/File_raster_export.png">
 @snapend
 
+@snap[south span-100]
+GRASS relies on [GDAL](https://www.gdal.org/) to import and export raster data
+@snapend
+
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
 @title[Vector Import/Export]
 
@@ -51,6 +55,10 @@ Modules for import/export of vector maps
 
 @snap[east span-50]
 <img src="assets/img/File_vector_export.png">
+@snapend
+
+@snap[south span-100]
+GRASS relies on [GDAL/OGR](https://www.gdal.org/ogr_arch.html) to import and export raster data
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -283,20 +291,6 @@ RS derived products
 @ulend
 @snapend
 
-+++?image=template/img/bg/green.jpg&position=top&size=100% 15%
-
-@snap[north text-white span-100]
-Evapotranspiration
-@snapend
-
-@snap[west span-50]
-<img src="assets/img/Imagery_ET.png">
-@snapend
-
-@snap[east span-50]
-... and also in add-ons
-@snapend
-
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### 3D raster processing
@@ -315,7 +309,7 @@ Evapotranspiration
 
 @snap[east span-50]
 <br>
-<img src="assets/img/raster3d_layout.png" width="85%">
+<img src="assets/img/raster3d_layout.png" width="80%">
 
 @size[18px](3D raster coordinate system and internal tile layout)
 @snapend
@@ -341,7 +335,7 @@ Vector menu
 @snap[east span-50]
 <img src="assets/img/vector_types.png">
 
-@size[20px](Topological vector formats in GRASS GIS)
+@size[18px](Topological vector formats in GRASS GIS)
 @snapend
 
 @snap[south span-100]
