@@ -391,12 +391,11 @@ Selection and overlaying
 
 @snap[east span-50]
 <br><br>
+<img src="assets/img/v_select_op_touches.png" width="60%"><br>
 @size[16px](v.select operator *TOUCHES*)
-<img src="assets/img/v_select_op_touches.png" width="60%">
-<br><br>
+<br>
+<img src="assets/img/v_overlay_op_not.png" width="50%"><br>
 @size[16px](v.overlay operator *NOT*)
-
-<img src="assets/img/v_overlay_op_not.png" width="50%">
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -444,8 +443,8 @@ Database management menu
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/DB_menu.png">
-<br><br><br>
+<img src="assets/img/DB_menu.png" width="95%">
+<br><br><br><br>
 @snapend
 
 @snap[east span-50]
@@ -456,7 +455,7 @@ Database management menu
 @snap[south span-50]
 <img src="assets/img/db_execute.png" width="65%">
 
-@size[20px](Run any SQL query with *db.execute*)
+@size[16px](Run any SQL query with *db.execute*)
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
