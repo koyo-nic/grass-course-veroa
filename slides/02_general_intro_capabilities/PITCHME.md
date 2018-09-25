@@ -92,8 +92,8 @@ Resampling
 @ulend
 @snapend
 
-@snap[south-west span-90]
-<img src="assets/img/r_resamp_stats_6m_20m.png" width="60%">
+@snap[south-west span-60]
+<img src="assets/img/r_resamp_stats_6m_20m.png" width="40%">
 
 @size[14px](Upscaling of 6m DEM to 20m DEM with weighted resampling)
 @snapend
@@ -115,7 +115,7 @@ Raster overlay
 <br><br>
 @snapend
 
-@snap[south-west span-90]
+@snap[south-west span-60]
 <img src="assets/img/r_patch.png" width="90%">
 
 @size[16px](Patching 2 raster maps containing NULLs)
