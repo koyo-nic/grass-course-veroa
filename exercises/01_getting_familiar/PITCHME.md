@@ -25,13 +25,12 @@
 @ol[list-content-verbose]
 - Revise GRASS GIS database structure
 - Sample dataset "North Carolina"
-- Start GRASS GIS
-- GRASS GIS GUI
+- Start GRASS GIS and explore GUI
 - Display raster and vector maps
 - Query raster and vector maps
 - 3D visualization
-- Displaying base maps (WMS servers)
-- Add map decorations: barscale, north arrow, text, grids, raster and vector legends
+- Display base maps (WMS servers)
+- Add map decorations
 - Scatterplots and histograms
 @olend
 @snapend
@@ -47,18 +46,20 @@ Now I will ask you some questions?
 
 <br>
 
-You can have a sneak peek here: [GRASS Intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab#/8) presentation
+You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab#/8) presentation
 
 ---
 
 @snap[north span-100]
-### Sample dataset: North Carolina 
+<h3>Sample dataset: North Carolina</h3>
 @snapend
 
 @snap[west span-60]
+@ul[](false)
 - Download the [**North Carolina full dataset**](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip)
 - Create a folder in your $HOME directory (or Documents) and name it `grassdata`
 - Unzip the file `nc_spm_08_grass7.zip` within `grassdata` so you end up with: *$HOME/grassdata/nc_spm_08_grass7*
+@ulend
 @snapend
 
 @snap[east span-40]
@@ -69,11 +70,11 @@ You can have a sneak peek here: [GRASS Intro](https://gitpitch.com/veroandreo/cu
 
 ## Let's start GRASS GIS
 
-- Click over the GRASS GIS icon (MS Windows: Start --> OSGeo4W --> GRASS GIS)
+- Click over the GRASS GIS icon (*MS Windows: Start --> OSGeo4W --> GRASS GIS*)
 
 or 
 
-- Open a terminal or the OSGeo4W Shell and type:
+- Open a terminal or the *OSGeo4W Shell* and type:
 
 ```bash
 # open grass with GUI Location wizard
@@ -89,12 +90,12 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 ... and now what?
 @snapend
 
-@snap[west span-60]
+@snap[west span-55]
 ![Startup](assets/img/start_screen3.png)
 @snapend
 
-@snap[east span-40]
-@ol
+@snap[east span-45]
+@ol[list-content-verbose]
 - Select the GRASS database folder (previously created)
 - Select the `nc_spm_08_grass7` location 
 - Select `user1` mapset
@@ -105,7 +106,7 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 ---
 
 @snap[north span-100]
-If you haven't downloaded the sample data set yet... No problem!
+If you haven't downloaded NC location yet... No problem!
 @snapend
 
 @snap[west span-50]
@@ -117,36 +118,58 @@ If you haven't downloaded the sample data set yet... No problem!
 @snapend
 
 ---
-
+@snap[north-west]
 Here we are :)
+@snapend
 
-<img src="assets/img/empty_gui_explained.png" width="90%">
+<img src="assets/img/empty_gui_explained.png" width="88%">
 
 ---
 
 ... and the Terminal
 
-<img src="assets/img/empty_terminal.png" width="85%">
+<img src="assets/img/empty_terminal.png" width="80%">
 
 ---
 
-### Displaying raster and vector maps
+### Get information about the CRS
 
-Different options:
-- Toolbar in the Layer Manager
-- Typing the commands in the Console tab
-- Double-click over a map in the Data tab 
-- From command line 
+<img src="assets/img/projection_info">
 
 <br>
 
-**Task:**
+or just type in the terminal
 
-- Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
+```bash
+g.proj -p
+```
 
 ---
 
-## Calling GRASS GIS commands
+@snap[north span-100]
+<h3>Display raster and vector maps</h3>
+@snapend
+
+@snap[west span-50]
+Different options:
+@ul[list-content-verbose](false)
+- Go to File --> Map display --> Add raster|vector
+- Toolbar icons in the Layer Manager
+- Type the commands in the Console tab
+- Double-click over a map in the Data tab 
+- From command line in the black terminal
+@ulend
+@snapend
+
+@snap[east span-50]
+> **Task:**
+> 
+> - Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
+@snapend
+
+---
+
+### Calling GRASS GIS commands
 
 - From the GUI: 
   - Main menu in GRASS GIS Layer Manager, 
@@ -154,16 +177,18 @@ Different options:
   - Modules tab
   
 - From the terminal: 
-  - type first letter or some letters + <tab><tab>
+  - type first letter or some letters + `<tab><tab>`
 
 ---
 
 **Task:**
 
-1. Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
-2. Run `r.univar map=elevation` from the Console tab
-3. Type `r.un` in the black terminal and hit <tab> twice. Then hit <Enter>
-4. Run `r.univar map=elevation` in the black terminal
+@ol
+- Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
+- Run `r.univar map=elevation` from the Console tab
+- Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
+- Run `r.univar map=elevation` in the black terminal
+@olend
 
 ---
 
@@ -173,11 +198,11 @@ Different options:
 
 @snap[west span-50]
 *Log file* and *Save* in the GUI console
-![Log and Save buttons](assets/img/log_file_button.png)
+<img src="assets/img/log_file_button.png" width="85%">
 @snapend
 
 @snap[east span-50]
-*Copy* button in commands user interface
+*Copy* button in commands' GUI
 ![Copy button](assets/img/copy_button.png)
 @snapend
 
@@ -187,12 +212,14 @@ Different options:
 
 - From the Main menu `Help`
 - In the GUI of every command
-- Typing <command> `--help` in the terminal
-- Using `g.manual` <command> to see the online manual page
-<br><br>
-**Task:**
+- Typing `<command> --help` in the terminal
+- Using `g.manual <command>` to see the online manual page
 
-Now try yourself with `r.info` and `v.what.stats`. What do they do?
+<br><br>
+
+> **Task:**
+> 
+> Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ---
 
@@ -200,43 +227,64 @@ Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ![Query raster map](assets/img/query_maps.png)
 
++++
+
+### Query raster and vector maps
+
+![Query vector map](assets/img/query_vector_maps.png)
+
+---
+### Vector's attribute table(s)
+
+<img src="assets/img/vector_attr_table.png" width="80%">
+
+> **Task:**
+> 
+> - Change color of areas
+> - Display only boundaries with a different color
+> - Show only cat 1-40
+> - Build an SQL SELECTION query with 2 conditions 
+
 ---
 
 ### 3D visualization
 
-**Task:**
-
-- Display `elevation` map
-- Change to 3D view in the Map Display window
-- Explore the options
+> **Task:**
+> 
+> - Display `elevation` map
+> - Change to 3D view in the Map Display window
+> - Explore the options
 
 ---
 
-### Displaying base maps from WMS servers
+@snap[north span-100]
+<h3>Display base maps from WMS servers</h3>
+@snapend
 
 @snap[west span-50]
-![Step 1](assets/img/add_wms_1.png)
+<img src="assets/img/add_wms_1.png" width="95%">
 @snapend
 
 @snap[east span-50]
-![Step 2](assets/img/add_wms_2.png)
+<img src="assets/img/add_wms_2.png" width="95%">
 @snapend
 
 ---
 
 @snap[north span-100]
-<h3>Displaying base maps from WMS servers</h3>
+<h3>Display base maps from WMS servers</h3>
 @snapend
 
 @snap[west span-50]
-![Step 3](assets/img/add_wms_3.png)
+<img src="assets/img/add_wms_3.png">
 @snapend
 
 @snap[east span-50]
 **Task:**
- 
+@ul 
 - Explore the area, zoom in, zoom out
-- Display a vector map over the WMS layer (hint: adjust opacity of the vector map)
+- Display a vector map over the WMS layer (*Hint: adjust opacity of the vector map*)
+@ulend
 @snapend
 
 ---
@@ -269,20 +317,21 @@ Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 @snap[east span-50]
 **Task:**
-
-1. Click over *Analyze map*
-2. Select *Bivariate scatterplot*
-3. Select 2 raster maps
-4. Explore the relationship among map values
+@ol[](false)
+- Click over *Analyze map*
+- Select *Bivariate scatterplot*
+- Select 2 raster maps
+- Explore the relationship among map values
+@olend
 @snapend
 
 ---
 
 ## Histograms
 
-**Task:**
-
-- Explore the histogram tools on your own
+> **Task:**
+> 
+> - Explore the histogram tools on your own
 
 ---
 
