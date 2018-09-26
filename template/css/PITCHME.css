@@ -259,7 +259,7 @@
 .reveal blockquote {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgba(82, 112, 53, 0.2);
 }
 

@@ -172,9 +172,11 @@ g.proj -p
 - From the terminal: 
   - type first letter or some letters + `<tab><tab>`
 
----
++++
 
-> **Task:**
+### Calling GRASS GIS commands
+
+> **Task:** 
 > - Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
 > - Run `r.univar map=elevation` from the Console tab
 > - Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
@@ -209,8 +211,7 @@ g.proj -p
 - Using `g.manual <command>` to see the online manual page
 
 <br>
-
-> **Task:**
+> **Task:** 
 > - Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ---
@@ -235,7 +236,7 @@ g.proj -p
 
 ### Vector's attribute table(s)
 
-> **Task:**
+> **Task:** 
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
@@ -245,7 +246,7 @@ g.proj -p
 
 ### 3D visualization
 
-> **Task:**
+> **Task:** 
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
@@ -278,7 +279,7 @@ g.proj -p
 <img src="assets/img/add_wms_3.png" width="60%">
 
 
-> **Task:**
+> **Task:** 
 > - Explore the area, zoom in, zoom out
 > - Display a vector map over the WMS layer (*Hint: adjust opacity of the vector map*)
 
@@ -323,7 +324,8 @@ g.proj -p
 
 ## Histograms
 
-> **Task:** Explore the histogram tools on your own
+> **Task:** 
+> Explore the histogram tools on your own
 
 ---
 
