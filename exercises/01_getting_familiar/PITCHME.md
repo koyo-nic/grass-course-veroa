@@ -19,11 +19,10 @@
 
 @snap[north-west span-60]
 <h3>Overview</h3>
-<br>
 @snapend
 
 @snap[west span-100]
-<br>
+<br><br>
 @ol[list-content-verbose]
 - Revise GRASS GIS database structure
 - Sample dataset "North Carolina"
@@ -66,7 +65,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snapend
 
 @snap[east span-40]
-<br>
+<br><br>
 <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-127.70507812500001%2C20.797201434307%2C-69.69726562500001%2C50.261253827584724&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/36.932/-98.701">View Larger Map</a></small>
 @snapend
 
@@ -114,7 +113,7 @@ If you haven't downloaded NC location yet... No problem!
 @snapend
 
 @snap[west span-50]
-<br>
+<br><br>
 ![Startup-download location](assets/img/download_location_button.png)
 @snapend
 
@@ -139,10 +138,9 @@ Here we are :)
 
 ### Get information about the CRS
 
-<img src="assets/img/projection_info.png" width="90%">
+<img src="assets/img/projection_info.png" width="75%">
 
 <br>
-
 or just type in the terminal
 
 ```bash
@@ -159,7 +157,8 @@ g.proj -p
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
 
-> **Task:**: Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
+<br>
+> **Task:** Give a look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying raster & vector maps
 
 ---
 
@@ -175,8 +174,7 @@ g.proj -p
 
 ---
 
-**Task:**
- 
+> **Task:**
 > - Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
 > - Run `r.univar map=elevation` from the Console tab
 > - Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
@@ -213,7 +211,6 @@ g.proj -p
 <br>
 
 > **Task:**
-> 
 > - Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ---
@@ -238,8 +235,7 @@ g.proj -p
 
 ### Vector's attribute table(s)
 
-**Task:**
-
+> **Task:**
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
@@ -249,11 +245,12 @@ g.proj -p
 
 ### 3D visualization
 
-**Task:**
-
+> **Task:**
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
+
+<img src="assets/img/3d_view.png" width="50%">
 
 ---
 
@@ -278,7 +275,7 @@ g.proj -p
 <h3>Display base maps from WMS servers</h3>
 
 
-<img src="assets/img/add_wms_3.png" width="80%">
+<img src="assets/img/add_wms_3.png" width="60%">
 
 
 > **Task:**
@@ -300,7 +297,7 @@ g.proj -p
 
 +++
 
-<img src="assets/img/map_decorations_task.png" width="90%">
+<img src="assets/img/map_decorations_task.png" width="80%">
 
 ---
 
@@ -338,7 +335,7 @@ g.proj -p
 
 @snap[north span-90]
 <br><br><br>
-Go to: 
+Now go to: 
 <br>
 [your house]()
 @snapend
@@ -349,4 +346,3 @@ Go to:
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
-
