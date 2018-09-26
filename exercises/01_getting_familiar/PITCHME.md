@@ -151,12 +151,13 @@ g.proj -p
 
 <h3>Display raster and vector maps</h3>
 
+Many different options:
+
 - Go to File --> Map display --> Add raster|vector
 - Toolbar icons in the Layer Manager
 - Type the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
-
 <br>
 > **Task:** Give a look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying raster & vector maps
 
