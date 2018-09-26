@@ -78,6 +78,8 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 - Click over the GRASS GIS icon (*MS Windows: Start --> OSGeo4W --> GRASS GIS*)
 - Open a terminal or the *OSGeo4W Shell* and type:
 
+<br>
+
 ```bash
 # open grass with GUI Location wizard
 grass74
@@ -138,8 +140,7 @@ Here we are :)
 
 ### Get information about the CRS
 
-<img src="assets/img/projection_info.png" width="75%">
-
+<img src="assets/img/projection_info.png" width="65%">
 <br>
 or just type in the terminal
 
@@ -151,14 +152,15 @@ g.proj -p
 
 <h3>Display raster and vector maps</h3>
 
-Many different options:
-
+Many different options
 - Go to File --> Map display --> Add raster|vector
 - Toolbar icons in the Layer Manager
 - Type the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
+
 <br>
+
 > **Task:** Give a look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying raster & vector maps
 
 ---
@@ -173,11 +175,11 @@ Many different options:
 - From the terminal: 
   - type first letter or some letters + `<tab><tab>`
 
-+++
+---
 
 ### Calling GRASS GIS commands
-
-> **Task:** 
+<br>
+> **Task:**
 > - Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
 > - Run `r.univar map=elevation` from the Console tab
 > - Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
@@ -212,8 +214,9 @@ Many different options:
 - Using `g.manual <command>` to see the online manual page
 
 <br>
-> **Task:** 
-> - Now try yourself with `r.info` and `v.what.stats`. What do they do?
+
+> **Task:**
+> - Now try yourself. Get help for `r.info` and `v.what.stats`.
 
 ---
 
@@ -231,13 +234,14 @@ Many different options:
 
 ### Vector's attribute table(s)
 
-<img src="assets/img/vector_attr_table.png" width="80%">
+<img src="assets/img/vector_attr_table.png" width="85%">
 
 +++
 
 ### Vector's attribute table(s)
-
-> **Task:** 
+<br>
+> **Task:**
+> 
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
@@ -247,18 +251,18 @@ Many different options:
 
 ### 3D visualization
 
-> **Task:** 
+> **Task:**
+> 
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
-
-<img src="assets/img/3d_view.png" width="50%">
+<br>
+<img src="assets/img/3d_view.png" width="40%">
 
 ---
 
 @snap[north span-100]
 <h3>Display base maps from WMS servers</h3>
-<br>
 @snapend
 
 @snap[west span-50]
@@ -276,11 +280,9 @@ Many different options:
 
 <h3>Display base maps from WMS servers</h3>
 
+<img src="assets/img/add_wms_3.png" width="55%">
 
-<img src="assets/img/add_wms_3.png" width="60%">
-
-
-> **Task:** 
+> **Task:**
 > - Explore the area, zoom in, zoom out
 > - Display a vector map over the WMS layer (*Hint: adjust opacity of the vector map*)
 
@@ -288,18 +290,18 @@ Many different options:
 
 ### Adding map decorations
 
-- **Task:**
-  - Diplay `elevation` raster map and `roadsmajor` vector map
-  - Add grid over map
-  - Add roads labels (hint: right click over the map name in the Layer Manager)
-  - Add raster and vector legend
-  - Add scale bar
-  - Ddd North arrow
-  - Add a title
+> **Task:**
+>  - Diplay `elevation` raster map and `roadsmajor` vector map
+>  - Add grid over map
+>  - Add roads labels (hint: right click over the map name in the Layer Manager)
+>  - Add raster and vector legend
+>  - Add scale bar
+>  - Ddd North arrow
+>  - Add a title
 
 +++
 
-<img src="assets/img/map_decorations_task.png" width="80%">
+<img src="assets/img/map_decorations_task.png" width="90%">
 
 ---
 
@@ -325,7 +327,7 @@ Many different options:
 
 ## Histograms
 
-> **Task:** 
+> **Task:**
 > Explore the histogram tools on your own
 
 ---
@@ -338,7 +340,7 @@ Many different options:
 
 @snap[north span-90]
 <br><br><br>
-Now go to: 
+Go to: 
 <br>
 [your house]()
 @snapend
@@ -349,3 +351,4 @@ Now go to:
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
+
