@@ -260,7 +260,6 @@ Many different options:
 > - Change to 3D view in the Map Display window
 > - Explore the options available in the new 3D tab that appears in the Layer Manager
 
-<br>
 <img src="assets/img/3d_view.png" width="40%">
 
 ---
