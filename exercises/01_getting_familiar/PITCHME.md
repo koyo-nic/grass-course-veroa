@@ -63,9 +63,10 @@ Now I will ask you some questions?
 - Open a terminal or the OSGeo4W Shell and type
 
 ```bash
+# open grass with Location wizard
 grass74
 
-# power users
+# power users, call terminal only
 grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
 ```
 
@@ -81,10 +82,10 @@ grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
 
 @snap[east span-35]
 @ol
-- Select the GRASS database folder
-- Select the location `nc_spm_08_grass7`
+- Select the GRASS database folder (previously created)
+- Select the `nc_spm_08_grass7` location 
 - Select `user1` mapset
-- Start
+- Hit `Start`
 @olend
 @snapend
 
@@ -106,50 +107,146 @@ If you haven't downloaded the sample data set... No problem!
 
 Here we are :)
 
-![GRASS GUI]()
+![GRASS GUI]("assets/img/empty_gui_explained.png")
 
 ---
 
 ... and the Terminal
 
-![]()
+![GRASS Terminal]("assets/img/empty_terminal.png")
 
 ---
 
 ## Displaying raster and vector maps
 
+- Toolbar in the Layer Manager
+- Typing the commands in the Console tab
+- Double-click over a map in the Data tab 
+- From command line 
+
+Task:
+- Review presentation and practice different ways of displaying maps
+
 ---
 
-Calling GRASS GIS commands
+## Calling GRASS GIS commands
 
-- From the GUI: main menu, console tab, module tab
-- From the terminal: first letter or some letters + <tab><tab>
+- From the GUI: 
+  - Main menu in GRASS GIS Layer Manager, 
+  - Console tab, 
+  - Modules tab
+  
+- From the terminal: 
+  - type first letter or some letters + <tab><tab>
 
 ---
 
-Note *Copy* button in commands interface and Log in GUI console
+Let's try...
+
+1. Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
+2. Run `r.univar map=elevation` from the Console tab
+3. Type `r.un` in the black terminal and hit <tab> twice. Then hit <Enter>
+4. Run `r.univar map=elevation` in the black terminal
+
+---
+
+@snap[north span-80]
+2 things to note in the GUI:
+@snapend
+
+@snap[west span-50]
+*Log file* and *Save* in the GUI console
+![Log and Save buttons]("assets/img/log_file_button.png")
+@snapend
+
+@snap[east span-50]
+*Copy* button in commands interface
+![Copy button]("assets/img/copy_button.png")
+@snapend
+
+---
+
+## Getting Help
+
+- From the Main menu
+- In the GUI of every command
+- Typing <command> `--help` in the terminal
+- Using `g.manual` <command> to see the online manual page
+
+Now try yourself with `r.info` and `v.what.stats`
 
 ---
 
 ## Query raster and vector maps
 
+![Query raster map]("assets/img/query_maps.png")
 
 ---
 
 ## 3D visualization
 
+- Display `elevation` map
+- Change to 3D view in the Map Display window
+- Explore the options
 
 ---
 
-## Displaying base maps
+## Displaying base maps from WMS servers
+
+@snap[west span-50]
+![Step 1]("assets/img/add_wms_1.png")
+@snapend
+
+@snap[east span-50]
+![Step 2]("assets/img/add_wms_2.png")
+@snapend
 
 ---
 
-Add decorations
+## Displaying base maps from WMS servers
+
+![Step 3]("assets/img/add_wms_3.png")
+
+Tasks: 
+- Explore the area, zoom in, zoom out
+- Display a vector map over the WMS layer (adjust opacity of the vector map)
 
 ---
 
-## Plots
+## Adding map decorations
+
+Task:
+
+- Diplay `elevation` raster map and `roadsmajor` vector map
+- Add grid
+- Add roads labels
+- Add raster and vector legend
+- Add scale bar
+- Ddd north arrow
+- Add a title
+
++++
+
+![All map decorations added]("assets/img/map_decorations_task.png")
+
+---
+
+## Bivariate Scatter Plots
+
+![Scatter plot]("assets/img/bivariate_scatterplot.png")
+
+1. Click over *Analyze map*
+2. Select *Bivariate scatterplot*
+3. Select 2 raster maps
+4. Explore the relationship among map values
+
+---
+
+## Histograms
+
+Task: 
+
+- Explore the histogram tools on your own
 
 ---
 
@@ -161,7 +258,7 @@ Add decorations
 
 @snap[north span-90]
 <br><br><br>
-Move on to: 
+Go to: 
 <br>
 [your house]()
 @snapend
