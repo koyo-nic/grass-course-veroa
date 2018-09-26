@@ -125,7 +125,7 @@ Here we are :)
 - From command line 
 
 Task:
-- Review presentation and practice different ways of displaying maps
+- Review the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
 
 ---
 
