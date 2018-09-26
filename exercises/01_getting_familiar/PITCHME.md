@@ -19,6 +19,7 @@
 
 @snap[north-west span-60]
 <h3>Overview</h3>
+<br>
 @snapend
 
 @snap[west span-100]
@@ -55,10 +56,11 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snapend
 
 @snap[west span-60]
+<br>
 @ul[](false)
 - Download the [**North Carolina full dataset**](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip)
 - Create a folder in your $HOME directory (or Documents) and name it `grassdata`
-- Unzip the file `nc_spm_08_grass7.zip` within `grassdata` so you end up with: *$HOME/grassdata/nc_spm_08_grass7*
+- Unzip the file `nc_spm_08_grass7.zip` within `grassdata`
 @ulend
 @snapend
 
@@ -70,10 +72,9 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 ## Let's start GRASS GIS
 
+<br>
+
 - Click over the GRASS GIS icon (*MS Windows: Start --> OSGeo4W --> GRASS GIS*)
-
-or 
-
 - Open a terminal or the *OSGeo4W Shell* and type:
 
 ```bash
@@ -88,18 +89,19 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 
 @snap[north span-100]
 ... and now what?
+<br>
 @snapend
 
 @snap[west span-55]
-![Startup](assets/img/start_screen3.png)
+<img src="assets/img/start_screen3.png" width="90%">
 @snapend
 
 @snap[east span-45]
 @ol[list-content-verbose]
-- Select the GRASS database folder (previously created)
+- Select the GRASS database folder
 - Select the `nc_spm_08_grass7` location 
 - Select `user1` mapset
-- Hit `Start`
+- Hit `Start GRASS session`
 @olend
 @snapend
 
@@ -107,6 +109,7 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 
 @snap[north span-100]
 If you haven't downloaded NC location yet... No problem!
+<br>
 @snapend
 
 @snap[west span-50]
@@ -134,7 +137,7 @@ Here we are :)
 
 ### Get information about the CRS
 
-<img src="assets/img/projection_info">
+<img src="assets/img/projection_info.png">
 
 <br>
 
@@ -148,9 +151,10 @@ g.proj -p
 
 @snap[north span-100]
 <h3>Display raster and vector maps</h3>
+<br>
 @snapend
 
-@snap[west span-50]
+@snap[west span-100]
 Different options:
 @ul[list-content-verbose](false)
 - Go to File --> Map display --> Add raster|vector
@@ -161,11 +165,9 @@ Different options:
 @ulend
 @snapend
 
-@snap[east span-50]
 > **Task:**
 > 
-> - Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
-@snapend
+> Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
 
 ---
 
@@ -181,29 +183,32 @@ Different options:
 
 ---
 
-**Task:**
-
-@ol
-- Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
-- Run `r.univar map=elevation` from the Console tab
-- Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
-- Run `r.univar map=elevation` in the black terminal
-@olend
+> **Task:**
+> 
+> @ol
+> - Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
+> - Run `r.univar map=elevation` from the Console tab
+> - Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
+> - Run `r.univar map=elevation` in the black terminal
+> @olend
 
 ---
 
 @snap[north span-80]
 2 things to note in the GUI:
+<br>
 @snapend
 
 @snap[west span-50]
-*Log file* and *Save* in the GUI console
 <img src="assets/img/log_file_button.png" width="85%">
+
+@size[26px](*Log file* and *Save* in the GUI console)
 @snapend
 
 @snap[east span-50]
-*Copy* button in commands' GUI
 ![Copy button](assets/img/copy_button.png)
+
+@size[26px](*Copy* button in commands' GUI)
 @snapend
 
 ---
@@ -215,11 +220,11 @@ Different options:
 - Typing `<command> --help` in the terminal
 - Using `g.manual <command>` to see the online manual page
 
-<br><br>
+<br>
 
 > **Task:**
 > 
-> Now try yourself with `r.info` and `v.what.stats`. What do they do?
+> - Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ---
 
@@ -234,12 +239,16 @@ Different options:
 ![Query vector map](assets/img/query_vector_maps.png)
 
 ---
+
 ### Vector's attribute table(s)
 
 <img src="assets/img/vector_attr_table.png" width="80%">
 
++++
+
+### Vector's attribute table(s)
+
 > **Task:**
-> 
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
@@ -250,7 +259,6 @@ Different options:
 ### 3D visualization
 
 > **Task:**
-> 
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
@@ -259,51 +267,47 @@ Different options:
 
 @snap[north span-100]
 <h3>Display base maps from WMS servers</h3>
+<br>
 @snapend
 
 @snap[west span-50]
+@size[26px](Step 1)
 <img src="assets/img/add_wms_1.png" width="95%">
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/add_wms_2.png" width="95%">
+@size[26px](Step 2)
+<img src="assets/img/add_wms_2.png" width="85%">
 @snapend
 
 ---
 
-@snap[north span-100]
 <h3>Display base maps from WMS servers</h3>
-@snapend
 
-@snap[west span-50]
+
 <img src="assets/img/add_wms_3.png">
-@snapend
 
-@snap[east span-50]
-**Task:**
-@ul 
-- Explore the area, zoom in, zoom out
-- Display a vector map over the WMS layer (*Hint: adjust opacity of the vector map*)
-@ulend
-@snapend
+
+> **Task:**
+> - Explore the area, zoom in, zoom out
+> - Display a vector map over the WMS layer (*Hint: adjust opacity of the vector map*)
 
 ---
 
 ### Adding map decorations
 
-**Task:**
-
-- Diplay `elevation` raster map and `roadsmajor` vector map
-- Add grid over map
-- Add roads labels (hint: right click over the map name in the Layer Manager)
-- Add raster and vector legend
-- Add scale bar
-- Ddd North arrow
-- Add a title
+- **Task:**
+  - Diplay `elevation` raster map and `roadsmajor` vector map
+  - Add grid over map
+  - Add roads labels (hint: right click over the map name in the Layer Manager)
+  - Add raster and vector legend
+  - Add scale bar
+  - Ddd North arrow
+  - Add a title
 
 +++
 
-![All map decorations](assets/img/map_decorations_task.png)
+<img src="assets/img/map_decorations_task.png" width="90%">
 
 ---
 
@@ -317,7 +321,7 @@ Different options:
 
 @snap[east span-50]
 **Task:**
-@ol[](false)
+@ol[list-content-verbose](false)
 - Click over *Analyze map*
 - Select *Bivariate scatterplot*
 - Select 2 raster maps
