@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ########################################################################
 # Commands for the TGRASS lecture at GEOSTAT Summer School in Prague

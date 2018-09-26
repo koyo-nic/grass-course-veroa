@@ -19,17 +19,21 @@
 
 ## Overview
 
-Repaso database structure of GRASS GIS 
-Sample dataset "North Carolina"
-Primeros pasos usando GRASS GIS
-La interfaz grafica GUI
-Visualización de mapas raster y vectoriales, paleta de colores, símbolos 
-Hacer consultas sobre mapas 
-Agregar elementos a los mapas: Escalas, north arrow, texto, grillas, leyenda con histograma
-Perfiles e histogramas 
-Visualización 3D
+- Revise the database structure of GRASS GIS 
+- Sample dataset "North Carolina"
+- GRASS GIS first steps
+- GRASS GIS GUI
+- Displaying raster and vector maps
+- Set computational region
+- Displaying base maps (WMS servers)
+- Query maps
+- Add map decorations: barscale, north arrow, text, grids, raster and vector legend
+- Profiles, histograms and scatterplots 
+- 3D visualization
 
 <!--- 
+See: https://apps.mundialis.de/workshops/osgeo_ireland2017/presentations/
+
 crear location y mapset, import vector y raster data, display a vector over a WMS
 https://www.mundialis.de/en/ows-mundialis/
 --->
