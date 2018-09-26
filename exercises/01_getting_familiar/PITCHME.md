@@ -23,6 +23,7 @@
 @snapend
 
 @snap[west span-100]
+<br>
 @ol[list-content-verbose]
 - Revise GRASS GIS database structure
 - Sample dataset "North Carolina"
@@ -65,6 +66,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snapend
 
 @snap[east span-40]
+<br>
 <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-127.70507812500001%2C20.797201434307%2C-69.69726562500001%2C50.261253827584724&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/36.932/-98.701">View Larger Map</a></small>
 @snapend
 
@@ -109,10 +111,10 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 
 @snap[north span-100]
 If you haven't downloaded NC location yet... No problem!
-<br>
 @snapend
 
 @snap[west span-50]
+<br>
 ![Startup-download location](assets/img/download_location_button.png)
 @snapend
 
@@ -137,7 +139,7 @@ Here we are :)
 
 ### Get information about the CRS
 
-<img src="assets/img/projection_info.png">
+<img src="assets/img/projection_info.png" width="90%">
 
 <br>
 
@@ -149,25 +151,15 @@ g.proj -p
 
 ---
 
-@snap[north span-100]
 <h3>Display raster and vector maps</h3>
-<br>
-@snapend
 
-@snap[west span-100]
-Different options:
-@ul[list-content-verbose](false)
 - Go to File --> Map display --> Add raster|vector
 - Toolbar icons in the Layer Manager
 - Type the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
-@ulend
-@snapend
 
-> **Task:**
-> 
-> Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
+> **Task:**: Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
 
 ---
 
@@ -183,31 +175,29 @@ Different options:
 
 ---
 
-> **Task:**
-> 
-> @ol
+**Task:**
+ 
 > - Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
 > - Run `r.univar map=elevation` from the Console tab
 > - Type `r.un` in the black terminal and hit `<tab>` twice. Then hit `<Enter>`
 > - Run `r.univar map=elevation` in the black terminal
-> @olend
 
 ---
 
 @snap[north span-80]
 2 things to note in the GUI:
-<br>
 @snapend
 
 @snap[west span-50]
+<br>
 <img src="assets/img/log_file_button.png" width="85%">
-
+<br>
 @size[26px](*Log file* and *Save* in the GUI console)
 @snapend
 
 @snap[east span-50]
 ![Copy button](assets/img/copy_button.png)
-
+<br>
 @size[26px](*Copy* button in commands' GUI)
 @snapend
 
@@ -248,7 +238,8 @@ Different options:
 
 ### Vector's attribute table(s)
 
-> **Task:**
+**Task:**
+
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
@@ -258,7 +249,8 @@ Different options:
 
 ### 3D visualization
 
-> **Task:**
+**Task:**
+
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
@@ -276,6 +268,7 @@ Different options:
 @snapend
 
 @snap[east span-50]
+<br>
 @size[26px](Step 2)
 <img src="assets/img/add_wms_2.png" width="85%">
 @snapend
@@ -285,7 +278,7 @@ Different options:
 <h3>Display base maps from WMS servers</h3>
 
 
-<img src="assets/img/add_wms_3.png">
+<img src="assets/img/add_wms_3.png" width="80%">
 
 
 > **Task:**
@@ -333,9 +326,7 @@ Different options:
 
 ## Histograms
 
-> **Task:**
-> 
-> - Explore the histogram tools on your own
+> **Task:** Explore the histogram tools on your own
 
 ---
 
