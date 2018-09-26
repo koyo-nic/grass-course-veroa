@@ -17,69 +17,75 @@
 
 ---
 
-## Overview
+@snap[north-west span-60]
+<h3>Overview</h3>
+@snapend
 
-- Revise the database structure of GRASS GIS 
+@snap[west span-80]
+@ol[list-content-concise]
+- Revise GRASS GIS database structure
 - Sample dataset "North Carolina"
-- Starting GRASS GIS
+- Start GRASS GIS
 - GRASS GIS GUI
-- Displaying raster and vector maps
-- Query raster and vector maps maps
+- Display raster and vector maps
+- Query raster and vector maps
 - 3D visualization
 - Displaying base maps (WMS servers)
-- Add map decorations: barscale, north arrow, text, grids, raster and vector legend
-- Profiles, histograms and scatterplots 
-
-
-<!--- 
-See: https://apps.mundialis.de/workshops/osgeo_ireland2017/presentations/
-
-crear location y mapset, import vector y raster data, display a vector over a WMS
-https://www.mundialis.de/en/ows-mundialis/
---->
-
+- Add map decorations: barscale, north arrow, text, grids, raster and vector legends
+- Scatterplots and histograms
+@olend
+@snapend
 ---
+
+### GRASS GIS database structure
 
 Now I will ask you some questions? 
-- Location
-- Mapset
-- Computational region
 
-<!--- copy slides or link to presentation --->
+- Location ?
+- Mapset ? 
+- Computational region ?
 
----
-
-## GRASS GIS database structure
+You can have a sneak peek here: [GRASS Intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab#/8) presentation
 
 ---
 
-## Sample dataset: North Carolina
+### Sample dataset: North Carolina 
+
+- Download the **North Carolina full dataset** from: http://grass.osgeo.org/download/sample-data/
+- Create a folder in your $HOME directory (or Documents) and name it `grassdata`
+- Unzip the file `nc_spm_08_grass7.zip` within `grassdata` so you end up with: $HOME/grassdata/nc_spm_08_grass7
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-127.70507812500001%2C20.797201434307%2C-69.69726562500001%2C50.261253827584724&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/36.932/-98.701">View Larger Map</a></small>
 
 ---
 
 ## Let's start GRASS GIS
 
 - Click over the icon (Start --> OSGeo4W --> GRASS GIS)
-- Open a terminal or the OSGeo4W Shell and type
+
+or 
+
+- Open a terminal or the OSGeo4W Shell and type:
 
 ```bash
 # open grass with GUI Location wizard
 grass74
 
-# open terminal only
-grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
+# open text mode only
+grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 ```
+
 ---
 
 @snap[north span-100]
-... now what?
+... and now what?
 @snapend
 
-@snap[west span-65]
+@snap[west span-60]
 ![Startup](assets/img/start_screen3.png)
 @snapend
 
-@snap[east span-35]
+@snap[east span-40]
 @ol
 - Select the GRASS database folder (previously created)
 - Select the `nc_spm_08_grass7` location 
@@ -91,7 +97,7 @@ grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
 ---
 
 @snap[north span-100]
-If you haven't downloaded the sample data set... No problem!
+If you haven't downloaded the sample data set yet... No problem!
 @snapend
 
 @snap[west span-50]
@@ -118,13 +124,15 @@ Here we are :)
 
 ## Displaying raster and vector maps
 
+Different options:
 - Toolbar in the Layer Manager
 - Typing the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line 
 
-Task:
-- Review the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
+**Task:**
+
+- Give a second look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying maps
 
 ---
 
@@ -140,7 +148,7 @@ Task:
 
 ---
 
-Let's try...
+**Task:**
 
 1. Run `r.univar map=elevation` from the main GUI (Raster --> Reports and statistics)
 2. Run `r.univar map=elevation` from the Console tab
@@ -159,30 +167,34 @@ Let's try...
 @snapend
 
 @snap[east span-50]
-*Copy* button in commands interface
+*Copy* button in commands user interface
 ![Copy button](assets/img/copy_button.png)
 @snapend
 
 ---
 
-## Getting Help
+### Getting Help
 
-- From the Main menu
+- From the Main menu `Help`
 - In the GUI of every command
 - Typing <command> `--help` in the terminal
 - Using `g.manual` <command> to see the online manual page
+<br><br>
+**Task:**
 
-Now try yourself with `r.info` and `v.what.stats`
+Now try yourself with `r.info` and `v.what.stats`. What do they do?
 
 ---
 
-## Query raster and vector maps
+### Query raster and vector maps
 
 ![Query raster map](assets/img/query_maps.png)
 
 ---
 
-## 3D visualization
+### 3D visualization
+
+**Task:**
 
 - Display `elevation` map
 - Change to 3D view in the Map Display window
@@ -190,7 +202,7 @@ Now try yourself with `r.info` and `v.what.stats`
 
 ---
 
-## Displaying base maps from WMS servers
+### Displaying base maps from WMS servers
 
 @snap[west span-50]
 ![Step 1](assets/img/add_wms_1.png)
@@ -202,48 +214,63 @@ Now try yourself with `r.info` and `v.what.stats`
 
 ---
 
-## Displaying base maps from WMS servers
+@snap[north span-100]
+### Displaying base maps from WMS servers
+@snapend
 
+@snap[west span-50]
 ![Step 3](assets/img/add_wms_3.png)
+@snapend
 
-Tasks: 
+@snap[east span-50]
+**Task:**
+ 
 - Explore the area, zoom in, zoom out
-- Display a vector map over the WMS layer (adjust opacity of the vector map)
+- Display a vector map over the WMS layer (hint: adjust opacity of the vector map)
+@snapend
 
 ---
 
-## Adding map decorations
+### Adding map decorations
 
-Task:
+**Task:**
 
 - Diplay `elevation` raster map and `roadsmajor` vector map
-- Add grid
-- Add roads labels
+- Add grid over map
+- Add roads labels (hint: right click over the map name in the Layer Manager)
 - Add raster and vector legend
 - Add scale bar
-- Ddd north arrow
+- Ddd North arrow
 - Add a title
 
 +++
 
-![All map decorations added](assets/img/map_decorations_task.png)
+![All map decorations](assets/img/map_decorations_task.png)
 
 ---
 
-## Bivariate Scatter Plots
+@snap[north span-70]
+<h3>Bivariate Scatter Plots</h3>
+@snapend
 
+@snap[west span-50]
 ![Scatter plot](assets/img/bivariate_scatterplot.png)
+@snapend
+
+@snap[east span-50]
+**Task:**
 
 1. Click over *Analyze map*
 2. Select *Bivariate scatterplot*
 3. Select 2 raster maps
 4. Explore the relationship among map values
+@snapend
 
 ---
 
 ## Histograms
 
-Task: 
+**Task:**
 
 - Explore the histogram tools on your own
 
