@@ -152,14 +152,13 @@ g.proj -p
 
 <h3>Display raster and vector maps</h3>
 
-Many different options
+Many different options:
 - Go to File --> Map display --> Add raster|vector
 - Toolbar icons in the Layer Manager
 - Type the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
 
-<br>
 
 > **Task:** Give a look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying raster & vector maps
 
@@ -215,8 +214,7 @@ Many different options
 
 <br>
 
-> **Task:**
-> - Now try yourself. Get help for `r.info` and `v.what.stats`.
+> **Task:** Now try yourself. Get help for `r.info` and `v.what.stats`.
 
 ---
 
@@ -239,7 +237,9 @@ Many different options
 +++
 
 ### Vector's attribute table(s)
+
 <br>
+
 > **Task:**
 > 
 > - Change color of areas
@@ -256,6 +256,7 @@ Many different options
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
 > - Explore the options
+
 <br>
 <img src="assets/img/3d_view.png" width="40%">
 
@@ -280,7 +281,7 @@ Many different options
 
 <h3>Display base maps from WMS servers</h3>
 
-<img src="assets/img/add_wms_3.png" width="55%">
+<img src="assets/img/add_wms_3.png" width="45%">
 
 > **Task:**
 > - Explore the area, zoom in, zoom out
@@ -301,7 +302,7 @@ Many different options
 
 +++
 
-<img src="assets/img/map_decorations_task.png" width="90%">
+<img src="assets/img/map_decorations_task.png" width="80%">
 
 ---
 
@@ -314,7 +315,6 @@ Many different options
 @snapend
 
 @snap[east span-50]
-**Task:**
 @ol[list-content-verbose](false)
 - Click over *Analyze map*
 - Select *Bivariate scatterplot*
@@ -340,7 +340,7 @@ Many different options
 
 @snap[north span-90]
 <br><br><br>
-Go to: 
+Now go to: 
 <br>
 [your house]()
 @snapend
