@@ -159,6 +159,9 @@ Many different options:
 - Double-click over a map in the Data tab 
 - From command line in the black terminal
 
++++
+
+<h3>Display raster and vector maps</h3>
 
 > **Task:** Give a look to the [General Capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/10) presentation and practice different ways of displaying raster & vector maps
 
@@ -245,7 +248,7 @@ Many different options:
 > - Change color of areas
 > - Display only boundaries with a different color
 > - Show only cat 1-40
-> - Build an SQL SELECTION query with 2 conditions 
+> - Build an SQL SELECTION query with at least 2 conditions 
 
 ---
 
@@ -255,7 +258,7 @@ Many different options:
 > 
 > - Display `elevation` map
 > - Change to 3D view in the Map Display window
-> - Explore the options
+> - Explore the options available in the new 3D tab
 
 <br>
 <img src="assets/img/3d_view.png" width="40%">
