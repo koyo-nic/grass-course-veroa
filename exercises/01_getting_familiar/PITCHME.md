@@ -21,8 +21,8 @@
 <h3>Overview</h3>
 @snapend
 
-@snap[west span-80]
-@ol[list-content-concise]
+@snap[west span-100]
+@ol[list-content-verbose]
 - Revise GRASS GIS database structure
 - Sample dataset "North Carolina"
 - Start GRASS GIS
@@ -37,31 +37,39 @@
 @snapend
 ---
 
-### GRASS GIS database structure
-
 Now I will ask you some questions? 
 
-- Location ?
-- Mapset ? 
-- Computational region ?
+<br>
+
+> - Location ?
+> - Mapset ? 
+> - Computational region ?
+
+<br>
 
 You can have a sneak peek here: [GRASS Intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab#/8) presentation
 
 ---
 
+@snap[north span-100]
 ### Sample dataset: North Carolina 
+@snapend
 
-- Download the **North Carolina full dataset** from: http://grass.osgeo.org/download/sample-data/
+@snap[west span-60]
+- Download the [**North Carolina full dataset**](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip)
 - Create a folder in your $HOME directory (or Documents) and name it `grassdata`
-- Unzip the file `nc_spm_08_grass7.zip` within `grassdata` so you end up with: $HOME/grassdata/nc_spm_08_grass7
+- Unzip the file `nc_spm_08_grass7.zip` within `grassdata` so you end up with: *$HOME/grassdata/nc_spm_08_grass7*
+@snapend
 
+@snap[east span-40]
 <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-127.70507812500001%2C20.797201434307%2C-69.69726562500001%2C50.261253827584724&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/36.932/-98.701">View Larger Map</a></small>
+@snapend
 
 ---
 
 ## Let's start GRASS GIS
 
-- Click over the icon (Start --> OSGeo4W --> GRASS GIS)
+- Click over the GRASS GIS icon (MS Windows: Start --> OSGeo4W --> GRASS GIS)
 
 or 
 
@@ -112,23 +120,25 @@ If you haven't downloaded the sample data set yet... No problem!
 
 Here we are :)
 
-![GRASS GUI](assets/img/empty_gui_explained.png)
+<img src="assets/img/empty_gui_explained.png" width="90%">
 
 ---
 
 ... and the Terminal
 
-![GRASS Terminal](assets/img/empty_terminal.png)
+<img src="assets/img/empty_terminal.png" width="85%">
 
 ---
 
-## Displaying raster and vector maps
+### Displaying raster and vector maps
 
 Different options:
 - Toolbar in the Layer Manager
 - Typing the commands in the Console tab
 - Double-click over a map in the Data tab 
 - From command line 
+
+<br>
 
 **Task:**
 
@@ -215,7 +225,7 @@ Now try yourself with `r.info` and `v.what.stats`. What do they do?
 ---
 
 @snap[north span-100]
-### Displaying base maps from WMS servers
+<h3>Displaying base maps from WMS servers</h3>
 @snapend
 
 @snap[west span-50]
