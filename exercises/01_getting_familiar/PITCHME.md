@@ -257,7 +257,7 @@ Many different options:
 > **Task:**
 > 
 > - Display the `elevation` raster map
-> - Change to 3D view in the Map Display window of the GUI
+> - Change to 3D view in the Map Display window
 > - Explore the options available in the new 3D tab that appears in the Layer Manager
 
 <br>
