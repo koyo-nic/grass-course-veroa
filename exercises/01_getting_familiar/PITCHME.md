@@ -63,13 +63,12 @@ Now I will ask you some questions?
 - Open a terminal or the OSGeo4W Shell and type
 
 ```bash
-# open grass with Location wizard
+# open grass with GUI Location wizard
 grass74
 
-# power users, call terminal only
+# open terminal only
 grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
 ```
-
 ---
 
 @snap[north span-100]
@@ -77,7 +76,7 @@ grass77svn --text /home/veroandreo/grassdata/nc_spm_08_grass7/user1/
 @snapend
 
 @snap[west span-65]
-![Startup]("assets/img/start_screen3.png")
+![Startup](assets/img/start_screen3.png)
 @snapend
 
 @snap[east span-35]
@@ -96,24 +95,24 @@ If you haven't downloaded the sample data set... No problem!
 @snapend
 
 @snap[west span-50]
-![Startup-download location]("assets/img/download_location_button.png")
+![Startup-download location](assets/img/download_location_button.png)
 @snapend
 
 @snap[east span-50]
-![Download location]("assets/img/download_location.png")
+![Download location](assets/img/download_location.png)
 @snapend
 
 ---
 
 Here we are :)
 
-![GRASS GUI]("assets/img/empty_gui_explained.png")
+![GRASS GUI](assets/img/empty_gui_explained.png)
 
 ---
 
 ... and the Terminal
 
-![GRASS Terminal]("assets/img/empty_terminal.png")
+![GRASS Terminal](assets/img/empty_terminal.png)
 
 ---
 
@@ -156,12 +155,12 @@ Let's try...
 
 @snap[west span-50]
 *Log file* and *Save* in the GUI console
-![Log and Save buttons]("assets/img/log_file_button.png")
+![Log and Save buttons](assets/img/log_file_button.png)
 @snapend
 
 @snap[east span-50]
 *Copy* button in commands interface
-![Copy button]("assets/img/copy_button.png")
+![Copy button](assets/img/copy_button.png)
 @snapend
 
 ---
@@ -179,7 +178,7 @@ Now try yourself with `r.info` and `v.what.stats`
 
 ## Query raster and vector maps
 
-![Query raster map]("assets/img/query_maps.png")
+![Query raster map](assets/img/query_maps.png)
 
 ---
 
@@ -194,18 +193,18 @@ Now try yourself with `r.info` and `v.what.stats`
 ## Displaying base maps from WMS servers
 
 @snap[west span-50]
-![Step 1]("assets/img/add_wms_1.png")
+![Step 1](assets/img/add_wms_1.png)
 @snapend
 
 @snap[east span-50]
-![Step 2]("assets/img/add_wms_2.png")
+![Step 2](assets/img/add_wms_2.png)
 @snapend
 
 ---
 
 ## Displaying base maps from WMS servers
 
-![Step 3]("assets/img/add_wms_3.png")
+![Step 3](assets/img/add_wms_3.png)
 
 Tasks: 
 - Explore the area, zoom in, zoom out
@@ -227,13 +226,13 @@ Task:
 
 +++
 
-![All map decorations added]("assets/img/map_decorations_task.png")
+![All map decorations added](assets/img/map_decorations_task.png)
 
 ---
 
 ## Bivariate Scatter Plots
 
-![Scatter plot]("assets/img/bivariate_scatterplot.png")
+![Scatter plot](assets/img/bivariate_scatterplot.png)
 
 1. Click over *Analyze map*
 2. Select *Bivariate scatterplot*
