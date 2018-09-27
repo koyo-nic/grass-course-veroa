@@ -36,7 +36,7 @@
 
 ---
 
-I ask you some questions... again @fa[grin]
+I ask you some questions... again @fa[smile]
 
 <br>
 
@@ -92,16 +92,15 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @ul
 - From the GUI
   @ol
-  - Button "New" in the Location wizard
-  - From within a GRASS session, Settings --> GRASS working environment --> Create new location
-  - We can use georeferenced maps, EPSG codes, prj files, WKT, etc.
+  - button "New" in the Location wizard
+  - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new location
   @olend
 @ulend
 @ul
-- From command line
+- From the command line
   @ol
-  - using `-c` flag in the *grass74* starter script
-  - we need to provide path to new location plus either a georeferenced map or an EPSG code
+  - using `-c` flag in the *grass74* start script
+  - provide path to new location plus either a georeferenced map or an EPSG code
   @olend
 @ulend
 @snapend
@@ -131,9 +130,8 @@ EPSG: European Petroleum Survey Group (International Association of Oil & Gas Pr
 
 ---
 
-@snap[north span-100]
 <h4>Creating new location from command line</h4>
-@snapend
+
 
 ```bash
 # Creates new location with EPSG code 4326
@@ -146,7 +144,7 @@ grass74 -c myvector.shp $HOME/grassdata/mylocation
 grass74 -c myraster.tif $HOME/grassdata/mylocation
 ```
 
-@size[24px](This can also be done from a different location; GRASS will switch to the newly created one.)
+@size[26px](This can also be done from a different location; GRASS will switch to the newly created one.)
 
 ---
 
@@ -158,15 +156,15 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 @ul
 - From the GUI
   @ol
-  - Button "New" in the Mapset wizard
-  - From within a GRASS session, Settings --> GRASS working environment --> Create new mapset
+  - button "New" in the Mapset wizard
+  - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new mapset
   @olend
 @ulend
 @ul
 - From command line
   @ol
-  - using `-c` flag in the grass74 script, just add the folder name to the path
-  - with [g.mapset]() command from within a GRASS session
+  - using `-c` flag in the *grass74* script, just add the mapset name to the path
+  - with [g.mapset](https://grass.osgeo.org/grass74/manuals/g.mapset.html) command from within a GRASS session
   @olend
 @ulend
 @snapend
@@ -177,10 +175,13 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 @snapend
 
 @snap[west span-50]
+<br>
+@size[24px](Using *New* button)
 <img src="assets/img/new_mapset_gui.png">
 @snapend
 
 @snap[east span-50]
+@size[24px](from within a GRASS session)
 <img src="assets/img/new_mapset_gui_within_grass.png">
 @snapend
 
@@ -188,14 +189,15 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 
 #### Creating a new mapset from command line 
 
-- Start GRASS and create Location and mapset at once
+- Start GRASS and create location and mapset all at once
 
 ```bash
 # Creates new location and mapset
 grass74 -c EPSG:4326 $HOME/grassdata/mylocation/mymapset
 ```
+<br>
 
-- or create a mapset from within a running GRASS session:
+- Create a mapset from within a running GRASS session:
 
 ```bash
 # Create a new mapset within a GRASS session
@@ -220,7 +222,9 @@ g.mapset -c mapset=curso_rio4
 
 - From the GUI:
 
-<img src="assets/img/change_mapset.png" width="85%">
+<img src="assets/img/change_mapset.png" width="50%">
+
+<br>
 
 - From command line: 
 
@@ -237,7 +241,7 @@ g.mapset mapset=user1
 
 ### Add mapsets to path
 
-Sometimes we need to read data from a different mapset and use it for a certain processing, so we need to *see* that mapset from the current one
+Sometimes we need to *read data from a different mapset* and use it for a certain processing, so we need to *see* that mapset from the current one
 
 ```bash
 # print accessible mapsets
@@ -259,7 +263,8 @@ g.mapset -p
 
 
 Choose whatever method you prefer
-(Hint: in command line is only one line @fa[grin-wink])
+
+(*Hint:* in command line is only one line @fa[grin-wink])
 
 ---
 
@@ -267,15 +272,15 @@ Choose whatever method you prefer
 
 The most common raster and vector formats are imported with
 
-- [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html)
-- [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html)
+- [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html): Imports raster data into a GRASS raster map using GDAL library. 
+- [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html): Imports vector data into a GRASS vector map using OGR library. 
 
 Alternatively:
 
-- [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
-- [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
+- [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html): Imports raster data into a GRASS raster map using GDAL library and reprojects on the fly. 
+- [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html): Imports vector data into a GRASS vector map using OGR library and reprojects on the fly. 
 
-offer also re-projection, resampling and subset on the fly @fa[grin-wink]
+offer also re-projection, resampling and subset on the fly @fa[smile]
 
 <!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
 
@@ -283,17 +288,30 @@ offer also re-projection, resampling and subset on the fly @fa[grin-wink]
 
 #### Import a raster map
 
+<!--- decide on a file and make screenshots --->
 
 ---
 
 #### Import a vector map
 
+<!--- decide on a file and make screenshots --->
 
 ---
 
 ### Create a location and mapset from a georeferenced file
 
+<!--- decide on a file and make screenshots --->
 
+---
+
+### Set computational region
+
+```bash
+# check region
+g.region -p
+# set region to imported raster map
+g.region raster=XX
+```
 
 ---
 
@@ -313,6 +331,10 @@ Alternatively, we can avoid importing and only **link** our geodata to the GRASS
 Locations are defined by CRS, so 
 
 > transfer maps between locations == map re-projection
+
++++
+
+### Maps reprojection
 
 **Raster map re-projection:**
 The user needs to set desired extent and resolution prior to re-projection in target location
