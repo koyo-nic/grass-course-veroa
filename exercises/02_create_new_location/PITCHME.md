@@ -96,7 +96,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new location
   @olend
 @ulend
-<br>
+<br><br>
 @ul[](false)
 - From the command line
   @ol[list-content-verbose](false)
@@ -147,7 +147,7 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new mapset
   @olend
 @ulend
-<br>
+<br><br>
 @ul[](false)
 - From command line
   @ol[list-content-verbose](false)
@@ -205,9 +205,10 @@ g.mapset -c mapset=curso_rio4
 ---
 
 ### Change to a different mapset
-
+<br>
 - From the GUI:
-<img src="assets/img/change_mapset.png" width="50%">
+<img src="assets/img/change_mapset.png" width="60%">
+
 <br>
 - From command line: 
 ```bash
@@ -224,7 +225,7 @@ g.mapset mapset=user1
 ### Add mapsets to path
 
 Sometimes we need to *read data from a different mapset* and use it for a certain processing, so we need to *see* that mapset from the current one
-
+<br>
 ```bash
 # print accessible mapsets
 g.mapsets -p
@@ -301,19 +302,20 @@ g.region raster=XX
 
 ---
 
-### Working with GRASS without importing maps
+### Working without importing maps
 
 We can avoid importing and only **link** our geodata to the GRASS DB:
 
 - [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
 - [v.external](https://grass.osgeo.org/grass74/manuals/v.external.html): Creates a pseudo-vector map as a link to an OGR-supported layer or a PostGIS feature table. 
+
 <br>
-@color[purple](Do not rename, delete or move the *linked* file afterwards... !)
+@color[orange](Do not rename, delete or move the *linked* file afterwards... !)
 
 ---
 
 ### Maps reprojection
-
+<br>
 Locations are defined by CRS, so 
 
 > to transfer maps between locations @fa[arrow-right] map re-projection
@@ -327,7 +329,6 @@ The user needs to set desired extent and resolution prior to re-projection in ta
 - **Vector map re-projection:**
 The whole vector map is re-projected by coordinate conversion
 
-<br>
 >**Mechanism:**
 >Working in target location, maps are projected into it from the source location
 
@@ -341,7 +342,7 @@ The whole vector map is re-projected by coordinate conversion
 ---
 
 ### Export raster and vector maps
-
+<br>
 >**Task:**
 > 
 >Explore [r.out.gdal](https://grass.osgeo.org/grass74/manuals/r.out.gdal.html) and [v.out.ogr](https://grass.osgeo.org/grass74/manuals/v.out.ogr.html) manual pages and export *elevation* and *roadsmajor* maps
