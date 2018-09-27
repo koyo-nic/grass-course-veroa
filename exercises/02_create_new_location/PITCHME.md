@@ -36,7 +36,7 @@
 
 ---
 
-I ask you some questions... again @fa[smile]
+I ask you some questions... again @fa[smile fa-spin]
 
 <br>
 
@@ -96,10 +96,11 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new location
   @olend
 @ulend
+<br>
 @ul[](false)
 - From the command line
   @ol[list-content-verbose](false)
-  - using `-c` flag in the *grass74* start script
+  - using `-c` flag in the *[grass74](https://grass.osgeo.org/grass74/manuals/grass7.html)* start script
   - provide path to new location plus either a georeferenced map or an EPSG code
   @olend
 @ulend
@@ -111,22 +112,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 <img src="assets/img/new_location_epsg.png" width="99%">
 
-@size[24px](Create new Lat-Long location using EPSG code)
-
-<!--- 
-EPSG: European Petroleum Survey Group (International Association of Oil & Gas Producers)
-
-- EPSG codes are standardized numbers for national and international CRS and coordinate transformations -- used by many GIS software packages.
-
-- Also used in [PROJ](http://trac.osgeo.org/proj/) and [GDAL](http://www.gdal.org/)
-
-- Codes available as SQL database from [http://www.epsg.org](http://www.epsg.org/) or found in
- the PROJ installation at /usr/share/proj/epsg
-
-- Useful Web sites:
-  - [http://www.epsg-registry.org](http://www.epsg-registry.org/)
-  - [http://epsg.io/](http://epsg.io/)
---->
+@size[24px](Create new Lat-Long location using <a href="http://epsg.io/">EPSG</a> code)
 
 ---
 
@@ -161,6 +147,7 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new mapset
   @olend
 @ulend
+<br>
 @ul[](false)
 - From command line
   @ol[list-content-verbose](false)
@@ -220,12 +207,9 @@ g.mapset -c mapset=curso_rio4
 ### Change to a different mapset
 
 - From the GUI:
-
 <img src="assets/img/change_mapset.png" width="50%">
-
 <br>
 - From command line: 
-
 ```bash
 # print current mapset
 g.mapset -p
@@ -263,27 +247,25 @@ g.mapset -p
 
 Choose whatever method you prefer
 
-(*Hint:* in command line is only one line @fa[grin-wink])
+(*Hint:* in command line is only one line @fa[grin-wink fa-spin])
 
 ---
 
 ### Import raster and vector maps
-
+<br>
 - [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html): Imports raster data into a GRASS raster map using GDAL library. 
 - [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html): Imports vector data into a GRASS vector map using OGR library. 
 
 +++
 
 ### Import raster and vector maps
-
+<br>
 Alternatively, we can use:
-
 
 - [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) 
 - [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
 
-
-that offer also re-projection, resampling and subset on the fly @fa[smile]
+that offer also re-projection, resampling and subset on the fly @fa[smile fa-spin]
 
 +++
 
@@ -321,13 +303,12 @@ g.region raster=XX
 
 ### Working with GRASS without importing maps
 
-Alternatively, we can avoid importing and only **link** our geodata to the GRASS DB by means of:
+We can avoid importing and only **link** our geodata to the GRASS DB:
 
 - [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
 - [v.external](https://grass.osgeo.org/grass74/manuals/v.external.html): Creates a pseudo-vector map as a link to an OGR-supported layer or a PostGIS feature table. 
-
 <br>
-@color[red](Do not rename, delete or move the *linked* file afterwards... !)
+@color[purple](Do not rename, delete or move the *linked* file afterwards... !)
 
 ---
 
@@ -335,12 +316,12 @@ Alternatively, we can avoid importing and only **link** our geodata to the GRASS
 
 Locations are defined by CRS, so 
 
-> transfer maps between locations == map re-projection
+> to transfer maps between locations @fa[arrow-right] map re-projection
 
 +++
 
 ### Maps reprojection
-
+<br>
 - **Raster map re-projection:**
 The user needs to set desired extent and resolution prior to re-projection in target location
 - **Vector map re-projection:**
