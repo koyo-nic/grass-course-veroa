@@ -37,7 +37,7 @@
 
 ---
 
-Now I will ask you some questions? 
+Now I ask you some questions (again :))
 
 <br>
 
@@ -57,7 +57,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 @snap[west span-60]
 @ul[](false)
-- Download 
+- Download <!--- download a L8 and S2 scene for NC --->
 - Create a folder in your $HOME directory (or Documents) and name it `geodata`
 - Unzip the files within `geodata`
 @ulend
@@ -70,27 +70,8 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 ---
 
-## Start GRASS GIS
-
-<br>
-
-- Click over the GRASS GIS icon (*MS Windows: Start --> OSGeo4W --> GRASS GIS*)
-- Open a terminal or the *OSGeo4W Shell* and type:
-
-<br>
-
-```bash
-# open grass with GUI Location wizard
-grass74
-
-# open text mode only
-grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
-```
-
----
-
 @snap[west span-55]
-<img src="assets/img/start_screen3.png" width="90%">
+<img src="assets/img/start_screen2.png" width="90%">
 @snapend
 
 @snap[east span-45]
@@ -104,81 +85,117 @@ grass74 --text $HOME/grassdata/nc_spm_08_grass7/user1/
 
 ---
 
-### Creating a new Location
+@snap[north span-100]
+<h3>Creating a new Location</h3>
+@snapend
 
-Different options:
-
+@snap[west span-100]
+@ul
 - From the GUI
+  @ol
   - Button "New" in the Location wizard
-  - After starting GRASS GIS, Settings --> GRASS working environment --> Create new location
+  - From within a GRASS session, Settings --> GRASS working environment --> Create new location
   - We can use georeferenced maps, EPSG codes, prj files, WKT, etc.
-
+  @olend
 - From command line
-  - using `-c` flag in the grass74 script
+  @ol
+  - using `-c` flag in the *grass74* starter script
   - we need to provide path to new location plus either a georeferenced map or an EPSG code
+  @olend
+@ulend
+@snapend
 
 ---
 
 #### Creating a new Location from the GUI
 
-<img src="assets/img/new_location_epsg.png" width="90%">
+<img src="assets/img/new_location_epsg.png" width="95%">
+
+@size[24px](Create new Lat-Long location using EPSG code)
 
 --- 
 
-Create new Location from EPSG code
+EPSG: European Petroleum Survey Group (International Association of Oil & Gas Producers)
 
-- EPSG: European Petroleum Survey Group (International Association of Oil & Gas Producers)
-
-- EPSG codes are standardized numbers for national and international coordinate reference systems and coordinate transformations -- used by many GIS software packages.
+- EPSG codes are standardized numbers for national and international CRS and coordinate transformations -- used by many GIS software packages.
 
 - Also used in [PROJ](http://trac.osgeo.org/proj/) and [GDAL](http://www.gdal.org/)
 
 - Codes available as SQL database from [http://www.epsg.org](http://www.epsg.org/) or found in
- the PROJ4 installation at /usr/share/proj/epsg
+ the PROJ installation at /usr/share/proj/epsg
 
 - Useful Web sites:
   - [http://www.epsg-registry.org](http://www.epsg-registry.org/)
   - [http://epsg.io/](http://epsg.io/)
 
 ---
-
-#### Create a new mapset from the GUI
-
-Using New button in Mapset wizard
-Under Settings --> GRASS working environment --> Create new mapset
-
----
-
-Create new location from command line
+@snap[north span-100]
+<h4>Creating new location from command line</h4>
+@snapend
 
 ```bash
 # Creates new location with EPSG code 4326
 grass74 -c EPSG:4326 $HOME/grassdata/mylocation
-#  Creates new with EPSG code 5514 with datum transformation parameters used in Czech Republic 
-grass74 -c EPSG:5514:3 $HOME/grassdata/mylocation
+
 # Creates new location based on georeferenced Shapefile 
 grass74 -c myvector.shp $HOME/grassdata/mylocation
+
 # Creates new location based on georeferenced GeoTIFF file 
 grass74 -c myraster.tif $HOME/grassdata/mylocation
 ```
 
-can also be done from a different location
+@size[24px](This can also be done from a different location, GRASS will switch to the newly created one.)
 
 ---
 
-Create new mapset from command line 
+@snap[north span-100]
+<h3>Creating a new mapset</h3>
+@snapend
 
-well, just add a folder at the end of the former commands.
+@snap[west span-100]
+@ul
+- From the GUI
+  @ol
+  - Button "New" in the Mapset wizard
+  - From within a GRASS session, Settings --> GRASS working environment --> Create new mapset
+  @olend
+- From command line
+  @ol
+  - using `-c` flag in the grass74 script, just add the folder name to the path
+  - with [g.mapset]() command from within a GRASS session
+  @olend
+@ulend
+@snapend
+
+---
+@snap[north span-100]
+<h4>Creating a new mapset from the GUI</h4>
+@snapend
+
+@snap[west span-50]
+<img src="assets/img/new_mapset_gui.png">
+@snapend
+
+
+@snap[east span-50]
+<img src="assets/img/new_mapset_gui_within_grass.png">
+@snapend
+
+---
+
+#### Creating a new mapset from command line 
+
+Start GRASS and create Location and mapset at once
 
 ```bash
-# Creates new location with EPSG code 4326
+# Creates new location and mapset
 grass74 -c EPSG:4326 $HOME/grassdata/mylocation/mymapset
 ```
 
-or within a GRASS session:
+or create a mapset from within a running GRASS session:
 
 ```bash
-# create a new mapset within location
+# Create a new mapset within a GRASS session
 g.mapset -c mapset=curso_rio4
 ```
 
@@ -186,33 +203,119 @@ g.mapset -c mapset=curso_rio4
 
 ### Remove Locations or Mapsets
 
-Just remove the folder or use Location wizard
+> Just remove the folder or use the Location wizard
 
 ---
 
 ### Rename Locations and Mapsets
 
-From Location wizard or from a GRASS GIS session
+> From the Location wizard
 
 ---
 
 ### Change to a different mapset
 
----
+- From the GUI:
 
-### Add mapsets path
+Settings --> GRASS working environment --> Create new mapset
 
----
-
-### Get information about the CRS
-
-<img src="assets/img/projection_info.png" width="65%">
-<br>
-or just type in the terminal
+- From command line: 
 
 ```bash
-g.proj -p
+g.mapset -p
+g.mapsets -l
+g.mapset mapset=user1
 ```
+
+---
+
+### Add mapsets to path
+
+```bash
+g.mapsets -l
+g.mapsets -p
+g.mapsets mapset=user1 operation=add
+g.mapsets -p
+```
+
+---
+
+**Tasks:**
+
+- Create a new location with EPSG:4326 and name it *latlong*
+- Create a new mapset called *curso_rio4* within the *latlong* location
+
+Choose whatever method you prefer
+
+---
+
+### Import raster and vector maps
+
+The most common raster and vector formats are imported with
+
+- [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html)
+- [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html)
+
+Alternatively:
+
+- [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
+- [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
+
+offer also re-projection on the fly @fa[grin-wink]
+
+<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
+
+---
+
+Import a raster map
+
+
+---
+
+Import a vector map
+
+
+---
+
+Create a Location and mapset from a georeferenced map
+
+
+---
+
+Alternatively, we can avoid importing and only **link** our geodata
+
+r.external
+
+v.external
+
+
+---
+
+### Maps reprojection
+
+Locations are defined by CRS, so 
+
+> transfer maps between locations = map re-projection
+
+Raster map re-projection
+
+User needs to set desired extent and resolution prior 
+to re-projection in target location
+
+Vector map re-projection
+
+The whole vector map is re-projected by coordinate conversion
+
+Mechanism:
+Working in target location, maps are projected into it from the source location
+
+---
+
+Tasks
+
+- Import (with reprojection) XX map into NC location
+- Create a location from YY file and reproject it to NC
+
 ---
 
 **Thanks for your attention!!**
