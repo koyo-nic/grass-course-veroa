@@ -244,8 +244,8 @@ g.mapset -p
 
 >**Tasks:**
 >
->- Create a new location with EPSG:4326 and name it *latlong*
->- Create a new mapset called *curso_rio4* within the *latlong* location
+>- Create a new location with EPSG:4326 and name it *@color[green](latlong)*
+>- Create a new mapset called *@color[green](curso_rio4)* within the *latlong* location
 
 <br>
 
@@ -259,6 +259,8 @@ Choose whatever method you prefer
 <br>
 - [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html): Imports raster data into a GRASS raster map using GDAL library. 
 - [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html): Imports vector data into a GRASS vector map using OGR library. 
+
+<!--- add screenshots --->
 
 +++
 
@@ -306,7 +308,7 @@ g.region raster=XX
 ---
 
 ### Working without importing maps
-
+<br>
 We can avoid importing and only **link** our geodata to the GRASS DB:
 
 - [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
