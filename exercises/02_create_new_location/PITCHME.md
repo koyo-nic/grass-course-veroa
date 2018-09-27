@@ -29,7 +29,6 @@
 - Create new locations and mapsets: different options
 - Change mapsets / add mapsets to path
 - Import raster and vector map
-- Set, save and change computational region
 - Reproject raster and vector maps
 - Export raster and vector maps
 @olend
@@ -37,7 +36,7 @@
 
 ---
 
-Now I ask you some questions (again :))
+I ask you some questions... again @fa[grin]
 
 <br>
 
@@ -97,6 +96,8 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
   - From within a GRASS session, Settings --> GRASS working environment --> Create new location
   - We can use georeferenced maps, EPSG codes, prj files, WKT, etc.
   @olend
+@ulend
+@ul
 - From command line
   @ol
   - using `-c` flag in the *grass74* starter script
@@ -109,12 +110,11 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 #### Creating a new Location from the GUI
 
-<img src="assets/img/new_location_epsg.png" width="95%">
+<img src="assets/img/new_location_epsg.png" width="99%">
 
 @size[24px](Create new Lat-Long location using EPSG code)
 
---- 
-
+<!--- 
 EPSG: European Petroleum Survey Group (International Association of Oil & Gas Producers)
 
 - EPSG codes are standardized numbers for national and international CRS and coordinate transformations -- used by many GIS software packages.
@@ -127,8 +127,10 @@ EPSG: European Petroleum Survey Group (International Association of Oil & Gas Pr
 - Useful Web sites:
   - [http://www.epsg-registry.org](http://www.epsg-registry.org/)
   - [http://epsg.io/](http://epsg.io/)
+--->
 
 ---
+
 @snap[north span-100]
 <h4>Creating new location from command line</h4>
 @snapend
@@ -144,7 +146,7 @@ grass74 -c myvector.shp $HOME/grassdata/mylocation
 grass74 -c myraster.tif $HOME/grassdata/mylocation
 ```
 
-@size[24px](This can also be done from a different location, GRASS will switch to the newly created one.)
+@size[24px](This can also be done from a different location; GRASS will switch to the newly created one.)
 
 ---
 
@@ -159,6 +161,8 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
   - Button "New" in the Mapset wizard
   - From within a GRASS session, Settings --> GRASS working environment --> Create new mapset
   @olend
+@ulend
+@ul
 - From command line
   @ol
   - using `-c` flag in the grass74 script, just add the folder name to the path
@@ -176,7 +180,6 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 <img src="assets/img/new_mapset_gui.png">
 @snapend
 
-
 @snap[east span-50]
 <img src="assets/img/new_mapset_gui_within_grass.png">
 @snapend
@@ -185,14 +188,14 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 
 #### Creating a new mapset from command line 
 
-Start GRASS and create Location and mapset at once
+- Start GRASS and create Location and mapset at once
 
 ```bash
 # Creates new location and mapset
 grass74 -c EPSG:4326 $HOME/grassdata/mylocation/mymapset
 ```
 
-or create a mapset from within a running GRASS session:
+- or create a mapset from within a running GRASS session:
 
 ```bash
 # Create a new mapset within a GRASS session
@@ -217,13 +220,16 @@ g.mapset -c mapset=curso_rio4
 
 - From the GUI:
 
-Settings --> GRASS working environment --> Create new mapset
+<img src="assets/img/change_mapset.png" width="85%">
 
 - From command line: 
 
 ```bash
+# print current mapset
 g.mapset -p
+# list available mapsets
 g.mapsets -l
+# change to user1 mapset
 g.mapset mapset=user1
 ```
 
@@ -231,21 +237,29 @@ g.mapset mapset=user1
 
 ### Add mapsets to path
 
+Sometimes we need to read data from a different mapset and use it for a certain processing, so we need to *see* that mapset from the current one
+
 ```bash
-g.mapsets -l
+# print accessible mapsets
 g.mapsets -p
+# add user1 to the accessible mapsets
 g.mapsets mapset=user1 operation=add
+# check it was added
 g.mapsets -p
+# check current mapset
+g.mapset -p
 ```
 
 ---
 
-**Tasks:**
+>**Tasks:**
+>
+>- Create a new location with EPSG:4326 and name it *latlong*
+>- Create a new mapset called *curso_rio4* within the *latlong* location
 
-- Create a new location with EPSG:4326 and name it *latlong*
-- Create a new mapset called *curso_rio4* within the *latlong* location
 
 Choose whatever method you prefer
+(Hint: in command line is only one line @fa[grin-wink])
 
 ---
 
@@ -261,33 +275,36 @@ Alternatively:
 - [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
 - [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
 
-offer also re-projection on the fly @fa[grin-wink]
+offer also re-projection, resampling and subset on the fly @fa[grin-wink]
 
 <!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
 
 ---
 
-Import a raster map
+#### Import a raster map
 
 
 ---
 
-Import a vector map
+#### Import a vector map
 
 
 ---
 
-Create a Location and mapset from a georeferenced map
+### Create a location and mapset from a georeferenced file
+
 
 
 ---
 
-Alternatively, we can avoid importing and only **link** our geodata
+### Working with GRASS without importing maps
 
-r.external
+Alternatively, we can avoid importing and only **link** our geodata to the GRASS DB by means of:
 
-v.external
-
+- [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
+- [v.external](https://grass.osgeo.org/grass74/manuals/v.external.html): Creates a pseudo-vector map as a link to an OGR-supported layer or a PostGIS feature table. 
+<br>
+@css[message-box](Just be careful! Do not rename, delete or move the *linked* file afterwards...)
 
 ---
 
@@ -295,26 +312,31 @@ v.external
 
 Locations are defined by CRS, so 
 
-> transfer maps between locations = map re-projection
+> transfer maps between locations == map re-projection
 
-Raster map re-projection
+**Raster map re-projection:**
+The user needs to set desired extent and resolution prior to re-projection in target location
 
-User needs to set desired extent and resolution prior 
-to re-projection in target location
-
-Vector map re-projection
-
+**Vector map re-projection:**
 The whole vector map is re-projected by coordinate conversion
 
-Mechanism:
+**Mechanism:**
 Working in target location, maps are projected into it from the source location
 
 ---
 
-Tasks
+>**Tasks:**
+> 
+>- Import (with reprojection) XX map into North Carolina location
+>- Create a location from YY file and reproject it to North Carolina location
 
-- Import (with reprojection) XX map into NC location
-- Create a location from YY file and reproject it to NC
+---
+
+### Export raster and vector maps
+
+>**Task:**
+> 
+>Explore [r.out.gdal](https://grass.osgeo.org/grass74/manuals/r.out.gdal.html) and [v.out.ogr](https://grass.osgeo.org/grass74/manuals/v.out.ogr.html) manual pages and export *elevation* and *roadsmajor* maps
 
 ---
 
@@ -326,7 +348,7 @@ Tasks
 
 @snap[north span-90]
 <br><br><br>
-Now go to: 
+Move on to: 
 <br>
 [Raster processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab#/) presentation
 @snapend
