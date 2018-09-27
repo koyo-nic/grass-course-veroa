@@ -16,7 +16,8 @@ Slides:
 
 Exercises:
 
-- [Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/) 
+- [Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/)
+- [Create new location and import maps](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/02_create_new_location&grs=gitlab#/)
 
 ## Software
 
@@ -78,10 +79,10 @@ For a quick-start guide, see: https://live.osgeo.org/en/quickstart/osgeolive_qui
 
 ### GRASS GIS Add-ons
 
-* [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
-* [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
-* [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression of GRASS GIS raster maps using the python scikit-learn package
-* [v.strds.stats](https://grass.osgeo.org/grass74/manuals/addons/v.strds.stats.html): Zonal statistics from given space-time raster datasets based on a polygons vector map
+* [i.modis](https://grass.osgeo.org/grass7/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
+* [i.sentinel](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
+* [r.learn.ml](https://grass.osgeo.org/grass7/manuals/addons/r.learn.ml.html): Supervised classification and regression of GRASS GIS raster maps using the python scikit-learn package
+* [v.strds.stats](https://grass.osgeo.org/grass7/manuals/addons/v.strds.stats.html): Zonal statistics from given space-time raster datasets based on a polygons vector map
 
 Install with `g.extension extension=name_of_addon`
 
