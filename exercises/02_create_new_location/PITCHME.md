@@ -55,7 +55,7 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snapend
 
 @snap[west span-60]
-@ul[](false)
+@ul[list-content-verbose](false)
 - Download <!--- download a L8 and S2 scene for NC --->
 - Create a folder in your $HOME directory (or Documents) and name it `geodata`
 - Unzip the files within `geodata`
@@ -89,14 +89,14 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snapend
 
 @snap[west span-100]
-@ul
+@ul[](false)
 - From the GUI
   @ol[list-content-verbose](false)
   - button "New" in the Location wizard
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new location
   @olend
 @ulend
-@ul
+@ul[](false)
 - From the command line
   @ol[list-content-verbose](false)
   - using `-c` flag in the *grass74* start script
@@ -154,17 +154,17 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 
 @snap[west span-100]
 <br>
-@ul
+@ul[](false)
 - From the GUI
   @ol[list-content-verbose](false)
   - button "New" in the Mapset wizard
   - from within a GRASS session: Settings @fa[arrow-right] GRASS working environment @fa[arrow-right] Create new mapset
   @olend
 @ulend
-@ul
+@ul[](false)
 - From command line
   @ol[list-content-verbose](false)
-  - using `-c` flag in the *grass74* script, just add the mapset name to the path
+  - using `-c` flag in the *[grass74](https://grass.osgeo.org/grass74/manuals/grass7.html)* script, just add the mapset name to the path
   - with [g.mapset](https://grass.osgeo.org/grass74/manuals/g.mapset.html) command from within a GRASS session
   @olend
 @ulend
@@ -177,13 +177,13 @@ grass74 -c myraster.tif $HOME/grassdata/mylocation
 
 @snap[west span-50]
 <br>
-@size[24px](Using *New* button)
+@size[24px](using *New* button in wizard)
 <img src="assets/img/new_mapset_gui.png" width="95%">
 @snapend
 
 @snap[east span-50]
 @size[24px](from within a GRASS session)
-<img src="assets/img/new_mapset_gui_within_grass.png" width="95%">
+<img src="assets/img/new_mapset_gui_within_grass.png" width="90%">
 @snapend
 
 ---
@@ -225,6 +225,7 @@ g.mapset -c mapset=curso_rio4
 
 <br>
 - From command line: 
+
 ```bash
 # print current mapset
 g.mapset -p
@@ -268,8 +269,6 @@ Choose whatever method you prefer
 
 ### Import raster and vector maps
 
-The most common raster and vector formats are imported with
-
 - [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html): Imports raster data into a GRASS raster map using GDAL library. 
 - [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html): Imports vector data into a GRASS vector map using OGR library. 
 
@@ -277,32 +276,35 @@ The most common raster and vector formats are imported with
 
 ### Import raster and vector maps
 
-Alternatively:
+Alternatively, we can use:
 
-- [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html): Imports raster data into a GRASS raster map using GDAL library and reprojects on the fly. 
-- [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html): Imports vector data into a GRASS vector map using OGR library and reprojects on the fly. 
 
-offer also re-projection, resampling and subset on the fly @fa[smile]
+- [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) 
+- [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
 
-<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
+
+that offer also re-projection, resampling and subset on the fly @fa[smile]
 
 +++
 
 #### Import a raster map
 
 <!--- decide on a file and make screenshots --->
+<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
 
 +++
 
 #### Import a vector map
 
 <!--- decide on a file and make screenshots --->
+<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
 
 ---
 
 ### Create a location and mapset from a georeferenced file
 
 <!--- decide on a file and make screenshots --->
+<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
 
 ---
 
@@ -323,8 +325,9 @@ Alternatively, we can avoid importing and only **link** our geodata to the GRASS
 
 - [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
 - [v.external](https://grass.osgeo.org/grass74/manuals/v.external.html): Creates a pseudo-vector map as a link to an OGR-supported layer or a PostGIS feature table. 
+
 <br>
-@css[message](Just be careful! Do not rename, delete or move the *linked* file afterwards...)
+@color[red](Do not rename, delete or move the *linked* file afterwards... !)
 
 ---
 
@@ -343,6 +346,7 @@ The user needs to set desired extent and resolution prior to re-projection in ta
 - **Vector map re-projection:**
 The whole vector map is re-projected by coordinate conversion
 
+<br>
 >**Mechanism:**
 >Working in target location, maps are projected into it from the source location
 
