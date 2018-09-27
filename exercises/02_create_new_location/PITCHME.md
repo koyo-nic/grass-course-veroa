@@ -206,14 +206,13 @@ g.mapset -c mapset=curso_rio4
 ---
 
 ### Change to a different mapset
-<br>
+
 - From the GUI:
 
 <img src="assets/img/change_mapset.png" width="60%">
 
 <br>
 - From command line: 
-
 ```bash
 # print current mapset
 g.mapset -p
