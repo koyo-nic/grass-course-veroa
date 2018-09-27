@@ -252,6 +252,25 @@ Many different options:
 
 ---
 
+### Exploring the sample dataset and region settings
+<br>
+```bash
+# list of raster maps
+g.list rast
+# list of vector maps
+g.list vect
+# print region settings
+g.region -p
+```
+
++++
+
+>**Tasks:**
+>- Explore r.info and v.info help and get basic information about a raster and a vector map
+>- Change the current region to a vector map and print the new settings
+
+---
+
 ### 3D visualization
 
 > **Task:**
