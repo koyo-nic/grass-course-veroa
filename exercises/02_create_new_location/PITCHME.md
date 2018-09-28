@@ -273,24 +273,59 @@ that offer also re-projection, resampling and subset on the fly @fa[smile fa-spi
 
 +++
 
-#### Import a raster map
+@snap[north span-100]
+<h4>Import a raster map</h4>
+@snapend
 
-<!--- decide on a file and make screenshots --->
-<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
+@snap[west span-50]
+<img src="assets/img/r_import_1.png">
+@snapend
+
+@snap[east span-50]
+<img src="assets/img/r_import_2.png">
+@snapend
 
 +++
 
-#### Import a vector map
+@snap[north span-100]
+<h4>Import a vector map</h4>
+@snapend
 
-<!--- decide on a file and make screenshots --->
-<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
+@snap[west span-50]
+<img src="assets/img/v_import_1.png">
+@snapend
+
+@snap[east span-50]
+<img src="assets/img/v_import_1.png">
+@snapend
+
++++
+
+![imported maps](assets/img/imported_maps.png)
 
 ---
 
 ### Create a location and mapset from a georeferenced file
 
-<!--- decide on a file and make screenshots --->
-<!--- https://grassbook.org/datasets/datasets-3rd-edition/ --->
+<img src="assets/img/new_location_with_file_a.png" width="95%">
+
++++
+
+### Create a location and mapset from a georeferenced file
+
+<img src="assets/img/new_location_with_file_b.png" width="95%">
+
++++
+
+### Create a location and mapset from a georeferenced file
+
+<img src="assets/img/new_location_with_file_8.png" width="80%">
+
+How to get metadata from any raster map?
+
+```bash
+gdalinfo <mapname>
+```
 
 ---
 
@@ -339,8 +374,8 @@ The whole vector map is re-projected by coordinate conversion
 
 >**Tasks:**
 > 
->- Import (with reprojection) XX map into North Carolina location
->- Create a location from YY file and reproject it to North Carolina location
+>- Create a new location named @color[green](UTM18N) from L8 band 4 file and then reproject it to North Carolina location (mapset landsat)
+>- Now, import (with reprojection) L8 band 3 file into North Carolina location (mapset landsat)
 
 ---
 
