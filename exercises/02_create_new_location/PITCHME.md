@@ -25,7 +25,7 @@
 <br><br>
 @ol[list-content-verbose]
 - Revise GRASS GIS database structure
-- Data
+- Data fo the exercise
 - Create new locations and mapsets: different options
 - Change mapsets / add mapsets to path
 - Import raster and vector map
@@ -36,7 +36,7 @@
 
 ---
 
-I ask you some questions... again @fa[smile fa-spin]
+I ask you some questions... again @fa[smile]
 
 <br>
 
@@ -56,9 +56,9 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 @snap[west span-60]
 @ul[list-content-verbose](false)
-- Download <!--- download a L8 and S2 scene for NC --->
-- Create a folder in your $HOME directory (or Documents) and name it `geodata`
-- Unzip the files within `geodata`
+- Download the [sample files]()
+- Create a folder in your $HOME directory (or Documents) and name it *geodata*
+- Unzip the files within *geodata*
 @ulend
 @snapend
 
@@ -249,16 +249,21 @@ g.mapset -p
 
 Choose whatever method you prefer
 
-(*Hint:* in command line is only one line @fa[grin-wink fa-spin])
+*Hint:* from command line is only one line @fa[grin-wink fa-spin]...
 
 ---
 
 ### Import raster and vector maps
 <br>
 - [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html): Imports raster data into a GRASS raster map using GDAL library. 
+```bash
+r.in.gdal input=myraster.tif output=myraster
+```
+<br>
 - [v.in.ogr](https://grass.osgeo.org/grass74/manuals/v.in.ogr.html): Imports vector data into a GRASS vector map using OGR library. 
-
-<!--- add screenshots --->
+```bash
+v.in.ogr input=myvector.shp output=myvector
+```
 
 +++
 
@@ -269,7 +274,7 @@ Alternatively, we can use:
 - [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) 
 - [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
 
-that offer also re-projection, resampling and subset on the fly @fa[smile fa-spin]
+that offer also re-projection, resampling and subset on the fly @fa[smile]
 
 +++
 
@@ -303,25 +308,27 @@ that offer also re-projection, resampling and subset on the fly @fa[smile fa-spi
 
 ![imported maps](assets/img/imported_maps.png)
 
+@size[24px](Imported maps are displayed by default)
+
 ---
 
-### Create a location and mapset from a georeferenced file
+#### Create location and mapset from georeferenced file
 
 <img src="assets/img/new_location_with_file_a.png" width="95%">
 
 +++
 
-### Create a location and mapset from a georeferenced file
+#### Create location and mapset from georeferenced file
 
 <img src="assets/img/new_location_with_file_b.png" width="95%">
 
 +++
 
-### Create a location and mapset from a georeferenced file
+#### Create location and mapset from georeferenced file
 
 <img src="assets/img/new_location_with_file_8.png" width="80%">
 
-How to get metadata from any raster map?
+@size[24px](How to get metadata from any raster map?)
 
 ```bash
 gdalinfo <mapname>
@@ -374,8 +381,8 @@ The whole vector map is re-projected by coordinate conversion
 
 >**Tasks:**
 > 
->- Create a new location named @color[green](UTM18N) from L8 band 4 file and then reproject it to North Carolina location (mapset landsat)
->- Now, import (with reprojection) L8 band 3 file into North Carolina location (mapset landsat)
+>- Create a new location named @color[green](UTM18N) from the L8 band 4 file and then reproject (with [r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)) it to North Carolina location (mapset landsat)
+>- Now, import (with reprojection on the fly) the L8 band 3 file into North Carolina location (mapset landsat)
 
 ---
 
