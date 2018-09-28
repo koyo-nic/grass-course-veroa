@@ -296,7 +296,7 @@ that offer also re-projection, resampling and subset on the fly @fa[smile fa-spi
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/v_import_1.png">
+<img src="assets/img/v_import_2.png">
 @snapend
 
 +++
