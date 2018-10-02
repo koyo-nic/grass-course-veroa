@@ -36,7 +36,7 @@
 
 ---
 
-I ask you some questions... again @fa[smile]
+I ask you some questions... again @fa[smile-o]
 
 <br>
 
