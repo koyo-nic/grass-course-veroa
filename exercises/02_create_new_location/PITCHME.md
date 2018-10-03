@@ -249,7 +249,7 @@ g.mapset -p
 
 Choose whatever method you prefer
 
-*Hint:* from command line is only one line @fa[grin-wink fa-spin]...
+*Hint:* from command line is only one line @fa[laugh fa-spin]...
 
 ---
 
@@ -274,7 +274,7 @@ Alternatively, we can use:
 - [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) 
 - [v.import](https://grass.osgeo.org/grass74/manuals/v.import.html)
 
-that offer also re-projection, resampling and subset on the fly @fa[smile]
+that offer also re-projection, resampling and subset on the fly @fa[smile-o]
 
 +++
 
@@ -349,13 +349,13 @@ g.region raster=XX
 
 ### Working without importing maps
 <br>
-We can avoid importing and only **link** our geodata to the GRASS DB:
+We can also only **link** our geodata to the GRASS DB:
 
 - [r.external](https://grass.osgeo.org/grass74/manuals/r.external.html): Links GDAL supported raster data as a pseudo GRASS raster map.
 - [v.external](https://grass.osgeo.org/grass74/manuals/v.external.html): Creates a pseudo-vector map as a link to an OGR-supported layer or a PostGIS feature table. 
 
 <br>
-@color[orange](Do not rename, delete or move the *linked* file afterwards... !)
+**Do not rename, delete or move the *linked* file afterwards... !**
 
 ---
 

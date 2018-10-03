@@ -1,24 +1,41 @@
-Remote sensing analysis in GRASS GIS
-====================================
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+@title[Front page]
 
-![display composites](images/sp_fig10_new.jpg "display composites")
+@snap[north span-100]
+<br>
+<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h3>Aplicaciones en Ecologia y Ambiente</h3>
+@snapend
 
-[Basic overview of this session]{#Guidedtour}
----------------------------------------------
+@snap[south message-box-white]
+<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+@snapend
 
-In this session, we will go through the pre-processing of Landsat 8
-images covering the topics from importing to deriving vegetation indices
-and unsupervised classification.
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-#### Course content
+# Remote sensing data processing in GRASS GIS
 
--   Import all the bands
--   Digital Number (DN) to Top Of Atmosphere (TOA) reflectance
--   Data fusion/Pansharpening
--   Create composites
--   Preparing cloud mask from quality band
--   Develop vegetation indices
--   Unsupervised classification
+---
+
+### Overview
+
+- Import all the bands
+- Digital Number (DN) to Top Of Atmosphere (TOA) reflectance
+- Data fusion/Pansharpening
+- Create composites
+- Preparing cloud mask from quality band
+- Atmospheric correction
+- Topographic corrections
+- Vegetation and Water indices
+- Segmentation and Classification
+
+---
+
+
+See here: https://grass.osgeo.org/grass74/manuals/imageryintro.html
+ and here: https://grasswiki.osgeo.org/wiki/Image_processing
+
+---
 
 #### Data
 
@@ -753,51 +770,20 @@ location
     3. Select EPSG code as the option to create new location
     4. Search for 4326 and select it
     5. Done
-            
-            
-
-              
-        
-        
-    from grass.script import create_location, gisenv
-    create_location(gscript.gisenv()['GISDBASE'], "longlat", epsg=4326)
-    gscript.run_command("g.mapset", location="mylonglat", mapset="PERMANENT")
-        
-        
-
+ 
 Set the right region using the values obtain before
 
-            
-    g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
-            
-        
-    g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
-        
-        
-    gmod.Module("g.region", flags="p", n="36:08:35N", s="35:06:24N", e="77:33:33W", w="79:54:47W")
-        
-        
-
+g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
+      
 After this you need to install
 [r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html)
 and run it
-
             
-    g.extension r.in.srtm.region
-    r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
-            
-        
     # install r.in.srtm.region
     g.extension r.in.srtm.region
     # run r.in.srtm.region downloading SRTM data and import them as srtm raster map
     r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
         
-        
-    gmod.Module("g.extension", extension="r.in.srtm.region")
-    gmod.Module("r.in.srtm.region", output="srtm", user="your_NASA_user", pass="your_NASA_password")
-        
-        
-
 You can now exit from this GRASS GIS session and restart to work in the
 previous one (where Sentinel data are).
 To reproject the SRTM map from the `longlat` you have to use
@@ -805,15 +791,6 @@ To reproject the SRTM map from the `longlat` you have to use
 
             
     r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
-            
-        
-    r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
-        
-        
-    gscript.run_command("g.mapset", location="nc_basic_spm_grass7", mapset="modis_lst")
-    gmod.Module("r.proj", location="longlat", mapset="PERMANENT", input="srtm", resolution=30)
-        
-        
 
 At this point you can use `srtm` map as input of `elevation` option in
 [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
