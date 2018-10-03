@@ -19,15 +19,17 @@
 
 ### Overview
 
-- Basic raster concepts in GRASS GIS
-- Types of raster data
+- Basics about raster maps in GRASS GIS
 - NULL values
 - MASK
 - Computational region
-- Map calculator
+- Map algebra
 - Reports and Stats
-- Landscape analysis
-
+- Exercises: 
+  - Landscape analysis
+  - Terrain analysis
+  - Hydrology analysis
+  
 ---
 
 ### Raster data: Basic concepts in GRASS GIS
@@ -433,7 +435,57 @@ r.mask -r
 
 ---
 
-Hydrology
+Hydrology: Estimating inundation extent using HAND methodology
+
+In this example we will use some of GRASS GIS hydrology tools, namely:
+
+    r.watershed: for computing flow accumulation, drainage direction, the location of streams and watershed basins; does not need sink filling because of using least-cost-path to route flow out of sinks
+    r.lake: fills a lake to a target water level from a given start point or seed raster
+    r.lake.series: addon which runs r.lake for different water levels
+    r.stream.distance: for computing the distance to streams or outlet, the relative elevation above streams; the distance and the elevation are calculated along watercourses
+
+r.stream.distance and r.lake.series are addons and we need to install them first:
+
+g.extension r.stream.distance
+g.extension r.lake.series
+
+We will estimate inundation extent using Height Above Nearest Drainage methodology (A.D. Nobre, 2011). We will compute HAND terrain model representing the differences in elevation between each grid cell and the elevations of the flowpath-connected downslope grid cell where the flow enters the channel.
+
+First we compute the flow accumulation, drainage and streams (with threshold value of 100000). We convert the streams to vector for better visualization.
+
+r.watershed elevation=elevation accumulation=flowacc drainage=drainage stream=streams threshold=100000
+r.to.vect input=streams output=streams type=line
+
+Now we use r.stream.distance without output parameter difference to compute new raster where each cell is the elevation difference between the cell and the the cell on the stream where the cell drains.
+
+r.stream.distance stream_rast=streams direction=drainage elevation=elevation method=downstream difference=above_stream
+
+Before we compute the inundation, we will look at how r.lake works. We compute a lake from specified coordinate and water level:
+
+r.lake elevation=elevation water_level=90 lake=lake coordinates=637877,218475
+
+Now instead of elevation raster we use the HAND raster to simulate 5-meter inundation and as the seed we specify the entire stream.
+
+r.lake elevation=above_stream water_level=5 lake=flood seed=streams
+
+With addon r.lake.series we can create a series of inundation maps with rising water levels:
+
+r.lake.series elevation=above_stream start_water_level=0 end_water_level=5 water_level_step=0.5 output=inundation seed_raster=streams
+
+r.lake.series creates a space-time dataset. We can use temporal modules to further work with the data. for example, we could further compute the volume and extent of flood water using t.rast.univar:
+
+t.rast.univar input=inundation separator=comma
+
+Finally, we can visualize the inundation using Animation Tool.
+
+    Launch it from menu File - Animation tool.
+    Start with Add new animation and click on Add space-time dataset or series of map layers.
+    In Input data type select Space time raster dataset and below select inundation and press OK.
+    Next we want to add shaded relief as base layer. Use Add raster map layer and select raster elevation_shade from mapset PERMANENT.
+    You can also overlay road network using Add vector map layer and selecting streets_wake from mapset PERMANENT.
+    Select inundation layer and move it above elevation_shade using the toolbar buttons above the layers.
+    Press OK and wait till the animation is rendered. Then press Play button.
+    Animation tool always renders based on the current computational region. If you want to zoom into a specific area, change the region interactively (see how to do it in the intro), or in command line (e.g. g.region n=224690 s=221320 w=640120 e=643520) in the Map Display and in Animation tool press Render map
 
 <!--- add links --->
 
@@ -486,8 +538,6 @@ Mostrar el mapa de nuevo → icono "Render map"
 Lo exportamos (r.out.gdal)
 Removemos la mascara: r.mask -r
 
----
-
 Ejercicios
 
 Usamos como valor nulo, la categoria que enmascaramos previamente r.nulls
@@ -495,8 +545,6 @@ Aplicamos una mascara vectorial en esta ocasión Vector: lakes
 Recargamos el mapa
 Lo exportamos
 Vemos los dos mapas en QGIS
-
----
 
 Exercise: Raster rescaling
 Changing the range of cell values
