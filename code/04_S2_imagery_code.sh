@@ -2,15 +2,16 @@
 
 ########################################################################
 # Worflow for Sentinel 2 data processing in GRASS GIS
-# GRASS GIS postgraduate course in Rio Cuarto, October 2018
+# GRASS GIS postgraduate course in Rio Cuarto
 # Author: Veronica Andreo
+# October, 2018
 ########################################################################
 
 # Create an account in copernicus-hub
 
 # Create a text file called SENTINEL_SETTING with
-username
-password
+your_username
+your_password
 
 # install dependencies
 pip install sentinelsat
@@ -54,7 +55,7 @@ i.colors.enhance red=B04 green=B03 blue=B02
 ### The module to use is i.color.enhance. This module modifies the color table of each image band to provide a more natural color mixture, but the base data remains untouched. 
 
 
-[i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
+[i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
 requires some extra inputs since it also performs atmospheric
 correction. First, this module requires the image as an unzipped
 directory, so you have to unzip one of the previous downloaded files,

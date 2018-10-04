@@ -157,6 +157,22 @@ Hydrological modeling
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
 
 @snap[north text-white span-100]
+Terrain analysis
+@snapend
+
+@snap[west span-50]
+<img src="assets/img/Raster_terrain_analysis.png">
+@snapend
+
+@snap[east span-50]
+<img src="assets/img/geo_forms.png">
+
+Output of [r.geomorphon](https://grass.osgeo.org/grass74/manuals/r.geomorphon.html)
+@snapend
+
++++?image=template/img/bg/green.jpg&position=top&size=100% 15%
+
+@snap[north text-white span-100]
 Landscape analysis
 @snapend
 

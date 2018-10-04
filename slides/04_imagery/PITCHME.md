@@ -69,35 +69,6 @@ to GRASS GIS**.
 Here is a list of major GRASS GIS modules we will be using in this
 exercise and the links to their manuals.
 
-1.  Start page of the [GRASS GIS
-    manual](https://grass.osgeo.org/grass72/manuals)
-2.  [Raster processing
-    modules](https://grass.osgeo.org/grass72/manuals/raster.html)
-3.  [Vector processing
-    modules](https://grass.osgeo.org/grass72/manuals/vector.html)
-4.  [Imagery processing
-    modules](https://grass.osgeo.org/grass72/manuals/imagery.html)
-5.  [GRASS GIS addons](https://grass.osgeo.org/grass72/manuals/addons/)
-6.  General commands to start GRASS GIS, set region, list data:
-    [grass72](https://grass.osgeo.org/grass72/manuals/helptext.html),
-    [g.region](https://grass.osgeo.org/grass72/manuals/g.region.html),
-    [g.list](https://grass.osgeo.org/grass72/manuals/g.list.html)
-7.  Import raster, vector data, import and project on the fly:
-    [r.in.gdal](https://grass.osgeo.org/grass72/manuals/r.in.gdal.html),
-    [v.in.ogr](https://grass.osgeo.org/grass72/manuals/v.in.ogr.html),
-    [r.import](https://grass.osgeo.org/grass72/manuals/r.import.html),
-    [v.import](https://grass.osgeo.org/grass72/manuals/v.import.html)
-8.  Raster map info, map calculator, univariate statistics, aggregation:
-    [r.info](https://grass.osgeo.org/grass72/manuals/r.info.html),
-    [r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html),
-    [r.univar](https://grass.osgeo.org/grass72/manuals/r.univar.html),
-    [r.series](https://grass.osgeo.org/grass72/manuals/r.series.html),
-9.  Vector map info, data base select, univariate statistics, vector to
-    raster:
-    [v.info](https://grass.osgeo.org/grass72/manuals/v.info.html),
-    [v.db.select](https://grass.osgeo.org/grass72/manuals/v.db.select.html),
-    [v.univar](https://grass.osgeo.org/grass72/manuals/v.univar.html),
-    [v.to.rast](https://grass.osgeo.org/grass72/manuals/v.to.rast.html),
 
 [Remote sensing analysis in GRASS GIS]{#RSanalysis}
 ---------------------------------------------------
@@ -112,16 +83,6 @@ future replication of the workflow. Note the *"Copy"* button in the
 GUI of each module. Maybe you might want to get help about the options
 and flags of the different commands, e.g. `r.colors --help`
 
-            
-    grass72 $HOME/grassdata/nc_spm_08_grass7/user1_l8/ -c
-    g.proj -p
-    g.mapsets -p
-    g.mapsets mapset=landsat operation=add
-    g.mapsets -p
-    g.list rast
-    g.region rast=lsat7_2002_20 res=30 -a
-            
-            
     # Launch GRASS GIS, -c creates new mapset user1_l8
     grass72 $HOME/grassdata/nc_spm_08_grass7/user1_l8/ -c
     # Let us check the projection of the location
@@ -135,21 +96,10 @@ and flags of the different commands, e.g. `r.colors --help`
     # List all the raster maps in all the mapsets in the search path
     g.list type=rast
     # Set the computational region 
-    g.region rast=lsat7_2002_20 res=30 -a
-            
-        
+    g.region rast=lsat7_2002_20 res=30 -a       
 
 We will now import the landsat 8 raw data to the newly created mapset.
-
-            
-    cd $HOME/data_dir/LC80150352016168LGN00
-    BASE="LC80150352016168LGN00"
-    for i in "1" "2" "3" "4" "5" "6" "7" "9" "QA" "10" "11"; do
-        r.import input=${BASE}_B${i}.TIF output=${BASE}_B${i} resolution=value resolution_value=30
-    done
-    r.import input=${BASE}_B8.TIF output=${BASE}_B8 resolution=value resolution_value=15
-            
-            
+          
     # Change directory to the input Landsat 8 data
     cd $HOME/data_dir/LC80150352016168LGN00
     # Define a variable
@@ -182,11 +132,6 @@ Temperature. In GRASS GIS
 [i.landsat.toar](https://grass.osgeo.org/grass72/manuals/i.landsat.toar.html)
 can do this step for all the landsat sensors.
 
-            
-    i.landsat.toar input=${BASE}_B output=${BASE}_toar metfile=${BASE}_MTL.txt sensor=oli8
-    g.list rast map=. pattern=${BASE}_toar*
-            
-            
     # Convert from DN to TOA reflectance and Brightness Temperature
     i.landsat.toar input=${BASE}_B output=${BASE}_toar metfile=${BASE}_MTL.txt sensor=oli8
     g.list rast map=. pattern=${BASE}_toar*
@@ -216,13 +161,7 @@ install and use them. Check
 to install the addons and [GRASS GIS
 addons](https://grass.osgeo.org/grass72/manuals/addons/) for the list of
 available addons.
-
-            
-    g.region rast=lsat7_2002_20 res=15 -a
-    g.extension extension=i.fusion.hpf op=add
-    i.fusion.hpf -l -c pan=${BASE}_toar8 msx=${BASE}_toar1,${BASE}_toar2,${BASE}_toar3,${BASE}_toar4,${BASE}_toar5,${BASE}_toar6,${BASE}_toar7 center=high modulation=max trim=0.0 --o
-    g.list rast map=. pattern=${BASE}_toar*.hpf
-            
+           
             
     # Set the region
     g.region rast=lsat7_2002_20 res=15 -a
@@ -241,14 +180,7 @@ available addons.
 
 Now create false colour and true colour composite for better
 visualization
-
-            
-    g.region rast=lsat7_2002_20 res=15 -a
-    i.colors.enhance red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" strength=95
-    r.composite red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" output="${BASE}_toar.hpf_comp_432"
-    i.colors.enhance red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" strength=95
-    r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" output="${BASE}_toar.hpf_comp_543"
-            
+           
             
     # Set the region
     g.region rast=lsat7_2002_20 res=15 -a
@@ -259,9 +191,7 @@ visualization
     # Enhance the colors in the clipped region
     i.colors.enhance red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" strength=95
     # Create RGB composites
-    r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" output="${BASE}_toar.hpf_comp_543"
-            
-     
+    r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" output="${BASE}_toar.hpf_comp_543"  
 
 **Task:** Create the composites for the second scene
 "LC80150352016200LGN00"
@@ -281,15 +211,7 @@ pixel". We can use the addon
 [i.landsat8.qc](https://grass.osgeo.org/grass72/manuals/addons/i.landsat8.qc.html)
 to develop masks. More information about Landsat 8 quality band is given
 [here](http://landsat.usgs.gov/qualityband.php).
-
-            
-    g.region rast=lsat7_2002_20 res=15 -a
-    g.extension extension=i.landsat8.qc op=add
-    i.landsat8.qc cloud="Maybe,Yes" output=Cloud_Mask_rules.txt
-    r.reclass input=${BASE}_BQA output=${BASE}_Cloud_Mask rules=Cloud_Mask_rules.txt
-    r.report -e map=${BASE}_Cloud_Mask units=k -n
-            
-            
+ 
     # Set the region
     g.region rast=lsat7_2002_20 res=15 -a
     # Install the required extension
@@ -300,9 +222,6 @@ to develop masks. More information about Landsat 8 quality band is given
     r.reclass input=${BASE}_BQA output=${BASE}_Cloud_Mask rules=Cloud_Mask_rules.txt
     # Report the area covered by Cloud
     r.report -e map=${BASE}_Cloud_Mask units=k -n
-            
-        
-
 
 ![display cloud mask](images/sp_fig11_new.jpg "display cloud mask")
 False color composite and the derived cloud mask of the Landsat 8 image
@@ -315,18 +234,7 @@ composite
 #### Vegetation Indices
 
 We will compute NDVI and NDWI from the spectral bands using the map
-calculator
-
-.
-
-            
-    g.region rast=lsat7_2002_20 res=15 -a
-    r.mask rast=${BASE}_Cloud_Mask
-    r.mapcalc "${BASE}_NDVI = (${BASE}_toar5.hpf - ${BASE}_toar4.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar4.hpf) * 1.0"
-    r.colors ${BASE}_NDVI color=ndvi
-    r.mapcalc "${BASE}_NDWI = (${BASE}_toar5.hpf - ${BASE}_toar6.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar6.hpf) * 1.0"
-    r.colors ${BASE}_NDWI color=ndwi
-    r.mask -r
+calculator.
             
             
     # Set the region
@@ -344,8 +252,6 @@ calculator
     # Remove the mask
     r.mask -r
             
-     
-
 **Task:** Compute the vegetation indices from the second scene
 "LC80150352016200LGN00"
 
@@ -454,9 +360,7 @@ Image segmentation
 Texture extraction
 ------------------
 
-``
-
-    r.texture input=lsat7_2002_80 prefix=lsat7_2002_80_texture size=7 distance=1 method=corr,idm,entr
+r.texture input=lsat7_2002_80 prefix=lsat7_2002_80_texture size=7 distance=1 method=corr,idm,entr
 
 Use scatter plot in Map Display to compare IDM and Entr textures.
 
@@ -478,9 +382,6 @@ Apply color enhancement to the blue, green and red bands: ``
 
     i.colors.enhance blue=lsat7_2002_10 green=lsat7_2002_20 red=lsat7_2002_30 strength=95
 
-Now look again at the RGB layer (redraw in Map Display). The module
-*i.colors.enhance* does not create new rasters, it just creates new
-color tables.
 
 Learn more
 ----------

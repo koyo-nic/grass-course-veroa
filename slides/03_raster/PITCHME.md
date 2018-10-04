@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-# Raster data processing in GRASS GIS
+# Raster data handling in GRASS GIS
 
 ---
 
@@ -492,6 +492,32 @@ Finally, we can visualize the inundation using Animation Tool.
 ---
 
 Terrain analysis
+
+A shaded relief raster map is created and used to create a colorized hillshade raster map for later use:
+
+g.region raster=elevation
+r.relief input=elevation output=elevation_shaded_relief
+
+r.shade shade=elevation_shaded_relief color=elevation \
+    output=elevation_relief_shaded
+
+d.mon wx1
+d.rast elevation_relief_shaded
+
+
+r.geomorphon
+
+g.region raster=eu_dem_25m -p
+r.geomorphon elevation=eu_dem_25m forms=eu_dem_25m_geomorph
+
+Extraction of summits
+Using the resulting terrestial landforms map, single landforms can be extracted, e.g. the summits, and converted into a vector point map:
+
+r.mapcalc expression="eu_dem_25m_summits = if(eu_dem_25m_geomorph == 2, 1, null())"
+r.thin input=eu_dem_25m_summits output=eu_dem_25m_summits_thinned
+r.to.vect input=eu_dem_25m_summits_thinned output=eu_dem_25m_summits type=point
+v.info input=eu_dem_25m_summits
+
 
 <!--- add links --->
 
