@@ -139,3 +139,40 @@ i.wi
 
 # segmentation
 
+g.extension i.superpixels.slic
+
+Imagery modules typically work with *imagery groups*. We first list the
+landsat raster data and then create an imagery group:
+
+`g.list type=raster pattern="lsat*" sep=comma mapset=PERMANENT`
+`i.group group=lsat subgroup=lsat input=lsat7_2002_10,lsat7_2002_20,lsat7_2002_30,lsat7_2002_40,lsat7_2002_50,lsat7_2002_61,lsat7_2002_62,lsat7_2002_70,lsat7_2002_80`
+
+Now we run i.superpixels.slic and convert the resulting raster to vector
+for better viewing:
+
+`i.superpixels.slic group=lsat output=superpixels num_pixels=2000`
+`r.to.vect input=superpixels output=superpixels type=area`
+
+We do the same for i.segment and convert the resulting raster to vector
+for better viewing:
+
+`i.segment group=lsat output=segments threshold=0.5 minsize=50`
+`r.to.vect input=segments output=segments type=area`
+
+From landsat data we also compute NDVI to later display it together with
+the segmentation:
+
+`i.vi red=lsat7_2002_30 output=ndvi viname=ndvi nir=lsat7_2002_40`
+
+Remove all layers from Layer Manager and add these layers **one by one**
+by pasting into the GUI command line and pressing Enter:
+
+`d.rast map=ndvi`
+`d.vect map=superpixels fill_color=none`
+`d.vect map=segments fill_color=none`
+
+It's important to note that each segmentation algorithm is designed for
+different purpose, so we can't directly compare them.
+
+
+
