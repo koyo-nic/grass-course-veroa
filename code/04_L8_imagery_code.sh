@@ -105,19 +105,19 @@ r.mask -r
            
 Texture extraction
 
+# extract texture indices
 r.texture input=lsat7_2002_80 prefix=lsat7_2002_80_texture size=7 distance=1 method=corr,idm,entr
 
-#Use scatter plot in Map Display to compare IDM and Entr textures.
-
- 
 Unsupervised Classification
 
 # List the bands needed for classification
 g.list rast map=. pattern=${BASE}_toar*.hpf
 # add maps to an imagery group for easier management
-i.group group=${BASE}_hpf subgroup=${BASE}_hpf input=`g.list rast map=. pattern=${BASE}_toar*.hpf sep=","`
+i.group group=${BASE}_hpf subgroup=${BASE}_hpf input=`g.list type=raster mapset=. pattern=${BASE}_toar*.hpf sep=","`
 # statistics for unsupervised classification
 i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf classes=8 separation=0.5
 # Maximum Likelihood unsupervised classification
 i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf output=${BASE}_hpf.class rej=${BASE}_hpf.rej
     
+d.mon wx0
+d.rast ${BASE}_hpf.class

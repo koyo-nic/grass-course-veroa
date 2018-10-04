@@ -272,26 +272,7 @@ Main steps are:
 -   Generate signatures using a clustering algorithm
 -   Classify using Maximum likelihood algorithm
 
-<!-- -->
-
-            
-    g.list rast map=. pattern=${BASE}_toar*.hpf
-    i.group group=${BASE}_hpf subgroup=${BASE}_hpf input=`g.list rast map=. pattern=${BASE}_toar*.hpf sep=","`
-    i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf classes=8 separation=0.5
-    i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf output=${BASE}_hpf.class rej=${BASE}_hpf.rej
-            
-            
-    # List the bands needed for classification
-    g.list rast map=. pattern=${BASE}_toar*.hpf
-    # add maps to an imagery group for easier management
-    i.group group=${BASE}_hpf subgroup=${BASE}_hpf input=`g.list rast map=. pattern=${BASE}_toar*.hpf sep=","`
-    # statistics for unsupervised classification
-    i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf classes=8 separation=0.5
-    # Maximum Likelihood unsupervised classification
-    i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf output=${BASE}_hpf.class rej=${BASE}_hpf.rej
-            
-     
-
+           
 Check the manual of
 [i.cluster](https://grass.osgeo.org/grass72/manuals/i.cluster.html) and
 [i.maxlik](https://grass.osgeo.org/grass72/manuals/i.maxlik.html).
@@ -306,56 +287,10 @@ Other (very) useful links
     <https://grasswiki.osgeo.org/wiki/Image_classification>
 
 
----
-
-Image processing
-================
-
-For simplicity, we skip all the steps such as atmospheric and
-topographic corrections.
-
-Unsupervised image classification
----------------------------------
-
-Set the computation region to the one of the raster maps we will work
-with: ``
-
-    g.region rast=lsat7_2002_10 -p
-
-List the raster maps we have: ``
-
-    g.list type=rast
-
-Imagery group holds a group of raster, usually different bands which
-will be our case, too. Subgroups works in the same way as groups and are
-used to organize rasters inside a grpup. Now, use *i.group* to register
-Landsat images to a group and subgroup with the same name: ``
-
-    i.group group=lsat7_2002 subgroup=lsat7_2002 input=lsat7_2002_10,lsat7_2002_20,lsat7_2002_30,lsat7_2002_40,lsat7_2002_50,lsat7_2002_70
-
-Use wxGUI histogram tool in Map Display to compare different channels in
-the group. Now, generate spectral signatures using a clustering
-algorithm. It is not needed to specify all the rasters, we just refer to
-them using group and subgroup. The signatures are stored within the
-subgroup. ``
-
-    i.cluster group=lsat7_2002 subgroup=lsat7_2002 signaturefile=sig_cluster_lsat2002 classes=10
-
-Now we have signatures which can be used for a maximum-likelihood
-classification: ``
-
-    i.maxlik group=lsat7_2002 subgroup=lsat7_2002 signaturefile=sig_cluster_lsat2002 output=lsat7_2002_cluster_classes
-
-Look at the result using GUI or the following command: ``
-
-    d.rast lsat7_2002_cluster_classes
-
 Image segmentation
 ------------------
 
-``
-
-    i.segment group=lsat7_2002 output=lsat7_2002_segments threshold=0.5 method=region_growing similarity=euclidean
+i.segment group=lsat7_2002 output=lsat7_2002_segments threshold=0.5 method=region_growing similarity=euclidean
 
 Texture extraction
 ------------------
@@ -371,30 +306,16 @@ Use query tool to get raster values. Use
 *[d.rast.num](http://grass.osgeo.org/grass70/manuals/d.rast.num.html)*
 to show individual values of the raster.
 
-Color enhancement
------------------
-
-Add RGB layer to the Layer Manager or use the following command: ``
-
-    d.rgb blue=lsat7_2002_10 green=lsat7_2002_20 red=lsat7_2002_30
-
-Apply color enhancement to the blue, green and red bands: ``
-
-    i.colors.enhance blue=lsat7_2002_10 green=lsat7_2002_20 red=lsat7_2002_30 strength=95
-
 
 Learn more
 ----------
 
--   [Topic classification in GRASS GIS
-    manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
--   [Image processing in GRASS
-    GIS](http://grass.osgeo.org/grass70/manuals/imageryintro.html)
+-   [Topic classification in GRASS GIS manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
+-   [Image processing in GRASS GIS](http://grass.osgeo.org/grass70/manuals/imageryintro.html)
     (intro in manual)
 -   [Image processing](http://grasswiki.osgeo.org/wiki/Image_processing)
     at GRASS wiki
--   [Image
-    classification](http://grasswiki.osgeo.org/wiki/Image_classification)
+-   [Image classification](http://grasswiki.osgeo.org/wiki/Image_classification)
     at GRASS wiki
 
 ---
@@ -435,16 +356,11 @@ directory `$HOME/gisdata/`:
     myusername
     mypassword
         
-
 At this point you can use
 [i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
 to search (using `-l` flag) and download Sentinel-2 scenes.
 
             
-    i.sentinel.download -l settings=$HOME/gisdata/SETTING_SENTINEL start=2017-07-30 end=2017-07-31 order=desc
-    i.sentinel.download  settings=$HOME/gisdata/SETTING_SENTINEL start=2017-07-30 end=2017-07-31 order=desc out=$HOME/gisdata/ footprints=sentinel_2017_07
-            
-        
     # search Sentinel-2 data for for the last days of July, 2017
     # -l flag is used to print the resulting list
     i.sentinel.download -l settings=$HOME/gisdata/SETTING_SENTINEL 
@@ -455,13 +371,6 @@ to search (using `-l` flag) and download Sentinel-2 scenes.
      footprints=sentinel_2017_07
         
         
-    gmod.Module("i.sentinel.download", flags="l" settings="$HOME/gisdata/SETTING_SENTINEL",
-                start="2017-07-30", end="2017-07-31", order="desc")
-    gmod.Module("i.sentinel.download", settings="$HOME/gisdata/SETTING_SENTINEL", start="2017-07-30",
-                end="2017-07-31", order="desc", out="$HOME/gisdata/", footprints="sentinel_2017_07")
-        
-        
-
 Once the data are downloaded you have to import them into GRASS GIS.
 There are two options:
 [i.sentinel.import](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.import.html)
@@ -474,10 +383,6 @@ requires only the input directory where the Sentinel-2 scenes were
 downloaded. Optionally, it is possible to select only some of the
 available bands. In the following example we are going to import only 7
 bands for each image.
-
-            
-    i.sentinel.import -rc input=$HOME/gisdata/ pattern='B(02|03|04|08|8A|11|12)'
-            
         
     # import the downloaded data
     # -r flag is used to reproject the data during import
@@ -486,22 +391,13 @@ bands for each image.
     i.sentinel.import -rc input=$HOME/gisdata/ pattern='B(02|03|04|08|8A|11|12)'
         
         
-    gmod.Module("i.sentinel.import", flags="rc", input="$HOME/gisdata/", pattern="'B(02|03|04|08|8A|11|12)'")
-        
-        
-
-If we display the imported images, we can see that they appear really
-dark
-
+Display the imported images
         
     d.mon wx0
     d.rgb -n red=T17SQV_20170730T154909_B04 green=T17SQV_20170730T154909_B03 blue=T17SQV_20170730T154909_B02
     d.barscale length=50 units=kilometers segment=4 fontsize=14
     d.text -b text="Sentinel original" color=black bgcolor=229:229:229 align=cc font=sans size=8
             
-        
-
-
 ![Original Sentinel scene
 RGB](figures/sentinel_original.png "Original Sentinel scene RGB")
 
@@ -511,15 +407,9 @@ auto-balancing for RGB bands. The module to use is
 [i.color.enhance](https://grass.osgeo.org/grass74/manuals/i.colors.enhance.html).
 This module modifies the color table of each image band to provide a
 more natural color mixture, but the base data remains untouched.
-
             
     i.colors.enhance red=T17SQV_20170730T154909_B04 green=T17SQV_20170730T154909_B03 blue=T17SQV_20170730T154909_B02
             
-        
-    gmod.Module("i.colors.enhance", red="T17SQV_20170730T154909_B04", green="T17SQV_20170730T154909_B03", blue="T17SQV_20170730T154909_B02")
-        
-        
-
 Now you can run again the previous piece of code to visualize the RGB
 combination of the Sentinel-2 scene and observe the difference.
 
@@ -533,13 +423,10 @@ requires some extra inputs since it also performs atmospheric
 correction. First, this module requires the image as an unzipped
 directory, so you have to unzip one of the previous downloaded files,
 for example:
-
         
     cd $HOME/gisdata/
     unzip $HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.zip
         
-        
-
 Another required input is the visibility map. Since we don't have this
 kind of data, we will replace it with an estimated Aerosol Optical Depth
 (AOD) value. It is possible to obtain AOD from
@@ -563,57 +450,30 @@ session](#srtm). At this point you can run
 option creates a text file useful as input for
 [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html),
 the next step in the workflow.
-
             
     i.sentinel.preproc -atr input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik suffix=corr text_file=$HOME/gisdata/sentinel_mask
-            
+          
         
-    i.sentinel.preproc -atr input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE 
-     elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik suffix=corr text_file=$HOME/gisdata/sentinel_mask
-        
-        
-    gmod.Module("i.sentinel.preproc", flags="atr", input_dir="$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE",
-                elevation="elevation", aeronet_file="$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik", suffix="corr", text_file="$HOME/gisdata/sentinel_mask")
-        
-        
-
-
 ![Pre-processed Sentinel scene RGB with
 elevation](figures/sentinel_preproc_ele.png "Pre-processed Sentinel scene RGB with elevation")
 ![Pre-processed Sentinel scene RGB with
 SRTM](figures/sentinel_preproc_srtm.png "Pre-processed Sentinel scene RGB with SRTM")
 On the left the Sentinel-2 scene processed with `elevation` map, on the
 right the same scene processed with `SRTM` map
-
-
         
     d.mon wx0
     d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
     d.barscale length=50 units=kilometers segment=4 fontsize=14
     d.text -b text="Sentinel pre-processed scene" color=black bgcolor=229:229:229 align=cc font=sans size=8
             
-        
-
 Finally you can get the clouds and clouds' shadows masks for the
 Sentinel-2 scene using
 [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-
             
     i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask cloud_mask=T17SQV_20170730T160022_cloud shadow_mask=T17SQV_20170730T160022_shadow mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
             
-        
-    i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask cloud_mask=T17SQV_20170730T160022_cloud 
-     shadow_mask=T17SQV_20170730T160022_shadow mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
-        
-        
-    gmod.Module("i.sentinel.mask", input_file="$HOME/gisdata/sentinel_mask", cloud_mask="T17SQV_20170730T160022_cloud",
-                shadow_mask="T17SQV_20170730T160022_shadow", mtd="$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml")
-        
-        
-
 At this point we can visualize the output of
 [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-
         
     d.mon wx0
     d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
@@ -621,19 +481,12 @@ At this point we can visualize the output of
     d.barscale length=50 units=kilometers segment=4 fontsize=14
     d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font=sans size=8
             
-        
-
-
-![Auto-balanced Sentinel scene
-RGB](figures/sentinel_cloud.png "Auto-balanced Sentinel scene RGB")
+![Auto-balanced Sentinel scene RGB](figures/sentinel_cloud.png "Auto-balanced Sentinel scene RGB")
 
 
 #### How to obtain SRTM digital elevation model
 
-[]{#srtm}
-
-[Shuttle Radar Topography Mission
-(SRTM)](https://www2.jpl.nasa.gov/srtm/) is a worldwide Digital
+[Shuttle Radar Topography Mission (SRTM)](https://www2.jpl.nasa.gov/srtm/) is a worldwide Digital
 Elevation Model with a resolution of 30 or 90 meters. GRASS GIS has two
 modules to work with SRTM data,
 [r.in.srtm](https://grass.osgeo.org/grass74/manuals/r.in.srtm.html) to
@@ -646,32 +499,13 @@ is working only in a Longitude-Latitude location.
 
 First, we need to obtain the bounding box, in Longitude and Latitude on
 WGS84, of the Sentinel data we want to process
-
-            
+           
     g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
-            
+      
+Now, we have to start a new GRASS GIS session in a Longitute-Latitude location
         
-    g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
+    grass74 -c EPSG:4326 $HOME/grassdata/longlat
         
-        
-    gmod.Module("g.region", flags="p", raster="T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04")
-        
-        
-
-Now, we have to start a new GRASS GIS session in a Longitute-Latitude
-location
-
-        
-    grass75 -c EPSG:4326 $HOME/grassdata/longlat
-            
-        
-    1a. If in a new GRASS session, select "New" in the start-up screen
-    1b. Alternatively, from within a GRASS GIS session, go to "Settings --> GRASS Working environment --> Create new Location
-    2. Give a name to the new location
-    3. Select EPSG code as the option to create new location
-    4. Search for 4326 and select it
-    5. Done
- 
 Set the right region using the values obtain before
 
 g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
@@ -690,8 +524,7 @@ previous one (where Sentinel data are).
 To reproject the SRTM map from the `longlat` you have to use
 [r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)
 
-            
-    r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
+r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
 
 At this point you can use `srtm` map as input of `elevation` option in
 [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)

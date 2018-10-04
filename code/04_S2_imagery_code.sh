@@ -119,9 +119,9 @@ Set the right region using the values obtain before
            
 g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
             
-After this you need to install [r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html) and run it
-
+# install r.in.srtm.region
 g.extension r.in.srtm.region
+# run r.in.srtm.region downloading SRTM data and import them as srtm raster map
 r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
 
 You can now exit from this GRASS GIS session and restart to work in the previous one (where Sentinel data are).
@@ -137,5 +137,5 @@ i.vi
 
 i.wi
 
-# classification
+# segmentation
 
