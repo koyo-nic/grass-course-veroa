@@ -13,11 +13,14 @@
 your_username
 your_password
 
-# install dependencies
+# install dependencies (as root user)
 pip install sentinelsat
 pip install pandas
 
-# install extension
+# start grass and create a new mapset
+grass74 -c $HOME/grassdata/nc_spm_08_grass7/sentinel2
+
+# install i.sentinel extension
 g.extension extension=i.sentinel
 
 # set region to elevation map
@@ -52,18 +55,21 @@ d.text -b text="Sentinel original" color=black align=cc font=sans size=8
 # perform color auto-balancing for RGB bands 
 i.colors.enhance red=B04 green=B03 blue=B02
 
-### The module to use is i.color.enhance. This module modifies the color table of each image band to provide a more natural color mixture, but the base data remains untouched. 
+#~ [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
+#~ requires some extra inputs since it also performs atmospheric
+#~ correction. First, this module requires the image as an unzipped
+#~ directory, so you have to unzip one of the previous downloaded files,
+#~ for example:
 
+#
+# Pre-processing of Sentinel 2 data
+#
 
-[i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
-requires some extra inputs since it also performs atmospheric
-correction. First, this module requires the image as an unzipped
-directory, so you have to unzip one of the previous downloaded files,
-for example:
-       
+# enter directory with Sentinel scene and unzip file
 cd $HOME/gisdata/
 unzip $HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.zip
-        
+      
+# Get AOD        
 Another required input is the visibility map. Since we do not have this
 kind of data, we will replace it with an estimated Aerosol Optical Depth
 (AOD) value. It is possible to obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov). 
@@ -71,108 +77,98 @@ In this case, we will use the
 [EPA-Res_Triangle_Pk](https://aeronet.gsfc.nasa.gov/cgi-bin/webtool_opera_v2_inv?stage=3&region=United_States_East&state=North_Carolina&site=EPA-Res_Triangle_Pk&place_code=10&if_polarized=0)
 station, select `01-07-2017` as start date and `30-08-2017` as end date, tick the box labelled as 'Combined file (all products without phase functions)' near the bottom, choose 'All Points' under Data
 Format, and download and unzip the file into `$HOME/gisdata/` folder (the final file has a .dubovik extension).
+
+# DEM - elevation map
 The last input data required is the elevation map. Inside the `North Carolina basic location` there is an elevation map called `elevation`. The extent of the `elevation` map is smaller than our
 Sentinel-2 image extent, so if you will use this elevation map only a subset of the Sentinel image will be atmospherically corrected; to get an elevation map for the entire area please read the [next
-session](#srtm). At this point you can run [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
-(please check which elevation map you want to use). The `text_file` option creates a text file useful as input for [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html),
-the next step in the workflow.
+session](#srtm). 
 
-            
+# run i.sentinel.preproc          
 i.sentinel.preproc -atr \
 input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
 elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
 suffix=corr text_file=$HOME/gisdata/sentinel_mask
-            
+
+# display corrected image
 d.mon wx0
 d.rgb -n red=B04_corr green=B03_corr blue=B02_corr
 d.barscale length=50 units=kilometers segment=4 fontsize=14
 d.text -b text="Sentinel pre-processed scene" color=black align=cc font=sans size=8
 
-get the clouds and clouds shadows masks for the Sentinel-2 scene using [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-
+# Identify and mask clouds and clouds shadows: i.sentinel.mask
 i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask \
  cloud_mask=T17SQV_20170730T160022_cloud \
  shadow_mask=T17SQV_20170730T160022_shadow \
  mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
 
-visualize the output of [i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-
+# display output
 d.mon wx0
 d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
 d.vect T17SQV_20170730T160022_cloud fill_color=red
 d.barscale length=50 units=kilometers segment=4 fontsize=14
 d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font=sans size=8
 
-
+# Replace elevation map by SRTM DEM: r.in.srtm.region
 [Shuttle Radar Topography Mission (SRTM)](https://www2.jpl.nasa.gov/srtm/) is a worldwide Digital Elevation Model with a resolution of 30 or 90 meters. GRASS GIS has two
 modules to work with SRTM data, [r.in.srtm](https://grass.osgeo.org/grass74/manuals/r.in.srtm.html) to import already downloaded SRTM data and, the add-on
 [r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html) which is able to download and import SRTM data for the current GRASS GIS
 computational region. However, [r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html) is working only in a Longitude-Latitude location.
 
 First, we need to obtain the bounding box, in Longitude and Latitude on WGS84, of the Sentinel data we want to process
-            
+
+# get bb in the current location            
 g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
     
-change to a lat-long location
+# change to a lat-long location
 
-Set the right region using the values obtain before
-           
+# Set the region using the values obtained in NC location
 g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
             
 # install r.in.srtm.region
 g.extension r.in.srtm.region
+
 # run r.in.srtm.region downloading SRTM data and import them as srtm raster map
 r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
 
-You can now exit from this GRASS GIS session and restart to work in the previous one (where Sentinel data are).
-To reproject the SRTM map from the `longlat` you have to use [r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)
+# change back to NC location and sentinel2 mapset
 
+# reproject the SRTM map
 r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
 
-now you can use `srtm` map as input of `elevation` option in [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
+# use `srtm` map as input of `elevation` option in i.sentinel.preproc
 
-# estimate indices
+#
+# estimate vegetation and water indices
+#
 
 i.vi
 
 i.wi
 
-# segmentation
+#
+# Image segmentation
+#
 
+# install add-on
 g.extension i.superpixels.slic
 
-Imagery modules typically work with *imagery groups*. We first list the
-landsat raster data and then create an imagery group:
+# list maps and create groups and subgroups
+g.list type=raster pattern="lsat*" sep=comma mapset=PERMANENT
+i.group group=lsat subgroup=lsat input=lsat7_2002_10,lsat7_2002_20,lsat7_2002_30,lsat7_2002_40,lsat7_2002_50,lsat7_2002_61,lsat7_2002_62,lsat7_2002_70,lsat7_2002_80
 
-`g.list type=raster pattern="lsat*" sep=comma mapset=PERMANENT`
-`i.group group=lsat subgroup=lsat input=lsat7_2002_10,lsat7_2002_20,lsat7_2002_30,lsat7_2002_40,lsat7_2002_50,lsat7_2002_61,lsat7_2002_62,lsat7_2002_70,lsat7_2002_80`
+# run i.superpixels.slic and convert the resulting raster to vector
+i.superpixels.slic group=lsat output=superpixels num_pixels=2000
+r.to.vect input=superpixels output=superpixels type=area
 
-Now we run i.superpixels.slic and convert the resulting raster to vector
-for better viewing:
+# run i.segment and convert the resulting raster to vector
+i.segment group=lsat output=segments threshold=0.5 minsize=50
+r.to.vect input=segments output=segments type=area
 
-`i.superpixels.slic group=lsat output=superpixels num_pixels=2000`
-`r.to.vect input=superpixels output=superpixels type=area`
+# display NDVI along with the 2 segmentation outputs
+d.rast map=ndvi
+d.vect map=superpixels fill_color=none
+d.vect map=segments fill_color=none
 
-We do the same for i.segment and convert the resulting raster to vector
-for better viewing:
-
-`i.segment group=lsat output=segments threshold=0.5 minsize=50`
-`r.to.vect input=segments output=segments type=area`
-
-From landsat data we also compute NDVI to later display it together with
-the segmentation:
-
-`i.vi red=lsat7_2002_30 output=ndvi viname=ndvi nir=lsat7_2002_40`
-
-Remove all layers from Layer Manager and add these layers **one by one**
-by pasting into the GUI command line and pressing Enter:
-
-`d.rast map=ndvi`
-`d.vect map=superpixels fill_color=none`
-`d.vect map=segments fill_color=none`
-
-It's important to note that each segmentation algorithm is designed for
-different purpose, so we can't directly compare them.
 
 
 

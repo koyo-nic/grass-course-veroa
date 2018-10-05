@@ -407,42 +407,54 @@ r.grow.distance -n input=forest distance=distance
 
 ### Patch analysis
 
-FOR ANALYSIS ON A MOVING WINDOW
-
 ```
-# Select the window and create a mask
-
-r.mask vector=Cluster1@garzonc
-r.mapcalc expression="Cluster4_withP1 = FragmentsAO_withP1" --o
-
 # Set the config file in the g.gui.rlisetup config window
 
-<!--- screenshot --->
+1. Create
+2. Name the config file `forest_whole`
+3. Select the raster map forest
+4. Define the sampling region --> whole map layer
+5. Define sample area --> whole map layer
 
-#Compute the landscape metrics
+1. Create
+2. Name the config file `forest_mov_win`
+3. Select the raster map forest
+4. Define the sampling region --> whole map layer
+5. Define sample area --> moving window 
+6. Select shape of mov window --> rectangle --> width=10, height=10
 
-r.li.edgedensity input=FragmentsAO_withP1 config=cluster4 output=cluster4edgeDP1
-r.li.shape input=FragmentsAO_withP1 config=cluster4 output=cluster4indexP1
-r.li.patchnum input=FragmentsAO_withP1 config=cluster4 output=cluster4fragNumP1
-r.li.mps input=FragmentsAO_withP1 config=cluster4 output=cluster4mpsP1
+# Compute the landscape metrics using both config files
 
-# Remove the mask
+r.li.edgedensity input=forest config=forest_whole output=forest_edge_full
+r.li.shape input=forest config=forest_whole output=forest_shape_full
+r.li.patchnum input=forest config=forest_whole output=forest_patchnum_full
+r.li.mps input=forest config=forest_whole output=forest_mps_full
 
-r.mask -r
+r.li.edgedensity input=forest config=forest_mov_win output=forest_edge_mw
+r.li.shape input=forest config=forest_mov_win output=forest_shape_mw
+r.li.patchnum input=forest config=forest_mov_win output=forest_patchnum_mw
+r.li.mps input=forest config=forest_mov_win output=forest_mps_mw
 
-#The results can be found at .grass7/r.li/output
+# Notes: 
+Do not use absolute path names for the config and output file/map 
+parameters. If the "moving window" method was selected in 
+g.gui.rlisetup, then the output will be a raster map, otherwise an 
+ASCII file will be generated in the folder 
+C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows) or 
+$HOME/.grass7/r.li/output/ (GNU/Linux). 
 ```
 
+r.li.edgedensity --verbose input=landclass96@PERMANENT config=forest_mov_win output=forest_edge patch_type=5
 ---
 
 Hydrology: Estimating inundation extent using HAND methodology
 
 In this example we will use some of GRASS GIS hydrology tools, namely:
 
-    r.watershed: for computing flow accumulation, drainage direction, the location of streams and watershed basins; does not need sink filling because of using least-cost-path to route flow out of sinks
-    r.lake: fills a lake to a target water level from a given start point or seed raster
-    r.lake.series: addon which runs r.lake for different water levels
-    r.stream.distance: for computing the distance to streams or outlet, the relative elevation above streams; the distance and the elevation are calculated along watercourses
+- r.watershed: for computing flow accumulation, drainage direction, the location of streams and watershed basins; does not need sink filling because of using least-cost-path to route flow out of sinks
+- r.lake: fills a lake to a target water level from a given start point or seed raster
+- r.lake.series: addon which runs r.lake for different water levels
+- r.stream.distance: for computing the distance to streams or outlet, the relative elevation above streams; the distance and the elevation are calculated along watercourses
 
 r.stream.distance and r.lake.series are addons and we need to install them first:
 
@@ -476,34 +488,22 @@ r.lake.series creates a space-time dataset. We can use temporal modules to furth
 
 t.rast.univar input=inundation separator=comma
 
-Finally, we can visualize the inundation using Animation Tool.
+Finally, we can visualize the inundation using the Animation Tool.
 
-    Launch it from menu File - Animation tool.
-    Start with Add new animation and click on Add space-time dataset or series of map layers.
-    In Input data type select Space time raster dataset and below select inundation and press OK.
-    Next we want to add shaded relief as base layer. Use Add raster map layer and select raster elevation_shade from mapset PERMANENT.
-    You can also overlay road network using Add vector map layer and selecting streets_wake from mapset PERMANENT.
-    Select inundation layer and move it above elevation_shade using the toolbar buttons above the layers.
-    Press OK and wait till the animation is rendered. Then press Play button.
-    Animation tool always renders based on the current computational region. If you want to zoom into a specific area, change the region interactively (see how to do it in the intro), or in command line (e.g. g.region n=224690 s=221320 w=640120 e=643520) in the Map Display and in Animation tool press Render map
+-    Launch it from menu File - Animation tool.
+-    Start with Add new animation and click on Add space-time dataset or series of map layers.
+-    In Input data type select Space time raster dataset and below select inundation and press OK.
+-    Next we want to add shaded relief as base layer. Use Add raster map layer and select raster elevation_shade from mapset PERMANENT.
+-    You can also overlay road network using Add vector map layer and selecting streets_wake from mapset PERMANENT.
+-    Select inundation layer and move it above elevation_shade using the toolbar buttons above the layers.
+-    Press OK and wait till the animation is rendered. Then press Play button.
+-    Animation tool always renders based on the current computational region. If you want to zoom into a specific area, change the region interactively (see how to do it in the intro), or in command line (e.g. g.region n=224690 s=221320 w=640120 e=643520) in the Map Display and in Animation tool press Render map
 
 <!--- add links --->
 
 ---
 
 Terrain analysis
-
-A shaded relief raster map is created and used to create a colorized hillshade raster map for later use:
-
-g.region raster=elevation
-r.relief input=elevation output=elevation_shaded_relief
-
-r.shade shade=elevation_shaded_relief color=elevation \
-    output=elevation_relief_shaded
-
-d.mon wx1
-d.rast elevation_relief_shaded
-
 
 r.geomorphon
 
@@ -517,7 +517,6 @@ r.mapcalc expression="eu_dem_25m_summits = if(eu_dem_25m_geomorph == 2, 1, null(
 r.thin input=eu_dem_25m_summits output=eu_dem_25m_summits_thinned
 r.to.vect input=eu_dem_25m_summits_thinned output=eu_dem_25m_summits type=point
 v.info input=eu_dem_25m_summits
-
 
 <!--- add links --->
 
