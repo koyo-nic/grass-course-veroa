@@ -18,6 +18,8 @@ Exercises:
 
 - [Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/)
 - [Create new location and import maps](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/02_create_new_location&grs=gitlab#/)
+- [Raster data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/03_raster_exercises&grs=gitlab#/)
+- [Working with Sentinel 2 images](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
 
 ## Software
 
@@ -92,10 +94,6 @@ Install with `g.extension extension=name_of_addon`
 * To be added
 
 <!---
-* [ECA&D elevation (GeoTiff file)](https://gitlab.com/neteler/grass-gis-geostat-2018/tree/master/intro/aux_data/ecad_elev_v17.zip): download and unzip into the `$HOME/geodata` folder (create folder if needed).
-
-* [ecad17_ll location](https://gitlab.com/neteler/grass-gis-geostat-2018/tree/master/intro/aux_data/grassdata_ecad17_ll.zip): download and unzip into the `$HOME/grassdata` folder (create folder if needed).
- 
 * [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
 --->
 
