@@ -13,12 +13,16 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-# Raster data handling in GRASS GIS
+## Raster data in GRASS GIS
 
 ---
 
-### Overview
+@snap[north-west span-60]
+<h3>Overview</h3>
+@snapend
 
+@snap[west span-100]
+@ol[list-content-verbose](false)
 - Basics about raster maps in GRASS GIS
 - NULL values
 - MASK
@@ -26,62 +30,70 @@
 - Map algebra
 - Reports and Stats
 - Exercises: 
-  - Landscape analysis
+  - Landscape patch analysis
   - Terrain analysis
   - Hydrology analysis
-  
----
-
-### Raster data: Basic concepts in GRASS GIS
-
-> A "raster map" is a data layer consisting of a gridded array of cells. It has a certain number of rows and columns, with a data point (or null value indicator) in each cell. They may exist as a 2D grid or as a 3D cube.
-
-- The geographic boundaries of the raster map are described by the north, south, east, and west fields. 
-- The geographic extent of the map is described by the outer bounds of all cells within the map.
-
-[[https://grass.osgeo.org/grass70/manuals/rasterintro.html](https://grass.osgeo.org/grass70/manuals/rasterintro.html)
+@olend
+@snapend
 
 ---
 
-### Raster data precision
+### Basic raster concepts in GRASS GIS
+
+> A "raster map" is a gridded array of cells. It has a certain number of rows and columns, with a data point (or null value indicator) in each cell. They may exist as a 2D grid or as a 3D cube.
+
+- The geographic boundaries are described by the north, south, east, and west fields. 
+- The geographic extent is described by the outer bounds of all cells within the map.
+
+<br>
+Further info: [https://grass.osgeo.org/grass70/manuals/rasterintro.html](https://grass.osgeo.org/grass70/manuals/rasterintro.html)
+
+---
+
+#### Raster data precision
 
 - **CELL DATA TYPE:** a raster map of INTEGER type (whole numbers only)
 - **FCELL DATA TYPE:** a raster map of FLOAT type (4 bytes, 7-9 digits precision)
 - **DCELL DATA TYPE:** a raster map of DOUBLE type (8 bytes, 15-17 digits precision) 
 
-[https://grasswiki.osgeo.org/wiki/GRASS_raster_semantics](https://grasswiki.osgeo.org/wiki/GRASS_raster_semantics)
+<br>
+Further info: [https://grasswiki.osgeo.org/wiki/GRASS_raster_semantics](https://grasswiki.osgeo.org/wiki/GRASS_raster_semantics)
 
 ---
 
-#### General raster rules in GRASS GIS:
+#### General raster rules in GRASS GIS
 
-- Raster output maps have their bounds and resolution equal to those of the current computational region.
-- Raster input maps are automatically cropped/padded and rescaled (using nearest-neighbour resampling) to match the current region.
-- Raster input maps are automatically masked if a raster map named MASK exists. The MASK is only applied when reading maps from the disk. 
+- Raster **output** maps have their *bounds and resolution equal to those of the computational region*
+- Raster **input** maps are automatically *cropped/padded and rescaled to match the computational region*
+- Raster **input** maps are automatically masked if a raster map named MASK exists. The *MASK is only applied when reading* maps from the disk
 
-All r.in.\* programs read the data cell-by-cell, with no resampling
+<br>
+**Exception:** All @color[green](r.in.*) programs read the data cell-by-cell, with no resampling
 
 ---
 
 ### NULL values 
 
-- **NULL:** represents "no data" in raster maps (e.g. gaps in DEM or RS L3 products), to be distinguished from 0 (zero) data value.
+- **NULL**: represents "no data" in raster maps (e.g. gaps in DEM or RS products), to be distinguished from 0 (zero) data value.
 - Important: operations on NULL cells lead to NULL cells. 
 - NULL values are handled by [r.null](https://grass.osgeo.org/grass74/manuals/r.null.html). 
 
+<br>
 ```bash
 # set the nodata value
-r.nulls setnull=-9999
+r.nulls map=mapname setnull=-9999
 
-# replace nodata by a number 
-r.nulls null=256
+# replace NULL by a number 
+r.nulls map=mapname null=256
 ```
 
 ---
 			
-### Mask
+### MASK
 
-A raster map named MASK can be created to mask out areas: all cells that are NULL in the MASK map will be ignored (also all areas outside the computation region).
+A raster map named MASK can be created to mask out areas: all cells that
+are NULL in the MASK map will be ignored (also all areas outside the 
+computation region).
 	
 Masks are set with [r.mask](https://grass.osgeo.org/grass74/manuals/r.mask.html) or creating a raster map called `MASK`. Vector maps can be also used as masks. 
 
@@ -89,22 +101,25 @@ Masks are set with [r.mask](https://grass.osgeo.org/grass74/manuals/r.mask.html)
 <br>
 @size[18px](Examples of masking: b- Only the raster data inside the masked area are used for further analysis. c- Inverse mask.)
 
----
++++
 
 #### MASK examples
 
 ```bash
 # use vector as mask
 r.mask vector=lakes
+
 # use vector as mask, set inverse mask
 r.mask -i vector=lakes
+
 # mask categories of a raster map
 r.mask raster=landclass96 maskcats="5 thru 7"
+
 # remove mask
 r.mask -r
 ```
 
-The mask is only applied when reading an existing GRASS raster map, for example when used in a module as an input map. 
+**Note**: A mask is only actually applied when reading a GRASS raster map, i.e., when used as input in a module. 
 
 ---
 
@@ -308,7 +323,8 @@ r.mapcalc "forest_high = if(elevation > 120 && landclass96 == 5, 1, null())"
 #### `eval` function
 
 If the output of the computation should be only one map but the expression is so complex that it is better to split it to several expressions, the eval function can be used: 
-```
+
+```bash
 r.mapcalc "eval(elev_200 = elevation - 200, elev_5 = 5 * elevation, elev_p = pow(elev_5, 2)); elevation_result = (0.5 * elev_200) + 0.8 * elev_p"
 ```
 
@@ -444,7 +460,6 @@ C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows) or
 $HOME/.grass7/r.li/output/ (GNU/Linux). 
 ```
 
-r.li.edgedensity --verbose input=landclass96@PERMANENT config=forest_mov_win output=forest_edge patch_type=5
 ---
 
 Hydrology: Estimating inundation extent using HAND methodology

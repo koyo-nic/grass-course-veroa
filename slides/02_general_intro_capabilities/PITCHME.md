@@ -262,10 +262,10 @@ Classification
 @snap[east span-50]
 <br>
 @ul[header-footer-list-shrink](false)
-- [r.learn.ml](https://grass.osgeo.org/grass74/manuals/addons/r.learn.ml.html): Supervised classification and regression with Machine Learning
-- [r.fuzzy.system](https://grass.osgeo.org/grass74/manuals/addons/r.fuzzy.system.html): Full fuzzy logic standalone classification system
-- [i.ann.maskrcnn](https://grass.osgeo.org/grass74/manuals/addons/i.ann.maskrcnn.html): Supervised classification using convolutional neural networks
-- [i.object.activelearning](https://grass.osgeo.org/grass74/manuals/addons/r.object.activelearning.html): Active learning for classifying raster objects
+- [r.learn.ml](https://grass.osgeo.org/grass7/manuals/addons/r.learn.ml.html): Supervised classification and regression with Machine Learning
+- [r.fuzzy.system](https://grass.osgeo.org/grass7/manuals/addons/r.fuzzy.system.html): Full fuzzy logic standalone classification system
+- [i.ann.maskrcnn](https://grass.osgeo.org/grass7/manuals/addons/i.ann.maskrcnn.html): Supervised classification using convolutional neural networks
+- [i.object.activelearning](https://grass.osgeo.org/grass7/manuals/addons/r.object.activelearning.html): Active learning for classifying raster objects
 @ulend
 @snapend
 
@@ -289,10 +289,10 @@ Segmentation and OBIA
 <br>
 @ul[header-footer-list-shrink](false)
 - [i.segment](https://grass.osgeo.org/grass77/manuals/i.segment.html): Identifies segments (objects) from imagery data
-- [i.segment.hierarchical](https://grass.osgeo.org/grass74/manuals/addons/i.segment.hierarchical.html): Hierarchical segmentation
-- [i.segment.stats](https://grass.osgeo.org/grass74/manuals/addons/i.segment.stats.html): Calculates statistics describing raster areas
-- [i.segment.uspo](https://grass.osgeo.org/grass74/manuals/addons/i.segment.uspo.html): Unsupervised segmentation parameter optimization
-- [i.superpixels.slic](https://grass.osgeo.org/grass74/manuals/addons/i.superpixels.slic.html): Performs image segmentation using SLIC method
+- [i.segment.hierarchical](https://grass.osgeo.org/grass7/manuals/addons/i.segment.hierarchical.html): Hierarchical segmentation
+- [i.segment.stats](https://grass.osgeo.org/grass7/manuals/addons/i.segment.stats.html): Calculates statistics describing raster areas
+- [i.segment.uspo](https://grass.osgeo.org/grass7/manuals/addons/i.segment.uspo.html): Unsupervised segmentation parameter optimization
+- [i.superpixels.slic](https://grass.osgeo.org/grass7/manuals/addons/i.superpixels.slic.html): Performs image segmentation using SLIC method
 @ulend
 @snapend
 
@@ -336,11 +336,11 @@ RS derived products
 @snap[east span-60]
 <br>
 @ul[header-footer-list-shrink](false)
-- [i.wi](https://grass.osgeo.org/grass74/manuals/addons/i.wi.html): Calculates different types of water indices
-- [i.lswt](https://grass.osgeo.org/grass74/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures from TOA Brightness Temperatures
-- [i.landsat8.swlst](https://grass.osgeo.org/grass74/manuals/addons/i.landsat8.swlst.html): Split-window algorithm estimating LST from Landsat 8 OLI/TIRS
-- [i.rh](https://grass.osgeo.org/grass74/manuals/addons/i.rh.html): Water in atmosphere: relative humidity, water vapour
-- [i.water](https://grass.osgeo.org/grass74/manuals/addons/i.water.html): Water detection from satellite data derived indices
+- [i.wi](https://grass.osgeo.org/grass7/manuals/addons/i.wi.html): Calculates different types of water indices
+- [i.lswt](https://grass.osgeo.org/grass7/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures from TOA Brightness Temperatures
+- [i.landsat8.swlst](https://grass.osgeo.org/grass7/manuals/addons/i.landsat8.swlst.html): Split-window algorithm estimating LST from Landsat 8 OLI/TIRS
+- [i.rh](https://grass.osgeo.org/grass7/manuals/addons/i.rh.html): Water in atmosphere: relative humidity, water vapour
+- [i.water](https://grass.osgeo.org/grass7/manuals/addons/i.water.html): Water detection from satellite data derived indices
 @ulend
 @snapend
 
@@ -675,18 +675,18 @@ Some (other) cool add-ons
 
 @snap[midpoint span-100]
 @ul[header-footer-list-shrink](false)
-- [i.modis](https://grass.osgeo.org/grass74/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
-- [i.sentinel](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
-- [r.hants](https://grass.osgeo.org/grass74/manuals/addons/r.hants.html): Approximates a periodic time series with harmonics
-- [r.seasons](https://grass.osgeo.org/grass74/manuals/addons/r.seasons.html): Extracts seasons from a time series
-- [r.bioclim](https://grass.osgeo.org/grass74/manuals/addons/r.bioclim.html): Calcuates bioclimatic indices
+- [i.modis](https://grass.osgeo.org/grass7/manuals/addons/i.modis.html): Toolset for download and processing of MODIS products using pyModis
+- [i.sentinel](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.html): Toolset for download and processing of Copernicus Sentinel products
+- [r.hants](https://grass.osgeo.org/grass7/manuals/addons/r.hants.html): Approximates a periodic time series with harmonics
+- [r.seasons](https://grass.osgeo.org/grass7/manuals/addons/r.seasons.html): Extracts seasons from a time series
+- [r.bioclim](https://grass.osgeo.org/grass7/manuals/addons/r.bioclim.html): Calcuates bioclimatic indices
 - ... and **other 300+ more in the official repo!!**
 @ulend
 @snapend
 
 @snap[south span-100]
 @fa[grin #8EA33B]
-@size[24px](Don't forget to check <a href="https://grass.osgeo.org/grass74/manuals/addons/">https://grass.osgeo.org/grass74/manuals/addons/</a> from time to time)
+@size[24px](Don't forget to check <a href="https://grass.osgeo.org/grass7/manuals/addons/">https://grass.osgeo.org/grass7/manuals/addons/</a> from time to time)
 @snapend
 
 --- 
