@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Raster data in GRASS GIS
+## Exercises with raster data
 
 ---
 
@@ -23,91 +23,48 @@
 
 @snap[west span-100]
 @ol[list-content-verbose](false)
-- Basics about raster maps in GRASS GIS
-- NULL values
-- MASK
-- Computational region
-- Map algebra
-- Reports and Stats
-- Exercises: 
-  - Landscape patch analysis
-  - Terrain analysis
-  - Hydrology analysis
+- Landscape structure and forest fragmentation
+- Hydrology analysis
+- Terrain analysis
 @olend
 @snapend
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Landscape structure analysis
+### Landscape structure and forest fragmentation
 
-For the following examples we will use raster `landuse96_28m` from our North Carolina dataset, where patches represent different land cover. We will use module and addons and . Install the addon first:
-```
-g.extension r.diversity
-g.extension r.forestfrag
-```
----
++++?code=code/03_raster_code.sh&lang=bash&title=Landscape structure and forest fragmentation
 
-**Richness**
+@[16-18](Install addons)
 
-First, we compute richness (number of unique classes) using r.neighbors. By using moving window analysis, we create a raster representing spatially variable richness. The window size is in cells.
++++?code=code/03_raster_code.sh&lang=bash&title=Richness and Diversity
 
-```
-g.region raster=landuse96_28m
-r.neighbors input=landuse96_28m output=richness method=diversity size=15
-```
+@[20-22](Estimate richness - The window size is in cells)
+@[24-25](Compute Simpson, Shannon, and Renyi diversity indices)
+@[27-31](Make colors comparable)
 
----
+Task: Add all maps to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
 
-**Landscape indices**
-
-Addon computes landscape indices using moving window. It is based on modules for landscape structure analysis. In this example, we compute Simpson, Shannon, and Renyi diversity indices with a range of window sizes:
-
-`r.diversity input=landuse96_28m prefix=index alpha=0.8 size=9-21 method=simpson,shannon,renyi`
-
-This generates 9 rasters with names like `index_simpson_size_9`. We can add them to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
-
----
-
-For viewing, we should set the same color table for rasters maps of the same index.
-
-```
-r.colors map=index_shannon_size_21,index_shannon_size_15,index_shannon_size_9 color=viridis
-r.colors map=index_renyi_size_21_alpha_0.8,index_renyi_size_15_alpha_0.8,index_renyi_size_15_alpha_0.8 color=viridis`
-# we use grey1.0 color ramp because simpson is from 0-1
-r.colors map=index_simpson_size_21,index_simpson_size_15,index_simpson_size_9 color=grey1.0
-```
-
----
-
-**Forest fragmentation** 
++++?code=code/03_raster_code.sh&lang=bash&title=Forest fragmentation
 
 Module computes the forest fragmentation following the methodology proposed by [Riitters et al.
 (2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
 
 First mark all cells which are forest as 1 and everything else as zero:
 
-```
 # first set region
 g.region raster=landclass96
 # list classes:
 r.category map=landclass96
 # select classes
 r.mapcalc "forest = if(landclass96 == 5, 1, 0)"
-```
-
----
 
 Use the new forest presence raster map to compute the forest fragmentation index with window size 15:
-
-```
 r.forestfrag input=forest output=fragmentation window=15
-```
 
 Report the distribution of the fragmentation categories:
-
-```
 r.report map=fragmentation units=k,p
-```
+
 ---
 
 Distance from forest edge
