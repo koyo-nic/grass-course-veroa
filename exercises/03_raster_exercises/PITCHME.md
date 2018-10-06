@@ -54,7 +54,7 @@
 +++
 
 Forest fragmentation
-<br>
+<br><br>
 We'll use the addon [r.forestfrag](https://grass.osgeo.org/grass7/manuals/addons/r.forestfrag.html) 
 that computes the forest fragmentation following the methodology proposed by [Riitters et al.
 (2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
@@ -91,7 +91,7 @@ Landscape patch analysis
 Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manuals/g.gui.rlisetup.html) config window
 @snapend
 
-@snap[west span-50]
+@snap[west span-45]
 <br>
 @ol[list-content-verbose](false)
 - Hit "Create" and name the config file *forest_whole*
@@ -101,8 +101,8 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @olend
 @snapend
 
-@snap[east span-50]
-<br>
+@snap[east span-55]
+<br><br>
 @ol[list-content-verbose](false)
 - Hit Create and name the config file *forest_mov_win*
 - Select the raster map forest
@@ -119,7 +119,7 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @[94-95](Compute patch number for the whole area)
 @[96-97](Compute mean patch size for the whole area)
 
-+++?code=code/03_raster_code.sh&lang=bash&title=Landscape patch analysis
++++
 
 > **Task**: Now, do the same for the moving window case and compare outputs and results.
 
@@ -129,7 +129,7 @@ For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/ma
 +++
 
 **Notes**: 
-<br>
+<br><br>
 If the "moving window" method was selected in g.gui.rlisetup, 
 the output will be a raster map, otherwise an ASCII file will be 
 generated in the folder C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows)
@@ -184,9 +184,9 @@ Create animation from GUI
 @ol[list-content-verbose](false)
 - Launch it from menu File --> Animation tool
 - *Add new animation* and click on *Add space-time dataset or series of map layers*
-- Select *Space time raster dataset* and below select **inundation** and press OK
-- Use *Add raster map layer* and select raster **elevation_shade** from mapset PERMANENT
-- Use *Add vector map layer* and select **streets_wake** from mapset PERMANENT
+- Select *Space time raster dataset* and below select **inundation**
+- Use *Add raster map layer* and select raster **elevation_shade** from PERMANENT
+- Use *Add vector map layer* and select **streets_wake** from PERMANENT
 - Select **inundation** layer and move it above elevation_shade
 - Press OK and wait till the animation is rendered 
 - Press Play button
