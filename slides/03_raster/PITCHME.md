@@ -212,24 +212,30 @@ If nearest neighbor resampling is not desired, the input map(s) has/have to be r
 - [r.coin](https://grass.osgeo.org/grass74/manuals/r.coin.html): reports coincidence of two raster map layers
 - [r.volume](https://grass.osgeo.org/grass74/manuals/r.volume.html): estimate volume
 - [r.surf.area](https://grass.osgeo.org/grass74/manuals/r.surf.area.html): estimates area
-r.surf.area map=elevation units=hectares
 
-<!--- add example --->
+```bash
+r.report map=zipcodes,landclass96 units=h,p
+r.coin first=zipcodes second=landclass96 units=p
+
+```
 
 +++
 
 
 - [r.univar](https://grass.osgeo.org/grass74/manuals/r.univar.html): calculates univariate statistics from the non-null cells of a raster map.
-- [r.stats](https://grass.osgeo.org/grass74/manuals/r.stats.html): calculates the area present in each of the categories or fintervals of a raster map
+- [r.stats](https://grass.osgeo.org/grass74/manuals/r.stats.html): calculates the area present in each of the categories or intervals of a raster map
 - [r.statistics](https://grass.osgeo.org/grass74/manuals/r.statistics.html) and [r.stats.zonal](https://grass.osgeo.org/grass74/manuals/r.stats.zonal.html): zonal statistics
 - [r.neighbors](https://grass.osgeo.org/grass74/manuals/r.neighbors.html): local stats based in neighbors
 
-<!--- add example --->
+```bash
+r.univar map=elevation
+# average elevation in zipcode areas
+r.stats.zonal base=zipcodes cover=elevation method=average output=zipcodes_elev_avg
+```
 
 ---
 
 ### Regression analysis
-
 
 Both linear ([r.regression.line](https://grass.osgeo.org/grass74/manuals/r.regression.line.html)) 
 and multiple regression ([r.regression.multi](https://grass.osgeo.org/grass74/manuals/r.regression.multi.html))
@@ -354,49 +360,3 @@ Move on to:
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
-
-<!---
-
-Exercise: Raster rescaling
-Changing the range of cell values
-GRASS GIS modules:
-r.rescale
-r.recode
-Input elevation: elev_state_500m
-Output elevation: elev_state_100m.rescaled
-Command:
-r.rescale input=elev_state_500m output=elev_state_100m.cubic to=0,100
-
-Exercise: Reclassification
-Raster data representing classes or categories
-Reclassification by combining classes
-Example: land cover / land use
-
-r.category map=landuse96
-0 not classified
-1 Developed / cultivated
-2 Herbaceous
-3 Shrubland
-4 Forest
-5 Water Bodies
-6 Unconsolidated Sediment
-7 Evergreen Shrubland
-8 Deciduous Shrubland
-9 Mixed Shrubland
-10 Mixed Hardwoods
-11 Bottomland Hardwoods/Hardwood Swamps
-15 Southern Yellow Pine
-18 Mixed Hardwoods/Conifers
-20 Water Bodies
-21 Unconsolidated Sediment
-
-Reclassify to
-0 → 0  not classified
-1,2,3  → 1  Developed / cultivated
-4,6 → 2  Herbaceous
-7,8,9 → 3  Shrubland
-10,11,15,18  → 4  Forest
-20  →  5  Water Bodies
-21  → 6  Unconsolidated Sediment
-
---->
