@@ -27,8 +27,10 @@
 - NULL values
 - MASK
 - Computational region
-- Map algebra
+- Resampling and interpolation methods
 - Reports and Statistics
+- Regresion analysis
+- Map algebra
 @olend
 @snapend
 
@@ -44,7 +46,7 @@
 <br>
 @size[24px](Further info: <a href="https://grass.osgeo.org/grass70/manuals/rasterintro.html">Raster Intro</a> manual page)
 
----
++++
 
 ### Raster data precision
 
@@ -55,7 +57,7 @@
 <br>
 @size[24px](Further info: <a href="https://grasswiki.osgeo.org/wiki/GRASS_raster_semantics">Raster semantics</a> wiki)
 
----
++++
 
 ### General raster rules in GRASS GIS
 
@@ -141,23 +143,19 @@ r.mask -r
 - @color[#8EA33B](**Raster map region**) is defined by map extents and map resolution. Each raster map has its own values. Computational region overrides raster region.
 - @color[#8EA33B](**Display region**) is the extent of the current map display independent of the current computational region and the raster region. 
 
-
 *User can set the current computational region from display region*
 
 ---
 
-### Import/export, MASK and computational region
-
-**IMPORT**
+### Import/export, MASK and region
 
 @color[#8EA33B](r.in.\* modules + r.import): 
 The full map is always imported (unless cropping to region is set). Importantly, we can set the region to align with raster resolution (and extent).
 
-**EXPORT**
-
 @color[#8EA33B](r.out.\* modules): 
 Raster export adheres to computational region (extent and resolution) and respects MASK if present. Nearest neighbour interpolation is applied by default. 
 
+<br>
 **Note:** *In import and export, vector maps are always considered completely.*
 
 ---
@@ -176,11 +174,25 @@ If nearest neighbor resampling is not desired, the input map(s) has/have to be r
 - [r.resamp.interp](https://grass.osgeo.org/grass74/manuals/r.resamp.interp.html): nearest neighbor, bilinear, and bicubic resampling methods for continuous data
 - [r.resamp.rst](https://grass.osgeo.org/grass74/manuals/r.resamp.rst.html): Regularized Spline with Tension (RST) interpolation 2D
 @ulend
+@ulend
+@snapend
+
++++
+
+@snap[west span-100]
+@ul[]()
 - Upscaling:
 @ul[list-content-verbose](false)
 - [r.resamp.stats](https://grass.osgeo.org/grass74/manuals/r.resamp.stats.html): Resamples raster map layers to a coarser grid using aggregation
 - [r.resamp.rst](https://grass.osgeo.org/grass74/manuals/r.resamp.rst.html): Regularized Spline with Tension (RST) interpolation 2D
 @ulend
+@ulend
+@snapend
+
++++
+
+@snap[west span-100]
+@ul[]()
 - Gap-filling 2D:
 @ul[list-content-verbose](false)
 - [r.fillnulls](https://grass.osgeo.org/grass74/manuals/r.fillnulls.html): Regularized Spline with Tension (RST) interpolation 2D for gap-filling (e.g., SRTM DEM)
@@ -194,10 +206,23 @@ If nearest neighbor resampling is not desired, the input map(s) has/have to be r
 
 ### Raster map reports and statistics
 
-A couple of commands are available to calculate local statistics (r.neighbors), and global statistics (r.statistics, r.surf.area). 
-Univariate statistics (r.univar) and reports are also available (r.report, r.stats, r.volume).
++++
 
-r.coin
+- [r.report](https://grass.osgeo.org/grass74/manuals/r.report.html): reports area and cell numbers
+- [r.coin](https://grass.osgeo.org/grass74/manuals/r.coin.html): reports coincidence of two raster map layers
+- [r.volume](https://grass.osgeo.org/grass74/manuals/r.volume.html): estimate volume
+- [r.surf.area](https://grass.osgeo.org/grass74/manuals/r.surf.area.html): estimates area
+r.surf.area map=elevation units=hectares
+
+<!--- add example --->
+
++++
+
+
+- [r.univar](https://grass.osgeo.org/grass74/manuals/r.univar.html): calculates univariate statistics from the non-null cells of a raster map.
+- [r.stats](https://grass.osgeo.org/grass74/manuals/r.stats.html): calculates the area present in each of the categories or fintervals of a raster map
+- [r.statistics](https://grass.osgeo.org/grass74/manuals/r.statistics.html) and [r.stats.zonal](https://grass.osgeo.org/grass74/manuals/r.stats.zonal.html): zonal statistics
+- [r.neighbors](https://grass.osgeo.org/grass74/manuals/r.neighbors.html): local stats based in neighbors
 
 <!--- add example --->
 
@@ -205,9 +230,19 @@ r.coin
 
 ### Regression analysis
 
-Both linear (r.regression.line) and multiple regression (r.regression.multi) are supported.
 
-<!--- add example --->
+Both linear ([r.regression.line](https://grass.osgeo.org/grass74/manuals/r.regression.line.html)) 
+and multiple regression ([r.regression.multi](https://grass.osgeo.org/grass74/manuals/r.regression.multi.html))
+are supported
+
+```bash
+g.region raster=elev_srtm_30m -p
+r.regression.line mapx=elev_ned_30m mapy=elev_srtm_30m 
+
+g.region raster=soils_Kfactor -p
+r.regression.multi mapx=elevation,aspect,slope mapy=soils_Kfactor \
+  residuals=soils_Kfactor.resid estimates=soils_Kfactor.estim
+```
 
 ---
 
@@ -230,13 +265,16 @@ Operators
 Apply low pass filter (smoothing) on a Landsat image
 
 ```bash
-r.mapcalc expression="lsat7_2002_10_smooth = (lsat7_2002_10[-1,-1] + lsat7_2002_10[-1,0] + lsat7_2002_10[1,1] + lsat7_2002_10[0,-1] + lsat7_2002_10[0,0] + lsat7_2002_10[0,1] + lsat7_2002_10[1,-1] + lsat7_2002_10[1,0] + lsat7_2002_10[1,1]) / 9"
-```
-
-Set the same color table as the original raster map has: 
-
-```
-r.colors map=lsat7_2002_10_smooth raster=lsat7_2002_10
+r.mapcalc \
+expression="lsat7_2002_10_smooth = (lsat7_2002_10[-1,-1] + 
+									lsat7_2002_10[-1,0] + 
+									lsat7_2002_10[1,1] + 
+									lsat7_2002_10[0,-1] + 
+									lsat7_2002_10[0,0] + 
+									lsat7_2002_10[0,1] + 
+									lsat7_2002_10[1,-1] + 
+									lsat7_2002_10[1,0] + 
+									lsat7_2002_10[1,1]) / 9"
 ```
 
 +++
@@ -252,7 +290,7 @@ g.gui.mapswipe first=lsat7_2002_10 second=lsat7_2002_10_smooth
 
 Functions
 
-![Functions](assets/img/r_mapcalc_functions.png)
+<img src="assets/img/r_mapcalc_functions.png" width="80%">
 
 +++
 
