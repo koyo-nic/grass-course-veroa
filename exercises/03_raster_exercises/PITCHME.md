@@ -181,6 +181,7 @@ Create animation from GUI
 @snapend
 
 @snap[west span-100]
+<br>
 @ol[list-content-verbose](false)
 - Launch it from menu File --> Animation tool
 - *Add new animation* and click on *Add space-time dataset or series of map layers*
