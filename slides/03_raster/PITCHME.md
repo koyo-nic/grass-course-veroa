@@ -70,9 +70,10 @@
 
 ### NULL values 
 
-- **NULL**: represents "no data" in raster maps (e.g. gaps in DEM or RS products), different from 0 (zero) data value.
-- Important: operations on NULL cells lead to NULL cells. 
+- **NULL**: represents "no data" in raster maps, different from 0 (zero) data value.
+- Operations on NULL cells lead to NULL cells
 - NULL values are handled by [r.null](https://grass.osgeo.org/grass74/manuals/r.null.html). 
+
 
 ```bash
 # set the nodata value
@@ -104,6 +105,7 @@ Vector maps can be also used as masks
 +++
 
 #### MASK examples
+
 
 ```bash
 # use vector as mask
@@ -212,7 +214,7 @@ Note that there are also methods to interpolate sparse vector data
 - [r.volume](https://grass.osgeo.org/grass74/manuals/r.volume.html): estimates volume for clumps
 - [r.surf.area](https://grass.osgeo.org/grass74/manuals/r.surf.area.html): estimates area of a raster map
 
-
+<br>
 ```bash
 r.report map=zipcodes,landclass96 units=h,p
 r.coin first=zipcodes second=landclass96 units=p
@@ -226,7 +228,7 @@ r.coin first=zipcodes second=landclass96 units=p
 - [r.statistics](https://grass.osgeo.org/grass74/manuals/r.statistics.html) and [r.stats.zonal](https://grass.osgeo.org/grass74/manuals/r.stats.zonal.html): zonal statistics
 - [r.neighbors](https://grass.osgeo.org/grass74/manuals/r.neighbors.html): local stats based in neighbors
 
-
+<br>
 ```bash
 # univar stats
 r.univar map=elevation
@@ -262,7 +264,7 @@ r.regression.multi mapx=elevation,aspect,slope mapy=soils_Kfactor \
 
 [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html)
 
-<img src="assets/img/r_mapcalc_gui.png" width="85%">
+<img src="assets/img/r_mapcalc_gui.png" width="65%">
 
 +++
 
@@ -272,11 +274,11 @@ Operators
 
 +++
 
-#### Neighborhood operator **[ , ]**
+#### Neighborhood operator **[row,col]**
 
-Apply low pass filter (smoothing) on a Landsat image
 
 ```bash
+# example of a low pass filter
 r.mapcalc \
 expression="lsat7_2002_10_smooth = (lsat7_2002_10[-1,-1] + 
 									lsat7_2002_10[-1,0] + 
@@ -291,7 +293,7 @@ expression="lsat7_2002_10_smooth = (lsat7_2002_10[-1,-1] +
 
 +++
 
-<img src="assets/img/neighbour_operator_mapswipe.png" width="80%">
+<img src="assets/img/neighbour_operator_mapswipe.png" width="75%">
 
 
 ```bash
@@ -302,7 +304,7 @@ g.gui.mapswipe first=lsat7_2002_10 second=lsat7_2002_10_smooth
 
 Functions
 
-<img src="assets/img/r_mapcalc_functions.png" width="70%">
+<img src="assets/img/r_mapcalc_functions.png" width="60%">
 
 +++
 
@@ -334,10 +336,10 @@ r.mapcalc expression="forest_high = \
 If the output of the computation should be only one map but the expression is so complex that it is better to split it to several expressions, the eval function can be used: 
 
 ```bash
-r.mapcalc "eval(elev_200 = elevation - 200, 
-				elev_5 = 5 * elevation, 
-				elev_p = pow(elev_5, 2)); 
-				elevation_result = (0.5 * elev_200) + 0.8 * elev_p"
+r.mapcalc expression= "eval(elev_200 = elevation - 200, 
+							elev_5 = 5 * elevation, 
+							elev_p = pow(elev_5, 2)); 
+							elevation_result = (0.5 * elev_200) + 0.8 * elev_p"
 ```
 --->
 
