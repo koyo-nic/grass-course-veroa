@@ -74,7 +74,7 @@
 - Operations on NULL cells lead to NULL cells
 - NULL values are handled by [r.null](https://grass.osgeo.org/grass74/manuals/r.null.html). 
 
-
+<br>
 ```bash
 # set the nodata value
 r.nulls map=mapname setnull=-9999
@@ -246,7 +246,7 @@ Both linear ([r.regression.line](https://grass.osgeo.org/grass74/manuals/r.regre
 and multiple regression ([r.regression.multi](https://grass.osgeo.org/grass74/manuals/r.regression.multi.html))
 are supported
 
-
+<br>
 ```bash
 # linear regression
 g.region raster=elev_srtm_30m -p
@@ -264,7 +264,7 @@ r.regression.multi mapx=elevation,aspect,slope mapy=soils_Kfactor \
 
 [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html)
 
-<img src="assets/img/r_mapcalc_gui.png" width="65%">
+<img src="assets/img/r_mapcalc_gui.png" width="50%">
 
 +++
 
@@ -304,7 +304,7 @@ g.gui.mapswipe first=lsat7_2002_10 second=lsat7_2002_10_smooth
 
 Functions
 
-<img src="assets/img/r_mapcalc_functions.png" width="60%">
+<img src="assets/img/r_mapcalc_functions.png" width="50%">
 
 +++
 
