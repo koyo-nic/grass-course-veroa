@@ -1,100 +1,84 @@
-# Sentinel
+---?image=template/img/grass.png&position=bottom&size=100% 30%
+@title[Front page]
 
-### Sentinel satellite sensor data
+@snap[north span-100]
+<br>
+<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h3>Aplicaciones en Ecologia y Ambiente</h3>
+@snapend
 
-GRASS GIS has a new set of extensions to manage Sentinel data. These
-tools allow to download, import, and preprocess Sentinel-2 data. Use
-[g.extension](https://grass.osgeo.org/grass74/manuals/g.extension.html)
-to install them.
+@snap[south message-box-white]
+<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+@snapend
 
-            
-    g.extension extension=i.sentinel
-            
-        
-    # install i.sentinel modules: i.sentinel.download, i.sentinel.import
-    # i.sentinel.preproc and i.sentinel.mask
-    g.extension extension=i.sentinel
-        
-        
-    gmod.Module("g.extension", extension="i.sentinel")
-        
-        
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
+## Processing Copernicus Sentinel 2 in GRASS GIS
+
+---
+
+### Overview
+
+- List available scenes and download
+- Import all the bands
+- Color autobalance
+- Pre-processing
+- Cloud and cloud shadow masking
+- Data fusion/Pansharpening
+- Vegetation and water indices
+- Image segmentation
+
+---
+
+### Sentinel 2 satellite data
+
+<!--- add info about Sentinel 2 --->
+
+---
+
+GRASS GIS has a new set of extensions to manage Sentinel 2 data:
+
+- [i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html): downloads Copernicus Sentinel products from Copernicus Open Access Hub
+- [i.sentinel.import](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.import.html): downloads Copernicus Sentinel products from Copernicus Open Access Hub
+- [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html): Imports and performs atmospheric correction of Sentinel-2 images
+- [i.sentinel.mask](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.mask.html): Creates clouds and shadows masks for Sentinel-2 images
+
+---
 [i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
-allows downloading Sentinel-2 products from [Copernicus Open Access
-Hub](https://scihub.copernicus.eu/). To connect to Copernicus Open
-Access Hub a user name and password are required, see [Register new
-account](https://scihub.copernicus.eu/dhus/#/self-registration) page for
-signing up.
-[i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
-reads user credentials from a settings file. Create the
-*SETTING_SENTINEL* file with the following content, e.g. in the
+allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/).
+
+To connect to Copernicus Open Access Hub a user name and password are required, 
+see [Register new account](https://scihub.copernicus.eu/dhus/#/self-registration)
+page for signing up.
+
+Create the *SETTING_SENTINEL* file with the following content, e.g. in the
 directory `$HOME/gisdata/`:
 
-    myusername
-    mypassword
-        
-At this point you can use
-[i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
-to search (using `-l` flag) and download Sentinel-2 scenes.
-
+myusername
+mypassword
+    
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Download and Import Sentinel 2 data
             
-    # search Sentinel-2 data for for the last days of July, 2017
-    # -l flag is used to print the resulting list
-    i.sentinel.download -l settings=$HOME/gisdata/SETTING_SENTINEL 
-     start=2017-07-30 end=2017-07-31 order=desc
-    # download data
-    i.sentinel.download settings=$HOME/gisdata/SETTING_SENTINEL 
-     start=2017-07-30 end=2017-07-31 order=desc out=$HOME/gisdata/ 
-     footprints=sentinel_2017_07
-        
-        
-Once the data are downloaded you have to import them into GRASS GIS.
-There are two options:
-[i.sentinel.import](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.import.html)
-for a simpler import of the data, or
-[i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
-to import and perform atmospheric correction.
+@[](Install i.sentinel extension)
+@[](List available scenes)
+@[](Download the data)
+@[](Import the data)
+@[](Display an RGB combination)
+   
++++
 
-[i.sentinel.import](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.import.html)
-requires only the input directory where the Sentinel-2 scenes were
-downloaded. Optionally, it is possible to select only some of the
-available bands. In the following example we are going to import only 7
-bands for each image.
-        
-    # import the downloaded data
-    # -r flag is used to reproject the data during import
-    # pattern option is used to import only a subset of the available layers
-    # -c flag allows to import the cloud mask
-    i.sentinel.import -rc input=$HOME/gisdata/ pattern='B(02|03|04|08|8A|11|12)'
-        
-        
-Display the imported images
-        
-    d.mon wx0
-    d.rgb -n red=T17SQV_20170730T154909_B04 green=T17SQV_20170730T154909_B03 blue=T17SQV_20170730T154909_B02
-    d.barscale length=50 units=kilometers segment=4 fontsize=14
-    d.text -b text="Sentinel original" color=black bgcolor=229:229:229 align=cc font=sans size=8
-            
-![Original Sentinel scene
-RGB](figures/sentinel_original.png "Original Sentinel scene RGB")
+![Original Sentinel scene RGB](figures/sentinel_original.png "Original Sentinel scene RGB")
 
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Color enhancement
 
-To have a better visualization, it is required to perform color
-auto-balancing for RGB bands. The module to use is
-[i.color.enhance](https://grass.osgeo.org/grass74/manuals/i.colors.enhance.html).
-This module modifies the color table of each image band to provide a
-more natural color mixture, but the base data remains untouched.
-            
-    i.colors.enhance red=T17SQV_20170730T154909_B04 green=T17SQV_20170730T154909_B03 blue=T17SQV_20170730T154909_B02
-            
-Now you can run again the previous piece of code to visualize the RGB
-combination of the Sentinel-2 scene and observe the difference.
+@[](Color enhancement)
+@[](Display an RGB combination of the enhanced bands)
 
++++
 
-![Auto-balanced Sentinel scene
-RGB](figures/sentinel_color_enhance.png "Auto-balanced Sentinel scene RGB")
+![Auto-balanced Sentinel scene RGB](figures/sentinel_color_enhance.png "Auto-balanced Sentinel scene RGB")
 
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=
 
 [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
 requires some extra inputs since it also performs atmospheric
@@ -206,3 +190,31 @@ r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
 
 At this point you can use `srtm` map as input of `elevation` option in
 [i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
+
+---
+
+## QUESTIONS?
+
+<img src="assets/img/gummy-question.png" width="45%">
+
+---
+
+**Thanks for your attention!!**
+
+![GRASS GIS logo](assets/img/grass_logo_alphab.png)
+
+---
+
+@snap[north span-90]
+<br><br><br>
+Move on to: 
+<br>
+[Exercise: Processing Sentinel 2 satellite data]()
+@snapend
+
+@snap[south span-50]
+@size[18px](Presentation powered by)
+<br>
+<a href="https://gitpitch.com/">
+<img src="assets/img/gitpitch_logo.png" width="20%"></a>
+@snapend

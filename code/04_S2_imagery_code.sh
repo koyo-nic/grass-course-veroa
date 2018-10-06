@@ -7,7 +7,10 @@
 # October, 2018
 ########################################################################
 
+#
 # Create an account in copernicus-hub
+#
+
 
 # Create a text file called SENTINEL_SETTING with
 your_username
@@ -55,35 +58,37 @@ d.text -b text="Sentinel original" color=black align=cc font=sans size=8
 # perform color auto-balancing for RGB bands 
 i.colors.enhance red=B04 green=B03 blue=B02
 
+# display an RGB combination
+d.mon wx0
+d.rgb -n red=B04 green=B03 blue=B02
+d.barscale length=50 units=kilometers segment=4 fontsize=14
+d.text -b text="Sentinel original" color=black align=cc font=sans size=8
+
 #~ [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
 #~ requires some extra inputs since it also performs atmospheric
 #~ correction. First, this module requires the image as an unzipped
 #~ directory, so you have to unzip one of the previous downloaded files,
 #~ for example:
 
+
 #
 # Pre-processing of Sentinel 2 data
 #
+
 
 # enter directory with Sentinel scene and unzip file
 cd $HOME/gisdata/
 unzip $HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.zip
       
-# Get AOD        
-Another required input is the visibility map. Since we do not have this
-kind of data, we will replace it with an estimated Aerosol Optical Depth
-(AOD) value. It is possible to obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov). 
-In this case, we will use the
-[EPA-Res_Triangle_Pk](https://aeronet.gsfc.nasa.gov/cgi-bin/webtool_opera_v2_inv?stage=3&region=United_States_East&state=North_Carolina&site=EPA-Res_Triangle_Pk&place_code=10&if_polarized=0)
-station, select `01-07-2017` as start date and `30-08-2017` as end date, tick the box labelled as 'Combined file (all products without phase functions)' near the bottom, choose 'All Points' under Data
-Format, and download and unzip the file into `$HOME/gisdata/` folder (the final file has a .dubovik extension).
+# get AOD from http://aeronet.gsfc.nasa.gov
+
 
 # DEM - elevation map
 The last input data required is the elevation map. Inside the `North Carolina basic location` there is an elevation map called `elevation`. The extent of the `elevation` map is smaller than our
 Sentinel-2 image extent, so if you will use this elevation map only a subset of the Sentinel image will be atmospherically corrected; to get an elevation map for the entire area please read the [next
 session](#srtm). 
 
-# run i.sentinel.preproc          
+# run i.sentinel.preproc for small region         
 i.sentinel.preproc -atr \
 input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
 elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
@@ -95,7 +100,7 @@ d.rgb -n red=B04_corr green=B03_corr blue=B02_corr
 d.barscale length=50 units=kilometers segment=4 fontsize=14
 d.text -b text="Sentinel pre-processed scene" color=black align=cc font=sans size=8
 
-# Identify and mask clouds and clouds shadows: i.sentinel.mask
+# identify and mask clouds and clouds shadows: i.sentinel.mask
 i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask \
  cloud_mask=T17SQV_20170730T160022_cloud \
  shadow_mask=T17SQV_20170730T160022_shadow \
@@ -108,26 +113,24 @@ d.vect T17SQV_20170730T160022_cloud fill_color=red
 d.barscale length=50 units=kilometers segment=4 fontsize=14
 d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font=sans size=8
 
-# Replace elevation map by SRTM DEM: r.in.srtm.region
-[Shuttle Radar Topography Mission (SRTM)](https://www2.jpl.nasa.gov/srtm/) is a worldwide Digital Elevation Model with a resolution of 30 or 90 meters. GRASS GIS has two
-modules to work with SRTM data, [r.in.srtm](https://grass.osgeo.org/grass74/manuals/r.in.srtm.html) to import already downloaded SRTM data and, the add-on
-[r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html) which is able to download and import SRTM data for the current GRASS GIS
-computational region. However, [r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html) is working only in a Longitude-Latitude location.
 
-First, we need to obtain the bounding box, in Longitude and Latitude on WGS84, of the Sentinel data we want to process
+#
+# Replace elevation map by SRTM DEM: r.in.srtm.region addon
+#
 
-# get bb in the current location            
+
+# in the current location get the bounding box of S2 scene
 g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
     
-# change to a lat-long location
+# open a new grass session in a lat-long location
 
-# Set the region using the values obtained in NC location
+# In the lat-long location, set the region using the values obtained in NC location
 g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
             
 # install r.in.srtm.region
 g.extension r.in.srtm.region
 
-# run r.in.srtm.region downloading SRTM data and import them as srtm raster map
+# downloading and import SRTM data
 r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
 
 # change back to NC location and sentinel2 mapset
@@ -136,32 +139,48 @@ r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
 r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
 
 # use `srtm` map as input of `elevation` option in i.sentinel.preproc
+i.sentinel.preproc -atr \
+input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
+elevation=srtm aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
+suffix=corr text_file=$HOME/gisdata/sentinel_mask
+
+# identify and mask clouds and clouds shadows: i.sentinel.mask
+i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask \
+ cloud_mask=T17SQV_20170730T160022_cloud \
+ shadow_mask=T17SQV_20170730T160022_shadow \
+ mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
+
 
 #
-# estimate vegetation and water indices
+# Estimate vegetation and water indices
 #
 
+
+# estimate vegetation indices
 i.vi
 
+# estimate water indices
 i.wi
+
 
 #
 # Image segmentation
 #
 
+
 # install add-on
 g.extension i.superpixels.slic
 
 # list maps and create groups and subgroups
-g.list type=raster pattern="lsat*" sep=comma mapset=PERMANENT
-i.group group=lsat subgroup=lsat input=lsat7_2002_10,lsat7_2002_20,lsat7_2002_30,lsat7_2002_40,lsat7_2002_50,lsat7_2002_61,lsat7_2002_62,lsat7_2002_70,lsat7_2002_80
+g.list type=raster pattern="lsat*" sep=comma mapset=sentinel2
+i.group group= subgroup= input=
 
 # run i.superpixels.slic and convert the resulting raster to vector
-i.superpixels.slic group=lsat output=superpixels num_pixels=2000
+i.superpixels.slic group= output=superpixels num_pixels=2000
 r.to.vect input=superpixels output=superpixels type=area
 
 # run i.segment and convert the resulting raster to vector
-i.segment group=lsat output=segments threshold=0.5 minsize=50
+i.segment group= output=segments threshold=0.5 minsize=50
 r.to.vect input=segments output=segments type=area
 
 # display NDVI along with the 2 segmentation outputs
