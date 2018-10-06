@@ -31,7 +31,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-### Landscape structure and forest fragmentation
+### Landscape structure analysis and forest fragmentation
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Landscape structure and forest fragmentation
 
@@ -43,161 +43,179 @@
 @[24-25](Compute Simpson, Shannon, and Renyi diversity indices)
 @[27-31](Make colors comparable)
 
-Task: Add all maps to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
++++
+
+Richness and Diversity
+
+> **Task**: Add all maps to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
+
+- How do different indices compare to each other?
+- How does changing window size affect diversity measure?
+
+---
+
+Forest fragmentation
+
+We'll use the addon [r.forestfrag](https://grass.osgeo.org/grass7/manuals/addons/r.forestfrag.html) 
+that computes the forest fragmentation following the methodology proposed by [Riitters et al.
+(2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Forest fragmentation
 
-Module computes the forest fragmentation following the methodology proposed by [Riitters et al.
-(2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
+@[39-40](Set the computational region)
+@[42-43](List the classes in LULC map)
+@[45-46](Create new map with forest class only)
+@[48-49](Compute the forest fragmentation index)
+@[51-52](Report the distribution of fragmentation categories)
 
-First mark all cells which are forest as 1 and everything else as zero:
++++
 
-# first set region
-g.region raster=landclass96
-# list classes:
-r.category map=landclass96
-# select classes
-r.mapcalc "forest = if(landclass96 == 5, 1, 0)"
+Forest fragmentation
 
-Use the new forest presence raster map to compute the forest fragmentation index with window size 15:
-r.forestfrag input=forest output=fragmentation window=15
+> **Task**: Explore the effect of different window sizes over fragmentation categories.
 
-Report the distribution of the fragmentation categories:
-r.report map=fragmentation units=k,p
 
----
+Further details: <https://pvanb.wordpress.com/2016/03/25/update-of-r-forestfrag-addon/>
+
++++?code=code/03_raster_code.sh&lang=bash&title=Distance from forest edge
+
+@[60-61](Create new map with forest class only - note null function)
+@[63-65](Get distance from center to forest edge - note -n flag )
+
++++
 
 Distance from forest edge
 
-Use raster map algebra to extract just the given forest class (here 5) from the land classification raster:
+> **Task**: Display raster map obtained and get univariate statistics
 
-r.mapcalc "forest = if(landclass96 == 5, 1, null())"
++++
 
-The if() function we used has three parameters with the following syntax:
+@snap[north span-100]
+Landscape patch analysis
+<br>
+Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manuals/g.gui.rlisetup.html) config window
+@snapend
 
-if(condition, value used when it is true, value used when it is false)
+@snap[west span-50]
+@ol
+- Hit "Create"
+- Name the config file *forest_whole*
+- Select the raster map forest
+- Define the sampling region --> whole map layer
+- Define sample area --> whole map layer
+@olend
+@snapend
 
-Then we used operator == which evaluates as true when both sides are equal. Finally we used null() function which represents NULL (no data) value.
+@snap[east span-50]
+@ol
+- Hit "Create"
+- Name the config file *forest_mov_win*
+- Select the raster map forest
+- Define the sampling region --> whole map layer
+- Define sample area --> moving window 
+- Select shape of mov window --> rectangle --> width=10, height=10
+@olend
+@snapend
 
-Now we can get distance to the edge of the forest using r.grow.distance module which computes distances to areas with values in areas without values (with NULLs) or the other way around. By default it would give us distance to the edge of the forest from outside of the forest, but we are now using the -n flag to obtain distance to the edge from within the forest itself:
++++?code=code/03_raster_code.sh&lang=bash&title=Landscape patch analysis
 
-r.grow.distance -n input=forest distance=distance
+@[90-91](Compute edge density for the whole area)
+@[92-93](Compute shape index for the whole area)
+@[94-95](Compute patch number for the whole area)
+@[96-97](Compute mean patch size for the whole area)
 
----
++++?code=code/03_raster_code.sh&lang=bash&title=Landscape patch analysis
 
-### Patch analysis
+> **Task**: Now, do the same for the moving window case and compare outputs and results.
 
-```
-# Set the config file in the g.gui.rlisetup config window
 
-1. Create
-2. Name the config file `forest_whole`
-3. Select the raster map forest
-4. Define the sampling region --> whole map layer
-5. Define sample area --> whole map layer
+For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/manuals/r.li.html) manual
 
-1. Create
-2. Name the config file `forest_mov_win`
-3. Select the raster map forest
-4. Define the sampling region --> whole map layer
-5. Define sample area --> moving window 
-6. Select shape of mov window --> rectangle --> width=10, height=10
++++
 
-# Compute the landscape metrics using both config files
+**Notes**: 
 
-r.li.edgedensity input=forest config=forest_whole output=forest_edge_full
-r.li.shape input=forest config=forest_whole output=forest_shape_full
-r.li.patchnum input=forest config=forest_whole output=forest_patchnum_full
-r.li.mps input=forest config=forest_whole output=forest_mps_full
-
-r.li.edgedensity input=forest config=forest_mov_win output=forest_edge_mw
-r.li.shape input=forest config=forest_mov_win output=forest_shape_mw
-r.li.patchnum input=forest config=forest_mov_win output=forest_patchnum_mw
-r.li.mps input=forest config=forest_mov_win output=forest_mps_mw
-
-# Notes: 
-Do not use absolute path names for the config and output file/map 
-parameters. If the "moving window" method was selected in 
-g.gui.rlisetup, then the output will be a raster map, otherwise an 
-ASCII file will be generated in the folder 
-C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows) or 
-$HOME/.grass7/r.li/output/ (GNU/Linux). 
-```
-
----
-
-Hydrology: Estimating inundation extent using HAND methodology
-
-In this example we will use some of GRASS GIS hydrology tools, namely:
-
-- r.watershed: for computing flow accumulation, drainage direction, the location of streams and watershed basins; does not need sink filling because of using least-cost-path to route flow out of sinks
-- r.lake: fills a lake to a target water level from a given start point or seed raster
-- r.lake.series: addon which runs r.lake for different water levels
-- r.stream.distance: for computing the distance to streams or outlet, the relative elevation above streams; the distance and the elevation are calculated along watercourses
-
-r.stream.distance and r.lake.series are addons and we need to install them first:
-
-g.extension r.stream.distance
-g.extension r.lake.series
-
-We will estimate inundation extent using Height Above Nearest Drainage methodology (A.D. Nobre, 2011). We will compute HAND terrain model representing the differences in elevation between each grid cell and the elevations of the flowpath-connected downslope grid cell where the flow enters the channel.
-
-First we compute the flow accumulation, drainage and streams (with threshold value of 100000). We convert the streams to vector for better visualization.
-
-r.watershed elevation=elevation accumulation=flowacc drainage=drainage stream=streams threshold=100000
-r.to.vect input=streams output=streams type=line
-
-Now we use r.stream.distance without output parameter difference to compute new raster where each cell is the elevation difference between the cell and the the cell on the stream where the cell drains.
-
-r.stream.distance stream_rast=streams direction=drainage elevation=elevation method=downstream difference=above_stream
-
-Before we compute the inundation, we will look at how r.lake works. We compute a lake from specified coordinate and water level:
-
-r.lake elevation=elevation water_level=90 lake=lake coordinates=637877,218475
-
-Now instead of elevation raster we use the HAND raster to simulate 5-meter inundation and as the seed we specify the entire stream.
-
-r.lake elevation=above_stream water_level=5 lake=flood seed=streams
-
-With addon r.lake.series we can create a series of inundation maps with rising water levels:
-
-r.lake.series elevation=above_stream start_water_level=0 end_water_level=5 water_level_step=0.5 output=inundation seed_raster=streams
-
-r.lake.series creates a space-time dataset. We can use temporal modules to further work with the data. for example, we could further compute the volume and extent of flood water using t.rast.univar:
-
-t.rast.univar input=inundation separator=comma
-
-Finally, we can visualize the inundation using the Animation Tool.
-
--    Launch it from menu File - Animation tool.
--    Start with Add new animation and click on Add space-time dataset or series of map layers.
--    In Input data type select Space time raster dataset and below select inundation and press OK.
--    Next we want to add shaded relief as base layer. Use Add raster map layer and select raster elevation_shade from mapset PERMANENT.
--    You can also overlay road network using Add vector map layer and selecting streets_wake from mapset PERMANENT.
--    Select inundation layer and move it above elevation_shade using the toolbar buttons above the layers.
--    Press OK and wait till the animation is rendered. Then press Play button.
--    Animation tool always renders based on the current computational region. If you want to zoom into a specific area, change the region interactively (see how to do it in the intro), or in command line (e.g. g.region n=224690 s=221320 w=640120 e=643520) in the Map Display and in Animation tool press Render map
-
-<!--- add links --->
+If the "moving window" method was selected in g.gui.rlisetup, 
+the output will be a raster map, otherwise an ASCII file will be 
+generated in the folder C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows)
+or $HOME/.grass7/r.li/output/ (GNU/Linux). 
 
 ---
 
-Terrain analysis
+### Hydrology: Estimating inundation extent using HAND methodology
 
-r.geomorphon
+In this example we will use some of GRASS GIS hydrology tools:
 
-g.region raster=eu_dem_25m -p
-r.geomorphon elevation=eu_dem_25m forms=eu_dem_25m_geomorph
+- [r.watershed](https://grass.osgeo.org/grass74/manuals/r.watershed.html): for computing flow accumulation, drainage direction, the location of streams and watershed basins
+- [r.lake](https://grass.osgeo.org/grass74/manuals/r.lake.html): fills a lake to a target water level from a given start point or seed raster
+- [r.lake.series](https://grass.osgeo.org/grass7/manuals/addons/r.lake.series.html): addon which runs r.lake for different water levels
+- [r.stream.distance](https://grass.osgeo.org/grass7/manuals/addons/r.stream.distance.html): for computing the distance to streams or outlet, the relative elevation above streams
 
-Extraction of summits
-Using the resulting terrestial landforms map, single landforms can be extracted, e.g. the summits, and converted into a vector point map:
+We will estimate inundation extent using Height Above Nearest Drainage methodology (A.D. Nobre, 2011). 
+We will compute HAND terrain model representing the differences in elevation between each grid cell 
+and the elevations of the flowpath-connected downslope grid cell where the flow enters the channel.
 
-r.mapcalc expression="eu_dem_25m_summits = if(eu_dem_25m_geomorph == 2, 1, null())"
-r.thin input=eu_dem_25m_summits output=eu_dem_25m_summits_thinned
-r.to.vect input=eu_dem_25m_summits_thinned output=eu_dem_25m_summits type=point
-v.info input=eu_dem_25m_summits
++++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 
-<!--- add links --->
+@[114-116](Install required addons)
+@[118-120](Compute the flow accumulation, drainage and streams)
+@[122-123](Convert the streams to vector for better visualization)
+@[125-128](Compute height difference between cell and cell on the stream)
+
++++?code=code/03_raster_code.sh&lang=bash&title=How does r.lake works?
+
+@[130-131](Compute a lake from specified coordinates and water level)
+
+**Task**: Display lake map over elevation map
+
++++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
+
+@[138-139](Simulate 5-meter inundation from the streams)
+@[141-145](Create a series of inundation maps with rising water level)
+
++++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
+
+@[147-148](Get volume and extent of flood for each time step)
+@[150-151](Create an animation with the output of r.lake.series)
+
++++
+
+@snap[north span-100]
+Create animation from GUI
+@snapend
+
+@snap[west span-100]
+@ol
+- Launch it from menu File --> Animation tool
+- *Add new animation* and click on *Add space-time dataset or series of map layers*
+- Select *Space time raster dataset* and below select **inundation** and press OK
+- Use *Add raster map layer* and select raster **elevation_shade** from mapset PERMANENT
+- Use *Add vector map layer* and select **streets_wake** from mapset PERMANENT
+- Select **inundation** layer and move it above elevation_shade
+- Press OK and wait till the animation is rendered 
+- Press Play button
+@olend
+@snapend
+
++++
+
+<!--- add animation here --->
+
+---
+
+### Terrain analysis: [r.geomorphon](https://grass.osgeo.org/grass74/manuals/addons/r.geomorphon.html)
+
++++?code=code/03_raster_code.sh&lang=bash&title=Terrain analysis
+
+@[159-160](Set computational region)
+@[162-163](Compute geo forms)
+@[165-166](Extract summits with r.mapcalc)
+@[168-170](Thin summits raster and convert to points)
+@[172-174](Get summits' height)
+
++++
+
+> **Task**: Get summits height univariate statistics and display geomorphon map plus summits vector
 
 ---
 

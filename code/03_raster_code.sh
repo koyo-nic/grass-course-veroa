@@ -48,7 +48,7 @@ r.mapcalc "forest = if(landclass96 == 5, 1, 0)"
 # compute the forest fragmentation index with window size 15
 r.forestfrag input=forest output=fragmentation window=15
 
-# report the distribution of the fragmentation categories
+# distribution of the fragmentation categories
 r.report map=fragmentation units=k,p
 
 
@@ -89,7 +89,7 @@ r.grow.distance -n input=forest distance=distance
 
 # edge density
 r.li.edgedensity input=forest config=forest_whole output=forest_edge_full
-# shape
+# shape index
 r.li.shape input=forest config=forest_whole output=forest_shape_full
 # patch number
 r.li.patchnum input=forest config=forest_whole output=forest_patchnum_full
@@ -162,12 +162,21 @@ g.region raster=elevation
 # get geomorphons
 r.geomorphon elevation=elevation forms=elevation_geomorph
 
+# extraction of summits
+r.mapcalc expression="elevation_summits = if(elevation_geomorph == 2, 1, null())"
+
+# thining of summits raster and conversion to points
+r.thin input=elevation_summits output=summits_thinned
+r.to.vect input=summits_thinned output=summits type=point
+
+# get height of summits 
+v.db.addcolumn map=summits columns="height double"
+v.what.rast map=summits raster=elevation
+
+# stats of summits
+v.db.univar map=summits 
+
 # display output map
 d.mon wx0
 d.rast map=elevation_geomorph
-
-# extraction of summits
-r.mapcalc expression="elevation_summits = if(elevation_geomorph == 2, 1, null())"
-r.thin input=elevation_summits output=summits_thinned
-r.to.vect input=summits_thinned output=summits type=point
-v.info input=summits
+d.vect map=summits
