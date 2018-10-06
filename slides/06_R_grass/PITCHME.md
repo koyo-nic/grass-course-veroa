@@ -888,3 +888,6 @@ system('t.rast.algebra --overwrite basename=LST_Day_monthly_celsius expression="
 system('t.info LST_Day_monthly_celsius')
 
 ![vignette on how to set GRASS database with link2GI](https://github.com/gisma/link2gi2018/tree/master/R/vignette)
+
+
+See here for an exercise: https://tutorials.ecodiv.earth/toc/spatial_interpolation.html, https://tutorials.ecodiv.earth/toc/import-bioclim-data.html
