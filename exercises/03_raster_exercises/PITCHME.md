@@ -45,8 +45,6 @@
 
 +++
 
-Richness and Diversity
-
 > **Task**: Add all maps to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
 
 - How do different indices compare to each other?
@@ -55,7 +53,7 @@ Richness and Diversity
 ---
 
 Forest fragmentation
-
+<br>
 We'll use the addon [r.forestfrag](https://grass.osgeo.org/grass7/manuals/addons/r.forestfrag.html) 
 that computes the forest fragmentation following the methodology proposed by [Riitters et al.
 (2000)](https://www.ecologyandsociety.org/vol4/iss2/art3/).
@@ -70,12 +68,10 @@ that computes the forest fragmentation following the methodology proposed by [Ri
 
 +++
 
-Forest fragmentation
-
 > **Task**: Explore the effect of different window sizes over fragmentation categories.
 
-
-Further details: <https://pvanb.wordpress.com/2016/03/25/update-of-r-forestfrag-addon/>
+<br>
+Further details: [blog about r.forestfrag](https://pvanb.wordpress.com/2016/03/25/update-of-r-forestfrag-addon/)
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Distance from forest edge
 
@@ -83,8 +79,6 @@ Further details: <https://pvanb.wordpress.com/2016/03/25/update-of-r-forestfrag-
 @[63-65](Get distance from center to forest edge - note -n flag )
 
 +++
-
-Distance from forest edge
 
 > **Task**: Display raster map obtained and get univariate statistics
 
@@ -97,7 +91,7 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @snapend
 
 @snap[west span-50]
-@ol
+@ol[list-content-verbose](false)
 - Hit "Create"
 - Name the config file *forest_whole*
 - Select the raster map forest
@@ -107,7 +101,7 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @snapend
 
 @snap[east span-50]
-@ol
+@ol[list-content-verbose](false)
 - Hit "Create"
 - Name the config file *forest_mov_win*
 - Select the raster map forest
@@ -128,7 +122,7 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 
 > **Task**: Now, do the same for the moving window case and compare outputs and results.
 
-
+<br>
 For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/manuals/r.li.html) manual
 
 +++
@@ -140,9 +134,11 @@ the output will be a raster map, otherwise an ASCII file will be
 generated in the folder C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows)
 or $HOME/.grass7/r.li/output/ (GNU/Linux). 
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Hydrology: Estimating inundation extent using HAND methodology
+
++++
 
 In this example we will use some of GRASS GIS hydrology tools:
 
@@ -151,9 +147,11 @@ In this example we will use some of GRASS GIS hydrology tools:
 - [r.lake.series](https://grass.osgeo.org/grass7/manuals/addons/r.lake.series.html): addon which runs r.lake for different water levels
 - [r.stream.distance](https://grass.osgeo.org/grass7/manuals/addons/r.stream.distance.html): for computing the distance to streams or outlet, the relative elevation above streams
 
+<!---
 We will estimate inundation extent using Height Above Nearest Drainage methodology (A.D. Nobre, 2011). 
 We will compute HAND terrain model representing the differences in elevation between each grid cell 
 and the elevations of the flowpath-connected downslope grid cell where the flow enters the channel.
+--->
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 
@@ -165,6 +163,8 @@ and the elevations of the flowpath-connected downslope grid cell where the flow 
 +++?code=code/03_raster_code.sh&lang=bash&title=How does r.lake works?
 
 @[130-131](Compute a lake from specified coordinates and water level)
+
++++
 
 **Task**: Display lake map over elevation map
 
@@ -185,7 +185,7 @@ Create animation from GUI
 @snapend
 
 @snap[west span-100]
-@ol
+@ol[list-content-verbose](false)
 - Launch it from menu File --> Animation tool
 - *Add new animation* and click on *Add space-time dataset or series of map layers*
 - Select *Space time raster dataset* and below select **inundation** and press OK
@@ -201,7 +201,7 @@ Create animation from GUI
 
 <!--- add animation here --->
 
----
+---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Terrain analysis: [r.geomorphon](https://grass.osgeo.org/grass74/manuals/addons/r.geomorphon.html)
 
@@ -235,7 +235,7 @@ Create animation from GUI
 <br><br><br>
 Move on to: 
 <br>
-[Remote sensing]()
+[Remote sensing in GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/04_imagery&grs=gitlab)
 @snapend
 
 @snap[south span-50]
