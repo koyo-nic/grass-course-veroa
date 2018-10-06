@@ -22,7 +22,7 @@
 @snapend
 
 @snap[west span-100]
-@ol[list-content-verbose](false)
+@ol[](false)
 - Landscape structure and forest fragmentation
 - Hydrology analysis
 - Terrain analysis
@@ -47,10 +47,11 @@
 
 > **Task**: Add all maps to Map Display using *Add multiple raster or vector layers* in Layer manager toolbar (top).
 
+<br>
 - How do different indices compare to each other?
 - How does changing window size affect diversity measure?
 
----
++++
 
 Forest fragmentation
 <br>
@@ -91,9 +92,9 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @snapend
 
 @snap[west span-50]
+<br>
 @ol[list-content-verbose](false)
-- Hit "Create"
-- Name the config file *forest_whole*
+- Hit "Create" and name the config file *forest_whole*
 - Select the raster map forest
 - Define the sampling region --> whole map layer
 - Define sample area --> whole map layer
@@ -101,9 +102,9 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 @snapend
 
 @snap[east span-50]
+<br>
 @ol[list-content-verbose](false)
-- Hit "Create"
-- Name the config file *forest_mov_win*
+- Hit Create and name the config file *forest_mov_win*
 - Select the raster map forest
 - Define the sampling region --> whole map layer
 - Define sample area --> moving window 
@@ -128,7 +129,7 @@ For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/ma
 +++
 
 **Notes**: 
-
+<br>
 If the "moving window" method was selected in g.gui.rlisetup, 
 the output will be a raster map, otherwise an ASCII file will be 
 generated in the folder C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows)
@@ -139,8 +140,6 @@ or $HOME/.grass7/r.li/output/ (GNU/Linux).
 ### Hydrology: Estimating inundation extent using HAND methodology
 
 +++
-
-In this example we will use some of GRASS GIS hydrology tools:
 
 - [r.watershed](https://grass.osgeo.org/grass74/manuals/r.watershed.html): for computing flow accumulation, drainage direction, the location of streams and watershed basins
 - [r.lake](https://grass.osgeo.org/grass74/manuals/r.lake.html): fills a lake to a target water level from a given start point or seed raster
@@ -166,15 +165,12 @@ and the elevations of the flowpath-connected downslope grid cell where the flow 
 
 +++
 
-**Task**: Display lake map over elevation map
+> **Task**: Display lake map over elevation map
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 
 @[138-139](Simulate 5-meter inundation from the streams)
 @[141-145](Create a series of inundation maps with rising water level)
-
-+++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
-
 @[147-148](Get volume and extent of flood for each time step)
 @[150-151](Create an animation with the output of r.lake.series)
 
