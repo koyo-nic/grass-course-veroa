@@ -44,27 +44,31 @@
 
 Satellite data is identical to raster data, hence same rules apply.
 <br>
-i.* commands are explicitly dedicated to image processing, we'll see
+
+@color[green](**i.***) commands are explicitly dedicated to image processing, we'll see
 some in this hands-on session
 <br>
-For further details see: 
-[Imagery Intro](https://grass.osgeo.org/grass74/manuals/imageryintro.html) manual 
-and [Image Processing](https://grasswiki.osgeo.org/wiki/Image_processing) wiki
+
+@size[24px](For further details see: 
+<a href="https://grass.osgeo.org/grass74/manuals/imageryintro.html">Imagery Intro</a> manual 
+and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing</a> wiki)
 
 ---
 
-#### Data
+### Data
 
-We will use two Landsat 8 (OLI) scenes clipped to the NC sample data region
+We will use two Landsat 8 (OLI) scenes
 
 - Landsat 8 data from 16 June 2016 (2016 168) and 18 July 2016 (2016 200)
 - Landsat path/row = 015/035
 - CRS - UTM zone 18 N (EPSG:32618)
 
++++
+
 ![L8 vs L7 bands](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg)
 Spectral bands of Landsat 8 OLI, (Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/>)
 
-Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move it to `$HOME/gisdata` and unzip.
+Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move the file to `$HOME/gisdata` and unzip.
 
 ---?code=code/04_L8_imagery_code.sh&lang=bash&title=Start GRASS and create new mapset
 
@@ -96,13 +100,14 @@ Folder option in the GUI
 
 +++
 
-**Task:** 
-Note that we are using [r.import](https://grass.osgeo.org/grass72/manuals/r.import.html)
-instead of [r.in.gdal](https://grass.osgeo.org/grass72/manuals/r.in.gdal.html) to
-import the data. Check the difference between the two of them and explain why we
-used r.import here?
+> **Task:** 
+> Note that we are using [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
+> instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to
+> import the data. Check the difference between the two of them and explain why we
+> used r.import here?
 
-**Task:** Repeat the import step for the second scene "LC80150352016200LGN00"
+
+> **Task:** Repeat the import step for the second scene "LC80150352016200LGN00"
 
 ---
 
@@ -110,8 +115,11 @@ used r.import here?
 
 Landsat 8 OLI sensor provides 16-bit data with range between 0 and 65536.
 
-[i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html)
-converts DN to TOA reflectance and Brightness Temperature for all Landsat sensors.
+- [i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html)
+converts DN to TOA reflectance and Brightness Temperature for all Landsat sensors
+and optionally surface reflectance through DOS atmospheric correction. 
+- [i.atcorr](https://grass.osgeo.org/grass74/manuals/i.atcorr.html) provides
+more complex atmospheric correction method, i.e., S6.
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=DN to Reflectance and Temperature
 
@@ -122,11 +130,13 @@ converts DN to TOA reflectance and Brightness Temperature for all Landsat sensor
 
 ![Band 10 Temperature](assets/img/L8_band10_kelvin.png)
 
+Band 10 with kelvin color pallete
+
 +++
 
-**Task:** Repeat the conversion step for the second scene "LC80150352016200LGN00"
-
-**Task:** Set the color palette of Band 10 of LC80150352016200LGN00 to "kelvin" and visualize
+> **Task:** 
+> - Repeat the conversion step for the second scene "LC80150352016200LGN00".
+> - Set the color palette of Band 10 of LC80150352016200LGN00 to "kelvin" and visualize
 
 ---
 
@@ -134,8 +144,7 @@ converts DN to TOA reflectance and Brightness Temperature for all Landsat sensor
 
 We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to 15 m resolution. 
 
-[i.fusion.hpf](https://grass.osgeo.org/grass7/manuals/addons/i.fusion.hpf.html): 
-which applies a high pass filter addition method to downsample.
+[i.fusion.hpf](https://grass.osgeo.org/grass7/manuals/addons/i.fusion.hpf.html) applies a high pass filter addition method.
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=Data fusion/Pansharpening
 
@@ -151,35 +160,27 @@ which applies a high pass filter addition method to downsample.
 
 +++
 
-**Task:** Repeat the fusion step for the second scene "LC80150352016200LGN00"
+> **Task:** Repeat the fusion step for the second scene "LC80150352016200LGN00"
 
----
+---?code=code/04_L8_imagery_code.sh&lang=bash&title=Image Composites
 
-#### Image Composites
-
-Now create false colour and true colour composite for better
-visualization
-           
-            
-    # Set the region
-    g.region rast=lsat7_2002_20 res=15 -a
-    # Enhance the colors in the clipped region
-    i.colors.enhance red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" strength=95
-    # Create RGB composites
-    r.composite red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" output="${BASE}_toar.hpf_comp_432"
-    # Enhance the colors in the clipped region
-    i.colors.enhance red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" strength=95
-    # Create RGB composites
-    r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" output="${BASE}_toar.hpf_comp_543"  
+@[106-110](Enhance the colors for natural color composition)
+@[112-116](Display RGB combination - d.rgb)
+@[118-122](Create RGB 432 composite)
+@[124-128](Enhance the colors for false color composition)
+@[130-134](Create RGB 543 composite)
+@[136-138](Display the composite raster)
 
 +++
 
-**Task:** Create the composites for the second scene "LC80150352016200LGN00"
+![Composites 432 and 543](assets/img/composites_432_543.png)
 
-
-![display composite](images/sp_fig10_new.jpg "display composite")
 True color and False color composites of the Landsat 8 image dated 18
 July 2016
+
++++
+
+> **Task:** Create the composites for the second scene "LC80150352016200LGN00"
 
 ---
 
@@ -188,60 +189,49 @@ July 2016
 Landsat 8 provides quality layer which contains 16bit integer values
 that represent "bit-packed combinations of surface, atmosphere, and
 sensor conditions that can affect the overall usefulness of a given
-pixel". We can use the addon
-[i.landsat8.qc](https://grass.osgeo.org/grass72/manuals/addons/i.landsat8.qc.html)
-to develop masks. More information about Landsat 8 quality band is given
-[here](http://landsat.usgs.gov/qualityband.php).
- 
-    # Set the region
-    g.region rast=lsat7_2002_20 res=15 -a
-    # Install the required extension
-    g.extension extension=i.landsat8.qc op=add
-    # Create a rule set
-    i.landsat8.qc cloud="Maybe,Yes" output=Cloud_Mask_rules.txt
-    # Reclass the BQA band based on the rule set created 
-    r.reclass input=${BASE}_BQA output=${BASE}_Cloud_Mask rules=Cloud_Mask_rules.txt
-    # Report the area covered by Cloud
-    r.report -e map=${BASE}_Cloud_Mask units=k -n
+pixel". 
 
-![display cloud mask](images/sp_fig11_new.jpg "display cloud mask")
-False color composite and the derived cloud mask of the Landsat 8 image
-dated 16 June 2016
+[i.landsat8.qc](https://grass.osgeo.org/grass7/manuals/addons/i.landsat8.qc.html)
+Reclassifies Landsat8 QA band according to acceptable pixel quality. 
+
+More information about Landsat 8 quality band is given
+[here](http://landsat.usgs.gov/qualityband.php).
+
++++?code=code/04_L8_imagery_code.sh&lang=bash&title=Apply cloud mask from QA layer
+ 
+@[146-147](Install i.landsat8.qc extension)
+@[149-150](Create the rule set with clouds QA band)
+@[152-153](Reclass the BQA band based on the rule set created )
+@[155-156](Report the area covered by cloud)
+@[158-160](Display the reclassified map)
 
 +++
 
-**Task:** Visually compare the cloud coverage with the false color composite
+![Cloud mask and Composites 543](assets/img/cloud_composite_543.png)
 
----
+False color composite and the derived cloud mask of the Landsat 8 image dated 16 June 2016
 
-#### Vegetation Indices
++++
 
-We will compute NDVI and NDWI from the spectral bands using the map
-calculator.
+> **Task:** Visually compare the cloud coverage with the false color composite
+
+---?code=code/04_L8_imagery_code.sh&lang=bash&title=Vegetation and water indices
+
+@[168-169](Set the cloud mask to avoid computing over clouds)
+@[171-174](Compute NDVI and set color pallete)
+@[176-179](Compute NDWI and set color pallete)
+@[181-182](Remove the mask)
+@[184-187](Display the maps)
+
++++
+
+![NDVI and NDWI](assets/img/L8_ndvi_ndwi.png)
+
+NDVI and NDWI derived from Landsat 8 image dated 16 June 2016
+
++++
             
-            
-    # Set the region
-    g.region rast=lsat7_2002_20 res=15 -a
-    # Set the cloud mask to avoid computing over clouds
-    r.mask rast=${BASE}_Cloud_Mask
-    # Compute NDVI
-    r.mapcalc "${BASE}_NDVI = (${BASE}_toar5.hpf - ${BASE}_toar4.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar4.hpf) * 1.0"
-    # Set the color palette
-    r.colors ${BASE}_NDVI color=ndvi
-    # Compute NDWI
-    r.mapcalc "${BASE}_NDWI = (${BASE}_toar5.hpf - ${BASE}_toar6.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar6.hpf) * 1.0"
-    # Set the color palette
-    r.colors ${BASE}_NDWI color=ndwi
-    # Remove the mask
-    r.mask -r
-            
-**Task:** Compute the vegetation indices from the second scene
-"LC80150352016200LGN00"
-
-
-![display composite](images/sp_fig12_new.jpg "display composite")
-False color composite and the derived cloud mask of the Landsat 8 image
-dated 16 June 2016
+> **Task:** Compute the vegetation indices from the second scene "LC80150352016200LGN00"
 
 ---
 
@@ -255,8 +245,7 @@ Use scatter plot in Map Display to compare IDM and Entr textures.
 
 #### Unsupervised Classification
 
-Now classify the LC80150352016200LGN00 (cloud free) using unsupervised
-sequential Maxlike algorithm.
+Now classify the LC80150352016200LGN00 (cloud free) using unsupervised sequential Maxlike algorithm.
 
 Main steps are:
 
@@ -266,8 +255,8 @@ Main steps are:
 
            
 Check the manual of
-[i.cluster](https://grass.osgeo.org/grass72/manuals/i.cluster.html) and
-[i.maxlik](https://grass.osgeo.org/grass72/manuals/i.maxlik.html).
+[i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html) and
+[i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html).
 
 +++
 

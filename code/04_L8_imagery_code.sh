@@ -103,18 +103,39 @@ g.gui.mapswipe first=LC80150352016168LGN00_toar5 \
 #
 
 
-# Set the region
-g.region rast=lsat7_2002_20 res=15 -a
-# Enhance the colors in the clipped region
-i.colors.enhance red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" strength=95
-# Create RGB composites
-r.composite red="${BASE}_toar4.hpf" green="${BASE}_toar3.hpf" blue="${BASE}_toar2.hpf" output="${BASE}_toar.hpf_comp_432"
-# Enhance the colors in the clipped region
-i.colors.enhance red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" strength=95
-# Create RGB composites
-r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar3.hpf" output="${BASE}_toar.hpf_comp_543"  
-# display original and fused maps
+# enhance the colors
+i.colors.enhance red="${BASE}_toar4.hpf" \
+ green="${BASE}_toar3.hpf" \
+ blue="${BASE}_toar2.hpf" \
+ strength=95
 
+# display RGB
+d.mon wx0
+d.rgb red="${BASE}_toar4.hpf" \
+ green="${BASE}_toar3.hpf" \
+ blue="${BASE}_toar2.hpf"
+
+# create RGB composites
+r.composite red="${BASE}_toar4.hpf" \
+ green="${BASE}_toar3.hpf" \
+ blue="${BASE}_toar2.hpf" \
+ output="${BASE}_toar.hpf_comp_432"
+
+# enhance the colors
+i.colors.enhance red="${BASE}_toar5.hpf" \
+ green="${BASE}_toar4.hpf" \
+ blue="${BASE}_toar3.hpf" \
+ strength=95
+
+# create RGB composites
+r.composite red="${BASE}_toar5.hpf" \
+ green="${BASE}_toar4.hpf" \
+ blue="${BASE}_toar3.hpf" \
+ output="${BASE}_toar.hpf_comp_543"  
+
+# display false color composite
+d.mon wx0
+d.rast ${BASE}_toar.hpf_comp_543
 
 
 #
@@ -122,16 +143,21 @@ r.composite red="${BASE}_toar5.hpf" green="${BASE}_toar4.hpf" blue="${BASE}_toar
 #
 
 
-# Set the region
-g.region rast=lsat7_2002_20 res=15 -a
-# Install the required extension
-g.extension extension=i.landsat8.qc op=add
-# Create a rule set
+# install the extension
+g.extension extension=i.landsat8.qc
+
+# create a rule set
 i.landsat8.qc cloud="Maybe,Yes" output=Cloud_Mask_rules.txt
-# Reclass the BQA band based on the rule set created 
+
+# reclass the BQA band based on the rule set created 
 r.reclass input=${BASE}_BQA output=${BASE}_Cloud_Mask rules=Cloud_Mask_rules.txt
-# Report the area covered by Cloud
+
+# report the area covered by cloud
 r.report -e map=${BASE}_Cloud_Mask units=k -n
+
+# display reclassified map
+d.mon wx0
+d.rast ${BASE}_Cloud_Mask
 
 
 #
@@ -139,20 +165,26 @@ r.report -e map=${BASE}_Cloud_Mask units=k -n
 #
 
 
-# Set the region
-g.region rast=lsat7_2002_20 res=15 -a
 # Set the cloud mask to avoid computing over clouds
-r.mask rast=${BASE}_Cloud_Mask
+r.mask raster=${BASE}_Cloud_Mask
+
 # Compute NDVI
-r.mapcalc "${BASE}_NDVI = (${BASE}_toar5.hpf - ${BASE}_toar4.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar4.hpf) * 1.0"
+r.mapcalc expression="${BASE}_NDVI = (${BASE}_toar5.hpf - ${BASE}_toar4.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar4.hpf) * 1.0"
 # Set the color palette
-r.colors ${BASE}_NDVI color=ndvi
+r.colors map=${BASE}_NDVI color=ndvi
+
 # Compute NDWI
-r.mapcalc "${BASE}_NDWI = (${BASE}_toar5.hpf - ${BASE}_toar6.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar6.hpf) * 1.0"
+r.mapcalc expression="${BASE}_NDWI = (${BASE}_toar5.hpf - ${BASE}_toar6.hpf) / (${BASE}_toar5.hpf + ${BASE}_toar6.hpf) * 1.0"
 # Set the color palette
-r.colors ${BASE}_NDWI color=ndwi
+r.colors map=${BASE}_NDWI color=ndwi
+
 # Remove the mask
 r.mask -r
+
+# display maps
+d.mon wx0
+d.rast map=${BASE}_NDVI
+d.rast map=${BASE}_NDWI
 
 
 #           
@@ -171,12 +203,23 @@ r.texture input= prefix= size=7 distance=1 method=corr,idm,entr
 
 # list the bands needed for classification
 g.list type=raster mapset=. pattern=${BASE}_toar*.hpf
+
 # add maps to an imagery group for easier management
-i.group group=${BASE}_hpf subgroup=${BASE}_hpf input=`g.list type=raster mapset=. pattern=${BASE}_toar*.hpf sep=","`
+i.group group=${BASE}_hpf subgroup=${BASE}_hpf \
+ input=`g.list type=raster mapset=. pattern=${BASE}_toar*.hpf sep=","`
+
 # statistics for unsupervised classification
-i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf classes=8 separation=0.5
+i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf \
+ sig=${BASE}_hpf \
+ classes=8 \
+ separation=0.5
+
 # Maximum Likelihood unsupervised classification
-i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf sig=${BASE}_hpf output=${BASE}_hpf.class rej=${BASE}_hpf.rej
+i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf \
+ sig=${BASE}_hpf \
+ output=${BASE}_hpf.class \
+ rej=${BASE}_hpf.rej
+
 # display results
 d.mon wx0
-d.rast ${BASE}_hpf.class
+d.rast map=${BASE}_hpf.class
