@@ -25,14 +25,12 @@
 <br><br>
 @ol[list-content-verbose]
 - Basics of Imagery processing in GRASS GIS
-- Import all the bands
-- Digital Number (DN) to Top Of Atmosphere (TOA) reflectance
+- Digital Number to Reflectance
 - Data fusion/Pansharpening
 - Create composites
 - Cloud mask from quality band
 - Vegetation and Water indices
-- Texture extraction
-- Classification
+- Unsupervised classification
 @olend
 @snapend
 
@@ -55,13 +53,22 @@ and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing
 
 ---
 
-### Data
+@snap[north span-100]
+<h3>Data</h3>
+@snapend
 
+@snap[west span-60]
 We will use two Landsat 8 (OLI) scenes
-
+@ul
 - Landsat 8 data from 16 June 2016 (2016 168) and 18 July 2016 (2016 200)
 - Landsat path/row = 015/035
 - CRS - UTM zone 18 N (EPSG:32618)
+@ulend
+@snapend
+
+@snap[east span-40]
+![L8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ldcm_2012_COL.png)
+@snapend
 
 +++
 
@@ -235,40 +242,42 @@ NDVI and NDWI derived from Landsat 8 image dated 16 June 2016
 
 ---
 
-#### Texture extraction
-
-r.texture input=lsat7_2002_80 prefix=lsat7_2002_80_texture size=7 distance=1 method=corr,idm,entr
-
-Use scatter plot in Map Display to compare IDM and Entr textures.
-
----
-
 #### Unsupervised Classification
-
-Now classify the LC80150352016200LGN00 (cloud free) using unsupervised sequential Maxlike algorithm.
 
 Main steps are:
 
-- Group the images
-- Generate signatures using a clustering algorithm
-- Classify using Maximum likelihood algorithm
-
+- Group the images: [i.group](https://grass.osgeo.org/grass74/manuals/i.group.html)
+- Generate signatures using a clustering algorithm: [i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html)
+- Classify using Maximum likelihood algorithm: [i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html)
            
-Check the manual of
-[i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html) and
-[i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html).
++++?code=code/04_L8_imagery_code.sh&lang=bash&title=Unsupervised classification
+
+@[195-196](List all maps with pattern)
+@[198-200](Create an imagery group for ease of management)
+@[202-206](Get statistics -signatures- for unsupervised classification)
+@[208-212](Unsupervised classification)
+@[214-216](Display classified map)
 
 +++
 
+![L8 Unsupervised Classification](assets/img/L8_unsup_class.png)
+
+Unsupervised classification - Landsat 8 image dated 16 June 2016
+
++++
+
+More derived information could be obtained from:
+
+- texture measures ([r.texture](https://grass.osgeo.org/grass74/manuals/r.texture.html)), 
+- diversity measures ([r.diversity](https://grass.osgeo.org/grass7/manuals/addons/r.diversity.html)), 
+- contextual information ([r.neighbors](https://grass.osgeo.org/grass74/manuals/r.neighbors.html)),
+- etc.
 
 ---
+Learn more about classification in GRASS GIS
 
-Learn more
-----------
-
+- [Classification at GRASS GIS course IRSAE](http://training.gismentors.eu/grass-gis-irsae-winter-course-2018/units/28.html)
 - [Topic classification in GRASS GIS manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
-- [Image processing in GRASS GIS](http://grass.osgeo.org/grass70/manuals/imageryintro.html) (intro in manual)
-- [Image processing](http://grasswiki.osgeo.org/wiki/Image_processing) at GRASS wiki
 - [Image classification](http://grasswiki.osgeo.org/wiki/Image_classification) at GRASS wiki
 
 ---
@@ -289,7 +298,7 @@ Learn more
 <br><br><br>
 Move on to: 
 <br>
-[Exercise: Processing Sentinel 2 satellite data](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
+[Exercise: Processing Sentinel 2 data](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

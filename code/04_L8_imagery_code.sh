@@ -187,15 +187,6 @@ d.rast map=${BASE}_NDVI
 d.rast map=${BASE}_NDWI
 
 
-#           
-# Texture extraction
-#
-
-
-# extract texture indices
-r.texture input= prefix= size=7 distance=1 method=corr,idm,entr
-
-
 #
 # Unsupervised Classification
 #
@@ -211,8 +202,8 @@ i.group group=${BASE}_hpf subgroup=${BASE}_hpf \
 # statistics for unsupervised classification
 i.cluster group=${BASE}_hpf subgroup=${BASE}_hpf \
  sig=${BASE}_hpf \
- classes=8 \
- separation=0.5
+ classes=5 \
+ separation=0.6
 
 # Maximum Likelihood unsupervised classification
 i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf \
