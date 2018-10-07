@@ -76,7 +76,9 @@ Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move t
 
 ![L8 vs L7 bands](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg)
 
-@size[24px](Spectral bands of Landsat 8 OLI. Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/>)
+@size[24px](Spectral bands of Landsat 7 ETM+ and 8 OLI. Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/>)
+
+@size[24px](<a href="https://landsat.usgs.gov/what-are-band-designations-landsat-satellites">Landsat bands details</a>)
 
 ---?code=code/04_L8_imagery_code.sh&lang=bash&title=Start GRASS and create new mapset
 
