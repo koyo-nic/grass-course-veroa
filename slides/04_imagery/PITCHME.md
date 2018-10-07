@@ -115,13 +115,11 @@ We will now import the landsat 8 raw data to the newly created mapset.
 
 **Task:** Note that we are using
 [r.import](https://grass.osgeo.org/grass72/manuals/r.import.html)
-instead of
-[r.in.gdal](https://grass.osgeo.org/grass72/manuals/r.in.gdal.html) to
+instead of [r.in.gdal](https://grass.osgeo.org/grass72/manuals/r.in.gdal.html) to
 import the data. Check the difference between two and explain why we
 used r.import here?
 
-**Task:** Repeat the import step for the second scene
-"LC80150352016200LGN00"
+**Task:** Repeat the import step for the second scene "LC80150352016200LGN00"
 
 #### Digital Number (DN) to Top Of Atmosphere (TOA) reflectance
 
@@ -300,13 +298,10 @@ to show individual values of the raster.
 Learn more
 ----------
 
--   [Topic classification in GRASS GIS manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
--   [Image processing in GRASS GIS](http://grass.osgeo.org/grass70/manuals/imageryintro.html)
-    (intro in manual)
--   [Image processing](http://grasswiki.osgeo.org/wiki/Image_processing)
-    at GRASS wiki
--   [Image classification](http://grasswiki.osgeo.org/wiki/Image_classification)
-    at GRASS wiki
+- [Topic classification in GRASS GIS manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
+- [Image processing in GRASS GIS](http://grass.osgeo.org/grass70/manuals/imageryintro.html) (intro in manual)
+- [Image processing](http://grasswiki.osgeo.org/wiki/Image_processing) at GRASS wiki
+- [Image classification](http://grasswiki.osgeo.org/wiki/Image_classification) at GRASS wiki
 
 ---
 

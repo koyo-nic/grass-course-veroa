@@ -78,16 +78,11 @@ mypassword
 
 ![Auto-balanced Sentinel scene RGB](figures/sentinel_color_enhance.png "Auto-balanced Sentinel scene RGB")
 
-+++?code=code/04_S2_imagery_code.sh&lang=bash&title=
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import plus Atmospheric correction with i.sentinel.preproc
 
-[i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
-requires some extra inputs since it also performs atmospheric
-correction. First, this module requires the image as an unzipped
-directory, so you have to unzip one of the previous downloaded files,
-for example:
-        
-    cd $HOME/gisdata/
-    unzip $HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.zip
+@[](Enter directory with Sentinel scene and unzip file)
+
++++
         
 Another required input is the visibility map. Since we don't have this
 kind of data, we will replace it with an estimated Aerosol Optical Depth

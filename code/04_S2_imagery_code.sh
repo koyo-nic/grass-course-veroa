@@ -81,18 +81,19 @@ cd $HOME/gisdata/
 unzip $HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.zip
       
 # get AOD from http://aeronet.gsfc.nasa.gov
+# https://aeronet.gsfc.nasa.gov/cgi-bin/webtool_opera_v2_inv?stage=3&region=United_States_East&state=North_Carolina&site=EPA-Res_Triangle_Pk&place_code=10&if_polarized=0
+# select start and end date
+# tick the box labelled as 'Combined file (all products without phase functions)'
+# choose 'All Points' under Data Format
+# download and unzip the file into `$HOME/gisdata/` folder (the final file has .dubovik extension).
 
-
-# DEM - elevation map
-The last input data required is the elevation map. Inside the `North Carolina basic location` there is an elevation map called `elevation`. The extent of the `elevation` map is smaller than our
-Sentinel-2 image extent, so if you will use this elevation map only a subset of the Sentinel image will be atmospherically corrected; to get an elevation map for the entire area please read the [next
-session](#srtm). 
-
-# run i.sentinel.preproc for small region         
+# run i.sentinel.preproc using elevation map in NC location         
 i.sentinel.preproc -atr \
-input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
-elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
-suffix=corr text_file=$HOME/gisdata/sentinel_mask
+ input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
+ elevation=elevation \
+ aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
+ suffix=corr \
+ text_file=$HOME/gisdata/sentinel_mask
 
 # display corrected image
 d.mon wx0
@@ -119,7 +120,7 @@ d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font
 #
 
 
-# in the current location get the bounding box of S2 scene
+# in the NC location get the bounding box of the S2 scene
 g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
     
 # open a new grass session in a lat-long location
@@ -138,17 +139,32 @@ r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
 # reproject the SRTM map
 r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
 
-# use `srtm` map as input of `elevation` option in i.sentinel.preproc
+# use `srtm` map in i.sentinel.preproc
 i.sentinel.preproc -atr \
-input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
-elevation=srtm aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
-suffix=corr text_file=$HOME/gisdata/sentinel_mask
+ input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE \
+ elevation=srtm \
+ aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik \
+ suffix=corr \
+ text_file=$HOME/gisdata/sentinel_mask
+
+# display corrected image
+d.mon wx0
+d.rgb -n red=B04_corr green=B03_corr blue=B02_corr
+d.barscale length=50 units=kilometers segment=4 fontsize=14
+d.text -b text="Sentinel pre-processed scene" color=black align=cc font=sans size=8
 
 # identify and mask clouds and clouds shadows: i.sentinel.mask
 i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask \
  cloud_mask=T17SQV_20170730T160022_cloud \
  shadow_mask=T17SQV_20170730T160022_shadow \
  mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
+
+# display output
+d.mon wx0
+d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
+d.vect T17SQV_20170730T160022_cloud fill_color=red
+d.barscale length=50 units=kilometers segment=4 fontsize=14
+d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font=sans size=8
 
 
 #
@@ -157,10 +173,10 @@ i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask \
 
 
 # estimate vegetation indices
-i.vi
+i.vi 
 
 # estimate water indices
-i.wi
+i.wi 
 
 
 #
@@ -187,7 +203,4 @@ r.to.vect input=segments output=segments type=area
 d.rast map=ndvi
 d.vect map=superpixels fill_color=none
 d.vect map=segments fill_color=none
-
-
-
 
