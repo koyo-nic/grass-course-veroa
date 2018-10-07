@@ -7,8 +7,14 @@
 # October, 2018
 ########################################################################
 
-# Download Landsat 8 scene for NC
+# Register and download Landsat 8 scenes for NC
 https://earthexplorer.usgs.gov/
+
+
+#
+# First settings
+#
+
 
 # launch GRASS GIS, -c creates new mapset landsat8
 grass74 $HOME/grassdata/nc_spm_08_grass7/landsat8/ -c
@@ -25,6 +31,7 @@ g.list type=raster
 # set the computational region 
 g.region rast=lsat7_2002_20 res=30 -a    
 
+
 # change directory to the input Landsat 8 data
 cd $HOME/gisdata/LC80150352016168LGN00
 # define a variable
@@ -32,27 +39,37 @@ BASE="LC80150352016168LGN00"
 
 
 #
-# Import L8
+# Import L8 data
 #
 
 
 # loop to import all the bands
 for i in "1" "2" "3" "4" "5" "6" "7" "9" "QA" "10" "11"; do
-  r.import input=${BASE}_B${i}.TIF output=${BASE}_B${i} resolution=value resolution_value=30
+  r.import input=${BASE}_B${i}.TIF output=${BASE}_B${i} \
+   resolution=value resolution_value=30 \
+   extent=region
 done
 
 # PAN band 8 imported separately because of different spatial resolution
-r.import input=${BASE}_B8.TIF output=${BASE}_B8 resolution=value resolution_value=15
+r.import input=${BASE}_B8.TIF output=${BASE}_B8 \
+ resolution=value resolution_value=15 \
+ extent=region
 
 
 # 
-# DN to TOA reflectance and Brightness Temperature
+# DN to surface reflectance and Temperature (Atmospheric correction through DOS)
 #
 
 
-# convert from DN to TOA reflectance and Brightness Temperature
-i.landsat.toar input=${BASE}_B output=${BASE}_toar metfile=${BASE}_MTL.txt sensor=oli8
+# convert from DN to surface reflectance and temperature
+i.landsat.toar input=${BASE}_B output=${BASE}_toar \
+ metfile=${BASE}_MTL.txt sensor=oli8 method=dos1
+
+# list output maps
 g.list rast map=. pattern=${BASE}_toar*
+# check info before and after for one band
+r.info map=LC80150352016168LGN00_B4
+r.info map=LC80150352016168LGN00_toar4
 
 
 # 
@@ -60,20 +77,25 @@ g.list rast map=. pattern=${BASE}_toar*
 #
 
 
+# Install the reqquired addon
+g.extension extension=i.fusion.hpf
+
 # Set the region
 g.region rast=lsat7_2002_20 res=15 -a
-# Install the reqquired addon
-g.extension extension=i.fusion.hpf op=add
+
 # Apply the fusion based on high pass filter
 i.fusion.hpf -l -c pan=${BASE}_toar8 \
- msx=${BASE}_toar1,${BASE}_toar2,${BASE}_toar3,${BASE}_toar4,${BASE}_toar5,${BASE}_toar6,${BASE}_toar7 \
+ msx=`g.list type=raster mapset=. pattern=${BASE}_toar[1-7] separator=,` \
  center=high \
  modulation=max \
  trim=0.0
-# list the fused maps
-g.list rast map=. pattern=${BASE}_toar*.hpf
-# display original and fused maps
 
+# list the fused maps
+g.list type=raster mapset=. pattern=${BASE}_toar*.hpf
+
+# display original and fused maps
+g.gui.mapswipe first=LC80150352016168LGN00_toar5 \
+ second=LC80150352016168LGN00_toar5.hpf
 
 
 #

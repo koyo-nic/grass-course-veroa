@@ -17,8 +17,13 @@
 
 ---
 
-### Overview
+@snap[north-west span-60]
+<h3>Overview</h3>
+@snapend
 
+@snap[west span-100]
+<br><br>
+@ol[list-content-verbose]
 - List available scenes and download
 - Import all the bands
 - Color autobalance
@@ -27,12 +32,15 @@
 - Data fusion/Pansharpening
 - Vegetation and water indices
 - Image segmentation
+@olend
+@snapend
 
 ---
 
 ### Sentinel 2 satellite data
 
-<!--- add info about Sentinel 2 --->
+<!--- add info about Sentinel 2, esp bands, spat and temp res --->
+
 
 ---
 
@@ -44,6 +52,7 @@ GRASS GIS has a new set of extensions to manage Sentinel 2 data:
 - [i.sentinel.mask](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.mask.html): Creates clouds and shadows masks for Sentinel-2 images
 
 ---
+
 [i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
 allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/).
 
