@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-# Remote sensing data processing in GRASS GIS
+## Remote sensing data processing in GRASS GIS
 
 ---
 
@@ -38,18 +38,16 @@
 
 ---
 
-### Basics of Imagery processing in GRASS GIS
+### Basics of imagery processing in GRASS GIS
 
-Satellite data is identical to raster data, hence same rules apply.
+Satellite data is identical to raster data @fa[arrow-right] same rules apply
 <br>
 
-@color[green](**i.***) commands are explicitly dedicated to image processing, we'll see
-some in this hands-on session
+> @color[#8EA33B](*i.**) commands are explicitly dedicated to image processing
+
 <br>
 
-@size[24px](For further details see: 
-<a href="https://grass.osgeo.org/grass74/manuals/imageryintro.html">Imagery Intro</a> manual 
-and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing</a> wiki)
+@size[24px](For further details see: <a href="https://grass.osgeo.org/grass74/manuals/imageryintro.html">Imagery Intro</a> manual and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing</a> wiki)
 
 ---
 
@@ -57,25 +55,28 @@ and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing
 <h3>Data</h3>
 @snapend
 
-@snap[west span-60]
-We will use two Landsat 8 (OLI) scenes
-@ul
-- Landsat 8 data from 16 June 2016 (2016 168) and 18 July 2016 (2016 200)
-- Landsat path/row = 015/035
-- CRS - UTM zone 18 N (EPSG:32618)
+@snap[west span-50]
+Two Landsat 8 (OLI) scenes
+@ul[](false)
+- Dates: 16 June 2016 (2016 168) and 18 July 2016 (2016 200)
+- Path/Row: 015/035
+- CRS: UTM zone 18 N (EPSG:32618)
 @ulend
 @snapend
 
-@snap[east span-40]
+@snap[east span-50]
 ![L8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ldcm_2012_COL.png)
+@snapend
+
+@snap[south span-100]
+Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move the file to `$HOME/gisdata` and unzip.
 @snapend
 
 +++
 
 ![L8 vs L7 bands](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg)
-Spectral bands of Landsat 8 OLI, (Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/>)
 
-Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move the file to `$HOME/gisdata` and unzip.
+@size[24px](Spectral bands of Landsat 8 OLI. Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/>)
 
 ---?code=code/04_L8_imagery_code.sh&lang=bash&title=Start GRASS and create new mapset
 
@@ -98,35 +99,36 @@ Folder option in the GUI
 @snapend
 
 @snap[west span-50]
+<br>
 <img src="assets/img/import_directory_1.png">
 @snapend
 
 @snap[east span-50]
+<br>
 <img src="assets/img/import_directory_2.png">
 @snapend
 
 +++
 
 > **Task:** 
+>
 > Note that we are using [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
 > instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to
 > import the data. Check the difference between the two of them and explain why we
 > used r.import here?
-
-
-> **Task:** Repeat the import step for the second scene "LC80150352016200LGN00"
+>
+> Repeat the import step for the second scene "LC80150352016200LGN00"
 
 ---
 
 #### From Digital Number (DN) to Reflectance and Temperature
 
-Landsat 8 OLI sensor provides 16-bit data with range between 0 and 65536.
-
+- Landsat 8 OLI sensor provides 16-bit data with range between 0 and 65536.
 - [i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html)
-converts DN to TOA reflectance and Brightness Temperature for all Landsat sensors
-and optionally surface reflectance through DOS atmospheric correction. 
+converts DN to TOA reflectance (and brightness temperature) for all Landsat sensors. It
+optionally provides surface reflectance after DOS atmospheric correction. 
 - [i.atcorr](https://grass.osgeo.org/grass74/manuals/i.atcorr.html) provides
-more complex atmospheric correction method, i.e., S6.
+more complex atmospheric correction method for many sensors, i.e., S6.
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=DN to Reflectance and Temperature
 
@@ -137,11 +139,12 @@ more complex atmospheric correction method, i.e., S6.
 
 ![Band 10 Temperature](assets/img/L8_band10_kelvin.png)
 
-Band 10 with kelvin color pallete
+@size[24px](L8 band 10 with kelvin color pallete)
 
 +++
 
 > **Task:** 
+>
 > - Repeat the conversion step for the second scene "LC80150352016200LGN00".
 > - Set the color palette of Band 10 of LC80150352016200LGN00 to "kelvin" and visualize
 
@@ -165,6 +168,8 @@ We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to
 
 ![Original vs Pansharpen](assets/img/pansharpen_mapswipe.png)
 
+@size[24px](Original 30m data and fused 15m data)
+
 +++
 
 > **Task:** Repeat the fusion step for the second scene "LC80150352016200LGN00"
@@ -182,8 +187,7 @@ We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to
 
 ![Composites 432 and 543](assets/img/composites_432_543.png)
 
-True color and False color composites of the Landsat 8 image dated 18
-July 2016
+@size[24px](True color and False color composites of the Landsat 8 image dated 18 July 2016)
 
 +++
 
@@ -193,16 +197,16 @@ July 2016
 
 #### Cloud mask from the QA layer
 
-Landsat 8 provides quality layer which contains 16bit integer values
-that represent "bit-packed combinations of surface, atmosphere, and
+- Landsat 8 provides quality layer which contains 16bit integer values
+that represent *bit-packed combinations of surface, atmosphere, and
 sensor conditions that can affect the overall usefulness of a given
-pixel". 
+pixel*. 
 
-[i.landsat8.qc](https://grass.osgeo.org/grass7/manuals/addons/i.landsat8.qc.html)
+- [i.landsat8.qc](https://grass.osgeo.org/grass7/manuals/addons/i.landsat8.qc.html)
 Reclassifies Landsat8 QA band according to acceptable pixel quality. 
 
-More information about Landsat 8 quality band is given
-[here](http://landsat.usgs.gov/qualityband.php).
+<br>
+@size[24px](More information about L8 quality band at http://landsat.usgs.gov/qualityband.php)
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=Apply cloud mask from QA layer
  
@@ -216,7 +220,7 @@ More information about Landsat 8 quality band is given
 
 ![Cloud mask and Composites 543](assets/img/cloud_composite_543.png)
 
-False color composite and the derived cloud mask of the Landsat 8 image dated 16 June 2016
+@size[24px](False color composite and the derived cloud mask of the Landsat 8 image dated 16 June 2016)
 
 +++
 
@@ -234,7 +238,7 @@ False color composite and the derived cloud mask of the Landsat 8 image dated 16
 
 ![NDVI and NDWI](assets/img/L8_ndvi_ndwi.png)
 
-NDVI and NDWI derived from Landsat 8 image dated 16 June 2016
+@size[24px](NDVI and NDWI derived from Landsat 8 image dated 16 June 2016)
 
 +++
             
@@ -244,12 +248,12 @@ NDVI and NDWI derived from Landsat 8 image dated 16 June 2016
 
 #### Unsupervised Classification
 
-Main steps are:
-
+@ol
 - Group the images: [i.group](https://grass.osgeo.org/grass74/manuals/i.group.html)
 - Generate signatures using a clustering algorithm: [i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html)
 - Classify using Maximum likelihood algorithm: [i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html)
-           
+@olend   
+        
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=Unsupervised classification
 
 @[195-196](List all maps with pattern)
@@ -274,7 +278,8 @@ More derived information could be obtained from:
 - etc.
 
 ---
-Learn more about classification in GRASS GIS
+
+### Learn more about classification in GRASS GIS
 
 - [Classification at GRASS GIS course IRSAE](http://training.gismentors.eu/grass-gis-irsae-winter-course-2018/units/28.html)
 - [Topic classification in GRASS GIS manual](http://grass.osgeo.org/grass70/manuals/topic_classification.html)
