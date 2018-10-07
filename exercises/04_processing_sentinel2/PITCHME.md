@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Processing Copernicus Sentinel 2 in GRASS GIS
+## Processing Copernicus Sentinel 2 data in GRASS GIS
 
 ---
 
@@ -25,11 +25,10 @@
 <br><br>
 @ol[list-content-verbose]
 - List available scenes and download
-- Import all the bands
+- Import Sentinel 2 data
 - Color autobalance
 - Pre-processing
 - Cloud and cloud shadow masking
-- Data fusion/Pansharpening
 - Vegetation and water indices
 - Image segmentation
 @olend
@@ -37,23 +36,38 @@
 
 ---
 
-### Sentinel 2 satellite data
+@snap[north span-100]
+<h3>Sentinel 2 data</h3>
+@snapend
 
-<!--- add info about Sentinel 2, esp bands, spat and temp res --->
+@snap[west span-40]
+![Sentinel 2 satellite](assets/img/sentinel2.jpg)
+@snapend
 
+@snap[east span-60]
+@ul[]()
+- Sentinel-2A in spring 2015, Sentinel-2B in 2017
+- Five days revisit time
+- Systematic coverage of land and coastal areas between 84°N and 56°S
+- 13 spectral bands with spatial resolutions of 10 m (4 VIS and NIR bands), 20 m (6 red-edge/SWIR bands) and 60 m (3 atmospheric correction bands)
+- Data access: <sentinels.copernicus.eu>
+@ulend
+@snapend
 
 ---
 
-GRASS GIS has a new set of extensions to manage Sentinel 2 data:
+Set of GRASS GIS extensions to manage Sentinel 2 data:
 
 - [i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html): downloads Copernicus Sentinel products from Copernicus Open Access Hub
-- [i.sentinel.import](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.import.html): downloads Copernicus Sentinel products from Copernicus Open Access Hub
-- [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html): Imports and performs atmospheric correction of Sentinel-2 images
-- [i.sentinel.mask](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.mask.html): Creates clouds and shadows masks for Sentinel-2 images
+- [i.sentinel.import](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.import.html): imports Sentinel satellite data downloaded from Copernicus Open Access Hub
+- [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html): imports and performs atmospheric correction of Sentinel-2 images
+- [i.sentinel.mask](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.mask.html): creates clouds and shadows masks for Sentinel-2 images
+
+See [Sentinel wiki](https://grasswiki.osgeo.org/wiki/SENTINEL) for further info
 
 ---
 
-[i.sentinel.download](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.download.html)
+[i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html)
 allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/).
 
 To connect to Copernicus Open Access Hub a user name and password are required, 
@@ -66,64 +80,114 @@ directory `$HOME/gisdata/`:
 myusername
 mypassword
     
----?code=code/04_S2_imagery_code.sh&lang=bash&title=Download and Import Sentinel 2 data
-            
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Download Sentinel 2 data
+
+@[](Start GRASS GIS and create a new mapset)            
 @[](Install i.sentinel extension)
-@[](List available scenes)
+@[](Set computational region)
+@[](List available scenes intersecting computational region)
+@[](List available scenes containing computational region)
 @[](Download the data)
+
++++
+
+Since downloading takes a while, take a pre-downloaded scene from:
+
+<!--- add link --->
+
+move it to `$HOME/gisdata`
+
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
+
+@[](Print info about bands before importing)
 @[](Import the data)
 @[](Display an RGB combination)
    
 +++
 
-![Original Sentinel scene RGB](figures/sentinel_original.png "Original Sentinel scene RGB")
+> **Task**: Display an RGB 432 combination of the original data and zoom to computational region only
 
-+++?code=code/04_S2_imagery_code.sh&lang=bash&title=Color enhancement
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Color enhancement
 
 @[](Color enhancement)
 @[](Display an RGB combination of the enhanced bands)
 
 +++
 
-![Auto-balanced Sentinel scene RGB](figures/sentinel_color_enhance.png "Auto-balanced Sentinel scene RGB")
+![Auto-balanced Sentinel scene RGB](assets/img/S2_color_enhance_uncorr.png)
+
+Auto-balanced Sentinel scene RGB
+
+---
+
+@snap[north span-100]
+Import with Atmospheric correction: [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
+@snapend
+
+@snap[west span-50]
+https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png
+@snapend
+
+@snap[east span-50]
+We need:
+
+@ol
+- unzip file
+- visibility map or AOD
+- elevation map
+@olend
+@snapend
+
++++
+
+@snap[north span-100]
+Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
+@snapend
+
+@snap[west span-50]
+<img src="assets/img/aeronet_download.png">
+@snapend
+
+@snap[east span-50]
+Download and unzip in $HOME/gisdata (the final file has a .dubovik extension)
+@snapend
+
++++
+
+Elevation map
+
+For now, we'll use the `elevation` map present in NC location
+<br>
+... but only the region covered by `elevation` map will be atmospherically corrected
 
 +++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import plus Atmospheric correction with i.sentinel.preproc
 
 @[](Enter directory with Sentinel scene and unzip file)
+@[](Run i.sentinel.preproc using elevation map in NC location)
+@[](Display atmospherically corrected map)
 
 +++
         
-Another required input is the visibility map. Since we don't have this
-kind of data, we will replace it with an estimated Aerosol Optical Depth
-(AOD) value. It is possible to obtain AOD from
-[http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov). In this
-case, we will use the
-[EPA-Res_Triangle_Pk](https://aeronet.gsfc.nasa.gov/cgi-bin/webtool_opera_v2_inv?stage=3&region=United_States_East&state=North_Carolina&site=EPA-Res_Triangle_Pk&place_code=10&if_polarized=0)
-station, select `01-07-2017` as start date and `30-08-2017` as end
-date, tick the box labelled as 'Combined file (all products without
-phase functions)' near the bottom, choose 'All Points' under Data
-Format, and download and unzip the file into `$HOME/gisdata/` folder
-(the final file has a .dubovik extension).
-The last input data required is the elevation map. Inside the
-`North Carolina basic location` there is an elevation map called
-`elevation`. The extent of the `elevation` map is smaller than our
-Sentinel-2 image's extent, so if you will use this elevation map only a
-subset of the Sentinel image will be atmospherically corrected; to get
-an elevation map for the entire area please read the [next
-session](#srtm). At this point you can run
-[i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
-(please check which elevation map you want to use). The `text_file`
-option creates a text file useful as input for
-[i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html),
-the next step in the workflow.
-            
-    i.sentinel.preproc -atr input_dir=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE elevation=elevation aeronet_file=$HOME/gisdata/170701_170831_EPA-Res_Triangle_Pk.dubovik suffix=corr text_file=$HOME/gisdata/sentinel_mask
-          
-        
-![Pre-processed Sentinel scene RGB with
-elevation](figures/sentinel_preproc_ele.png "Pre-processed Sentinel scene RGB with elevation")
-![Pre-processed Sentinel scene RGB with
-SRTM](figures/sentinel_preproc_srtm.png "Pre-processed Sentinel scene RGB with SRTM")
+![Pre-processed Sentinel scene RGB with elevation]()
+
+---
+
+Let's now use a different elevation map: SRTM
+
+- [Shuttle Radar Topography Mission (SRTM)](https://www2.jpl.nasa.gov/srtm/) 
+is a worldwide Digital Elevation Model with a resolution of 30 or 90 meters.
+- [r.in.srtm.region](https://grass.osgeo.org/grass7/manuals/addons/r.in.srtm.region.html)
+downloads and imports SRTM data for the current computational region.
+
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Obtain SRTM digital elevation model
+
+@[]()
+@[]()
+@[]()
+
++++
+
+![Pre-processed Sentinel scene RGB with SRTM](figures/sentinel_preproc_srtm.png "Pre-processed Sentinel scene RGB with SRTM")
 On the left the Sentinel-2 scene processed with `elevation` map, on the
 right the same scene processed with `SRTM` map
         
@@ -131,69 +195,32 @@ right the same scene processed with `SRTM` map
     d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
     d.barscale length=50 units=kilometers segment=4 fontsize=14
     d.text -b text="Sentinel pre-processed scene" color=black bgcolor=229:229:229 align=cc font=sans size=8
-            
-Finally you can get the clouds and clouds' shadows masks for the
-Sentinel-2 scene using
-[i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-            
-    i.sentinel.mask input_file=$HOME/gisdata/sentinel_mask cloud_mask=T17SQV_20170730T160022_cloud shadow_mask=T17SQV_20170730T160022_shadow mtd=$HOME/gisdata/S2B_MSIL1C_20170730T154909_N0205_R054_T17SQV_20170730T160022.SAFE/MTD_MSIL1C.xml
-            
-At this point we can visualize the output of
-[i.sentinel.mask](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.mask.html).
-        
-    d.mon wx0
-    d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
-    d.vect T17SQV_20170730T160022_cloud fill_color=red
-    d.barscale length=50 units=kilometers segment=4 fontsize=14
-    d.text -b text="Cloud mask in red" color=black bgcolor=229:229:229 align=cc font=sans size=8
+
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Clouds and clouds' shadows masks
+    
++++
             
 ![Auto-balanced Sentinel scene RGB](figures/sentinel_cloud.png "Auto-balanced Sentinel scene RGB")
 
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Vegetation and water indices
 
-#### How to obtain SRTM digital elevation model
+@[]()
+@[]()
+@[]()
 
-[Shuttle Radar Topography Mission (SRTM)](https://www2.jpl.nasa.gov/srtm/) is a worldwide Digital
-Elevation Model with a resolution of 30 or 90 meters. GRASS GIS has two
-modules to work with SRTM data,
-[r.in.srtm](https://grass.osgeo.org/grass74/manuals/r.in.srtm.html) to
-import already downloaded SRTM data and, the add-on
-[r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html)
-which is able to download and import SRTM data for the current GRASS GIS
-computational region. However,
-[r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html)
-is working only in a Longitude-Latitude location.
++++
 
-First, we need to obtain the bounding box, in Longitude and Latitude on
-WGS84, of the Sentinel data we want to process
-           
-    g.region raster=T17SQV_20170730T154909_B04,T17SPV_20170730T154909_B04 -b
-      
-Now, we have to start a new GRASS GIS session in a Longitute-Latitude location
-        
-    grass74 -c EPSG:4326 $HOME/grassdata/longlat
-        
-Set the right region using the values obtain before
+screenshot
 
-g.region n=36:08:35N s=35:06:24N e=77:33:33W w=79:54:47W -p
-      
-After this you need to install
-[r.in.srtm.region](https://grass.osgeo.org/grass74/manuals/addons/r.in.srtm.region.html)
-and run it
-            
-    # install r.in.srtm.region
-    g.extension r.in.srtm.region
-    # run r.in.srtm.region downloading SRTM data and import them as srtm raster map
-    r.in.srtm.region output=srtm user=your_NASA_user pass=your_NASA_password
-        
-You can now exit from this GRASS GIS session and restart to work in the
-previous one (where Sentinel data are).
-To reproject the SRTM map from the `longlat` you have to use
-[r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Segmentation
 
-r.proj location=longlat mapset=PERMANENT input=srtm resolution=30
+@[]()
+@[]()
+@[]()
 
-At this point you can use `srtm` map as input of `elevation` option in
-[i.sentinel.preproc](https://grass.osgeo.org/grass74/manuals/addons/i.sentinel.preproc.html)
++++
+
+screenshot
 
 ---
 
@@ -213,7 +240,7 @@ At this point you can use `srtm` map as input of `elevation` option in
 <br><br><br>
 Move on to: 
 <br>
-[Exercise: Processing Sentinel 2 satellite data]()
+[Temporal data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
 @snapend
 
 @snap[south span-50]
