@@ -57,8 +57,8 @@ Satellite data is identical to raster data @fa[arrow-right] same rules apply
 
 @snap[west span-50]
 Two Landsat 8 (OLI) scenes
-@ul[](false)
-- Dates: 16 June 2016 (2016 168) and 18 July 2016 (2016 200)
+@ul[list-content-verbose](false)
+- Dates: 16 June 2016 and 18 July 2016
 - Path/Row: 015/035
 - CRS: UTM zone 18 N (EPSG:32618)
 @ulend
@@ -81,21 +81,21 @@ Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move t
 ---?code=code/04_L8_imagery_code.sh&lang=bash&title=Start GRASS and create new mapset
 
 @[19-20](Launch GRASS GIS and create new mapset landsat8)
-@[21-22](check the projection)
+@[21-22](Check the projection)
 @[23-28](list mapsets and add landsat mapset to path)
 @[29-30](List all available raster maps)
 @[31-32](Set computational region to a landsat scene)
    
 ---?code=code/04_L8_imagery_code.sh&lang=bash&title=Import L8 data
 
-@[35-38](change directory and set variable)
-@[46-51](import all the bands with 30m res, note extent=region)
-@[53-56](import PAN band separately)            
+@[35-38](Change directory and set variable)
+@[46-51](Import all the bands with 30m res, note extent=region)
+@[53-56](Import PAN band separately)            
         
 +++
 
 @snap[north span-100]
-Folder option in the GUI
+Directory option to import from the GUI
 @snapend
 
 @snap[west span-50]
@@ -112,23 +112,17 @@ Folder option in the GUI
 
 > **Task:** 
 >
-> Note that we are using [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html)
-> instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to
-> import the data. Check the difference between the two of them and explain why we
-> used r.import here?
+> - Note that we are using [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to import the data. Check the difference between the two of them and explain why we used r.import here?
 >
-> Repeat the import step for the second scene "LC80150352016200LGN00"
+> - Repeat the import step for the second scene "LC80150352016200LGN00"
 
 ---
 
 #### From Digital Number (DN) to Reflectance and Temperature
 
 - Landsat 8 OLI sensor provides 16-bit data with range between 0 and 65536.
-- [i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html)
-converts DN to TOA reflectance (and brightness temperature) for all Landsat sensors. It
-optionally provides surface reflectance after DOS atmospheric correction. 
-- [i.atcorr](https://grass.osgeo.org/grass74/manuals/i.atcorr.html) provides
-more complex atmospheric correction method for many sensors, i.e., S6.
+- [i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html) converts DN to TOA reflectance (and brightness temperature) for all Landsat sensors. It optionally provides surface reflectance after DOS atmospheric correction. 
+- [i.atcorr](https://grass.osgeo.org/grass74/manuals/i.atcorr.html) provides more complex atmospheric correction method for many sensors, i.e., S6.
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=DN to Reflectance and Temperature
 
@@ -145,16 +139,17 @@ more complex atmospheric correction method for many sensors, i.e., S6.
 
 > **Task:** 
 >
-> - Repeat the conversion step for the second scene "LC80150352016200LGN00".
+> - Repeat the conversion step for the second scene "LC80150352016200LGN00"
 > - Set the color palette of Band 10 of LC80150352016200LGN00 to "kelvin" and visualize
 
 ---
 
 #### Data fusion/Pansharpening
 
-We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to 15 m resolution. 
+We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to 15 m resolution
 
-[i.fusion.hpf](https://grass.osgeo.org/grass7/manuals/addons/i.fusion.hpf.html) applies a high pass filter addition method.
+<br>
+> [i.fusion.hpf](https://grass.osgeo.org/grass7/manuals/addons/i.fusion.hpf.html) applies a high pass filter addition method
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=Data fusion/Pansharpening
 
@@ -166,7 +161,7 @@ We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to
 
 +++            
 
-![Original vs Pansharpen](assets/img/pansharpen_mapswipe.png)
+<img src="assets/img/pansharpen_mapswipe.png" width="75%">
 
 @size[24px](Original 30m data and fused 15m data)
 
@@ -197,13 +192,12 @@ We'll use the PAN band 8 (15 m resolution) to downsample other spectral bands to
 
 #### Cloud mask from the QA layer
 
-- Landsat 8 provides quality layer which contains 16bit integer values
+- Landsat 8 provides a quality layer which contains 16bit integer values
 that represent *bit-packed combinations of surface, atmosphere, and
 sensor conditions that can affect the overall usefulness of a given
 pixel*. 
-
 - [i.landsat8.qc](https://grass.osgeo.org/grass7/manuals/addons/i.landsat8.qc.html)
-Reclassifies Landsat8 QA band according to acceptable pixel quality. 
+reclassifies Landsat8 QA band according to pixel quality. 
 
 <br>
 @size[24px](More information about L8 quality band at http://landsat.usgs.gov/qualityband.php)
@@ -250,8 +244,8 @@ Reclassifies Landsat8 QA band according to acceptable pixel quality.
 
 @ol
 - Group the images: [i.group](https://grass.osgeo.org/grass74/manuals/i.group.html)
-- Generate signatures using a clustering algorithm: [i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html)
-- Classify using Maximum likelihood algorithm: [i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html)
+- Generate signatures for n classes: [i.cluster](https://grass.osgeo.org/grass74/manuals/i.cluster.html)
+- Classify using Maximum likelihood: [i.maxlik](https://grass.osgeo.org/grass74/manuals/i.maxlik.html)
 @olend   
         
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=Unsupervised classification
@@ -266,7 +260,7 @@ Reclassifies Landsat8 QA band according to acceptable pixel quality.
 
 ![L8 Unsupervised Classification](assets/img/L8_unsup_class.png)
 
-Unsupervised classification - Landsat 8 image dated 16 June 2016
+@size[24px](Unsupervised classification - Landsat 8 image dated 16 June 2016)
 
 +++
 
