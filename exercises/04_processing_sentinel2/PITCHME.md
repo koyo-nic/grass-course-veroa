@@ -231,7 +231,7 @@ downloads and imports SRTM data for the current computational region.
 
 +++
 
-<img src="assets/img/S2_ndwi.png" width="80%">
+<img src="assets/img/S2_ndwi.png" width="60%">
 
 @size[24px](NDWI from Sentinel 2)
 
