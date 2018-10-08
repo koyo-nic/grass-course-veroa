@@ -51,7 +51,6 @@
 - Five days revisit time
 - Systematic coverage of land and coastal areas between 84°N and 56°S
 - 13 spectral bands with spatial resolutions of 10 m (4 VIS and NIR bands), 20 m (6 red-edge/SWIR bands) and 60 m
-- Data access: <sentinels.copernicus.eu>
 @ulend
 @snapend
 
@@ -122,6 +121,7 @@ Import with Atmospheric correction: <a href="https://grass.osgeo.org/grass7/manu
 @snapend
 
 @snap[west span-50]
+<br>
 ![](https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png)
 @snapend
 
@@ -231,7 +231,7 @@ downloads and imports SRTM data for the current computational region.
 
 +++
 
-![Sentinel 2 - NDWI](assets/img/S2_ndwi.png)
+<img src="assets/img/S2_ndwi.png" width="80%">
 
 @size[24px](NDWI from Sentinel 2)
 
