@@ -45,11 +45,11 @@
 @snapend
 
 @snap[east span-60]
-@ul[]()
+@ul[list-content-verbose](false)
 - Sentinel-2A in spring 2015, Sentinel-2B in 2017
 - Five days revisit time
 - Systematic coverage of land and coastal areas between 84°N and 56°S
-- 13 spectral bands with spatial resolutions of 10 m (4 VIS and NIR bands), 20 m (6 red-edge/SWIR bands) and 60 m (3 atmospheric correction bands)
+- 13 spectral bands with spatial resolutions of 10 m (4 VIS and NIR bands), 20 m (6 red-edge/SWIR bands) and 60 m
 - Data access: <sentinels.copernicus.eu>
 @ulend
 @snapend
@@ -65,14 +65,12 @@ Set of GRASS GIS extensions to manage Sentinel 2 data:
 
 @size[24px](See <a href="https://grasswiki.osgeo.org/wiki/SENTINEL">Sentinel wiki</a> for further info)
 
----
++++
 
-[i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html)
+- [i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html)
 allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/)
-
-To connect to Copernicus Open Access Hub, you need to [register](https://scihub.copernicus.eu/dhus/#/self-registration)
-
-Create the *SETTING_SENTINEL* file with the following content in the `$HOME/gisdata/` directory:
+- To connect to Copernicus Open Access Hub, you need to be [registered](https://scihub.copernicus.eu/dhus/#/self-registration)
+- Create the *SETTING_SENTINEL* file with the following content in the `$HOME/gisdata/` directory:
 
 ```
 myusername
@@ -96,7 +94,7 @@ Since downloading takes a while, we'll skip it. Take a pre-downloaded scene from
 
 and move it to `$HOME/gisdata`
 
-+++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
+---?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
 
 @[52-66](Print info about bands before importing)
 @[68-71](Import the data)
@@ -124,12 +122,11 @@ Import with Atmospheric correction: [i.sentinel.preproc](https://grass.osgeo.org
 
 @snap[west span-50]
 https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png
-@sn-apend
+@snapend
 
 @snap[east span-50]
 We need:
-
-@ol
+@ol[list-content-verbose](false)
 - unzip S2 file
 - visibility map or AOD (Aerosol Optic Depth)
 - elevation map
@@ -143,7 +140,7 @@ Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 @snapend
 
 @snap[west span-50]
-<img src="assets/img/aeronet_download.png">
+<img src="assets/img/aeronet_download.png" width="60%">
 @snapend
 
 @snap[east span-50]
@@ -152,8 +149,6 @@ Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 - Select start and end date
 - Choose Combined file and All points
 - Download and unzip in `$HOME/gisdata` (the final file has a .dubovik extension)
-
-Download final file from [here]()
 @ulend
 @snapend
 
@@ -231,9 +226,13 @@ downloads and imports SRTM data for the current computational region.
 
 ![Sentinel 2 - NDVI and EVI](assets/img/S2_ndvi_evi.png)
 
+@size[24px](NDVI and EVI from Sentinel 2)
+
 +++
 
 ![Sentinel 2 - NDWI](assets/img/S2_ndwi.png)
+
+@size[24px](NDWI from Sentinel 2)
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Segmentation
 
@@ -245,7 +244,9 @@ downloads and imports SRTM data for the current computational region.
 
 +++
 
-![Segmentation results](assets/img/S2_segment_results.png)
+<img href="assets/img/S2_segment_results.png" width="70%">
+
+@size[24px](Segmentation results)
 
 ---
 
