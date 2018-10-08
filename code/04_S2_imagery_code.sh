@@ -156,7 +156,6 @@ d.rast srtm
 r.info srtm
 
 # change back to NC location and sentinel2 mapset
-
 # reproject the SRTM map
 r.proj location=latlong_wgs84 mapset=testing input=srtm resolution=30
 
@@ -191,7 +190,6 @@ i.sentinel.mask --o input_file=$HOME/gisdata/sentinel_mask_full \
  shadow_mask=T17SQV_20180822T15590_shadow \
  mtd=/home/veroandreo/gisdata/S2A_MSIL1C_20180822T155901_N0206_R097_T17SQV_20180822T212023.SAFE/GRANULE/L1C_T17SQV_A016539_20180822T160456/MTD_TL.xml
 
-
 # display output
 d.mon wx0
 d.rgb -n red=T17SQV_20180822T155901_B04_corr_full \
@@ -222,6 +220,12 @@ g.region -p raster=elevation align=T17SQV_20180822T155901_B04_corr_full
 #~ cols:       1500
 #~ cells:      2025000
 
+# set clouds mask
+v.patch input=T17SQV_20180822T15590_cloud,T17SQV_20180822T15590_shadow \
+ output=cloud_shadow_mask
+v.to.rast input=cloud_shadow_mask output=cloud_shadow_mask use=val value=1
+r.mask -i raster=cloud_shadow_mask
+
 # estimate vegetation indices
 i.vi red=T17SQV_20180822T155901_B04_corr_full \
  nir=T17SQV_20180822T155901_B08_corr_full \
@@ -246,19 +250,22 @@ i.wi green=T17SQV_20180822T155901_B03_corr_full \
 #
 
 
-# install add-on
+# install extension
 g.extension extension=i.superpixels.slic
 
 # list maps and create groups and subgroups
-g.list raster pattern=*corr_full sep=, mapset=sentinel2
-i.group group=sentinel subgroup=sentinel input=`g.list raster pattern=*corr_full sep=,`
+g.list type=raster pattern="*corr_full" \
+ mapset=sentinel2 output=list
+i.group group=sentinel subgroup=sentinel file=list
 
 # run i.superpixels.slic and convert the resulting raster to vector
-i.superpixels.slic input=sentinel output=superpixels num_pixels=2000
+i.superpixels.slic input=sentinel \
+ output=superpixels num_pixels=2000
 r.to.vect input=superpixels output=superpixels type=area
 
 # run i.segment and convert the resulting raster to vector
-i.segment group= output=segments threshold=0.5 minsize=100
+i.segment group= output=segments \
+ threshold=0.5 minsize=100
 r.to.vect input=segments output=segments type=area
 
 # display NDVI along with the 2 segmentation outputs

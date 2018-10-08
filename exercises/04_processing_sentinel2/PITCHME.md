@@ -63,60 +63,58 @@ Set of GRASS GIS extensions to manage Sentinel 2 data:
 - [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html): imports and performs atmospheric correction of Sentinel-2 images
 - [i.sentinel.mask](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.mask.html): creates clouds and shadows masks for Sentinel-2 images
 
-See [Sentinel wiki](https://grasswiki.osgeo.org/wiki/SENTINEL) for further info
+@size[24px](See <a href="https://grasswiki.osgeo.org/wiki/SENTINEL">Sentinel wiki</a> for further info)
 
 ---
 
 [i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html)
-allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/).
+allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/)
 
-To connect to Copernicus Open Access Hub a user name and password are required, 
-see [Register new account](https://scihub.copernicus.eu/dhus/#/self-registration)
-page for signing up.
+To connect to Copernicus Open Access Hub, you need to [register](https://scihub.copernicus.eu/dhus/#/self-registration)
 
-Create the *SETTING_SENTINEL* file with the following content, e.g. in the
-directory `$HOME/gisdata/`:
+Create the *SETTING_SENTINEL* file with the following content in the `$HOME/gisdata/` directory:
 
+```
 myusername
 mypassword
+```
     
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Download Sentinel 2 data
 
-@[](Start GRASS GIS and create a new mapset)            
-@[](Install i.sentinel extension)
-@[](Set computational region)
-@[](List available scenes intersecting computational region)
-@[](List available scenes containing computational region)
-@[](Download the data)
+@[22-23](Start GRASS GIS and create a new mapset)            
+@[25-26](Install i.sentinel extension)
+@[28-29](Set computational region)
+@[31-39](List available scenes intersecting computational region)
+@[41-45](List available scenes containing computational region)
+@[47-50](Download selected scene)
 
 +++
 
-Since downloading takes a while, take a pre-downloaded scene from:
+Since downloading takes a while, we'll skip it. Take a pre-downloaded scene from:
 
-<!--- add link --->
+< add link >
 
-move it to `$HOME/gisdata`
+and move it to `$HOME/gisdata`
 
 +++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
 
-@[](Print info about bands before importing)
-@[](Import the data)
-@[](Display an RGB combination)
+@[52-66](Print info about bands before importing)
+@[68-71](Import the data)
    
 +++
 
-> **Task**: Display an RGB 432 combination of the original data and zoom to computational region only
+> **Task**: Display an RGB 432 combination of the original data and zoom to computational region. How does it look like?
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Color enhancement
 
-@[](Color enhancement)
-@[](Display an RGB combination of the enhanced bands)
+@[79-82](Color enhancement)
+@[84-88](Display an RGB combination of the enhanced bands)
 
 +++
 
 ![Auto-balanced Sentinel scene RGB](assets/img/S2_color_enhance_uncorr.png)
 
-Auto-balanced Sentinel scene RGB
+@size[24px](Auto-balanced Sentinel scene RGB)
 
 ---
 
@@ -126,14 +124,14 @@ Import with Atmospheric correction: [i.sentinel.preproc](https://grass.osgeo.org
 
 @snap[west span-50]
 https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png
-@snapend
+@sn-apend
 
 @snap[east span-50]
 We need:
 
 @ol
-- unzip file
-- visibility map or AOD
+- unzip S2 file
+- visibility map or AOD (Aerosol Optic Depth)
 - elevation map
 @olend
 @snapend
@@ -149,12 +147,20 @@ Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 @snapend
 
 @snap[east span-50]
-Download and unzip in $HOME/gisdata (the final file has a .dubovik extension)
+@ul[list-content-verbose](false)
+- EPA-Res_Triangle_Pk station
+- Select start and end date
+- Choose Combined file and All points
+- Download and unzip in `$HOME/gisdata` (the final file has a .dubovik extension)
+
+Download final file from [here]()
+@ulend
 @snapend
 
 +++
 
 Elevation map
+<br>
 
 For now, we'll use the `elevation` map present in NC location
 <br>
@@ -162,13 +168,10 @@ For now, we'll use the `elevation` map present in NC location
 
 +++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import plus Atmospheric correction with i.sentinel.preproc
 
-@[](Enter directory with Sentinel scene and unzip file)
-@[](Run i.sentinel.preproc using elevation map in NC location)
-@[](Display atmospherically corrected map)
-
-+++
-        
-![Pre-processed Sentinel scene RGB with elevation]()
+@[96-98](Enter directory with Sentinel scene and unzip file)
+@[107-113](Run i.sentinel.preproc using elevation map in NC location)
+@[115-118](Color enhancement)
+@[120-124](Display atmospherically corrected map)
 
 ---
 
@@ -181,46 +184,68 @@ downloads and imports SRTM data for the current computational region.
 
 +++?code=code/04_S2_imagery_code.sh&lang=bash&title=Obtain SRTM digital elevation model
 
-@[]()
-@[]()
-@[]()
+@[132-137](Get bounding box of the full S2 scene)
+@[139-140](Open a new grass session in a lat-long location)
+@[142-143](Set the region using the values obtained in NC location)
+@[145-146](Install r.in.srtm.region extension)
+@[148-151](Download and import SRTM data for the region)
 
 +++
 
-![Pre-processed Sentinel scene RGB with SRTM](figures/sentinel_preproc_srtm.png "Pre-processed Sentinel scene RGB with SRTM")
-On the left the Sentinel-2 scene processed with `elevation` map, on the
-right the same scene processed with `SRTM` map
-        
-    d.mon wx0
-    d.rgb -n red=T17SQV_20170730T154909_B04_corr green=T17SQV_20170730T154909_B03_corr blue=T17SQV_20170730T154909_B02_corr
-    d.barscale length=50 units=kilometers segment=4 fontsize=14
-    d.text -b text="Sentinel pre-processed scene" color=black bgcolor=229:229:229 align=cc font=sans size=8
+> **Task**: Display the imported SRTM map and get basic info
+
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Reproject and run i.sentinel.preproc again
+
+@[158-160](Change back to NC location and reproject the SRTM map)
+@[162-168](Use `srtm` map in i.sentinel.preproc)
+
++++
+
+> **Task**: Enhance colors and display an RGB combination of the S2 full scene
+
++++
+
+![RGB corrected S2 image - elevation region](assets/img/S2_color_enhance_corr_full_elev_region.png)
+
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Clouds and clouds' shadows masks
-    
+
+@[187-191](Identify and mask clouds and clouds shadows)
+@[193-199](Display output)
+
 +++
             
-![Auto-balanced Sentinel scene RGB](figures/sentinel_cloud.png "Auto-balanced Sentinel scene RGB")
+![Clouds and cloud shadows](assets/img/S2_clouds_and_shadows.png)
+
+@size[24px](Clouds and cloud shadows identified by *i.sentinel.mask*)
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Vegetation and water indices
 
-@[]()
-@[]()
-@[]()
+@[207-221](Set computational region)
+@[223-227](Set clouds mask)
+@[229-237](Estimate vegetation indices)
+@[239-240](Install i.wi extension)
+@[242-245](Estimate water indices)
 
 +++
 
-screenshot
+![Sentinel 2 - NDVI and EVI](assets/img/S2_ndvi_evi.png)
+
++++
+
+![Sentinel 2 - NDWI](assets/img/S2_ndwi.png)
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Segmentation
 
-@[]()
-@[]()
-@[]()
+@[253-254](Install extension)
+@[256-259](List maps and create groups and subgroups)
+@[261-264](Run i.superpixels.slic)
+@[266-269](Run i.segment)
+@[271-275](Display NDVI along with the 2 segmentation outputs)
 
 +++
 
-screenshot
+![Segmentation results](assets/img/S2_segment_results.png)
 
 ---
 
