@@ -45,6 +45,7 @@
 @snapend
 
 @snap[east span-60]
+<br><br>
 @ul[list-content-verbose](false)
 - Sentinel-2A in spring 2015, Sentinel-2B in 2017
 - Five days revisit time
@@ -117,11 +118,11 @@ and move it to `$HOME/gisdata`
 ---
 
 @snap[north span-100]
-Import with Atmospheric correction: [i.sentinel.preproc](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html)
+Import with Atmospheric correction: <a href="https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.preproc.html">i.sentinel.preproc</a>
 @snapend
 
 @snap[west span-50]
-https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png
+![](https://grass.osgeo.org/grass74/manuals/addons/i_sentinel_preproc_GWF.png)
 @snapend
 
 @snap[east span-50]
@@ -139,11 +140,11 @@ We need:
 Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 @snapend
 
-@snap[west span-50]
-<img src="assets/img/aeronet_download.png" width="60%">
+@snap[west span-40]
+<img src="assets/img/aeronet_download.png" width="45%">
 @snapend
 
-@snap[east span-50]
+@snap[east span-60]
 @ul[list-content-verbose](false)
 - EPA-Res_Triangle_Pk station
 - Select start and end date
@@ -244,7 +245,7 @@ downloads and imports SRTM data for the current computational region.
 
 +++
 
-<img href="assets/img/S2_segment_results.png" width="70%">
+<img src="assets/img/S2_segment_results.png" width="70%">
 
 @size[24px](Segmentation results)
 
