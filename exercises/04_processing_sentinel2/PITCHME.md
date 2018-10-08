@@ -141,7 +141,7 @@ Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 @snapend
 
 @snap[west span-40]
-<img src="assets/img/aeronet_download.png" width="45%">
+<img src="assets/img/aeronet_download.png" width="55%">
 @snapend
 
 @snap[east span-60]
