@@ -438,6 +438,13 @@ mapview(raleigh_sf[,6:17])
 
 ---
 
+@snap[north span-90]
+<br><br><br>
+Move on to: 
+<br>
+[GRASS and R]()
+@snapend
+
 @snap[south span-50]
 @size[18px](Presentation powered by)
 <br>
