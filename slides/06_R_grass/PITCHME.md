@@ -45,17 +45,39 @@ GRASS GIS and R can be used together in two ways:
 
 ---
 
-The link is provided by [rgrass7](https://cran.r-project.org/web/packages/rgrass7/index.html) package
+The link is provided by the [rgrass7](https://cran.r-project.org/web/packages/rgrass7/index.html) package
 <br><br>
 (kudos to Roger Bivand @fa[smile-o])
  
 ---
 
-We will run R within GRASS GIS session (the first way). Launch R inside GRASS GIS and install *rgrass7* package
+We will run R within GRASS GIS session, we launch R inside GRASS GIS
 
 ---
 
-We will analyze the relationship between temperature and elevation and latitude.
+We will analyze the .
+
++++?code=code/06_grass_R_code.r&lang=rsplus&title=Relationship between LST and elevation and NDVI
+
+@[7-9](Install and load rgrass7)
+@[11-12](Read grass session metadata)
+@[14-15](Set the computational region)
+@[17-18](Generate random points)
+@[20-22](Generate random points restricting to NC area)
+@[24-25](Add table to vector of random points)
+@[27-30](Sample rasters with random points)
+@[32-36](Explore the dataset)
+
++++
+
+Add plot here
+
++++?code=code/06_grass_R_code.r&lang=rsplus&title=Relationship between LST and elevation and NDVI
+
+@[38-40](Compute linear model)
+@[42-45](Predict LST using the model)
+@[47-49](Write modeled LST to GRASS raster)
+@[51-53](Compare model to real data)
 
 ---
 

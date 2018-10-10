@@ -12,24 +12,21 @@ library("rgrass7")
 gmeta()
 
 # set region
-execGRASS("g.region", raster="temp_mean", flags="p")
-
-# raster of latitude values
-execGRASS("r.mapcalc", expression="latitude = y()")
+execGRASS("g.region", raster="LST_mean", flags="p")
 
 # generate random points and sample the datasets
 execGRASS("v.random", output="samples", npoints=1000)
 
-# this will restrict sampling to the boundaries of USA
+# this will restrict sampling to the boundaries NC
 # we are overwriting vector samples, so we need to use overwrite flag
 execGRASS("v.random", output="samples", npoints=1000, restrict="boundaries", flags=c("overwrite"))
 
 # create attribute table
-execGRASS("v.db.addtable", map="samples", columns=c("elevation double precision", "latitude double precision", "temp double precision"))
+execGRASS("v.db.addtable", map="samples", columns=c("elevation double precision", "NDVI double precision", "LST double precision"))
 
 # sample individual rasters
-execGRASS("v.what.rast", map="samples", raster="temp_mean", column="temp")
-execGRASS("v.what.rast", map="samples", raster="latitude", column="latitude")
+execGRASS("v.what.rast", map="samples", raster="LST_mean", column="LST")
+execGRASS("v.what.rast", map="samples", raster="NDVI_mean", column="NDVI")
 execGRASS("v.what.rast", map="samples", raster="elevation", column="elevation")
 
 # explore the dataset in R:
@@ -39,20 +36,19 @@ summary(samples)
 plot(samples@data)
 
 # compute multivariate linear model:
-linmodel <- lm(temp ~ elevation + latitude, samples)
+linmodel <- lm(temp ~ elevation + NDVI_mean, samples)
 summary(linmodel)
 
-# predict temperature using this model:
-maps <- readRAST(c("elevation", "latitude"))
+# predict LST using this model:
+maps <- readRAST(c("elevation", "NDVI_mean"))
 maps$temp_model <- predict(linmodel, newdata=maps)
 spplot(maps, "temp_model")
 
-# write modeled temperature to GRASS raster and set color ramp
+# write modeled LST to GRASS raster and set color ramp
 writeRAST(maps, "temp_model", zcol="temp_model")
 execGRASS("r.colors", map="temp_model", color="celsius")
 
 # compare simple linear model to real data:
-
 execGRASS("r.mapcalc", expression="diff = temp_mean - temp_model")
 execGRASS("r.colors", map="diff", color="differences")
 
