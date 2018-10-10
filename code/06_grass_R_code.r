@@ -1,8 +1,14 @@
 ########################################################################
-# Commands for GRASS - R interface presentation and demo (R part)
+# Commands for GRASS - R interface presentation and demo
 # Author: Veronica Andreo
 # Date: July - August, 2018
 ########################################################################
+
+
+#
+# R within GRASS
+#
+
 
 # Install packages
 install.packages("rgrass7")
@@ -19,10 +25,16 @@ execGRASS("v.random", output="samples", npoints=1000)
 
 # this will restrict sampling to the boundaries NC
 # we are overwriting vector samples, so we need to use overwrite flag
-execGRASS("v.random", output="samples", npoints=1000, restrict="boundaries", flags=c("overwrite"))
+execGRASS("v.random", output="samples", 
+					  npoints=1000, 
+					  restrict="boundaries", 
+					  flags=c("overwrite"))
 
 # create attribute table
-execGRASS("v.db.addtable", map="samples", columns=c("elevation double precision", "NDVI double precision", "LST double precision"))
+execGRASS("v.db.addtable", map="samples", 
+						   columns=c("elevation double precision", 
+						   "NDVI double precision", 
+						   "LST double precision"))
 
 # sample individual rasters
 execGRASS("v.what.rast", map="samples", raster="LST_mean", column="LST")
@@ -36,22 +48,21 @@ summary(samples)
 plot(samples@data)
 
 # compute multivariate linear model:
-linmodel <- lm(temp ~ elevation + NDVI_mean, samples)
+linmodel <- lm(LST_mean ~ elevation + NDVI_mean, samples)
 summary(linmodel)
 
 # predict LST using this model:
 maps <- readRAST(c("elevation", "NDVI_mean"))
-maps$temp_model <- predict(linmodel, newdata=maps)
-spplot(maps, "temp_model")
+maps$LST_model <- predict(linmodel, newdata=maps)
+spplot(maps, "LST_model")
 
 # write modeled LST to GRASS raster and set color ramp
-writeRAST(maps, "temp_model", zcol="temp_model")
-execGRASS("r.colors", map="temp_model", color="celsius")
+writeRAST(maps, "LST_model", zcol="LST_model")
+execGRASS("r.colors", map="LST_model", color="celsius")
 
 # compare simple linear model to real data:
-execGRASS("r.mapcalc", expression="diff = temp_mean - temp_model")
+execGRASS("r.mapcalc", expression="diff = LST_mean - LST_model")
 execGRASS("r.colors", map="diff", color="differences")
-
 
 
 #
@@ -101,10 +112,12 @@ gmeta()
 execGRASS("g.list", parameters = list(type = "vector"))
 
 # list selected vector maps (wildcard):
-execGRASS("g.list", parameters = list(type = "vector", pattern = "precip*"))
+execGRASS("g.list", parameters = list(type = "vector", 
+					pattern = "precip*"))
 
 # save selected vector maps into R vector:
-my_vmaps <- execGRASS("g.list", parameters = list(type = "vector", pattern = "precip*"))
+my_vmaps <- execGRASS("g.list", parameters = list(type = "vector", 
+												  pattern = "precip*"))
 attributes(my_vmaps)
 attributes(my_vmaps)$resOut
 
@@ -112,7 +125,8 @@ attributes(my_vmaps)$resOut
 execGRASS("g.list", parameters = list(type = "raster"))
 
 # list selected raster maps (wildcard):
-execGRASS("g.list", parameters = list(type = "raster", pattern = "lsat7_2002*"))
+execGRASS("g.list", parameters = list(type = "raster", 
+									  pattern = "lsat7_2002*"))
 
 # get two raster maps into R space
 ncdata <- readRAST(c("geology_30m", "elevation"), cat=c(TRUE, FALSE))
@@ -135,7 +149,9 @@ boxplot(ncdata$elevation ~ ncdata$geology_30m, medlwd = 1)
 hist(ncdata$elevation)
 
 # query raster map and transfer result into R
-goutput <- execGRASS("r.what", map="elev_state_500m", points="geodetic_pts", separator=",", intern=TRUE)
+goutput <- execGRASS("r.what", map="elev_state_500m", 
+							   points="geodetic_pts", 
+							   separator=",", intern=TRUE)
 str(goutput)
 
 # parse it
@@ -143,9 +159,7 @@ con <- textConnection(goutput)
 go1 <- read.csv(con, header=FALSE)
 str(go1)
 
-## Exporting data back to GRASS
-
-# square root of elevation)
+# square root of elevation
 ncdata$sqdem <- sqrt(ncdata$elevation)
 
 # export data from R back into a GRASS raster map:

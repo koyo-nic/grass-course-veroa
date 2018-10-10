@@ -45,7 +45,7 @@ GRASS GIS and R can be used together in two ways:
 
 ---
 
-The link is provided by the [rgrass7](https://cran.r-project.org/web/packages/rgrass7/index.html) package
+The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r-project.org/web/packages/rgrass7/index.html) package
 <br><br>
 (kudos to Roger Bivand @fa[smile-o])
  
@@ -96,13 +96,23 @@ We'll now learn how to start GRASS within R or Rstudio
 
 ---
 
-R in GRASS in batch mode
+GRASS within R in batch mode
 
-Run the following script with
++++
+
+Run the script from the termnal with:
 
 ```bash
 R CMD BATCH batch.R
 ```
+
++++?code=code/06_grass_R_code.r&lang=rsplus
+
+@[](The script might look like this)
+
+---
+
+[Example of GRASS - R for raster time series](https://grasswiki.osgeo.org/wiki/Temporal_data_processing/GRASS_R_raster_time_series_processing)
 
 ---
 
