@@ -29,23 +29,23 @@ GRASS GIS and R can be used together in two ways:
 
 ![Calling R from within GRASS](assets/img/RwithinGRASS_and_Rstudio_from_grass.png)
 
----
++++
 
-- Using **R within GRASS GIS session**, i.e. starting R (or RStudio) from the GRASS GIS command line.
+- Using @color[#8EA33B](**R within GRASS GIS session**), i.e. starting R (or RStudio) from the GRASS GIS command line.
   - we do not need to initialize GRASS with `initGRASS()` because GRASS GIS is already running
   - we work with data already in GRASS GIS database using GRASS GIS but from R by means of `execGRASS()`
   - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do analysis or plot
   - we write data back to GRASS with `writeVECT()` and `writeRAST()`
 
----
++++
 
-- Using **GRASS GIS within a R session**, i.e. we connect to GRASS GIS database from within R (or RStudio).
+- Using @color[#8EA33B](**GRASS GIS within a R session**), i.e. we connect to GRASS GIS database from within R (or RStudio).
   - we need to initialize GRASS GIS with `initGRASS()`
   - we use GRASS GIS funtionalities with `execGRASS()`
   - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do analysis or plot
   - we write data back to GRASS with `writeVECT()` and `writeRAST()`
 
----
++++
 
 The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r-project.org/web/packages/rgrass7/index.html) package
 <br><br><br>
@@ -53,14 +53,14 @@ The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r
  
 ---
 
-We will first run R within GRASS GIS session 
+We will first @color[#8EA33B](run R within GRASS GIS session)
 
 <br>
 
 Open GRASS GIS and launch R or RStudio from inside GRASS GIS
 
 
-```
+```r
 GRASS> rstudio &
 GRASS> rstudio /path/to/project/folder/ &
 ```
@@ -87,7 +87,7 @@ Add plot here
 
 +++
 
-@[59-61](Write modeled LST to GRASS raster)
+@[59-61](Write modelled LST to a GRASS raster)
 @[63-65](Compare model to real data)
 
 +++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
@@ -96,7 +96,7 @@ Add maps here
 
 ---
 
-We'll now learn how to start GRASS within R or Rstudio
+We'll now learn how to @color[#8EA33B](start GRASS within R or Rstudio)
 
 <br>
 
@@ -107,23 +107,14 @@ Open RStudio
 @[73-76](Find out the path to the GRASS GIS library)
 @[78-88](Define the GRASS settings: Windows)
 @[90-98](Define the GRASS settings: Linux)
-
-+++?code=code/06_grass_R_code.r&lang=r
-
 @[103-106](Set computational region)
 @[108-109](Verify metadata)
 @[111-116](List vector maps)
 @[118-122](Save list of vector maps)
 @[124-129](List raster maps)
-
-+++?code=code/06_grass_R_code.r&lang=r
-
 @[131-132](Get raster maps into R)
 @[134-137](Summaries)
 @[139-141](Verify the object)
-
-+++?code=code/06_grass_R_code.r&lang=r
-
 @[143-145](Plot)
 
 +++
@@ -151,11 +142,13 @@ Add plot here
 
 ---
 
-GRASS within R in batch mode
+GRASS within R in @color[#8EA33B](batch mode)
 
 +++
 
 Run the script from the termnal with:
+
+<br>
 
 ```bash
 R CMD BATCH batch.R
@@ -175,7 +168,7 @@ There is another R package that provides link to GRASS and other GIS:
 
 **link2GI**
 
-![vignette on how to set GRASS database with link2GI](https://github.com/gisma/link2gi2018/tree/master/R/vignette)
+See the [vignette on how to set GRASS database with link2GI](https://github.com/gisma/link2gi2018/tree/master/R/vignette) for further details
 
 ---
 
