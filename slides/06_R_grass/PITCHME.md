@@ -65,7 +65,7 @@ GRASS> rstudio &
 GRASS> rstudio /path/to/project/folder/ &
 ```
 
-+++?code=code/06_grass_R_code.r&lang=rsplus&title=Relationship between LST and elevation and NDVI
++++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
 
 @[13-15](Install and load rgrass7)
 @[17-18](Read grass session metadata)
@@ -80,7 +80,7 @@ GRASS> rstudio /path/to/project/folder/ &
 
 Add plot here
 
-+++?code=code/06_grass_R_code.r&lang=rsplus&title=Relationship between LST and elevation and NDVI
++++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
 
 @[50-52](Compute linear model)
 @[54-57](Predict LST using the model)
@@ -90,7 +90,7 @@ Add plot here
 @[59-61](Write modeled LST to GRASS raster)
 @[63-65](Compare model to real data)
 
-+++?code=code/06_grass_R_code.r&lang=rsplus&title=Relationship between LST and elevation and NDVI
++++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
 
 Add maps here
 
@@ -102,13 +102,13 @@ We'll now learn how to start GRASS within R or Rstudio
 
 Open RStudio
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[73-76](Find out the path to the GRASS GIS library)
 @[78-88](Define the GRASS settings: Windows)
 @[90-98](Define the GRASS settings: Linux)
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[103-106](Set computational region)
 @[108-109](Verify metadata)
@@ -116,13 +116,13 @@ Open RStudio
 @[118-122](Save list of vector maps)
 @[124-129](List raster maps)
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[131-132](Get raster maps into R)
 @[134-137](Summaries)
 @[139-141](Verify the object)
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[143-145](Plot)
 
@@ -130,7 +130,7 @@ Open RStudio
 
 Add plot here
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[147-149](Boxplot and histogram)
 
@@ -138,12 +138,12 @@ Add plot here
 
 Add plot here
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[151-155](Query a raster map)
 @[157-160](Parse the output)
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[162-163](Do something with a raster map)
 @[165-166](Write it into GRASS)
@@ -161,7 +161,7 @@ Run the script from the termnal with:
 R CMD BATCH batch.R
 ```
 
-+++?code=code/06_grass_R_code.r&lang=rsplus
++++?code=code/06_grass_R_code.r&lang=r
 
 @[177-193](The script might look like this)
 
