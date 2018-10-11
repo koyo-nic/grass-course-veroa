@@ -85,7 +85,7 @@ Add plot here
 @[50-52](Compute linear model)
 @[54-57](Predict LST using the model)
 
-+++
++++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
 
 @[59-61](Write modelled LST to a GRASS raster)
 @[63-65](Compare model to real data)
