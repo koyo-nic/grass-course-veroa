@@ -31,28 +31,34 @@ GRASS GIS and R can be used together in two ways:
 
 ---
 
-- Using *R within GRASS GIS session*, i.e. starting R (or RStudio) from the GRASS GIS command line.
-  - we work with data already in GRASS GIS Spatial Database using GRASS GIS but from R by means of `execGRASS()`
+- Using **R within GRASS GIS session**, i.e. starting R (or RStudio) from the GRASS GIS command line.
   - we do not need to initialize GRASS with `initGRASS()` because GRASS GIS is already running
-  - we use `readVECT()`, `readRAST()` only if we want to read data from GRASS DB to do some analysis or plot and write data back to GRASS with `writeVECT()` and `writeRAST()`
+  - we work with data already in GRASS GIS database using GRASS GIS but from R by means of `execGRASS()`
+  - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do analysis or plot
+  - we write data back to GRASS with `writeVECT()` and `writeRAST()`
 
 ---
 
-- Using *GRASS GIS within a R session*, i.e. we connect to GRASS GIS Spatial Database from within R (or RStudio).
-  - we need to initialize GRASS GIS with `initGRASS()` function to start GRASS GIS
-  - we write data into GRASS GIS Spatial Database with `writeVECT()` and `writeRAST()` and use GRASS GIS funtionalities with `execGRASS()`
-  - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do some analysis or plot
+- Using **GRASS GIS within a R session**, i.e. we connect to GRASS GIS database from within R (or RStudio).
+  - we need to initialize GRASS GIS with `initGRASS()`
+  - we use GRASS GIS funtionalities with `execGRASS()`
+  - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do analysis or plot
+  - we write data back to GRASS with `writeVECT()` and `writeRAST()`
 
 ---
 
 The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r-project.org/web/packages/rgrass7/index.html) package
-<br><br>
+<br><br><br>
 (kudos to Roger Bivand @fa[smile-o])
  
 ---
 
-We will first run R within GRASS GIS session, we launch R or RStudio inside GRASS GIS
+We will first run R within GRASS GIS session 
+
 <br>
+
+Open GRASS GIS and launch R or RStudio from inside GRASS GIS
+
 
 ```
 GRASS> rstudio &
@@ -92,11 +98,15 @@ Add maps here
 
 We'll now learn how to start GRASS within R or Rstudio
 
+<br>
+
+Open RStudio
+
 +++?code=code/06_grass_R_code.r&lang=rsplus
 
-@[73-76](find out the path to the GRASS GIS library)
-@[78-88](define the GRASS settings: Windows)
-@[90-98](define the GRASS settings: Linux)
+@[73-76](Find out the path to the GRASS GIS library)
+@[78-88](Define the GRASS settings: Windows)
+@[90-98](Define the GRASS settings: Linux)
 
 +++?code=code/06_grass_R_code.r&lang=rsplus
 
