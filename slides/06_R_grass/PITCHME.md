@@ -90,7 +90,7 @@ Add plot here
 @[59-61](Write modelled LST to a GRASS raster)
 @[63-65](Compare model to real data)
 
-+++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
++++
 
 Add maps here
 
