@@ -100,7 +100,7 @@ initGRASS(gisBase = "/usr/local/grass-7.0.1",
 # Note: the optional SG parameter is a 'SpatialGrid' object to define
 # the 'DEFAULT_WIND' of the temporary location.
 
-# set computational region to default (optional)
+# set computational region to default
 execGRASS("g.region", raster="elevation", flags=c("d","p")
 # alternatively:
 system("g.region -dp")
