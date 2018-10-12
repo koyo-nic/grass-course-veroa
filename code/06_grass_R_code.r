@@ -85,7 +85,7 @@ initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass-7.1.svn",
          gisDbase = "C:/Users/marissa/GRASSdata/",
          location = "nc_spm_08_grass7", 
          mapset = "user1", 
-         SG="elevation")
+         SG = "elevation")
 
 ## Linux, Mac OSX users:
 library(rgrass7)
@@ -95,7 +95,7 @@ initGRASS(gisBase = "/usr/local/grass-7.0.1",
           gisDbase = "/home/veroandreo/grassdata/",
           location = "nc_spm_08_grass7", 
           mapset = "user1", 
-          SG="elevation")
+          SG = "elevation")
 
 # Note: the optional SG parameter is a 'SpatialGrid' object to define
 # the 'DEFAULT_WIND' of the temporary location.
