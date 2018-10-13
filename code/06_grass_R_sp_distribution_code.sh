@@ -26,7 +26,8 @@ r.mask vector=
 v.in.pygbif 
 
 # create absences
-v.buffer
+v.buffer 300
+r.mask
 v.random
-
+r.mask -r
 

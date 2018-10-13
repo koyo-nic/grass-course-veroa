@@ -12,6 +12,7 @@
 # Install and load required packages
 #
 
+
 # install
 install.packages("raster")
 install.packages("mapview")
