@@ -23,7 +23,7 @@ GRASS GIS and R can be used together in two ways:
 - Using [GRASS GIS within an R session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#GRASS_within_R),
 <br><br>
 
-@size[22px](Details and examples at the [GRASS and R wiki](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7))
+@size[22px](Details and examples at the <a href="https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7>GRASS and R wiki</a>)
 
 +++
 
@@ -32,7 +32,7 @@ GRASS GIS and R can be used together in two ways:
 +++
 
 - Using @color[#8EA33B](**R within GRASS GIS session**), i.e. starting R (or RStudio) from the GRASS GIS command line.
-  - we do not need to initialize GRASS with `initGRASS()` because GRASS GIS is already running
+  - we do not need to initialize GRASS with `initGRASS()`
   - we work with data already in GRASS GIS database using GRASS GIS but from R by means of `execGRASS()`
   - we use `readVECT()`, `readRAST()` to read data from GRASS DB to do analysis or plot
   - we write data back to GRASS with `writeVECT()` and `writeRAST()`
@@ -49,11 +49,11 @@ GRASS GIS and R can be used together in two ways:
 
 The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r-project.org/web/packages/rgrass7/index.html) package
 <br><br><br>
-(kudos to Roger Bivand @fa[smile-o])
+(kudos to Roger Bivand @fa[smile-o fa-spin])
  
 ---
 
-We will first @color[#8EA33B](run R within GRASS GIS session)
+We will first @color[#8EA33B](run R within a GRASS GIS session)
 
 <br>
 
@@ -160,14 +160,20 @@ R CMD BATCH batch.R
 
 ---
 
+Learn more: 
+
 [Example of GRASS - R for raster time series](https://grasswiki.osgeo.org/wiki/Temporal_data_processing/GRASS_R_raster_time_series_processing)
+
+![DINEOF for gap-filling](https://grasswiki.osgeo.org/w/images/Time_series.png)
 
 ---
 
 There is another R package that provides link to GRASS and other GIS:
+<br>
 
 **link2GI**
 
+<br>
 See the [vignette on how to set GRASS database with link2GI](https://github.com/gisma/link2gi2018/tree/master/R/vignette) for further details
 
 ---
@@ -205,11 +211,52 @@ https://tutorials.ecodiv.earth/toc/spatial_interpolation.html
 https://tutorials.ecodiv.earth/toc/import-bioclim-data.html
 https://www.grassbook.org/wp-content/uploads/neteler/shortcourse_grass2003/notes7.html
 
-# Fetch Aedes albopictus presence from GBIF
-# https://grass.osgeo.org/grass74/manuals/addons/v.in.pygbif.html
 
-g.extension v.in.pygbif
-v.in.pygbif taxa="Aedes albopictus" rank=species output=gbif -i
-v.db.select Aedes_albopictus_gbif
+If GRASS GIS is started from R (or RStudio) session a initGRASS() function must be called in order to define GRASS GIS environment settings. First get the full path to GRASS GIS installation and run the initGRASS() function with specified parameters pointing to GRASS location and mapset to be used.
+
+# Get GRASS library path
+grasslib <- try(system('grass --config', intern=TRUE))[4]
+
+initGRASS(gisBase=grasslib, gisDbase='/home/user/grassdata/',
+          location='oslo-region', mapset='PERMANENT', override=TRUE)
+
+At this point GRASS GIS modules are available inside R by execGRASS() function. In example below are listed available vector maps from the current location and mapset using g.list. Vector map of administrative regions (Fylke) is converted to raster format by v.to.rast.
+
+execGRASS("g.list", parameters = list(type = "vector"))
+execGRASS("g.region", parameters = list(vector="Fylke", align="modis_avg@modis"))
+execGRASS("v.to.rast", parameters = list(input = "Fylke",
+          output="fylke", use="cat", label_column="navn"))
+
+GRASS raster map can be read as an R object by readRAST() function. The cat parameter indicates which raster values to be returned as factors.
+
+ncdata <- readRAST(c("fylke", "modis_avg@modis"), cat=c(TRUE, FALSE))
+summary(ncdata)
+
+Object of class SpatialGridDataFrame
+Coordinates:
+      min     max
+[1,] -572752 1039248
+[2,] 5539179 7836179
+Is projected: TRUE
+proj4string :
+[+proj=utm +no_defs +zone=33 +a=6378137 +rf=298.257222101
+ +towgs84=0,0,0,0,0,0,0 +to_meter=1]
+Grid attributes:
+   cellcentre.offset cellsize cells.dim
+1           -572252     1000      1612
+2           5539679     1000      2297
+Data attributes:
+                     fylke           modis_avg
+  (1:Nordland)          :  80964   Min.   :-11.1
+  (1:Trøndelag)         :  58662   1st Qu.: -1.7
+  (2:Troms,Romsa)       :  40760   Median :  4.2
+  (2:Finnmark,Finnmárku):  31257   Mean   :  3.4
+  (1:Hedmark)           :  27403   3rd Qu.:  8.7
+  (Other)               : 187401   Max.   : 16.1
+  NA's                  :3276317   NA's   :2450449
+
+In example below a boxplot of Norwegian regions with the 2017 annual mean values of MODIS LST is ploted, see Fig. 135.
+
+boxplot(ncdata$modis_avg ~ ncdata$fylke, medlwd = 1)
 
 --->

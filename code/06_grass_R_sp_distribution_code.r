@@ -6,9 +6,6 @@
 ########################################################################
 
 
-##### In R ######
-
-
 #
 # Install and load required packages
 #
@@ -114,7 +111,7 @@ myBiomodModelOut
 
 
 #
-# Evaluación del modelo
+# Model evaluation
 #
 
 

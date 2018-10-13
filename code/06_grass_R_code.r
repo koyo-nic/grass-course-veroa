@@ -6,7 +6,7 @@
 
 
 #
-# R within GRASS
+# Start R from GRASS
 #
 
 

@@ -14,8 +14,8 @@
 
 ### DO NOT RUN
 
-# create a new mapset
-modis_ndvi
+# start GRASS GIS in NC location and create a new mapset
+grass74 -c $HOME/grassdata/nc_spm_08_grass7/modis_ndvi
 
 # add modis_lst to path
 g.mapsets -p
@@ -24,6 +24,15 @@ g.list type=raster mapset=modis_lst
 
 # set region to a LST map
 g.region -p raster=MOD11B3.A2015001.h11v05.single_LST_Day_6km@modis_lst
+
+# get bounding box in ll
+g.region -bg
+#~ ll_n=40.59247652
+#~ ll_s=29.48543350
+#~ ll_w=-91.37851025
+#~ ll_e=-67.97322249
+#~ ll_clon=-79.67586637
+#~ ll_clat=35.03895501
 
 # download MOD13C2 (https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13c2_v006)
 i.modis.download settings=$HOME/gisdata/SETTING \
@@ -36,15 +45,25 @@ i.modis.download settings=$HOME/gisdata/SETTING \
 
 # import into latlong location: NDVI, EVI, QA, NIR, SWIR, Pixel reliability
 i.modis.import files=$HOME/gisdata/mod13/listfileMOD13C2.006.txt \
- spectral="( 1 1 1 0 1 0 1 0 0 0 0 1 )"
+ spectral="( 1 1 1 0 1 0 1 0 0 0 0 0 1 )"
 
 # set region to bb
+g.region -p n=40.59247652 s=29.48543350 w=-91.37851025 e=-67.97322249 align=MOD13C2.A2017335.006.single_CMG_0.05_Deg_Monthly_NDVI
 
 # subset to region and remove global maps
+for map in `g.list type=raster pattern="MOD13C2*"` ; do
+ r.mapcalc expression="$map = $map" --o
+done
+
+# get list of maps to reprojects
+g.list type=raster pattern="MOD13C2*" output=list_proj.txt
 
 # move back to NC location
 
 # reproject
+for map in `cat list_proj.txt` ; do
+ r.proj input=$map location=latlong_wgs84 mapset=testing resolution=5600
+done
 
 ### END OF DO NOT RUN
 
@@ -54,16 +73,24 @@ i.modis.import files=$HOME/gisdata/mod13/listfileMOD13C2.006.txt \
 #
 
 
+# download data
+
+# add modis_lst to path
+g.mapsets -p
+g.mapsets mapset=modis_lst operation=add
+g.list type=raster mapset=modis_lst
+
 # list files and get info and stats
 g.list type=raster
-r.info
+r.info 
 r.univar
 
 # visualize pixel reliability band (https://lpdaac.usgs.gov/sites/default/files/public/product_documentation/mod13_user_guide.pdf)
 
 # use only most reliable pixels
+r.mapcalc
 
-# create time series
+# create NDVI time series
 
 # check it was created
 
@@ -75,7 +102,7 @@ r.univar
 
 # visual inspection
 
-# is there missing data?
+# is there any missing data?
 
 # gapfill: r.hants
 
@@ -85,10 +112,41 @@ r.univar
 
 # create new time series with filled data
 
-# start, end and length of growing season
+# scale values
 
 # get average and standard deviation ndvi
 
 # percentils: identify changes
 
-# estimate NDWI
+
+#
+# Obtain some phenological information
+#
+
+
+# install extension
+g.extension extension=r.seasons
+
+# start, end and length of growing season
+r.seasons 
+
+
+#
+# Estimate NDWI
+#
+
+
+# create time series of NIR and MIR
+
+
+# scale values
+
+
+# estimate NDWI time series
+
+
+#
+# Regression between NDWI and NDVI
+#
+
+r.regression.series

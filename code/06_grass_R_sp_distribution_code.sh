@@ -3,11 +3,8 @@
 ########################################################################
 # Commands for GRASS - R interface presentation and demo (bash part)
 # Author: Veronica Andreo
-# Date: July - August, 2018
+# Date: October, 2018
 ########################################################################
-
-
-##### In GRASS GIS ######
 
 
 #
@@ -25,17 +22,28 @@ r.mask vector=nc_state
 # import data from gbif
 v.in.pygbif output=aedes_albopictus taxa="Aedes albopictus" \
  date_from="2015-01-01" date_to="2018-09-30"
- 
-# create absences
+
+
+# 
+# Create background points
+#
+
+
+# create buffer around Aedes albopictus records
 v.buffer input=aedes_albopictus output=aedes_buffer distance=3000
-r.mask -i vector=aedes_buffer
-v.random output=background_points npoints=100
-r.mask -r
+
+# generate random points
+v.random output=background_points npoints=200
+
+# remove points falling in buffers
+v.select ainput=background_points binput=aedes_buffer \
+ output=aedes_background operator=disjoint
 
 
 #
 # Generate environmental variables
 #
+
 
 # Average LST
 

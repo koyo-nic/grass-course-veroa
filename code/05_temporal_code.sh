@@ -418,3 +418,4 @@ cycle="7 months" range=100,200 basename=insect_c1 indicator=insect_ind_c1
 
 # apply qc band with r.mapcalc
 # estimate anomalies and climatologies
+# urban heat island exercise
