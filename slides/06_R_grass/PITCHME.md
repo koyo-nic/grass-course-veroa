@@ -146,7 +146,7 @@ GRASS within R in @color[#8EA33B](batch mode)
 
 +++
 
-Run the script from the termnal with:
+Run the script from the terminal with:
 
 <br>
 
