@@ -237,7 +237,8 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Regression analysis
 
-@[335-339](Perform regression between NDVI and NDWI time series)
+@[335-336](Install extension)
+@[338-342](Perform regression between NDVI and NDWI time series)
 
 +++
 

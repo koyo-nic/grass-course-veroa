@@ -256,7 +256,7 @@ t.remove -rf inputs=month_max_ndvi,month_min_ndvi
 
 # time series of slopes
 t.rast.algebra \
- expression="slope_ndvi = (ndvi_monthly_patch[1] - ndvi_monthly_patch[0])/2.0" \
+ expression="slope_ndvi = (ndvi_monthly_patch[1] - ndvi_monthly_patch[0]) / 2.0" \
  basename=slope_ndvi
  
 # get max slope per year
@@ -268,7 +268,7 @@ t.rast.aggregate input=slope_ndvi output=ndvi_slope_yearly \
 g.extension extension=r.seasons
 
 # start, end and length of growing season
-r.seasons input=`t.rast.list input=ndvi_monthly_patch sep=,` \
+r.seasons input=`t.rast.list input=ndvi_monthly_patch method=comma` \
  prefix=ndvi_season n=3 \
  nout=ndvi_season threshold_value=3000 min_length=5
 
@@ -311,7 +311,7 @@ t.info input=MIR
 
 # estimate NDWI time series
 t.rast.algebra basename=ndwi_monthly \
- expression="ndwi_monthly = if(NIR > 0 & MIR > 0, ((NIR - MIR) / (NIR + MIR))*0.0001, null())"
+ expression="ndwi_monthly = if(NIR > 0 && MIR > 0, (float(NIR - MIR) / float(NIR + MIR)), null())"
 
 
 #
@@ -321,7 +321,7 @@ t.rast.algebra basename=ndwi_monthly \
 
 # reclassify
 t.rast.mapcalc -n input=ndwi_monthly output=flood \
- basename=flood expression="if(ndwi_monthly > 0.5, 1, null())"
+ basename=flood expression="if(ndwi_monthly > 0.8, 1, null())"
 
 # flooding frequency
 t.rast.series input=flood output=flood_freq method=sum
@@ -331,6 +331,9 @@ t.rast.series input=flood output=flood_freq method=sum
 # Regression between NDWI and NDVI
 #
 
+
+# install extension
+g.extension extension=r.regression.series
 
 xseries=`t.rast.list input=ndvi_monthly_patch method=comma`
 yseries=`t.rast.list input=ndwi_monthly method=comma`
