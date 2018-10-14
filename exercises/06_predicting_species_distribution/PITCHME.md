@@ -33,6 +33,23 @@
 @olend
 @snapend
 
+---
+
+@snap[north span-100]
+<h3>Data</h3>
+@snapend
+
+@snap[west span-50]
+@ol[list-content-verbose]
+- Records of *Aedes albopictus* (Asian tiger mosquito) in NC
+- Environmental layers derived from RS products
+@olend
+@snapend
+
+@snap[east span-50]
+![](https://en.wikipedia.org/wiki/Aedes_albopictus#/media/File:CDC-Gathany-Aedes-albopictus-1.jpg)
+@snapend
+
 ---?code=code/06_grass_R_sp_distribution_code.sh&lang=bash&title=Importing species records
 
 @[16-17](Install v.in.pygbif)
@@ -41,7 +58,9 @@
 
 +++
 
-> **Task**: Explore univariate statistics of downloaded data. Check the []() addon.
+> **Task**: Explore univariate statistics of downloaded data. Check the 
+> [d.vect.colhist](https://grass.osgeo.org/grass74/manuals/addons/d.vect.colhist.html) and
+> [d.vect.colbp](https://github.com/ecodiv/d.vect.colbp) addons.
 
 ---?code=code/06_grass_R_sp_distribution_code.sh&lang=bash&title=Creating random background points
 

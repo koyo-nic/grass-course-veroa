@@ -12,7 +12,7 @@
 #
 
 
-### DO NOT RUN
+### DO NOT RUN ###
 
 # start GRASS GIS in NC location and create a new mapset
 grass74 -c $HOME/grassdata/nc_spm_08_grass7/modis_ndvi
@@ -65,7 +65,7 @@ for map in `cat list_proj.txt` ; do
  r.proj input=$map location=latlong_wgs84 mapset=testing resolution=5600
 done
 
-### END OF DO NOT RUN
+### END OF DO NOT RUN ###
 
 
 #
@@ -87,40 +87,67 @@ r.univar
 
 # visualize pixel reliability band (https://lpdaac.usgs.gov/sites/default/files/public/product_documentation/mod13_user_guide.pdf)
 
-# use only most reliable pixels
+# use only NDVI most reliable pixels
 r.mapcalc
 
 # create NDVI time series
+t.create
+
 
 # check it was created
+t.list 
 
 # register maps
+t.register
 
 # print time series info
+t.info
 
 # print list of maps in time series
+t.rast.list
 
 # visual inspection
+g.gui.tplot
 
-# is there any missing data?
+
+#
+# Gap-filling: HANTS
+#
+
+
+# is there any missing data after filtering for pixel reliability?
+t.rast.univar
 
 # gapfill: r.hants
+r.hants 
+
+# test different parameter settings and compare results
 
 # assess results visually
+g.gui.tplot
 
 # patch original with filled
+r.patch
 
 # create new time series with filled data
+t.create
+t.register
 
-# scale values
+
+#
+# Derive aggregated values
+#
+
 
 # get average and standard deviation ndvi
+t.rast.series
 
 # percentils: identify changes
 
 
+
 #
-# Obtain some phenological information
+# Obtain phenological information
 #
 
 
@@ -130,6 +157,12 @@ g.extension extension=r.seasons
 # start, end and length of growing season
 r.seasons 
 
+# get max slope
+
+
+# get month of maximum and month of minimum
+
+
 
 #
 # Estimate NDWI
@@ -137,16 +170,18 @@ r.seasons
 
 
 # create time series of NIR and MIR
-
-
-# scale values
-
+t.create
+t.register
 
 # estimate NDWI time series
+t.rast.algebra 
+
+# frequency of inundation
+
 
 
 #
 # Regression between NDWI and NDVI
 #
 
-r.regression.series
+r.regression.series xseries= yseries=
