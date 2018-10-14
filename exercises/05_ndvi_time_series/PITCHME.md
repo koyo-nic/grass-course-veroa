@@ -30,9 +30,9 @@
 - Create NDVI time series
 - Gap-filling: HANTS
 - Aggregation
-- Phenology
-- NDWI
-- Regression
+- Phenology indices
+- NDWI and flooding frequency
+- Regression between NDVI and NDWI
 @olend
 @snapend
 
@@ -92,6 +92,7 @@
 ---
 
 Use of reliability band
+<br>
 
 > **Task**: 
 >
@@ -107,7 +108,7 @@ Use of reliability band
 
 +++
 
-> **Task*: Compare stats among original and filtered NDVI maps for the same date
+> **Task**: Compare stats among original and filtered NDVI maps for the same date
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Create time series
 
@@ -221,7 +222,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Get max and min values for each NDWI map and explore the time series plot in different points interactively.
+> **Task**: Get max and min values for each NDWI map and explore the time series plot in different points interactively
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Frequency of flooding
 
