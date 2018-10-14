@@ -86,7 +86,7 @@
 
 > **Task**: 
 >
-> - Display EVI, NIR and QA maps and get info about min and max values
+> - Display EVI, NIR and QA maps and get information about minimum and maximum values
 > - What do you notice?
 
 ---
@@ -135,12 +135,12 @@ Use of reliability band
 +++
 
 > **Task**: 
-> - Display the map representing percentage of missing data and explore values. 
-> - Get univariate statistics of map.
+> - Display the map representing the percentage of missing data and explore values. 
+> - Get univariate statistics of this map.
 
 ---
 
-Temporal gap-filling: HANTS
+### Temporal gap-filling: HANTS
 
 - Harmonic Analysis of Time Series (HANTS)
 - Implemented in [r.hants](https://grass.osgeo.org/grass7/manuals/addons/r.hants.html) addon
@@ -153,7 +153,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Test different parameter settings
+> **Task**: Test different parameter settings in r.hants and compare results
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Temporal gap-filling: HANTS
 
@@ -165,15 +165,17 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Graphically asses the results of reconstruction in pixels with higher percentage of missing data and obtain univariate stats for the new time series.
+> **Task**: Graphically asses the results of HANTS reconstruction in pixels with higher percentage of missing data and obtain univariate statistics for the new time series
 
 ---
 
 ### Aggregation with granularity
 
+<br>
+
 > **Task**: 
-> - Obtain bimonthly average NDVI 
-> - Visualize with [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html)
+> - Obtain average NDVI every two months
+> - Visualize the resulting time series with [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html)
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
@@ -184,7 +186,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Display resulting maps with [g.gui.mapswipe](https://grass.osgeo.org/grass74/manuals/g.gui.mapswipe.html)
+> **Task**: Display the resulting maps with [g.gui.mapswipe](https://grass.osgeo.org/grass74/manuals/g.gui.mapswipe.html)
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
@@ -202,7 +204,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Plot resulting maps
+> **Task**: Plot the resulting maps
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
@@ -210,7 +212,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Use threshold map in r.seasons and compare output maps
+> **Task**: Use threshold map in r.seasons and compare output maps with the outputs of using a threshold value only
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Water index time series
 
@@ -222,7 +224,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Get max and min values for each NDWI map and explore the time series plot in different points interactively
+> **Task**: Get maximum and minimum values for each NDWI map and explore the time series plot in different points interactively
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Frequency of flooding
 
@@ -231,7 +233,7 @@ Temporal gap-filling: HANTS
 
 +++
 
-> **Task**: Which are the areas that have flooded most frequently?
+> **Task**: Which are the areas that have been flooded most frequently?
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Regression analysis
 
