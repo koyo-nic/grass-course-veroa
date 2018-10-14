@@ -20,9 +20,9 @@ grass74 -c $HOME/grassdata/nc_spm_08_grass7/modis_ndvi
 # add modis_lst to path
 g.mapsets -p
 g.mapsets mapset=modis_lst operation=add
-g.list type=raster mapset=modis_lst
 
-# set region to a LST map
+# set region to an LST map
+g.list type=raster mapset=modis_lst
 g.region -p raster=MOD11B3.A2015001.h11v05.single_LST_Day_6km@modis_lst
 
 # get bounding box in ll
@@ -41,56 +41,79 @@ i.modis.download settings=$HOME/gisdata/SETTING \
  endday="2017-12-31" \
  folder=$HOME/gisdata/mod13
 
-# move to the latlong location
+# move to latlong location
 
 # import into latlong location: NDVI, EVI, QA, NIR, SWIR, Pixel reliability
 i.modis.import files=$HOME/gisdata/mod13/listfileMOD13C2.006.txt \
  spectral="( 1 1 1 0 1 0 1 0 0 0 0 0 1 )"
 
 # set region to bb
-g.region -p n=40.59247652 s=29.48543350 w=-91.37851025 e=-67.97322249 align=MOD13C2.A2017335.006.single_CMG_0.05_Deg_Monthly_NDVI
+g.region -p n=40.59247652 s=29.48543350 w=-91.37851025 e=-67.97322249 \
+ align=MOD13C2.A2017335.006.single_CMG_0.05_Deg_Monthly_NDVI
 
 # subset to region and remove global maps
 for map in `g.list type=raster pattern="MOD13C2*"` ; do
  r.mapcalc expression="$map = $map" --o
 done
 
-# get list of maps to reprojects
+# get list of maps to reproject
 g.list type=raster pattern="MOD13C2*" output=list_proj.txt
 
 # move back to NC location
 
 # reproject
 for map in `cat list_proj.txt` ; do
- r.proj input=$map location=latlong_wgs84 mapset=testing resolution=5600
+ r.proj input=$map \
+  location=latlong_wgs84 \
+  mapset=testing \
+  resolution=5600
 done
+
+# check projected data
+r.info map=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
 
 ### END OF DO NOT RUN ###
 
 
 #
-# 
+# Get familiar with NDVI data
 #
 
 
-# download data
+# download ready to use mapset and unzip in NC location
 
-# add modis_lst to path
+# start GRASS GIS in `modis_ndvi` mapset
+grass74 $HOME/grassdata/nc_spm_08_grass7/modis_ndvi
+
+# add `modis_lst` to accessible mapsets path
 g.mapsets -p
 g.mapsets mapset=modis_lst operation=add
-g.list type=raster mapset=modis_lst
 
 # list files and get info and stats
-g.list type=raster
-r.info 
-r.univar
+g.list type=raster mapset=.
+r.info map=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
+r.univar map=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
+
+
+#
+# Use of reliability band
+#
+
 
 # visualize pixel reliability band (https://lpdaac.usgs.gov/sites/default/files/public/product_documentation/mod13_user_guide.pdf)
 
 # use only NDVI most reliable pixels
-r.mapcalc
+r.mapcalc expression=""
 
-# create NDVI time series
+
+#
+# Create NDVI time series
+#
+
+
+# list files
+
+# create STRDS
 t.create
 
 
@@ -135,7 +158,7 @@ t.register
 
 
 #
-# Derive aggregated values
+# Aggregation
 #
 
 
