@@ -247,18 +247,19 @@ t.rast.mapcalc -n inputs=ndvi_monthly_patch output=month_min_ndvi \
   expression="if(ndvi_monthly_patch == ndvi_min, start_month(), null())" \
   basename=month_min_ndvi
 
-# Get the earliest month in which the maximum and minimum appeared
+# get the earliest month in which the maximum and minimum appeared
 t.rast.series input=month_max_ndvi method=minimum output=max_ndvi_date
 t.rast.series input=month_min_ndvi method=minimum output=min_ndvi_date
 
 # remove month_max_lst strds 
 t.remove -rf inputs=month_max_ndvi,month_min_ndvi
 
-# get max slope per year
+# time series of slopes
 t.rast.algebra \
  expression="slope_ndvi = (ndvi_monthly_patch[1] - ndvi_monthly_patch[0])/2.0" \
  basename=slope_ndvi
-
+ 
+# get max slope per year
 t.rast.aggregate input=slope_ndvi output=ndvi_slope_yearly \
  basename=NDVI_max_slope_year suffix=gran \
  method=maximum granularity="1 years"
@@ -292,8 +293,8 @@ t.create output=MIR \
  description="MIR monthly - MOD13C2 - 2015-2017"
  
 # list NIR and MIR files
-g.list type=raster pattern="*NIR" output=list_nir.txt
-g.list type=raster pattern="*MIR" output=list_mir.txt
+g.list type=raster pattern="*NIR*" output=list_nir.txt
+g.list type=raster pattern="*MIR*" output=list_mir.txt
 
 # register maps
 t.register -i input=NIR \
@@ -308,14 +309,9 @@ t.register -i input=MIR \
 t.info input=NIR
 t.info input=MIR
 
-# set nulls
-g.extension extension=t.rast.null
-t.rast.null input=NIR setnull=-1000
-t.rast.null input=MIR setnull=-1000
-
 # estimate NDWI time series
 t.rast.algebra basename=ndwi_monthly \
- expression="ndwi_monthly = ((NIR - MIR) / (NIR + MIR))*0.0001"
+ expression="ndwi_monthly = if(NIR > 0 & MIR > 0, ((NIR - MIR) / (NIR + MIR))*0.0001, null())"
 
 
 #

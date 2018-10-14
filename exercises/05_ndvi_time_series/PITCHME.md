@@ -172,11 +172,73 @@ Temporal gap-filling: HANTS
 
 > **Task**: 
 > - Obtain bimonthly average NDVI 
-> - Visualize with [g.gui.animation]()
+> - Visualize with [g.gui.animation](https://grass.osgeo.org/grass74/manuals/g.gui.animation.html)
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
+@[237-239](Month of maximum and month of minimum)
+@[241-248](Replace STRDS values with 1 if they match overall min or max)
+@[250-252](Get the earliest month in which the maximum and minimum appeared)
+@[254-255](Remove intermediate time series)
 
++++
+
+> **Task**: Display resulting maps with [g.gui.mapswipe](https://grass.osgeo.org/grass74/manuals/g.gui.mapswipe.html)
+
++++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
+
+@[257-260](Get time series of slopes among consequtive maps)
+@[262-265](Get maximum slope per year)
+
++++
+
+> **Task**: Determine the highest growing rate in the period 2015-2017 and display it
+
++++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
+
+@[267-268](Install extension)
+@[270-273](Determine start, end and length of growing season)
+
++++
+
+> **Task**: Plot resulting maps
+
++++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
+
+@[275-276](Create a threshold map to use in r.seasons)
+
++++
+
+> **Task**: Use threshold map in r.seasons and compare output maps
+
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Water index time series
+
+@[284-293](Create time series of NIR and MIR)
+@[295-297](List NIR and MIR files)
+@[299-306](Register maps)
+@[308-310](Print time series info)
+@[312-314](Estimate NDWI time series)
+
++++
+
+> **Task**: Get max and min values for each NDWI map and explore the time series plot in different points interactively.
+
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Frequency of flooding
+
+@[322-324](Reclassify maps according to threshold)
+@[326-327](Get flooding frequency)
+
++++
+
+> **Task**: Which are the areas that have flooded most frequently?
+
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Regression analysis
+
+@[335-339](Perform regression between NDVI and NDWI time series)
+
++++
+
+> **Task**: Where is the highest correlation among NDVI and NDWI?
 
 ---
 
