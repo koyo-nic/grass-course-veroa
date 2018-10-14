@@ -1,5 +1,7 @@
 ########################################################################
-# Commands for GRASS - R interface presentation and demo (bash part)
+# Commands for GRASS - R interface exercise: 
+# Modelling Aedes albopictus potential distribution in NC
+#
 # Original example contributed by Carol Garzon Lopez 
 # Adapted by Veronica Andreo
 # Date: October, 2018
@@ -11,7 +13,7 @@
 #
 
 
-# install
+# install packagess
 install.packages("raster")
 install.packages("rgrass7")
 install.packages("mapview")
@@ -23,17 +25,22 @@ library(rgrass7)
 library(mapview)
 library(biomod2)
 
+
+#
 # Set GRASS GIS variables for initialization
-# Path to GRASS binaries
+#
+
+
+# path to GRASS binaries
 myGRASS <- "/home/veroandreo/software/grass-7.0.svn/dist.x86_64-unknown-linux-gnu"
-# Path to GRASS database
+# path to GRASS database
 myGISDbase <- "/home/veroandreo/grassdata/"
-# Path to location
+# path to location
 myLocation <- "nc_spm_08_grass7"
-# Path to mapset
+# path to mapset
 myMapset <- "user1"
 
-# Start GRASS GIS from R
+# start GRASS GIS from R
 initGRASS(gisBase = myGRASS, 
 		  home = tempdir(), 
 		  gisDbase = myGISDbase, 
@@ -42,7 +49,17 @@ initGRASS(gisBase = myGRASS,
           SG="elevation",
           override = TRUE)
 
-# Read raster layers
+
+#
+# Read raster and vector data
+#
+
+
+# read vector layers
+Aa_pres <- readVECT("aedes_albopictus")
+Aa_abs <- readVECT("background_points")
+
+# read raster layers
 LST_mean <- readRAST("")                                                                                                                                       
 LST_min <- readRAST("")
 LST_mean_summer <- readRAST("")
@@ -50,9 +67,8 @@ LST_mean_winter <- readRAST("")
 NDVI_mean <- readRAST("")
 NDWI_mean <- readRAST("")
 
-# Read vector layers
-Aa_pres <- readVECT("aedes_albopictus")
-Aa_abs <- readVECT("background_points")
+
+
 
 # visualize in mapview
 mapview(LST_mean)
@@ -64,6 +80,7 @@ mapview(LST_mean) + pres
 #
 
 
+# response variable
 n_pres <- length(Aa_pres[,1])
 n_abs <- length(Aa_abs@data[,1])
  
@@ -76,6 +93,7 @@ myResp <- c(pres,abs)
 myRespXY <- rbind(cbind(Aa_pres@coords[,1],Aa_pres@coords[,2]), 
 				  cbind(Aa_abs@coords[,1],Aa_abs@coords[,2]))
 
+# explanatory variables
 myExpl <- stack(raster(LST_mean),raster(LST_min),
 				raster(LST_mean_summer),raster(LST_mean_winter),
 				raster(NDVI_mean),raster(NDWI_mean))
@@ -91,8 +109,10 @@ myBiomodData <- BIOMOD_FormatingData(resp.var = myResp,
 #
 
 
+# default options
 myBiomodOption <- BIOMOD_ModelingOptions()
 
+# run model
 myBiomodModelOut <- BIOMOD_Modeling(
   myBiomodData,
   models = c('RF'),  # algoritmos de analisis para hacer el modelo
@@ -115,19 +135,24 @@ myBiomodModelOut
 #
 
 
-# extract evaluation
+# extract all evaluation data
 myBiomodModelEval <- get_evaluations(myBiomodModelOut)
 
 # TSS: True Skill Statistics
 myBiomodModelEval["TSS","Testing.data","RF",,]
 
-# ROC
+# ROC: Receiver-operator curve
 myBiomodModelEval["ROC","Testing.data",,,]
 
 # variable importance
 get_variables_importance(myBiomodModelOut)
 
-# predictions
+
+#
+# Model predictions
+#
+
+
 myBiomodProj <- BIOMOD_Projection(
                 modeling.output = myBiomodModelOut, 
                 new.env = myExpl,                     

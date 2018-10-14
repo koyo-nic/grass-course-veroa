@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ########################################################################
-# Commands for GRASS - R interface presentation and demo (bash part)
+# Commands for GRASS - R interface exercise: 
+# Modelling Aedes albopictus potential distribution in NC
 # Author: Veronica Andreo
 # Date: October, 2018
 ########################################################################
@@ -30,7 +31,7 @@ v.in.pygbif output=aedes_albopictus taxa="Aedes albopictus" \
 
 
 # create buffer around Aedes albopictus records
-v.buffer input=aedes_albopictus output=aedes_buffer distance=3000
+v.buffer input=aedes_albopictus output=aedes_buffer distance=2800
 
 # generate random points
 v.random output=background_points npoints=200
@@ -46,13 +47,27 @@ v.select ainput=background_points binput=aedes_buffer \
 
 
 # Average LST
+t.rast.series 
+
 
 # Minimum LST
+t.rast.series
+
 
 # Average LST of summer
+t.rast.series where=
+
+
 
 # Average LST of winter
+t.rast.series where=
+
+
 
 # Average NDVI
+t.rast.series
+
 
 # Average NDWI
+t.rast.series
+
