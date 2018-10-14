@@ -43,15 +43,19 @@
 @snapend
 
 @snap[west span-50]
+@ul[](false)
 - MODIS product: <a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13c2_v006">MOD13C2 Collection 6</a>
 - Global monthly composites
 - Spatial resolution: 5600m 
+@ulend
 @snapend
 
 @snap[east span-50]
+@ol[](false)
 - Download mapset *modis_ndvi*
 - Unzip it within NC location
 - Ready
+@olend
 @snapend
 
 +++
@@ -74,15 +78,15 @@
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Get familiar with NDVI data
 
-@[85-86](Start GRASS GIS in `modis_ndvi` mapset)
-@[88-90](Add `modis_lst` to accessible mapsets path)
+@[85-86](Start GRASS GIS in modis_ndvi mapset)
+@[88-90](Add modis_lst to accessible mapsets path)
 @[92-95](List files and get info and stats)
 
 +++
 
 > **Task**: 
-> - Display EVI, NIR and QA maps
-> - Get info about min and max values
+>
+> - Display EVI, NIR and QA maps and get info about min and max values
 > - What do you notice?
 
 ---
@@ -90,16 +94,87 @@
 Use of reliability band
 
 > **Task**: 
-> - Read about this band at the MOD13 [User guide](https://lpdaac.usgs.gov/sites/default/files/public/product_documentation/mod13_user_guide.pdf)
-> - Display one of the pixel reliability bands
+>
+> - Read about this reliability band at the MOD13 [User guide](https://lpdaac.usgs.gov/sites/default/files/public/product_documentation/mod13_user_guide.pdf) (pag 27).
+> - Display one of the pixel reliability bands along with NDVI band of the same date.
+> - Select only pixels with value 0 (Good quality) in the pixel reliability band. What do you notice?
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Use of reliability band
 
+@[102-104](Set computational region)
+@[106-111](Keep only best quality pixels)
+@[113-127](Keep only best quality pixels - all maps)
 
++++
 
+> **Task*: Compare stats among original and filtered NDVI maps for the same date
 
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Create time series
 
+@[135-139](Create the STRDS)
+@[141-142](Check STRDS was created)
+@[144-145](Create file with list of maps)
+@[147-150](Register maps)
+@[152-153](Print time series info)
+@[155-156](Print list of maps in STRDS)
 
++++
+
+> **Task**: Visually explore the values of the time series in different points. 
+> Use [g.gui.tplot](https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html) 
+> and select different points interactively.
+
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Missing data
+
+@[164-165](Set mask)
+@[167-168](Get time series stats)
+@[170-172](Count valid data)
+@[174-176](Estimate percentage of missing data)
+
++++
+
+> **Task**: 
+> - Display the map representing percentage of missing data and explore values. 
+> - Get univariate statistics of map.
+
+---
+
+Temporal gap-filling: HANTS
+
+- Harmonic Analysis of Time Series (HANTS)
+- Implemented in [r.hants](https://grass.osgeo.org/grass7/manuals/addons/r.hants.html) addon
+
++++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Temporal gap-filling: HANTS
+
+@[184-185](Install extension)
+@[187-188](List maps)
+@[190-191](Gap-fill: r.hants)
+
++++
+
+> **Task**: Test different parameter settings
+
++++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Temporal gap-filling: HANTS
+
+@[193-198](Patch original and gapfilled map)
+@[200-212](Patch original and gapfilled maps)
+@[214-218](Create time series with patched data)
+@[220-226](Register maps in time series)
+@[228-229](Print time series info)
+
++++
+
+> **Task**: Graphically asses the results of reconstruction in pixels with higher percentage of missing data and obtain univariate stats for the new time series.
+
+---
+
+### Aggregation with granularity
+
+> **Task**: 
+> - Obtain bimonthly average NDVI 
+> - Visualize with [g.gui.animation]()
+
+---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
 
 
@@ -121,7 +196,7 @@ Use of reliability band
 <br><br><br>
 Move on to: 
 <br>
-[Temporal data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
+[Interface GRASS and R](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

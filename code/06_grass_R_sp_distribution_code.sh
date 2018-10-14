@@ -65,7 +65,7 @@ t.rast.series where=
 
 
 # Average NDVI
-t.rast.series
+t.rast.series input=ndvi_monthly_patch method=average output=ndvi_average
 
 
 # Average NDWI
