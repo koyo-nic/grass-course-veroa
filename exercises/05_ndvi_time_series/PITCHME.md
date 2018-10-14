@@ -51,16 +51,22 @@
 @snapend
 
 @snap[east span-50]
+![NDVI global](assets/img/mod13c2_global_ndvi.png)
+@snapend
+
++++
+
+@snap[north span-100]
+<h3>Data for the exercise</h3>
+@snapend
+
+@snap[midpoint span-100]
 @ol[](false)
 - Download mapset *modis_ndvi*
 - Unzip it within NC location
 - Ready
 @olend
 @snapend
-
-+++
-
-![NDVI global](assets/img/mod13c2_global_ndvi.png)
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Preparation of the dataset
 
