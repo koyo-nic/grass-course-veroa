@@ -283,7 +283,7 @@
 
 .reveal code {
   font-family: monospace; 
-  font-size: 0.55em; }
+  font-size: 0.9em; }
 
 .reveal pre code {
   font-size: 1.1em;
@@ -292,7 +292,7 @@
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 50vh !important;
+  max-height: 40vh !important;
   word-wrap: normal; 
 }
 
