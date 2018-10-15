@@ -406,7 +406,7 @@ Climatology type aggregation
 
 +++
 
-
+> **Task**: Compare monthly means with "climatological" means
 
 ---
 
@@ -426,10 +426,11 @@ Std_Anomaly_i = \frac{Average_i - Average}{SD}
 @[375-378](Get annual averages)
 @[380-382](Estimate annual anomalies)
 @[384-385](Set color table)
+@[387-388](Animation)
 
 +++
 
-
+![Anomalies animation](assets/img/LST_anomalies.gif)
 
 ---
 
@@ -441,15 +442,16 @@ Std_Anomaly_i = \frac{Average_i - Average}{SD}
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Extract mean LST for Raleigh (NC) urban area
 
-@[]()
-@[]()
-@[]()
+@[393-394](Install v.strds.stats add-on)
+@[396-399](Extract seasonal average LST for Raleigh urban area)
+@[401-402](Save the attribute table of the new vector into a csv file)
 
 +++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio 
 
-@[]()
-@[]()
-@[]()
+@[9-10](Call RStudio)
+@[12-17](Load libraries)
+@[19-20](Read vector raleigh_aggr_lst)
+@[22-23](Use sp tools to plot vector map)
 
 +++
 
@@ -457,9 +459,9 @@ Std_Anomaly_i = \frac{Average_i - Average}{SD}
 
 +++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio
 
-@[]()
-@[]()
-@[]()
+@[25-26](Convert from sp to sf)
+@[28-34](Gather the table into season and mean LST (we do only 2015))
+@[36-38](Plot sf object with ggplot)
 
 +++
 
@@ -467,7 +469,7 @@ Std_Anomaly_i = \frac{Average_i - Average}{SD}
 
 +++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio
 
-@[]()
+@[40-41](Plot vector over basemap with mapview)
 
 +++
 

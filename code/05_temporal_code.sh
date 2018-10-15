@@ -375,14 +375,17 @@ t.rast.series input=LST_Day_monthly_celsius \
 # Get annual averages
 t.rast.aggregate input=LST_Day_monthly_celsius \
  method=average granularity="1 years" \
- output=LST_yearly_average
+ output=LST_yearly_average basename=LST_yearly_average
 
 # Estimate annual anomalies
-t.rast.algebra \
- expression="LST_year_anomaly = (LST_yearly_average - tmap(LST_average)) / tmap(LST_sd)"
+t.rast.algebra basename=LST_year_anomaly \
+ expression="LST_year_anomaly = (LST_yearly_average - map(LST_average)) / map(LST_sd)"
 
 # Set difference color table
 t.rast.colors input=LST_year_anomaly color=difference
+
+# Animation of annual anomalies
+g.gui.animation strds=LST_year_anomaly
 
 
 ## Extract zonal statistics for areas
@@ -416,6 +419,3 @@ suffix=gran scale=0.02 shift=-273.15 method=mean granularity="1 month"
 # First cycle at 100°C - 190°C GDD
 t.rast.accdetect input=lst_acc occ=insect_occ_c1 start="2015-03-01" \
 cycle="7 months" range=100,200 basename=insect_c1 indicator=insect_ind_c1
-
-# apply qc band with r.mapcalc
-# urban heat island exercise
