@@ -411,11 +411,13 @@ Climatology type aggregation
 ---
 
 ### Annual anomalies
+<br>
 
 `\[
 Std_Anomaly_i = \frac{Average_i - Average}{SD}
 \]`
 
+<br>
 - We need overall average and standard deviation
 - We need yearly averages
 
