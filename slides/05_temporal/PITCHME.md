@@ -3,7 +3,7 @@
 
 @snap[north span-100]
 <br>
-<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h2>Procesamiento de series de tiempo en @color[#8EA33B](GRASS GIS)</h2>
 <h3>Aplicaciones en Ecologia y Ambiente</h3>
 @snapend
 
@@ -17,19 +17,19 @@
 
 ---
 
-## The TGRASS framework
-
-<!---
-GRASS GIS is **the first Open Source GIS** that incorporated
+@color[#8EA33B](GRASS GIS) is **the first Open Source GIS** that incorporated
 capabilities to **manage, analyze, process and visualize spatio-temporal
 data**, as well as the temporal relationships among time series.
---->
+
++++
+
+## The TGRASS framework
 
 @ul
 - TGRASS is the temporal enabled GRASS GIS designed to easily handle time series data
-- TGRASS is fully @color[green](based on metadata) and does not duplicate any dataset
-- @color[green](Snapshot) approach, i.e., adds time stamps to maps
-- A collection of time stamped maps (snapshots) of the same variable are called @color[green](space-time datasets or STDS)
+- TGRASS is fully @color[#8EA33B](based on metadata) and does not duplicate any dataset
+- @color[#8EA33B](Snapshot) approach, i.e., adds time stamps to maps
+- A collection of time stamped maps (snapshots) of the same variable are called @color[#8EA33B](space-time datasets or STDS)
 - Maps in a STDS can have different spatial and temporal extents
 @ulend
 
@@ -43,25 +43,25 @@ STDS in each mapset.
 
 ## Space-time datasets
 
-- Space time raster datasets (**ST@color[green](R)DS**)
-- Space time 3D raster datasets (**ST@color[green](R3)DS**)
-- Space time vector datasets (**ST@color[green](V)DS**)
+- Space time raster datasets (**ST@color[#8EA33B](R)DS**)
+- Space time 3D raster datasets (**ST@color[#8EA33B](R3)DS**)
+- Space time vector datasets (**ST@color[#8EA33B](V)DS**)
 
 +++
 
 ## Other TGRASS notions
 
 @ul
-- Time can be defined as @color[green](intervals) (start and end time) or @color[green](instances) (only start time)
-- Time can be @color[green](absolute) (e.g., 2017-04-06 22:39:49) or @color[green](relative) (e.g., 4 years, 90 days)
-- @color[green](Granularity) is the greatest common divisor of the temporal extents (and possible gaps) of all maps in the space-time cube
+- Time can be defined as @color[#8EA33B](intervals) (start and end time) or @color[#8EA33B](instances) (only start time)
+- Time can be @color[#8EA33B](absolute) (e.g., 2017-04-06 22:39:49) or @color[#8EA33B](relative) (e.g., 4 years, 90 days)
+- @color[#8EA33B](Granularity) is the greatest common divisor of the temporal extents (and possible gaps) of all maps in the space-time cube
 @ulend
 
 +++
 
 ### Other TGRASS notions
 
-- @color[green](Topology) refers to temporal relations between time intervals in a STDS.
+- @color[#8EA33B](Topology) refers to temporal relations between time intervals in a STDS.
 
 <img src="assets/img/temp_relation.png">
 
@@ -69,7 +69,7 @@ STDS in each mapset.
 
 ### Other TGRASS notions
 
-- @color[green](Temporal sampling) is used to determine the state of one process during a second process.
+- @color[#8EA33B](Temporal sampling) is used to determine the state of one process during a second process.
 
 <img src="assets/img/temp_samplings.png" width="55%">
 
@@ -77,10 +77,10 @@ STDS in each mapset.
 
 ## Spatio-temporal modules
 
-- @color[green](**t.\***): General modules to handle STDS of all types
-- @color[green](**t.rast.\***): Modules that deal with STRDS
-- @color[green](**t.rast3d.\***): Modules that deal with STR3DS
-- @color[green](**t.vect.\***): Modules that deal with STVDS
+- @color[#8EA33B](**t.\***): General modules to handle STDS of all types
+- @color[#8EA33B](**t.rast.\***): Modules that deal with STRDS
+- @color[#8EA33B](**t.rast3d.\***): Modules that deal with STR3DS
+- @color[#8EA33B](**t.vect.\***): Modules that deal with STVDS
 
 +++
 
@@ -107,9 +107,9 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 ---?code=code/05_temporal_code.sh&lang=bash&title=Set computational region and apply MASK
 
-@[32-40]
-@[43-61]
-@[63-67]
+@[32-40](List raster maps and get info)
+@[43-61](Set region)
+@[63-67](Set MASK)
 
 ---
 
@@ -125,9 +125,9 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Create a raster time series (STRDS)
 
-@[70-75]
-@[77-78]
-@[80-81]
+@[70-75](Create the STRDS)
+@[77-78](Check if the STRDS is created)
+@[80-81](Get info about the STRDS)
 
 ---  
 
@@ -144,17 +144,17 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Register maps in STRDS (assign time stamps)
 
-@[84-89]
-@[91-94]
-@[96-97]
-@[99-100]
-@[102-103]
+@[84-89](Add time stamps to maps, i.e., register maps)
+@[91-94](Add time stamps to maps, i.e., register maps)
+@[96-97](Check info again)
+@[99-100](Check the list of maps in the STRDS)
+@[102-103](Check min and max per map)
 
 @size[24px](For more options, check the <a href="https://grass.osgeo.org/grass74/manuals/t.register.html">t.register</a> manual and related <a href="https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration">map registration wiki</a> page.)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Graphical Representation of the STRDS
 
-@[106-107]
+@[106-107](Graphical representation of the time series)
 
 +++
 
@@ -186,14 +186,13 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
 
-@[110-114]
-@[116-117]
-@[119-121]
+@[110-114](Re-scale data to degrees Celsius)
+@[116-117](Check info)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Time series plot
 
-@[126-128]
-@[130-135]
+@[126-128](LST time series plot for the city center of Raleigh)
+@[130-135](New features in upcoming grass76)
 
 @size[24px](For a single point, see <a href="https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html">g.gui.tplot</a>. For a vector of points, see <a href="https://grass.osgeo.org/grass74/manuals/t.rast.what.html">t.rast.what</a>.)
 
@@ -211,18 +210,23 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 - **[t.rast.list](https://grass.osgeo.org/grass74/manuals/t.rast.list.html)** for maps in raster time series, and
 - **[t.vect.list](https://grass.osgeo.org/grass74/manuals/t.vect.list.html)** for maps in vector time series.
 
+<!--- list of variables to use for query 
+id, name, creator, mapset, temporal_type, creation_time, start_time, end_time, north, south, west, east, nsres, ewres, cols, rows, number_of_cells, min, max
+id, name, layer, creator, mapset, temporal_type, creation_time, start_time, end_time, north, south, west, east, points, lines, boundaries, centroids, faces, kernels, primitives, nodes, areas, islands, holes, volumes
+--->
+
 +++?code=code/05_temporal_code.sh&lang=bash&title=Listing examples
 
-@[140-151]
-@[153-166]
-@[168-176]
-@[178-185]
+@[140-151](Maps with minimum value lower than or equal to 5)
+@[153-166](Maps with maximum value higher than 30)
+@[168-176](Maps between two given dates)
+@[178-185](Maps from January)
 
 ---?code=code/05_temporal_code.sh&lang=bash&title=Descriptive statistics of LST time series
 
-@[188-198]
-@[200-201]
-@[203-205]
+@[188-198](Print univariate stats for maps within STRDS)
+@[200-201](Get extended statistics)
+@[203-205](Write the univariate stats output to a csv file)
 
 ---
 
@@ -235,13 +239,13 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Maximum and minimum LST in the past 3 years
 
-@[208-212]
-@[214-216]
-@[218-219]
+@[208-212](Get maximum LST in the STRDS)
+@[214-216](Get minimum LST in the STRDS)
+@[218-219](Change color pallete to celsius)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Compare maps with the Mapswipe tool
 
-@[222-228]
+@[222-228](Display the new maps with mapswipe and compare them to elevation)
 
 +++
 
@@ -261,24 +265,44 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 - It allows for *spatial and temporal operators*, as well as *internal variables* in the expression string
 - The temporal variables include: *start_time(), end_time(), start_month(), start_doy()*, etc. 
 
++++
+
+The supported internal variables for the STRDS:
+
+- td(), start_time(), end_time()
+
+The supported internal variables for the current sample interval or instance:
+
+- start_doy() - Day of year (doy) from the start time [1 - 366]
+- start_dow() - Day of week (dow) from the start time [1 - 7], the start of the week is Monday == 1
+- start_year() - The year of the start time [0 - 9999]
+- start_month() - The month of the start time [1 - 12]
+- start_week() - Week of year of the start time [1 - 54]
+- start_day() - Day of month from the start time [1 - 31]
+- start_hour() - The hour of the start time [0 - 23]
+- start_minute() - The minute of the start time [0 - 59]
+- start_second() - The second of the start time [0 - 59]
+
+... and the same for *end_**
+
 +++?code=code/05_temporal_code.sh&lang=bash&title=Which is the month of the maximum LST?
 
-@[231-236]
-@[238-239]
-@[241-242]
-@[244-249]
+@[231-236](Get month of maximum LST)
+@[238-239](Get basic info)
+@[241-242](Get the earliest month in which the maximum appeared)
+@[244-249](Remove month_max_lst strds)
 
 @size[24px](We could do this year-wise to know when the annual max LST occurs and assess trends)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Display the resulting map from the CLI
 
-@[252-255]
-@[257-258]
-@[260-261]
-@[263-265]
-@[267-268]
-@[270-271]
-@[273-275]
+@[252-255](Open a monitor)
+@[257-258](Display raster map)
+@[260-261](Display only boundary of vector map)
+@[263-265](Add raster legend)
+@[267-268](Add scale bar)
+@[270-271](Add North arrow)
+@[273-275](Add title text)
 
 +++
 
@@ -296,29 +320,29 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=From monthly to seasonal LST
 
-@[278-284]
-@[286-287]
-@[289-304]
+@[278-284](3-month mean LST)
+@[286-287](Check info)
+@[289-304](Check map list)
 
 +++
 
-@size[38px](***Exercise***)
-<br><br>
-Compare the monthly and sesonal timelines
-<br>
+> **Task**: Compare the monthly and sesonal timelines with [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html)
+
+<!---
 ```bash
 g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 ```
+--->
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Display seasonal LST using frames in wx monitor
 
-@[307-310]
-@[312-314]
-@[316-320]
-@[322-326]
-@[328-332]
-@[334-338]
-@[340-341]
+@[307-310](Set STRDS color table to celsius degrees)
+@[312-314](Start a new cairo monitor)
+@[316-320](Create first frame)
+@[322-326](Create second frame)
+@[328-332](Create third frame)
+@[334-338](Create fourth frame)
+@[340-341](Release monitor)
 
 +++
 
@@ -328,12 +352,9 @@ g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 
 ---
 
-@size[38px](***Exercise***)
-<br><br>
-Now that you know [t.rast.aggregate](https://grass.osgeo.org/grass74/manuals/t.rast.aggregate.html), 
-extract the month of maximum LST per year and then test if there's any positive or 
-negative trend, i.e., if maximum LST values are observed later or earlier with 
-time (years)
+> **Task**: Now that you know [t.rast.aggregate](https://grass.osgeo.org/grass74/manuals/t.rast.aggregate.html), 
+> extract the month of maximum LST per year and then test if there's any positive or 
+> negative trend, i.e., if maximum LST values are observed later or earlier with time (years)
 
 +++
 
@@ -356,54 +377,99 @@ t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Animation of seasonal LST time series
 
-@[344-347]
+@[344-347](Animation of seasonal LST)
 
 @size[24px](See <a href="https://grass.osgeo.org/grass74/manuals/g.gui.animation.html">g.gui.animation</a> manual for further options and tweaks)
 
 ---
 
+@snap[north span-100]
+<h3>Aggregation vs Climatology</h3>
+@snapend
+
+@snap[west span-45]
+Aggregation
+
+<img src="assets/img/aggregation.png">
+@snapend
+
+@snap[]
+Climatology type aggregation
+
+<img src="assets/img/climatology.png">
+@snapend
+
++++?code=code/05_temporal_code.sh&lang=bash&title=Monthly climatologies
+
+@[352-355](January average LST)
+@[357-362](Climatology for all months)
+
++++
+
+
+
+---
+
+### Annual anomalies
+
+`\[
+Std_Anomaly_i = \frac{Average_i - Average}{SD}
+\]`
+
+- We need overall average and standard deviation
+- We need yearly averages
+
++++?code=code/05_temporal_code.sh&lang=bash&title=Annual anomalies
+
+@[367-369](Get general average)
+@[371-373](Get general SD)
+@[375-378](Get annual averages)
+@[380-382](Estimate annual anomalies)
+@[384-385](Set color table)
+
++++
+
+
+
+---
+
 ### Zonal statistics in raster time series
 
-**[v.strds.stats](https://grass.osgeo.org/grass74/manuals/addons/v.strds.stats.html)**
+**[v.strds.stats](https://grass.osgeo.org/grass7/manuals/addons/v.strds.stats.html)**
 <br>
 - Allows to obtain spatially aggregated time series data for polygons in a vector map
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Extract mean LST for Raleigh (NC) urban area
 
-@[350-353]
-@[355-358]
-@[360-364]
+@[]()
+@[]()
+@[]()
 
-<!---
-@size[20px](This vector map can be read-in in R and plotted with sf and ggplot, for example.)
---->
++++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio 
 
-+++?code=code/05_temporal_code.sh&lang=R&title=Read and plot Raleigh vector in RStudio 
-
-@[367-377]
-@[379-380]
-@[382-383]
+@[]()
+@[]()
+@[]()
 
 +++
 
 ![spplot output](assets/img/spplot_output.png)
 
-+++?code=code/05_temporal_code.sh&lang=R&title=Read and plot Raleigh vector in RStudio
++++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio
 
-@[385-386]
-@[388-394]
-@[396-398]
+@[]()
+@[]()
+@[]()
 
 +++
 
 ![sf + ggplot output](assets/img/ggplot_output.png)
 
-+++
++++?code=code/05_temporal_code.r&lang=r&title=Read and plot Raleigh vector in RStudio
 
-```R
-# with mapview
-mapview(raleigh_sf[,6:17])
-```
+@[]()
+
++++
 
 ![mapview output](assets/img/mapview.png)
 
@@ -415,13 +481,14 @@ mapview(raleigh_sf[,6:17])
 
 ---
 
-## Other (very) useful links/resources
+## Other (very) useful resources
 
 - [Temporal data processing wiki](https://grasswiki.osgeo.org/wiki/Temporal_data_processing)
 - [GRASS GIS and R for time series processing wiki](https://grasswiki.osgeo.org/wiki/Temporal_data_processing/GRASS_R_raster_time_series_processing)
 - [GRASS GIS temporal workshop at NCSU](http://ncsu-geoforall-lab.github.io/grass-temporal-workshop/)
 - [TGRASS workshop at FOSS4G Europe 2017](https://gitlab.com/veroandreo/tgrass_workshop_foss4g_eu)
 - [GRASS GIS workshop held in Jena 2018](http://training.gismentors.eu/grass-gis-workshop-jena-2018/index.html)
+- [GRASS GIS course IRSAE 2018](http://training.gismentors.eu/grass-gis-irsae-winter-course-2018/index.html)
 
 ---
 
@@ -442,7 +509,7 @@ mapview(raleigh_sf[,6:17])
 <br><br><br>
 Move on to: 
 <br>
-[GRASS and R]()
+[Exercise: NDVI time series](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/05_ndvi_time_series&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

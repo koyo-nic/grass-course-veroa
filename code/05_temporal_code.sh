@@ -3,7 +3,7 @@
 ########################################################################
 # Commands for the TGRASS lecture at GEOSTAT Summer School in Prague
 # Author: Veronica Andreo
-# Date: July - August, 2018
+# Date: July - August, 2018 - Edited October, 2018
 ########################################################################
 
 
@@ -15,7 +15,7 @@ g.extension extension=i.modis
 # Download and import MODIS LST data 
 # Note: User needs to be registered at Earthdata: 
 # https://urs.earthdata.nasa.gov/users/new
-i.modis.download settings=$HOME/.grass7/i.modis/SETTING \
+i.modis.download settings=$HOME/gisdata/SETTING \
   product=lst_terra_monthly_5600 \
   tile=h11v05 \
   startday=2015-01-01 endday=2017-12-31 \
@@ -343,8 +343,46 @@ d.mon -r
 
 ## Time series animation
 
-# Animation of monthly LST
+# Animation of seasonal LST
 g.gui.animation strds=LST_Day_mean_3month
+
+
+## Long term monthly averages
+
+# January average LST
+t.rast.series input=LST_Day_monthly_celsius method=average \
+  where="strftime('%m', start_time)='01'" \
+  output=LST_average_jan
+
+# for all months
+for MONTH in `seq -w 1 12` ; do 
+ t.rast.series input=LST_Day_monthly_celsius method=average \
+  where="strftime('%m', start_time)='${MONTH}'" \
+  output=LST_average_${MONTH}
+done
+
+
+## Anomalies
+
+# Get general average
+t.rast.series input=LST_Day_monthly_celsius \
+ method=average output=LST_average
+
+# Get general SD
+t.rast.series input=LST_Day_monthly_celsius \
+ method=stddev output=LST_sd
+
+# Get annual averages
+t.rast.aggregate input=LST_Day_monthly_celsius \
+ method=average granularity="1 years" \
+ output=LST_yearly_average
+
+# Estimate annual anomalies
+t.rast.algebra \
+ expression="LST_year_anomaly = (LST_yearly_average - tmap(LST_average)) / tmap(LST_sd)"
+
+# Set difference color table
+t.rast.colors input=LST_year_anomaly color=difference
 
 
 ## Extract zonal statistics for areas
@@ -364,43 +402,6 @@ v.db.select map=raleigh_aggr_lst file=lst_raleigh
 #~ 55|55|73261|Raleigh|UA|8.41692307692311|7.81769230769234|15.1792307692308|24.2661538461539|28.6676923076923|34.4|32.3146153846154|31.7415384615385|28.6076923076923|21.8938461538462|15.5084615384616|14.8515384615385|8.37615384615388|10.8084615384616|22.3984615384616|23.6061538461539|28.4638461538462|31.3746153846154|32.6684615384616|32.1061538461539|30.7476923076923|22.6569230769231|17.1615384615385|11.3415384615385|13.2807692307693|17.3823076923077|18.5507692307693|26.4038461538462|29.0292307692308|31.4423076923077|33.7869230769231|31.8584615384616|29.1169230769231|23.3869230769231|15.7769230769231|9.7792307692308
 
 
-## Plot the resulting vector in rstudio
-
-# Call rstudio
-rstudio &
-
-# Load libraries
-library(rgrass7)
-library(sf)
-library(dplyr)
-library(ggplot2)
-library(mapview)
-
-# read vector
-raleigh <- readVECT("raleigh_aggr_lst")
-
-# with spplot
-spplot(raleigh[,6:17])
-
-# sf + ggplot
-raleigh_sf <- st_as_sf(raleigh)
-
-# gather the table into season and mean LST (we do only 2015)
-raleigh_gather <- raleigh_sf %>% 
-				  gather(LST_Day_mean_3month_2015_01_01_average,
-						 LST_Day_mean_3month_2015_04_01_average,
-						 LST_Day_mean_3month_2015_07_01_average,
-						 LST_Day_mean_3month_2015_10_01_average, 
-						 key="season", value="LST")
-
-# with ggplot
-ggplot() + geom_sf(data = raleigh_gather, aes(fill = LST)) + 
-		   facet_wrap(~season, ncol=2)
-
-# with mapview
-mapview(raleigh_sf[,6:17])
-
-
 ############################## THE END #################################
 
 ### Some extra examples if you are still interested ###
@@ -417,5 +418,4 @@ t.rast.accdetect input=lst_acc occ=insect_occ_c1 start="2015-03-01" \
 cycle="7 months" range=100,200 basename=insect_c1 indicator=insect_ind_c1
 
 # apply qc band with r.mapcalc
-# estimate anomalies and climatologies
 # urban heat island exercise

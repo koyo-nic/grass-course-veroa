@@ -60,3 +60,10 @@ layout : center
 
 transition : none
 slide-number : true 
+
+#
+# Math
+# Doc: https://gitpitch.com/docs/rich-media-features/math-formulas/
+#
+
+mathjax : TeX-MML-AM_HTMLorMML-full
