@@ -32,7 +32,7 @@ library(biomod2)
 
 
 # path to GRASS binaries
-myGRASS <- "/home/veroandreo/software/grass-7.0.svn/dist.x86_64-unknown-linux-gnu"
+myGRASS <- "/home/veroandreo/software/grass74_release/dist.x86_64-pc-linux-gnu"
 # path to GRASS database
 myGISDbase <- "/home/veroandreo/grassdata/"
 # path to location
@@ -56,23 +56,23 @@ initGRASS(gisBase = myGRASS,
 
 
 # read vector layers
-Aa_pres <- readVECT("aedes_albopictus")
+Aa_pres <- readVECT("aedes_albopictus_clip")
 Aa_abs <- readVECT("background_points")
 
 # read raster layers
-LST_mean <- readRAST("")                                                                                                                                       
-LST_min <- readRAST("")
-LST_mean_summer <- readRAST("")
-LST_mean_winter <- readRAST("")
-NDVI_mean <- readRAST("")
-NDWI_mean <- readRAST("")
+LST_mean <- readRAST("LST_average")                                                                                                                                       
+LST_min <- readRAST("LST_minimum")
+LST_mean_summer <- readRAST("LST_average_sum")
+LST_mean_winter <- readRAST("LST_average_win")
+NDVI_mean <- readRAST("ndvi_average")
+NDWI_mean <- readRAST("ndwi_average")
 
 
 
 
 # visualize in mapview
 mapview(LST_mean)
-mapview(LST_mean) + pres
+mapview(LST_mean) + Aa_pres
 
 
 #

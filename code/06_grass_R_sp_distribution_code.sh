@@ -16,13 +16,17 @@
 # install extension (requires pygbif: pip install pygbif)
 g.extension extension=v.in.pygbif
 
-# set region and mask
+# set region
 g.region vector=nc_state align=MOD11B3.A2015001.h11v05.single_LST_Day_6km@modis_lst
 r.mask vector=nc_state
 
 # import data from gbif
 v.in.pygbif output=aedes_albopictus taxa="Aedes albopictus" \
- date_from="2015-01-01" date_to="2018-09-30"
+ date_from="2013-01-01" date_to="2018-09-30" 
+
+# clip to NC state
+v.clip input=aedes_albopictus clip=nc_state \
+ output=aedes_albopictus_clip
 
 
 # 
@@ -31,14 +35,12 @@ v.in.pygbif output=aedes_albopictus taxa="Aedes albopictus" \
 
 
 # create buffer around Aedes albopictus records
-v.buffer input=aedes_albopictus output=aedes_buffer distance=2800
+v.buffer input=aedes_albopictus_clip \
+ output=aedes_buffer distance=3000
 
 # generate random points
-v.random output=background_points npoints=200
-
-# remove points falling in buffers
-v.select ainput=background_points binput=aedes_buffer \
- output=aedes_background operator=disjoint
+v.random output=background_points npoints=100 \
+ restrict=nc_state seed=4836
 
 
 #
@@ -46,28 +48,33 @@ v.select ainput=background_points binput=aedes_buffer \
 #
 
 
-# Average LST
-t.rast.series 
+# add modis_lst and modis_ndvi to path in user1 mapset
+g.mapsets mapset=modis_lst,modis_ndvi operation=add
 
+# average LST
+t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
+ output=LST_average
 
-# Minimum LST
-t.rast.series
+# minimum LST
+t.rast.series input=LST_Day_monthly_celsius@modis_lst method=minimum \
+ output=LST_minimum
 
+# average LST of summer
+t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
+ where="strftime('%m', start_time)='07' OR strftime('%m', start_time)='08' OR strftime('%m', start_time)='09'" \
+ output=LST_average_sum
 
-# Average LST of summer
-t.rast.series where=
+# average LST of winter
+t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
+ where="strftime('%m', start_time)='07' OR strftime('%m', start_time)='08' OR strftime('%m', start_time)='09'" \
+ output=LST_average_win
 
+# average NDVI
+t.rast.series input=ndvi_monthly_patch@modis_ndvi method=average \
+ output=ndvi_average
 
+# average NDWI
+t.rast.series input=ndwi_monthly@modis_ndvi method=average \
+ output=ndwi_average
 
-# Average LST of winter
-t.rast.series where=
-
-
-
-# Average NDVI
-t.rast.series input=ndvi_monthly_patch method=average output=ndvi_average
-
-
-# Average NDWI
-t.rast.series
 

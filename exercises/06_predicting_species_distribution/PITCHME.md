@@ -55,6 +55,7 @@
 @[16-17](Install v.in.pygbif)
 @[19-21](Set region and MASK)
 @[23-25](Import data from GBIF)
+@[27-29](Clip to NC state)
 
 +++
 
@@ -64,22 +65,22 @@
 
 ---?code=code/06_grass_R_sp_distribution_code.sh&lang=bash&title=Creating random background points
 
-@[33-34](Create buffer around Aedes albopictus records)
-@[36-37](Generate random points)
-@[39-41](Remove points falling in buffers)
+@[37-39](Create buffer around Aedes albopictus records)
+@[41-43](Generate random points)
 
 +++
 
-> **Task**: Display with different colors the GBIF records, the random points and the filtered random points.
+> **Task**: Display with different colors the GBIF records, the buffer areas and the random points.
 
 ---?code=code/06_grass_R_sp_distribution_code.sh&lang=bash&title=Creating environmental layers
 
-@[49-51]()
-@[53-55]()
-@[57-60]()
-@[62-65]()
-@[67-69]()
-@[71-73]()
+@[51-52](Add modis_lst and modis_ndvi to path in user1 mapset)
+@[54-56](Average LST)
+@[58-60](Minimum LST)
+@[62-65](Average LST of summer)
+@[67-70](Average LST of winter)
+@[72-74](Average NDVI)
+@[76-78](Average NDWI)
 
 +++
 
@@ -106,11 +107,11 @@ Just for fun, close GRASS GIS, we'll initialize it again but from RStudio
 
 +++
 
-> **Task**: display maps and points in RStudio using sp, tmap or sf
+> **Task**: display maps and points in RStudio using sp or sf and mapview. Explore the manual of each function.
 
 +++
 
-TODO: add maps
+![Mapview: LST + Aa presence points](assets/img/mapview_LST_pres.png)
 
 ---?code=code/06_grass_R_sp_distribution_code.r&lang=r&title=Data formatting
 
@@ -141,7 +142,7 @@ TODO: add maps
 
 +++
 
-TODO: add output plot here
+![Predicted distribution with RF](assets/img/pred_ditrib.png)
 
 ---
 
