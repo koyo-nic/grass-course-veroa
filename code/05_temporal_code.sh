@@ -405,9 +405,33 @@ v.db.select map=raleigh_aggr_lst file=lst_raleigh
 #~ 55|55|73261|Raleigh|UA|8.41692307692311|7.81769230769234|15.1792307692308|24.2661538461539|28.6676923076923|34.4|32.3146153846154|31.7415384615385|28.6076923076923|21.8938461538462|15.5084615384616|14.8515384615385|8.37615384615388|10.8084615384616|22.3984615384616|23.6061538461539|28.4638461538462|31.3746153846154|32.6684615384616|32.1061538461539|30.7476923076923|22.6569230769231|17.1615384615385|11.3415384615385|13.2807692307693|17.3823076923077|18.5507692307693|26.4038461538462|29.0292307692308|31.4423076923077|33.7869230769231|31.8584615384616|29.1169230769231|23.3869230769231|15.7769230769231|9.7792307692308
 
 
-############################## THE END #################################
+### Some extra examples ###
 
-### Some extra examples if you are still interested ###
+
+## UHI vs surroundings in 2015 and 2017
+
+# extract only Raleigh urban area
+v.extract input=urbanarea where="NAME == 'Raleigh'" \
+  output=raleigh
+
+# create a buffer
+v.buffer input=raleigh distance=15000 output=raleigh_buf15
+
+# remove raleigh from the buffer area
+v.overlay ainput=raleigh binput=raleigh_buf15 \
+  operator=xor output=raleigh_surr
+
+# extract zonal stats for raleigh and surroundings
+v.rast.stats map=raleigh raster=LST_yearly_average_2015 \
+  method=average column_prefix=LST_2015
+v.rast.stats map=raleigh raster=LST_yearly_average_2017 \
+  method=average column_prefix=LST_2017
+
+v.rast.stats map=raleigh_surr raster=LST_yearly_average_2015 \
+  method=average column_prefix=LST_2015
+v.rast.stats map=raleigh_surr raster=LST_yearly_average_2017 \
+  method=average column_prefix=LST_2017
+
 
 ## Example of t.rast.accumulate and t.rast.accdetect application
 
@@ -419,3 +443,33 @@ suffix=gran scale=0.02 shift=-273.15 method=mean granularity="1 month"
 # First cycle at 100°C - 190°C GDD
 t.rast.accdetect input=lst_acc occ=insect_occ_c1 start="2015-03-01" \
 cycle="7 months" range=100,200 basename=insect_c1 indicator=insect_ind_c1
+
+
+## Example to count consecutive maps meeting a certain condition
+
+# Create 100 maps with random values for temperatures
+for map in `seq 1 100` ; do
+ r.mapcalc -s expression="daily_temp_${map} = rand(-20,30)"
+ echo daily_temp_${map} >> map_list.txt
+done
+
+# Create time series and register maps
+t.create type=strds temporaltype=absolute \
+  output=temperature_daily title="Daily Temperature" \
+  description="Test dataset with daily temperature"
+
+t.register -i type=raster input=temperature_daily \
+  file=map_list.txt start="2014-03-07" \
+  increment="1 days"
+
+# Check general information of the daily strds
+t.info type=strds input=temperature_daily
+
+# Create weekly mask
+t.rast.aggregate input=temperature_daily output=weekly_mask \
+  basename=mask_week granularity="1 weeks" method=count
+
+# Calculate consecutive days with negative temperatures
+t.rast.algebra base=neg_temp_days \
+  expression="consecutive_days = weekly_mask {+,contains,l} if(temperature_daily < -2 && temperature_daily[-1] < -2 || temperature_daily[1] < -2 && temperature_daily < -2, 1, 0)"
+

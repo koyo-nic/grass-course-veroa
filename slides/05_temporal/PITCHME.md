@@ -388,15 +388,15 @@ t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
 @snapend
 
 @snap[west span-45]
-Aggregation
-
 <img src="assets/img/aggregation.png">
+<br>
+Granularity aggregation
 @snapend
 
 @snap[east span-55]
-Climatology type aggregation
-
 <img src="assets/img/climatology.png">
+<br>
+Climatology aggregation
 @snapend
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Monthly climatologies
