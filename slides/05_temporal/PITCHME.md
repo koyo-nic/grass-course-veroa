@@ -393,7 +393,7 @@ Aggregation
 <img src="assets/img/aggregation.png">
 @snapend
 
-@snap[]
+@snap[east span-55]
 Climatology type aggregation
 
 <img src="assets/img/climatology.png">
