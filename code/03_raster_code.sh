@@ -72,18 +72,18 @@ r.grow.distance -n input=forest distance=distance
 
 # Create the config file in the g.gui.rlisetup config window
 
-1. Create
-2. Name the config file `forest_whole`
-3. Select the raster map forest
-4. Define the sampling region --> whole map layer
-5. Define sample area --> whole map layer
+# 1. Create
+# 2. Name the config file `forest_whole`
+# 3. Select the raster map forest
+# 4. Define the sampling region --> whole map layer
+# 5. Define sample area --> whole map layer
 
-1. Create
-2. Name the config file `forest_mov_win`
-3. Select the raster map forest
-4. Define the sampling region --> whole map layer
-5. Define sample area --> moving window 
-6. Select shape of mov window --> rectangle --> width=10, height=10
+# 1. Create
+# 2. Name the config file `forest_mov_win`
+# 3. Select the raster map forest
+# 4. Define the sampling region --> whole map layer
+# 5. Define sample area --> moving window 
+# 6. Select shape of mov window --> rectangle --> width=10, height=10
 
 # Compute the landscape metrics using both config files
 
@@ -114,6 +114,9 @@ r.li.mps input=forest config=forest_mov_win output=forest_mps_mw
 # install r.stream.distance and r.lake.series
 g.extension r.stream.distance
 g.extension r.lake.series
+
+# set the computational region
+g.region -p raster=elevation
 
 # compute the flow accumulation, drainage and streams (with threshold value of 100000)
 r.watershed elevation=elevation accumulation=flowacc \
@@ -171,7 +174,7 @@ r.to.vect input=summits_thinned output=summits type=point
 
 # get height of summits 
 v.db.addcolumn map=summits columns="height double"
-v.what.rast map=summits raster=elevation
+v.what.rast map=summits raster=elevation column=height
 
 # stats of summits
 v.db.univar map=summits 
