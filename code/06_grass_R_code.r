@@ -81,7 +81,7 @@ grass74 --config path
 ## MS-Windows users:
 library(rgrass7)
 # initialisation and the use of North Carolina sample dataset
-initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass-7.1.svn",
+initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass74",
          gisDbase = "C:/Users/marissa/GRASSdata/",
          location = "nc_spm_08_grass7", 
          mapset = "user1", 
@@ -90,7 +90,7 @@ initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass-7.1.svn",
 ## Linux, Mac OSX users:
 library(rgrass7)
 # initialisation and the use of North Carolina sample dataset
-initGRASS(gisBase = "/usr/local/grass-7.0.1", 
+initGRASS(gisBase = "/usr/local/grass74", 
 		  home = tempdir(), 
           gisDbase = "/home/veroandreo/grassdata/",
           location = "nc_spm_08_grass7", 
@@ -177,10 +177,12 @@ execGRASS("r.info", parameters=list(map="sqdemNC"))
 # load library
 library(rgrass7)
 # initialisation and the use of north carolina dataset
-initGRASS(gisBase = "/home/veroandreo/software/grass-7.0.svn/dist.x86_64-unknown-linux-gnu", 
+initGRASS(gisBase = "/usr/local/grass74", 
           home = tempdir(), 
           gisDbase = "/home/veroandreo/grassdata/",
-          location = "nc_spm_08_grass7", mapset = "user1", SG="elevation",
+          location = "nc_spm_08_grass7", 
+          mapset = "user1", 
+          SG="elevation",
           override = TRUE)
 # set region to default
 system("g.region -dp")
