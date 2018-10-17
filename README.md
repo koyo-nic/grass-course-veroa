@@ -63,11 +63,11 @@ For other Linux distributions including **Fedora** and **openSuSe**, simply inst
 
 ##### Extra dependencies
 
-- [pyModis](www.pymodis.org) 
+- [pyModis](http://www.pymodis.org) 
 - [sentinelsat](https://github.com/sentinelsat/sentinelsat)
 - pandas
-- scikit-learn
 - matplotlib
+- pygbif
 
 ### OSGeo-live: 
 
