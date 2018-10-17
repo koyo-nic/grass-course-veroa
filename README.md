@@ -107,12 +107,12 @@ Install with `g.extension extension=name_of_addon`
 
 * [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`.
 * [raster map]()
-* [Streets vector map (gpkg)]()
-* [Landsat 8 scenes clipped to North Carolina]()
-* [Sentinel 2 scenes]()
-* [AOD]
+* [Streets vector map (gpkg)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/streets.gpkg)
+* [Landsat 8 scenes clipped to North Carolina](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/NC_L8_scenes.zip)
+* [Sentinel 2 scene (500Mb)]()
+* [Aeronet AOD file](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/180819_180825_EPA-Res_Triangle_Pk.zip)
 * [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
-* [modis_ndvi]()
+* [modis_ndvi ()]()
 
 ## Author
 
