@@ -265,7 +265,7 @@ r.to.vect input=superpixels output=superpixels type=area
 
 # run i.segment and convert the resulting raster to vector
 i.segment group= output=segments \
- threshold=0.5 minsize=100
+ threshold=0.5 minsize=100 memory=500
 r.to.vect input=segments output=segments type=area
 
 # display NDVI along with the 2 segmentation outputs
