@@ -32,7 +32,7 @@ library(biomod2)
 
 
 # path to GRASS binaries
-myGRASS <- "/home/veroandreo/software/grass74_release/dist.x86_64-pc-linux-gnu"
+myGRASS <- "/usr/local/grass74"
 # path to GRASS database
 myGISDbase <- "/home/veroandreo/grassdata/"
 # path to location
