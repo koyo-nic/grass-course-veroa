@@ -13,7 +13,7 @@
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Exercises with raster data
+## Landscape, hydrology and terrain analysis
 
 ---
 
@@ -22,10 +22,10 @@
 @snapend
 
 @snap[west span-100]
-@ol[](false)
-- Landscape structure and forest fragmentation
-- Hydrology analysis
-- Terrain analysis
+@ol[]()
+- Landscape structure analysis and forest fragmentation
+- Hydrology analysis: Estimating inundation extent using HAND methodology
+- Terrain analysis with geomorphons
 @olend
 @snapend
 
@@ -33,12 +33,9 @@
 
 ### Landscape structure analysis and forest fragmentation
 
-+++?code=code/03_raster_code.sh&lang=bash&title=Landscape structure and forest fragmentation
-
-@[16-18](Install addons)
-
 +++?code=code/03_raster_code.sh&lang=bash&title=Richness and Diversity
 
+@[16-18](Install addons)
 @[20-22](Estimate richness - The window size is in cells)
 @[24-25](Compute Simpson, Shannon, and Renyi diversity indices)
 @[27-31](Make colors comparable)
@@ -49,7 +46,7 @@
 
 <br>
 - How do different indices compare to each other?
-- How does changing window size affect diversity measure?
+- How does changing window size affect the diversity measure?
 
 +++
 
@@ -124,7 +121,7 @@ Set the config file in the [g.gui.rlisetup](https://grass.osgeo.org/grass74/manu
 > **Task**: Now, do the same for the moving window case and compare outputs and results.
 
 <br>
-For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/manuals/r.li.html) manual
+For an overview of r.li.* modules, see: [r.li](https://grass.osgeo.org/grass74/manuals/r.li.html) manual
 
 +++
 
@@ -132,8 +129,8 @@ For an overview of r.li.* modules see: [r.li](https://grass.osgeo.org/grass74/ma
 <br><br>
 If the "moving window" method was selected in g.gui.rlisetup, 
 the output will be a raster map, otherwise an ASCII file will be 
-generated in the folder C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\ (MS-Windows)
-or $HOME/.grass7/r.li/output/ (GNU/Linux). 
+generated in the folder `C:\Users\userxy\AppData\Roaming\GRASS7\r.li\output\` (MS-Windows)
+or `$HOME/.grass7/r.li/output/` (GNU/Linux). 
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -155,24 +152,25 @@ and the elevations of the flowpath-connected downslope grid cell where the flow 
 +++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 
 @[114-116](Install required addons)
-@[118-120](Compute the flow accumulation, drainage and streams)
-@[122-123](Convert the streams to vector for better visualization)
-@[125-128](Compute height difference between cell and cell on the stream)
+@[118-119](Set computational region)
+@[121-123](Compute the flow accumulation, drainage and streams)
+@[125-126](Convert the streams to vector for better visualization)
+@[128-131](Compute height difference between cell and cell on the stream)
 
 +++?code=code/03_raster_code.sh&lang=bash&title=How does r.lake works?
 
-@[130-131](Compute a lake from specified coordinates and water level)
+@[133-134](Compute a lake from specified coordinates and water level)
 
 +++
 
-> **Task**: Display lake map over elevation map
+> **Task**: Display the lake map over elevation map
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 
-@[138-139](Simulate 5-meter inundation from the streams)
-@[141-145](Create a series of inundation maps with rising water level)
-@[147-148](Get volume and extent of flood for each time step)
-@[150-151](Create an animation with the output of r.lake.series)
+@[141-142](Simulate 5-meter inundation from the streams)
+@[144-148](Create a series of inundation maps with rising water level)
+@[150-151](Get volume and extent of flood for each time step)
+@[153-154](Create an animation with the output of r.lake.series)
 
 +++
 
@@ -196,7 +194,7 @@ Create animation from GUI
 
 +++
 
-<!--- add animation here --->
+> **Task**: Follow the instructions from the previous slide and create an animation with the output of r.lake.series
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -204,11 +202,11 @@ Create animation from GUI
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Terrain analysis
 
-@[159-160](Set computational region)
-@[162-163](Compute geo forms)
-@[165-166](Extract summits with r.mapcalc)
-@[168-170](Thin summits raster and convert to points)
-@[172-174](Get summits' height)
+@[162-163](Set computational region)
+@[165-166](Compute geo forms)
+@[168-169](Extract summits with r.mapcalc)
+@[171-173](Thin summits raster and convert to points)
+@[175-177](Get summits' height)
 
 +++
 
@@ -232,7 +230,7 @@ Create animation from GUI
 <br><br><br>
 Move on to: 
 <br>
-[Remote sensing in GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/04_imagery&grs=gitlab)
+[Satellite imagery processing in GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/04_imagery&grs=gitlab)
 @snapend
 
 @snap[south span-50]
