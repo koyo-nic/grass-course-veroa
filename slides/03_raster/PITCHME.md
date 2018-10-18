@@ -4,16 +4,16 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
-@snapend
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
+@snapen
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Raster processing in GRASS GIS
+## Raster data processing in GRASS GIS
 
 ---
 
@@ -23,7 +23,7 @@
 
 @snap[west span-100]
 <br>
-@ol[list-content-verbose](false)
+@ol[list-content-verbose]
 - Basics about raster maps in GRASS GIS
 - NULL values
 - MASK
@@ -39,7 +39,7 @@
 
 ### Basic raster concepts in GRASS GIS
 
-> A "raster map" is a gridded array of cells. It has rows and columns, with a data point (or null value indicator) in each cell. They may exist as a 2D grid or as a 3D cube.
+> A "raster map" is a gridded array of cells. It has rows and columns, with a data point (or null value indicator) in each cell. They may exist as 2D grids or 3D cubes.
 
 - Boundaries are described by the north, south, east, and west fields. 
 - Extent is described by the outer bounds of all cells within the map.
@@ -194,14 +194,14 @@ Raster export adheres to computational region (extent and resolution) and respec
 @ul[list-content-verbose](false)
 - [r.fillnulls](https://grass.osgeo.org/grass74/manuals/r.fillnulls.html): Regularized Spline with Tension (RST) interpolation 2D for gap-filling (e.g., SRTM DEM)
 - [r.resamp.bspline](https://grass.osgeo.org/grass74/manuals/r.resamp.bspline.html): Bicubic or bilinear spline interpolation with Tykhonov regularization
-- [r.resamp.tps](https://grass.osgeo.org/grass7/manuals/addons/r.resamp.tps.html): thin plate spline interpolation with regularization and covariables
+- [r.resamp.tps](https://grass.osgeo.org/grass7/manuals/addons/r.resamp.tps.html): Thin Plate Spline interpolation with regularization and covariables
 @ulend
 @ulend
 @snapend
 
 +++
 
-Note that there are also methods to interpolate sparse vector data
+Note that there are also methods to interpolate sparse vector data and obtain continuous surfaces
 
 ---
 
@@ -361,7 +361,7 @@ r.mapcalc expression= "eval(elev_200 = elevation - 200,
 <br><br><br>
 Move on to: 
 <br>
-[Raster exercises](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/03_raster_exercises&grs=gitlab#/)
+[Exercise 3: Landscape, hydrology and terrain analysis](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/03_raster_exercises&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]
