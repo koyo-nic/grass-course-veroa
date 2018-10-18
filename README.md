@@ -1,8 +1,10 @@
-# curso-grass-gis-rioiv
+# Procesamiento de series de tiempo en GRASS GIS: Aplicaciones en Ecologia y Ambiente.
 
 Data, code and slides for the post-graduate course that will be held in Rio Cuarto (Cordoba, Argentina) in October, 2018
 
-## Links to units
+![Flyer course in Rio Cuarto](assets/img/flyer_image.png)
+
+## Slides and exercises
 
 Slides:
 

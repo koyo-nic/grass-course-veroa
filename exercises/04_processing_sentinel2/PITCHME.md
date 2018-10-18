@@ -89,7 +89,7 @@ mypassword
 +++
 
 Since downloading takes a while, we'll skip it. 
-
+<br>
 Download the pre-downloaded [Sentinel 2 scene]() 
 we'll use and move it to `$HOME/gisdata`
 
