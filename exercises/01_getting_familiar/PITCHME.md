@@ -4,11 +4,11 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -37,7 +37,7 @@
 @snapend
 ---
 
-Now I will ask you some questions? 
+Now I will ask you some questions? @fa[smile-o fa-spin]
 
 <br>
 
@@ -57,9 +57,9 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 @snap[west span-60]
 <br>
-@ul[](false)
+@ul[list-content-verbose](false)
 - Download the [**North Carolina full dataset**](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip)
-- Create a folder in your $HOME directory (or Documents) and name it `grassdata`
+- Create a folder in your `$HOME` directory (or Documents) and name it `grassdata`
 - Unzip the file `nc_spm_08_grass7.zip` within `grassdata`
 @ulend
 @snapend
@@ -268,6 +268,7 @@ g.region -p
 >**Tasks:**
 >- Explore r.info and v.info help and get basic information about a raster and a vector map
 >- Change the current region to a vector map and print the new settings
+>- Align the region resolution to a raster map and print it to check
 
 ---
 
@@ -313,12 +314,12 @@ g.region -p
 ### Adding map decorations
 
 > **Task:**
->  - Diplay `elevation` raster map and `roadsmajor` vector map
+>  - Diplay `elevation` and `roadsmajor` maps
 >  - Add grid over map
 >  - Add roads labels (hint: right click over the map name in the Layer Manager)
 >  - Add raster and vector legend
 >  - Add scale bar
->  - Ddd North arrow
+>  - Add North arrow
 >  - Add a title
 
 +++
@@ -363,7 +364,7 @@ g.region -p
 <br><br><br>
 Now go to: 
 <br>
-[your house]()
+[Exercise 2: Create a new location and mapset](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/02_create_new_location&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

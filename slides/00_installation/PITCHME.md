@@ -4,11 +4,11 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -26,7 +26,7 @@
 Download the **OSGeo4W installer** from: https://trac.osgeo.org/osgeo4w
 <br><br>
 > *@size[28px](Important:)*
-> @size[28px](Right-click over installer and execute with **Administrator** privileges)
+> @size[28px](Right-click over the installer and execute it with **Administrator** privileges)
 
 +++
 
@@ -247,6 +247,13 @@ pip install sentinelsat
 ![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
 ---
+
+@snap[north span-90]
+<br><br><br>
+Move on to: 
+<br>
+[GRASS GIS General capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab#/)
+@snapend
 
 @snap[south span-50]
 @size[18px](Presentation powered by)

@@ -4,11 +4,11 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -165,7 +165,8 @@ Terrain analysis
 @snapend
 
 @snap[east span-50]
-<img src="assets/img/geo_forms.png">
+<br>
+<img src="assets/img/geo_forms.png" width="85%">
 
 Output of [r.geomorphon](https://grass.osgeo.org/grass74/manuals/r.geomorphon.html)
 @snapend
@@ -188,6 +189,7 @@ Landscape analysis
 
 @snap[south span-80]
 <img src="assets/img/r_pi_searchtime.png" width="45%">
+
 @size[20px](<a href="https://doi.org/10.1111/2041-210X.12827">Wegman et al., 2017</a>)
 @snapend
 
@@ -297,7 +299,7 @@ Segmentation and OBIA
 @snapend
 
 @snap[south span-100]
-@size[26](<a href="https://github.com/tgrippa/Opensource_OBIA_processing_chain">OBIA processing chain</a>)
+@size[22](<a href="https://github.com/tgrippa/Opensource_OBIA_processing_chain">OBIA processing chain</a>)
 @snapend
 
 +++?image=template/img/bg/green.jpg&position=top&size=100% 15%
@@ -334,7 +336,7 @@ RS derived products
 @snapend
 
 @snap[east span-60]
-<br>
+<br><br>
 @ul[header-footer-list-shrink](false)
 - [i.wi](https://grass.osgeo.org/grass7/manuals/addons/i.wi.html): Calculates different types of water indices
 - [i.lswt](https://grass.osgeo.org/grass7/manuals/addons/i.lswt.html): Computes Lake Surface Water Temperatures from TOA Brightness Temperatures
@@ -382,10 +384,12 @@ Vector menu
 @snapend
 
 @snap[west span-50]
+<br>
 <img src="assets/img/Vector_menu.png">
 @snapend
 
 @snap[east span-50]
+<br>
 <img src="assets/img/vector_types.png">
 
 @size[18px](Topological vector formats in GRASS GIS)
@@ -701,7 +705,7 @@ Some (other) cool add-ons
 <br><br><br>
 Move on to: 
 <br>
-[Raster data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab#/)
+[Exercise 1: Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]
@@ -710,5 +714,3 @@ Move on to:
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
-
-<!--- <p><span class="slide-title">Flowchart view plus Python translation</span></p> --->

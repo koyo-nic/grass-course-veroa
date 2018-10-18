@@ -4,7 +4,7 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
@@ -15,9 +15,9 @@
 @title[About the trainer]
 
 @snap[west]
-@css[bio-about](Lic. y Dra. Cs. Biológicas<br>Mgter. en Aplicaciones Espaciales de Alerta y<br>Respuesta Temprana a Emergencias<br>Aplicaciones de RS & GIS en Ecologia<br><br><i>Keywords:</i> RS, GIS, Time series, SDM,<br>Disease Ecology, Rodents, Hantavirus)
+@css[bio-about](Lic. y Dra. Cs. Biológicas<br>Mgter. en Aplicaciones Espaciales de Alerta y<br>Respuesta Temprana a Emergencias<br>Aplicaciones de RS & GIS en Ecología<br><br><i>Keywords:</i> RS, GIS, Time series, SDM,<br>Disease Ecology, Rodents, Hantavirus)
 <br><br>
-@css[bio-about](FOSS4G enthusiast and advocate<br><a href="https://grass.osgeo.org/">GRASS GIS</a> Dev Team<br><a href="https://www.osgeo.org/">OSGeo</a> Charter member)
+@css[bio-about](<a href="https://grass.osgeo.org/">GRASS GIS</a> Dev Team<br><a href="https://www.osgeo.org/">OSGeo</a> Charter member<br>FOSS4G enthusiast and advocate)
 @snapend
 
 @snap[east]
@@ -93,9 +93,9 @@ The [OSGeo Foundation](https://www.osgeo.org/) was created in 2006, to support t
 
 @snap[south-west list-content-verbose span-100]
 @ul[](false)
-- GRASS GIS (Geographic Resources Analysis Support System), is a FOSS GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
+- @color[#8EA33B](**GRASS GIS**) (Geographic Resources Analysis Support System), is a FOSS GIS software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization. 
 - Used in academic and commercial settings around the world, as well as by many governmental agencies and consulting companies.
-- Originally developed by the U.S. Army Construction Engineering Research Laboratories (USA-CERL, 1982-1995) as a tool for land management and environmental planning by the military.
+- Originally developed by the U.S. Army Construction Engineering Research Laboratories as a tool for land management and environmental planning by the military (USA-CERL, 1982-1995).
 @ulend
 <br>
 @snapend
@@ -250,8 +250,8 @@ Module tree and module search engine
 
 Plugins or **Add-ons** can be installed from
 a centralized [OSGeo repository](https://grass.osgeo.org/grass7/manuals/addons/) 
-or from github (or similar repositories) using the command
-[g.extension](https://grass.osgeo.org/grass74/manuals/g.extension.html).
+or from github (or similar repositories) using 
+[g.extension](https://grass.osgeo.org/grass74/manuals/g.extension.html) command.
 
 ```bash
  # install extension from GRASS GIS Add-on repository
@@ -337,16 +337,16 @@ The most powerful way to use GRASS GIS!!
 ### Advantages of the command line
 
 @ul
-- Run "history" to see all your previous commands
+- Run `history` to see all your previous commands
 - History is stored individually per MAPSET
-- Search in history with CTRL-R
+- Search in history with `CTRL-R`
 - Save the commands to a file: `history > my_protocol.sh`, polish/annotate the protocol and re-run with: `sh my_protocol.sh`
 - Call module's GUI and "Copy" the command for further replication
 @ulend
 
 +++
 
-The GUI's simplified command line offers a *Command prompt* button to save the history to a file
+The GUI's simplified command line offers a *Log file* button to save the history to a file
 
 <img src="assets/img/command_prompt_gui.png" width="43%">
 
@@ -581,7 +581,7 @@ GRASS GIS and R can be used together in two ways:
 
 - [g.manual](https://grass.osgeo.org/grass74/manuals/g.manual.html):
   in the main GUI under Help or just pressing *F1*
-- --help or --h flag after the module name
+- `--help` or `--h` flag after the module name
 - [GRASS wiki](https://grasswiki.osgeo.org/wiki/GRASS-Wiki): examples,
   explanations and help on particular modules or tasks,
   [tutorials](https://grasswiki.osgeo.org/wiki/Category:Tutorial),
@@ -589,7 +589,7 @@ GRASS GIS and R can be used together in two ways:
 - [Jupyter/IPhyton notebooks](https://grasswiki.osgeo.org/wiki/GRASS_GIS_Jupyter_notebooks)
   with example workflows for different applications
 - GRASS user mailing list: Just [subscribe](https://lists.osgeo.org/mailman/listinfo/grass-user) and
-  post to or check the [archives](https://lists.osgeo.org/pipermail/grass-user/).
+  post or check the [archives](https://lists.osgeo.org/pipermail/grass-user/).
 
 +++
 
