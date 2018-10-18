@@ -2,7 +2,7 @@
 
 Data, code and slides for the post-graduate course that will be held in Rio Cuarto (Cordoba, Argentina) in October, 2018
 
-![Flyer course in Rio Cuarto](assets/img/flyer_image.png)
+![Flyer course in Rio Cuarto](assets/img/image_flyer.png)
 
 ## Slides and exercises
 
