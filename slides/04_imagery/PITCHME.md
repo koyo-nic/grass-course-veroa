@@ -4,16 +4,16 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
-@snapend
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
+@snapen
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Remote sensing data processing in GRASS GIS
+## Satellite imagery processing in GRASS GIS
 
 ---
 
@@ -69,7 +69,7 @@ Two Landsat 8 (OLI) scenes
 @snapend
 
 @snap[south span-100]
-Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move the file to `$HOME/gisdata` and unzip.
+Download the clipped [Landsat 8 scenes](data/NC_L8_scenes.zip). Move the file to `$HOME/gisdata` and unzip.
 @snapend
 
 +++
@@ -82,7 +82,7 @@ Download the clipped Landsat 8 scenes from [here](data/NC_L8_scenes.zip). Move t
 
 @[19-20](Launch GRASS GIS and create new mapset landsat8)
 @[21-22](Check the projection)
-@[23-28](list mapsets and add landsat mapset to path)
+@[23-28](List mapsets and add landsat mapset to path)
 @[29-30](List all available raster maps)
 @[31-32](Set computational region to a landsat scene)
    
@@ -296,7 +296,7 @@ More derived information could be obtained from:
 <br><br><br>
 Move on to: 
 <br>
-[Exercise: Processing Sentinel 2 data](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
+[Exercise 3: Working with Sentinel 2 images](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

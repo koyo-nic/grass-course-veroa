@@ -4,16 +4,16 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
-@snapend
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
+@snapen
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## Processing Copernicus Sentinel 2 data in GRASS GIS
+## Working with Copernicus Sentinel 2 images in GRASS GIS
 
 ---
 
@@ -47,7 +47,7 @@
 @snap[east span-60]
 <br><br>
 @ul[list-content-verbose](false)
-- Sentinel-2A in spring 2015, Sentinel-2B in 2017
+- Launch: Sentinel-2A in spring 2015, Sentinel-2B in 2017
 - Five days revisit time
 - Systematic coverage of land and coastal areas between 84°N and 56°S
 - 13 spectral bands with spatial resolutions of 10 m (4 VIS and NIR bands), 20 m (6 red-edge/SWIR bands) and 60 m
@@ -70,7 +70,7 @@ Set of GRASS GIS extensions to manage Sentinel 2 data:
 - [i.sentinel.download](https://grass.osgeo.org/grass7/manuals/addons/i.sentinel.download.html)
 allows downloading Sentinel-2 products from [Copernicus Open Access Hub](https://scihub.copernicus.eu/)
 - To connect to Copernicus Open Access Hub, you need to be [registered](https://scihub.copernicus.eu/dhus/#/self-registration)
-- Create the *SETTING_SENTINEL* file with the following content in the `$HOME/gisdata/` directory:
+- Create the `SETTING_SENTINEL` file with the following content in the `$HOME/gisdata/` directory:
 
 ```
 myusername
@@ -88,11 +88,10 @@ mypassword
 
 +++
 
-Since downloading takes a while, we'll skip it. Take a pre-downloaded scene from:
+Since downloading takes a while, we'll skip it. 
 
-< add link >
-
-and move it to `$HOME/gisdata`
+Download the pre-downloaded [Sentinel 2 scene]() 
+we'll use and move it to `$HOME/gisdata`
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
 
@@ -151,6 +150,8 @@ Obtain AOD from [http://aeronet.gsfc.nasa.gov](https://aeronet.gsfc.nasa.gov)
 - Choose Combined file and All points
 - Download and unzip in `$HOME/gisdata` (the final file has a .dubovik extension)
 @ulend
+
+If that does not work, here is the [AOD file](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/180819_180825_EPA-Res_Triangle_Pk.zip)
 @snapend
 
 +++
@@ -162,7 +163,7 @@ For now, we'll use the `elevation` map present in NC location
 <br>
 ... but only the region covered by `elevation` map will be atmospherically corrected
 
-+++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import plus Atmospheric correction with i.sentinel.preproc
++++?code=code/04_S2_imagery_code.sh&lang=bash&title=Import plus atmospheric correction
 
 @[96-98](Enter directory with Sentinel scene and unzip file)
 @[107-113](Run i.sentinel.preproc using elevation map in NC location)
@@ -267,7 +268,7 @@ downloads and imports SRTM data for the current computational region.
 <br><br><br>
 Move on to: 
 <br>
-[Temporal data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
+[Temporal data processing and visualization](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
 @snapend
 
 @snap[south span-50]

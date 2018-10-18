@@ -136,8 +136,8 @@ g.region raster=T17SQV_20180822T155901_B04 -b
 #~ west longitude:   78:48:18.996088W
 #~ east longitude:   77:33:33.210097W
 
-# open a new grass session in a lat-long location
-grass74 -c $HOME/grassdata/latlong_wgs84/testing
+# open a new grass session in the latlong location
+grass74 -c $HOME/grassdata/latlong/srtm
 
 # In the lat-long location, set the region using the values obtained in NC location
 g.region -p n=36:07:27.469949N s=35:06:24.823887N e=77:33:33.210097W w=78:48:18.996088W            
@@ -157,7 +157,7 @@ r.info srtm
 
 # change back to NC location and sentinel2 mapset
 # reproject the SRTM map
-r.proj location=latlong_wgs84 mapset=testing input=srtm resolution=30
+r.proj location=latlong mapset=srtm input=srtm resolution=30
 
 # use `srtm` map in i.sentinel.preproc
 i.sentinel.preproc -atr \
@@ -264,7 +264,7 @@ i.superpixels.slic input=sentinel \
 r.to.vect input=superpixels output=superpixels type=area
 
 # run i.segment and convert the resulting raster to vector
-i.segment group= output=segments \
+i.segment group=sentinel output=segments \
  threshold=0.5 minsize=100 memory=500
 r.to.vect input=segments output=segments type=area
 

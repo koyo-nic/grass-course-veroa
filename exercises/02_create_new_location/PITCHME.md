@@ -57,8 +57,8 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 @snap[west span-60]
 @ul[list-content-verbose](false)
 - Download the [raster](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/sample_rasters.zip) and [vector](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/streets.gpkg) sample files
-- Create a folder in your `$HOME` directory (or Documents) and name it `geodata`
-- Unzip/Move the files within `$HOME/geodata`
+- Create a folder in your `$HOME` directory (or Documents) and name it `gisdata`
+- Unzip/Move the files within `$HOME/gisdata`
 @ulend
 @snapend
 
