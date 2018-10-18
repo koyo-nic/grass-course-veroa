@@ -36,7 +36,7 @@
 
 ---
 
-I ask you some questions... again @fa[smile-o]
+I ask you some questions... again @fa[smile-o fa-spin]
 
 <br>
 
@@ -56,9 +56,9 @@ You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/c
 
 @snap[west span-60]
 @ul[list-content-verbose](false)
-- Download the [sample files]()
-- Create a folder in your $HOME directory (or Documents) and name it *geodata*
-- Unzip the files within *geodata*
+- Download the [raster](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/sample_rasters.zip) and [vector](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/streets.gpkg) sample files
+- Create a folder in your `$HOME` directory (or Documents) and name it `geodata`
+- Unzip/Move the files within `$HOME/geodata`
 @ulend
 @snapend
 
@@ -225,7 +225,7 @@ g.mapset mapset=user1
 
 ### Add mapsets to path
 
-Sometimes we need to *read data from a different mapset* and use it for a certain processing, so we need to *see* that mapset from the current one
+Sometimes we need to @color[#8EA33B](*read data from a different mapset*) and use it for a certain processing, so we need to @color[#8EA33B](*see*) that mapset from the current one
 <br>
 ```bash
 # print accessible mapsets
@@ -249,7 +249,7 @@ g.mapset -p
 
 Choose whatever method you prefer
 
-*Hint:* from command line is only one line @fa[laugh fa-spin]...
+*Hint:* from command line is only one line @fa[smile-o fa-spin]...
 
 ---
 
@@ -264,6 +264,8 @@ r.in.gdal input=myraster.tif output=myraster
 ```bash
 v.in.ogr input=myvector.shp output=myvector
 ```
+
+@size[20px](CRS of maps must match that of the Location)
 
 +++
 
@@ -381,8 +383,8 @@ The whole vector map is re-projected by coordinate conversion
 
 >**Tasks:**
 > 
->- Create a new location named @color[green](UTM18N) from the L8 band 4 file and then reproject (with [r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)) it to North Carolina location (mapset landsat)
->- Now, import (with reprojection on the fly) the L8 band 3 file into North Carolina location (mapset landsat)
+>- Create a new location named @color[green](UTM18N) from the L8 band 5 file and then reproject (with [r.proj](https://grass.osgeo.org/grass74/manuals/r.proj.html)) it to North Carolina location (mapset curso_rio4)
+>- Now, import (with reprojection on the fly) the L8 band 2 file into North Carolina location (mapset curso_rio4) and set the region to the imported raster map 
 
 ---
 
@@ -404,7 +406,7 @@ The whole vector map is re-projected by coordinate conversion
 <br><br><br>
 Move on to: 
 <br>
-[Raster processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab#/) presentation
+[Raster data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]
