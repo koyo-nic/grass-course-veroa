@@ -65,11 +65,14 @@ For other Linux distributions including **Fedora** and **openSuSe**, simply inst
 
 ##### Extra dependencies
 
+The following are some Python libraries that are needed by add-ons that will be used in the course:
 - [pyModis](http://www.pymodis.org) 
 - [sentinelsat](https://github.com/sentinelsat/sentinelsat)
 - pandas
 - matplotlib
 - pygbif
+
+See the [Installation guide](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab) presentation for details.
 
 ### OSGeo-live: 
 
@@ -108,17 +111,17 @@ Install with `g.extension extension=name_of_addon`
 ## Data
 
 * [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`.
-* [raster map]()
-* [Streets vector map (gpkg)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/streets.gpkg)
-* [Landsat 8 scenes clipped to North Carolina](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/NC_L8_scenes.zip)
-* [Sentinel 2 scene (500Mb)]()
-* [Aeronet AOD file](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/180819_180825_EPA-Res_Triangle_Pk.zip)
-* [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
-* [modis_ndvi ()]()
+* [Sample raster maps](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/3b11ad06d2133889e0ee51652a03f94bfec9d7e4/data/sample_rasters.zip?inline=false): download and unzip within `$HOME/gisdata`.
+* [Streets vector map (gpkg)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/streets.gpkg?inline=false): download and move into `$HOME/gisdata`.
+* [Landsat 8 scenes clipped to North Carolina](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/NC_L8_scenes.zip?inline=false): download and unzip within `$HOME/gisdata`.
+* [Sentinel 2 scene (500Mb)](https://www.dropbox.com/s/2k8wg9i05mqgnf1/S2A_MSIL1C_20180822T155901_N0206_R097_T17SQV_20180822T212023.zip?dl=0): download and move into `$HOME/gisdata`. DO NOT UNZIP.
+* [Aeronet AOD file](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/180819_180825_EPA-Res_Triangle_Pk.zip?inline=false): download and unzip within `$HOME/gisdata`.
+* [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/modis_lst.zip?inline=false): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
+* [modis_ndvi (15 Mb)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/modis_ndvi.zip?inline=false): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
 
 ## Author
 
-* **Veronica Andreo**. [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina
+* **Veronica Andreo**. [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina.
 
 ## License
 
