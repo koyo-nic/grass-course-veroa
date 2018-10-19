@@ -271,7 +271,7 @@ Use of reliability band
 <br><br><br>
 Move on to: 
 <br>
-[Interface GRASS and R](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab#/)
+[GRASS and R interface](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]
