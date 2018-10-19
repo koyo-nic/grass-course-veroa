@@ -1,19 +1,18 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
-@snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
-## NDVI time series
+## Hands-on to NDVI time series
 
 ---
 
@@ -62,10 +61,14 @@
 
 @snap[midpoint span-100]
 @ol[](false)
-- Download mapset *modis_ndvi*
-- Unzip it within NC location
+- Download [*modis_ndvi*](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/modis_ndvi.zip?inline=false) mapset
+- Unzip it within North Carolina location
 - Ready
 @olend
+@snapend
+
+@snap[south span-100]
+Download the [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/05_ndvi_time_series_code.sh?inline=false) for this exercise
 @snapend
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Preparation of the dataset
@@ -171,7 +174,7 @@ Use of reliability band
 
 +++
 
-> **Task**: Graphically asses the results of HANTS reconstruction in pixels with higher percentage of missing data and obtain univariate statistics for the new time series
+> **Task**: Graphically assess the results of HANTS reconstruction in pixels with higher percentage of missing data and obtain univariate statistics for the new time series
 
 ---
 
@@ -201,7 +204,7 @@ Use of reliability band
 
 +++
 
-> **Task**: Determine the highest growing rate in the period 2015-2017 and display it
+> **Task**: Obtain a map with the highest growing rate per pixel in the period 2015-2017 and display it
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 

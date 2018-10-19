@@ -340,3 +340,6 @@ yseries=`t.rast.list input=ndwi_monthly method=comma`
 
 r.regression.series xseries=$xseries yseries=$yseries \
  output=ndvi_ndwi_rsq method=rsq
+
+
+

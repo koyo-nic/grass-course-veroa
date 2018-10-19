@@ -9,7 +9,7 @@
 
 @snap[south message-box-white]
 <br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
-@snapen
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 

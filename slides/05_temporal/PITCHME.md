@@ -1,14 +1,13 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
-@snap[north span-100]
 <br>
-<h2>Procesamiento de series de tiempo en @color[#8EA33B](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -96,7 +95,6 @@ STDS in each mapset.
 
 ### Let's first get the data
 <br>
-- [North Carolina location (full dataset, 150Mb)](https://grass.osgeo.org/sampledata/north_carolina/nc_spm_08_grass7.zip): download and unzip within `$HOME/grassdata`
 - [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in 
 `$HOME/grassdata/nc_spm_08_grass7`
 <br>
@@ -150,7 +148,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 @[99-100](Check the list of maps in the STRDS)
 @[102-103](Check min and max per map)
 
-@size[24px](For more options, check the <a href="https://grass.osgeo.org/grass74/manuals/t.register.html">t.register</a> manual and related <a href="https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration">map registration wiki</a> page.)
+@size[20px](For more options, check the <a href="https://grass.osgeo.org/grass74/manuals/t.register.html">t.register</a> manual and related <a href="https://grasswiki.osgeo.org/wiki/Temporal_data_processing/maps_registration">map registration wiki</a> page.)
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Graphical Representation of the STRDS
 
@@ -194,7 +192,7 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 @[126-128](LST time series plot for the city center of Raleigh)
 @[130-135](New features in upcoming grass76)
 
-@size[24px](For a single point, see <a href="https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html">g.gui.tplot</a>. For a vector of points, see <a href="https://grass.osgeo.org/grass74/manuals/t.rast.what.html">t.rast.what</a>.)
+@size[20px](For a single point, see <a href="https://grass.osgeo.org/grass74/manuals/g.gui.tplot.html">g.gui.tplot</a>. For a vector of points, see <a href="https://grass.osgeo.org/grass74/manuals/t.rast.what.html">t.rast.what</a>.)
 
 +++
 
@@ -273,15 +271,8 @@ The supported internal variables for the STRDS:
 
 The supported internal variables for the current sample interval or instance:
 
-- start_doy() - Day of year (doy) from the start time [1 - 366]
-- start_dow() - Day of week (dow) from the start time [1 - 7], the start of the week is Monday == 1
-- start_year() - The year of the start time [0 - 9999]
-- start_month() - The month of the start time [1 - 12]
-- start_week() - Week of year of the start time [1 - 54]
-- start_day() - Day of month from the start time [1 - 31]
-- start_hour() - The hour of the start time [0 - 23]
-- start_minute() - The minute of the start time [0 - 59]
-- start_second() - The second of the start time [0 - 59]
+- start_doy(), start_dow(), start_year(), start_month(), start_week(),
+ start_day(), start_hour(), start_minute(), start_second()
 
 ... and the same for *end_**
 
@@ -379,7 +370,7 @@ t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
 
 @[344-347](Animation of seasonal LST)
 
-@size[24px](See <a href="https://grass.osgeo.org/grass74/manuals/g.gui.animation.html">g.gui.animation</a> manual for further options and tweaks)
+@size[20px](See <a href="https://grass.osgeo.org/grass74/manuals/g.gui.animation.html">g.gui.animation</a> manual for further options and tweaks)
 
 ---
 
@@ -513,7 +504,7 @@ Std_Anomaly_i = \frac{Average_i - Average}{SD}
 <br><br><br>
 Move on to: 
 <br>
-[Exercise: NDVI time series](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/05_ndvi_time_series&grs=gitlab#/)
+[Exercise: Hands-on to NDVI time series](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/05_ndvi_time_series&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]
