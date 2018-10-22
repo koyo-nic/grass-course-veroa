@@ -1,6 +1,7 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
+@snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
 <h3>Aplicaciones en Ecología y Ambiente</h3>
@@ -68,7 +69,8 @@
 @snapend
 
 @snap[south span-100]
-Download the [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/05_ndvi_time_series_code.sh?inline=false) for this exercise
+Download the [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/05_ndvi_time_series_code.sh?inline=false) to follow this exercise
+<br><br>
 @snapend
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Preparation of the dataset

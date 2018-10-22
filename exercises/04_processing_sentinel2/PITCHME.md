@@ -90,8 +90,12 @@ mypassword
 
 Since downloading takes a while, we'll skip it. 
 <br>
+
 Download the pre-downloaded [Sentinel 2 scene](https://www.dropbox.com/s/2k8wg9i05mqgnf1/S2A_MSIL1C_20180822T155901_N0206_R097_T17SQV_20180822T212023.zip?dl=0) 
 we'll use and move it to `$HOME/gisdata`
+<br>
+
+Download also the file with the [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/04_S2_imagery_code.sh?inline=false) to follow the exercise.
 
 ---?code=code/04_S2_imagery_code.sh&lang=bash&title=Import Sentinel 2 data
 

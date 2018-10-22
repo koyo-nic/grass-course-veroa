@@ -50,6 +50,10 @@ GRASS GIS and R can be used together in two ways:
 The link between GRASS GIS and R is provided by the [**rgrass7**](https://cran.r-project.org/web/packages/rgrass7/index.html) package
 <br><br><br>
 (kudos to Roger Bivand @fa[smile-o fa-spin])
+
+---
+
+Download the file with [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/06_grass_R_code.r?inline=false) to follow this session
  
 ---
 

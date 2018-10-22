@@ -50,6 +50,10 @@
 ![](https://en.wikipedia.org/wiki/Aedes_albopictus#/media/File:CDC-Gathany-Aedes-albopictus-1.jpg)
 @snapend
 
+@snap[south span-100]
+Download the [GRASS code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/06_grass_R_sp_distribution_code.sh?inline=false) and [R code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/06_grass_R_sp_distribution_code.r?inline=false) to follow this exercise
+@snapend
+
 ---?code=code/06_grass_R_sp_distribution_code.sh&lang=bash&title=Importing species records
 
 @[16-17](Install v.in.pygbif)

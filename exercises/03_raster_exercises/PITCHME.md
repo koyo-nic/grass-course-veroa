@@ -29,6 +29,10 @@
 @olend
 @snapend
 
+---
+
+Download the file with [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/03_raster_code.sh?inline=false) to follow the exercise
+
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
 ### Landscape structure analysis and forest fragmentation

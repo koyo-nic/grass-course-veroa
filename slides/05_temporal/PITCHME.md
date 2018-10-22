@@ -1,6 +1,7 @@
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 @title[Front page]
 
+@snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
 <h3>Aplicaciones en Ecología y Ambiente</h3>
@@ -93,12 +94,15 @@ STDS in each mapset.
 
 ---
 
-### Let's first get the data
+### Let's first get the data and the code to follow this session
 <br>
 - [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/grass-gis-geostat-2018/blob/master/data/modis_lst.zip): download and unzip within the North Carolina location in 
 `$HOME/grassdata/nc_spm_08_grass7`
-<br>
+- [GRASS code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/05_temporal_code.sh?inline=false)
+- [R code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/05_temporal_code.r?inline=false)
+
 ... and start GRASS GIS
+
 ```bash
 grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 ```
