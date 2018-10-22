@@ -586,7 +586,7 @@ GRASS GIS and R can be used together in two ways:
   explanations and help on particular modules or tasks,
   [tutorials](https://grasswiki.osgeo.org/wiki/Category:Tutorial),
   applications, news, etc.
-- [Jupyter/IPhyton notebooks](https://grasswiki.osgeo.org/wiki/GRASS_GIS_Jupyter_notebooks)
+- [Jupyter/IPython notebooks](https://grasswiki.osgeo.org/wiki/GRASS_GIS_Jupyter_notebooks)
   with example workflows for different applications
 - GRASS user mailing list: Just [subscribe](https://lists.osgeo.org/mailman/listinfo/grass-user) and
   post or check the [archives](https://lists.osgeo.org/pipermail/grass-user/).
