@@ -620,7 +620,7 @@ GRASS GIS and R can be used together in two ways:
 
 ![GRASS GIS logo](assets/img/grass_logo_alphab.png)
 
----?image=https://grass.osgeo.org/uploads/images/grass_sprint2018_bonn_fotowall_medium.jpg&size=cover
+---?image=assets/img/grass_sprint2018_bonn_fotowall_medium.jpg&size=cover
 
 @transition[zoom]
 
