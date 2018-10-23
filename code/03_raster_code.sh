@@ -58,7 +58,7 @@ r.report map=fragmentation units=k,p
 
 
 # select forests only
-r.mapcalc "forest = if(landclass96 == 5, 1, null())"
+r.mapcalc "forest = if(landclass96 == 5, 1, null())" --o
 
 # get distance to the edge of the forest
 # -n is to obtain distance to the edge from within the forest itself
