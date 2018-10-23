@@ -89,7 +89,7 @@ Further details: [blog about r.forestfrag](https://pvanb.wordpress.com/2016/03/2
 @snap[north span-100]
 Landscape patch analysis
 <br>
-Set the config file in the <a href"https://grass.osgeo.org/grass74/manuals/g.gui.rlisetup.html">g.gui.rlisetup</a>) config window
+Set the config file in the <a href"https://grass.osgeo.org/grass74/manuals/g.gui.rlisetup.html">g.gui.rlisetup</a> config window
 @snapend
 
 @snap[west span-45]
