@@ -18,11 +18,11 @@ g.extension r.diversity
 g.extension r.forestfrag
 
 # compute richness (number of unique classes)
-g.region raster=landuse96
-r.neighbors input=landuse96 output=richness method=diversity size=15
+g.region raster=landclass96
+r.neighbors input=landclass96 output=richness method=diversity size=15
 
 # compute diversity indices with various window sizes
-r.diversity input=landuse96 prefix=index alpha=0.8 size=9-21 method=simpson,shannon,renyi
+r.diversity input=landclass96 prefix=index alpha=0.8 size=9-21 method=simpson,shannon,renyi
 
 # change color tables to make them comparable
 r.colors map=index_shannon_size_21,index_shannon_size_15,index_shannon_size_9 color=viridis
