@@ -71,7 +71,7 @@ Two Landsat 8 (OLI) scenes
 @snapend
 
 @snap[south span-100]
-Download the clipped [Landsat 8 scenes](data/NC_L8_scenes.zip), move the file to `$HOME/gisdata` and unzip it there.
+Download the clipped [Landsat 8 scenes](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/NC_L8_scenes.zip?inline=false), move the file to `$HOME/gisdata` and unzip it there.
 
 Also download the file with the [code](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/code/04_L8_imagery_code.sh?inline=false) to follow this session.
 @snapend
