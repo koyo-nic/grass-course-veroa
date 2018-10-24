@@ -110,7 +110,7 @@ i.sentinel.preproc -atr \
  elevation=elevation \
  aeronet_file=$HOME/gisdata/180819_180825_EPA-Res_Triangle_Pk.dubovik \
  suffix=corr \
- text_file=$HOME/gisdata/sentinel_mask --o
+ text_file=$HOME/gisdata/sentinel_mask
 
 # perform color auto-balancing for RGB bands 
 i.colors.enhance red=T17SQV_20180822T155901_B04_corr \
