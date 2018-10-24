@@ -62,10 +62,12 @@ Two Landsat 8 (OLI) scenes
 - Path/Row: 015/035
 - CRS: UTM zone 18 N (EPSG:32618)
 @ulend
+<br>
 @snapend
 
 @snap[east span-50]
 ![L8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ldcm_2012_COL.png)
+<br>
 @snapend
 
 @snap[south span-100]
