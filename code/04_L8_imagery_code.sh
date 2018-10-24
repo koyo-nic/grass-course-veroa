@@ -152,8 +152,8 @@ i.landsat8.qc cloud="Maybe,Yes" output=Cloud_Mask_rules.txt
 # reclass the BQA band based on the rule set created 
 r.reclass input=${BASE}_BQA output=${BASE}_Cloud_Mask rules=Cloud_Mask_rules.txt
 
-# report the area covered by cloud
-r.report -e map=${BASE}_Cloud_Mask units=k -n
+# report the area covered by clouds
+r.report -e map=${BASE}_Cloud_Mask units=k
 
 # display reclassified map
 d.mon wx0
@@ -214,3 +214,6 @@ i.maxlik group=${BASE}_hpf subgroup=${BASE}_hpf \
 # display results
 d.mon wx0
 d.rast map=${BASE}_hpf.class
+
+
+
