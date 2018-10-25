@@ -104,34 +104,34 @@ g.gui.mapswipe first=LC80150352016168LGN00_toar5 \
 
 
 # enhance the colors
-i.colors.enhance red="${BASE}_toar4.hpf" \
- green="${BASE}_toar3.hpf" \
- blue="${BASE}_toar2.hpf" \
+i.colors.enhance red=${BASE}_toar4.hpf \
+ green=${BASE}_toar3.hpf \
+ blue=${BASE}_toar2.hpf \
  strength=95
 
 # display RGB
 d.mon wx0
-d.rgb red="${BASE}_toar4.hpf" \
- green="${BASE}_toar3.hpf" \
- blue="${BASE}_toar2.hpf"
+d.rgb red=${BASE}_toar4.hpf \
+ green=${BASE}_toar3.hpf \
+ blue=${BASE}_toar2.hpf
 
 # create RGB composites
-r.composite red="${BASE}_toar4.hpf" \
- green="${BASE}_toar3.hpf" \
- blue="${BASE}_toar2.hpf" \
- output="${BASE}_toar.hpf_comp_432"
+r.composite red=${BASE}_toar4.hpf \
+ green=${BASE}_toar3.hpf \
+ blue=${BASE}_toar2.hpf \
+ output=${BASE}_toar.hpf_comp_432
 
 # enhance the colors
-i.colors.enhance red="${BASE}_toar5.hpf" \
- green="${BASE}_toar4.hpf" \
- blue="${BASE}_toar3.hpf" \
+i.colors.enhance red=${BASE}_toar5.hpf \
+ green=${BASE}_toar4.hpf \
+ blue=${BASE}_toar3.hpf \
  strength=95
 
 # create RGB composites
-r.composite red="${BASE}_toar5.hpf" \
- green="${BASE}_toar4.hpf" \
- blue="${BASE}_toar3.hpf" \
- output="${BASE}_toar.hpf_comp_543"  
+r.composite red=${BASE}_toar5.hpf \
+ green=${BASE}_toar4.hpf \
+ blue=${BASE}_toar3.hpf \
+ output=${BASE}_toar.hpf_comp_543 
 
 # display false color composite
 d.mon wx0
