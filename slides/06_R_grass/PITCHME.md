@@ -4,11 +4,11 @@
 @snap[north span-100]
 <br>
 <h2>Procesamiento de series de tiempo en @color[green](GRASS GIS)</h2>
-<h3>Aplicaciones en Ecologia y Ambiente</h3>
+<h3>Aplicaciones en Ecología y Ambiente</h3>
 @snapend
 
 @snap[south message-box-white]
-<br>Dra. Veronica Andreo<br>CONICET - INMeT<br><br>Rio Cuarto, 2018<br>
+<br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
 @snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
@@ -23,7 +23,7 @@ GRASS GIS and R can be used together in two ways:
 - Using [GRASS GIS within an R session](https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7#GRASS_within_R),
 <br><br>
 
-@size[22px](Details and examples at the <a href="https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7>GRASS and R wiki</a>)
+@size[22px](Details and examples at the <a href="https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7">GRASS and R wiki</a>)
 
 +++
 
@@ -61,8 +61,18 @@ We will first @color[#8EA33B](run R within a GRASS GIS session)
 
 <br>
 
-Open GRASS GIS and launch R or RStudio from inside GRASS GIS
+Open GRASS GIS in North Carolina Location and mapset user1
 
+```
+g.mapsets mapset=modis_lst,modis_ndvi operation=add
+g.region -p vector=nc_state  align=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
+t.rast.series input=LST_Day_monthly_celsius@modis_lst output=lst method=average
+t.rast.series input=ndvi_monthly@modis_ndvi output=ndvi method=average
+```
+
++++
+
+Now, launch R or RStudio from inside GRASS GIS
 
 ```r
 GRASS> rstudio &
@@ -82,21 +92,26 @@ GRASS> rstudio /path/to/project/folder/ &
 
 +++
 
-Add plot here
+![corr plot](assets/img/corr_plot.png)
 
 +++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
 
 @[50-52](Compute linear model)
 @[54-57](Predict LST using the model)
-
-+++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
-
-@[59-61](Write modelled LST to a GRASS raster)
-@[63-65](Compare model to real data)
+@[59-62](Set color palette, read raster and plot)
 
 +++
 
-Add maps here
+![lst pred](assets/img/lst_pred.png)
+
++++?code=code/06_grass_R_code.r&lang=r&title=Relationship between LST and elevation and NDVI
+
+@[64-66](Compare model to real data)
+@[68-70](Read raster and plot)
+
++++
+
+![lst diff](assets/img/lst_diff.png)
 
 ---
 
@@ -108,41 +123,37 @@ Open RStudio
 
 +++?code=code/06_grass_R_code.r&lang=r
 
-@[73-76](Find out the path to the GRASS GIS library)
-@[78-88](Define the GRASS settings: Windows)
-@[90-98](Define the GRASS settings: Linux)
-@[103-106](Set computational region)
-@[108-109](Verify metadata)
-@[111-116](List vector maps)
-@[118-122](Save list of vector maps)
-@[124-129](List raster maps)
-@[131-132](Get raster maps into R)
-@[134-137](Summaries)
-@[139-141](Verify the object)
-@[143-145](Plot)
+@[78-81](Find out the path to the GRASS GIS library)
+@[86-93](Define the GRASS settings: Windows)
+@[95-103](Define the GRASS settings: Linux)
+@[108-111](Set computational region)
+@[113-114](Verify metadata)
+@[116-121](List vector maps)
+@[123-127](Save list of vector maps)
+@[129-134](List raster maps)
+@[136-137](Get raster maps into R)
+@[139-142](Summaries)
+@[144-146](Verify the object)
+@[148-149](Plot)
+
++++?code=code/06_grass_R_code.r&lang=r
+
+@[151-153](Boxplot and histogram)
 
 +++
 
-Add plot here
+![boxplot](assets/img/boxplot.png)
 
 +++?code=code/06_grass_R_code.r&lang=r
 
-@[147-149](Boxplot and histogram)
-
-+++
-
-Add plot here
+@[155-159](Query a raster map)
+@[161-164](Parse the output)
 
 +++?code=code/06_grass_R_code.r&lang=r
 
-@[151-155](Query a raster map)
-@[157-160](Parse the output)
-
-+++?code=code/06_grass_R_code.r&lang=r
-
-@[162-163](Do something with a raster map)
-@[165-166](Write it into GRASS)
-@[168-169](Check metadata of exported map)
+@[166-167](Do something with a raster map)
+@[169-170](Write it into GRASS)
+@[172-173](Check metadata of exported map)
 
 ---
 
@@ -160,7 +171,7 @@ R CMD BATCH batch.R
 
 +++?code=code/06_grass_R_code.r&lang=r
 
-@[177-193](The script might look like this)
+@[181-199](The script might look like this)
 
 ---
 
@@ -198,7 +209,7 @@ See the [vignette on how to set GRASS database with link2GI](https://github.com/
 <br><br><br>
 Move on to: 
 <br>
-[Think about the evaluation]()
+[GRASS and R: Predicting species distribution](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/06_predicting_species_distribution&grs=gitlab#/)
 @snapend
 
 @snap[south span-50]

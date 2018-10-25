@@ -18,7 +18,7 @@ library("rgrass7")
 gmeta()
 
 # set region
-execGRASS("g.region", raster="LST_mean", flags="p")
+execGRASS("g.region", raster="lst", flags="p")
 
 # generate random points and sample the datasets
 execGRASS("v.random", output="samples", npoints=1000)
@@ -27,42 +27,47 @@ execGRASS("v.random", output="samples", npoints=1000)
 # we are overwriting vector samples, so we need to use overwrite flag
 execGRASS("v.random", output="samples", 
 					  npoints=1000, 
-					  restrict="boundaries", 
+					  restrict="nc_state", 
 					  flags=c("overwrite"))
 
 # create attribute table
 execGRASS("v.db.addtable", map="samples", 
-						   columns=c("elevation double precision", 
-						   "NDVI double precision", 
-						   "LST double precision"))
+						   columns=c("elev_state_500m double precision", 
+						   "ndvi double precision", 
+						   "lst double precision"))
 
 # sample individual rasters
-execGRASS("v.what.rast", map="samples", raster="LST_mean", column="LST")
-execGRASS("v.what.rast", map="samples", raster="NDVI_mean", column="NDVI")
-execGRASS("v.what.rast", map="samples", raster="elevation", column="elevation")
+execGRASS("v.what.rast", map="samples", raster="lst", column="lst")
+execGRASS("v.what.rast", map="samples", raster="ndvi", column="ndvi")
+execGRASS("v.what.rast", map="samples", raster="elev_state_500m", column="elev_state_500m")
 
 # explore the dataset in R:
 samples <- readVECT("samples")
 str(samples)
 summary(samples)
-plot(samples@data)
+plot(samples@data[2:4])
 
 # compute multivariate linear model:
-linmodel <- lm(LST_mean ~ elevation + NDVI_mean, samples)
+linmodel <- lm(lst ~ elev_state_500m + ndvi, samples@data)
 summary(linmodel)
 
 # predict LST using this model:
-maps <- readRAST(c("elevation", "NDVI_mean"))
-maps$LST_model <- predict(linmodel, newdata=maps)
-spplot(maps, "LST_model")
+execGRASS("r.mapcalc", 
+          expression="lst_pred = 29.8 - 0.0042 * elev_state_500m - 0.0012 *ndvi",
+          flags = c("overwrite"))
 
-# write modeled LST to GRASS raster and set color ramp
-writeRAST(maps, "LST_model", zcol="LST_model")
-execGRASS("r.colors", map="LST_model", color="celsius")
+# set color ramp, read raster and plot
+execGRASS("r.colors", map="lst_pred", color="celsius")
+lst_pred <- readRAST("lst_pred")
+plot(lst_pred)
 
 # compare simple linear model to real data:
-execGRASS("r.mapcalc", expression="diff = LST_mean - LST_model")
+execGRASS("r.mapcalc", expression="diff = lst - lst_pred")
 execGRASS("r.colors", map="diff", color="differences")
+
+# read raster and plot
+diff <- readRAST("diff")
+plot(diff)
 
 
 #
@@ -82,7 +87,7 @@ grass74 --config path
 library(rgrass7)
 # initialisation and the use of North Carolina sample dataset
 initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass74",
-         gisDbase = "C:/Users/marissa/GRASSdata/",
+         gisDbase = "C:/Users/username/grassdata/",
          location = "nc_spm_08_grass7", 
          mapset = "user1", 
          SG = "elevation")
@@ -101,7 +106,7 @@ initGRASS(gisBase = "/usr/local/grass74",
 # the 'DEFAULT_WIND' of the temporary location.
 
 # set computational region to default
-execGRASS("g.region", raster="elevation", flags=c("d","p")
+execGRASS("g.region", raster="elevation", flags=c("d","p"))
 # alternatively:
 system("g.region -dp")
 
@@ -113,11 +118,11 @@ execGRASS("g.list", parameters = list(type = "vector"))
 
 # list selected vector maps (wildcard):
 execGRASS("g.list", parameters = list(type = "vector", 
-					pattern = "precip*"))
+					pattern = "elev*"))
 
 # save selected vector maps into R vector:
 my_vmaps <- execGRASS("g.list", parameters = list(type = "vector", 
-												  pattern = "precip*"))
+												  pattern = "elev*"))
 attributes(my_vmaps)
 attributes(my_vmaps)$resOut
 
@@ -142,11 +147,10 @@ str(ncdata@data)
 
 # plot
 image(ncdata, "elevation", col = terrain.colors(20))
-spplot(ncdata, col = terrain.colors(20))
 
 # boxplot and histogram
-boxplot(ncdata$elevation ~ ncdata$geology_30m, medlwd = 1)
-hist(ncdata$elevation)
+boxplot(ncdata@data$elevation ~ ncdata@data$geology_30m, medlwd = 1)
+hist(ncdata@data$elevation)
 
 # query raster map and transfer result into R
 goutput <- execGRASS("r.what", map="elev_state_500m", 
