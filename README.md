@@ -121,7 +121,15 @@ Install with `g.extension extension=name_of_addon`
 
 ## Author
 
-* **Veronica Andreo**. [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina.
+* **Verónica Andreo**. [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina.
+
+## Contributors
+
+Many thanks to GRASS developers and community members that have developed other 
+educational materials from which I recycled and adapted some of the examples for
+this course. A special thanks to [Carol Garzon](https://gitlab.com/carolgarzon) 
+who contributed the examples for r.li.* modules and the workflow for species 
+distribution modeling in R that were further adapted for this course.
 
 ## License
 
