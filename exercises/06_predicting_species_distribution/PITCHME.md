@@ -40,14 +40,14 @@
 @snapend
 
 @snap[west span-50]
-@ol[list-content-verbose]
+@ol[list-content-verbose](false)
 - Records of *Aedes albopictus* (Asian tiger mosquito) in NC
 - Environmental layers derived from RS products
 @olend
 @snapend
 
 @snap[east span-50]
-![](https://en.wikipedia.org/wiki/Aedes_albopictus#/media/File:CDC-Gathany-Aedes-albopictus-1.jpg)
+![Aedes](assets/img/aedes_albopictus.jpg)
 @snapend
 
 @snap[south span-100]
