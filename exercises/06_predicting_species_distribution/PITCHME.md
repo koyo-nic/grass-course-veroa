@@ -146,7 +146,7 @@ Just for fun, close GRASS GIS, we'll initialize it again but from RStudio
 
 +++
 
-![Predicted distribution with RF](assets/img/pred_ditrib.png)
+![Predicted distribution with RF](assets/img/pred_distrib.png)
 
 ---
 
