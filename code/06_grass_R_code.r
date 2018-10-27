@@ -21,7 +21,7 @@ gmeta()
 execGRASS("g.region", raster="lst", flags="p")
 
 # generate random points and sample the datasets
-execGRASS("v.random", output="samples", npoints=1000)
+execGRASS("v.random", output="samples", npoints=1000, flags = c("overwrite"))
 
 # this will restrict sampling to the boundaries NC
 # we are overwriting vector samples, so we need to use overwrite flag
@@ -62,7 +62,7 @@ lst_pred <- readRAST("lst_pred")
 plot(lst_pred)
 
 # compare simple linear model to real data:
-execGRASS("r.mapcalc", expression="diff = lst - lst_pred")
+execGRASS("r.mapcalc", expression="diff = lst - lst_pred", flags = c("overwrite"))
 execGRASS("r.colors", map="diff", color="differences")
 
 # read raster and plot
@@ -88,7 +88,7 @@ library(rgrass7)
 # initialisation and the use of North Carolina sample dataset
 initGRASS(gisBase = "C:/OSGeo4W/apps/grass/grass74",
          gisDbase = "C:/Users/username/grassdata/",
-         location = "nc_spm_08_grass7", 
+         location = "nc_spm_08_grass7",
          mapset = "user1", 
          SG = "elevation")
 
@@ -108,7 +108,7 @@ initGRASS(gisBase = "/usr/local/grass74",
 # set computational region to default
 execGRASS("g.region", raster="elevation", flags=c("d","p"))
 # alternatively:
-system("g.region -dp")
+# system("g.region -dp")
 
 # verify metadata
 gmeta()
@@ -167,7 +167,7 @@ str(go1)
 ncdata$sqdem <- sqrt(ncdata$elevation)
 
 # export data from R back into a GRASS raster map:
-writeRAST(ncdata, "sqdemNC", zcol="sqdem", ignore.stderr=TRUE)
+writeRAST(ncdata, "sqdemNC", zcol="sqdem", ignore.stderr=TRUE, flags = "overwrite")
 
 # check that it was imported properly:
 execGRASS("r.info", parameters=list(map="sqdemNC"))

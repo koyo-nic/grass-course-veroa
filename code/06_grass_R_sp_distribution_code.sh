@@ -53,28 +53,28 @@ g.mapsets mapset=modis_lst,modis_ndvi operation=add
 
 # average LST
 t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
- output=LST_average
+ output=LST_average --o
 
 # minimum LST
 t.rast.series input=LST_Day_monthly_celsius@modis_lst method=minimum \
- output=LST_minimum
+ output=LST_minimum --o
 
 # average LST of summer
 t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
  where="strftime('%m', start_time)='07' OR strftime('%m', start_time)='08' OR strftime('%m', start_time)='09'" \
- output=LST_average_sum
+ output=LST_average_sum --o
 
 # average LST of winter
 t.rast.series input=LST_Day_monthly_celsius@modis_lst method=average \
- where="strftime('%m', start_time)='07' OR strftime('%m', start_time)='08' OR strftime('%m', start_time)='09'" \
- output=LST_average_win
+ where="strftime('%m', start_time)='12' OR strftime('%m', start_time)='01' OR strftime('%m', start_time)='02'" \
+ output=LST_average_win --o 
 
 # average NDVI
 t.rast.series input=ndvi_monthly_patch@modis_ndvi method=average \
- output=ndvi_average
+ output=ndvi_average --o
 
 # average NDWI
 t.rast.series input=ndwi_monthly@modis_ndvi method=average \
- output=ndwi_average
+ output=ndwi_average --o
 
 

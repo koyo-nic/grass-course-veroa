@@ -14,10 +14,10 @@
 
 
 # install packagess
-install.packages("raster")
-install.packages("rgrass7")
-install.packages("mapview")
-install.packages("biomod2")
+# install.packages("raster")
+# install.packages("rgrass7")
+# install.packages("mapview")
+# install.packages("biomod2")
 
 # load libraries
 library(raster)
@@ -71,7 +71,7 @@ NDWI_mean <- readRAST("ndwi_average")
 
 
 # visualize in mapview
-mapview(LST_mean)
+mapview(NDVI_mean)
 mapview(LST_mean) + Aa_pres
 
 
@@ -166,6 +166,4 @@ mod_proj
 
 # plot predicted potential distribution
 plot(mod_proj, main = "Predicted potential distribution - RF")
-
-
 

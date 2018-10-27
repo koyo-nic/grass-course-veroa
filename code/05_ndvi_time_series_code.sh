@@ -173,7 +173,7 @@ t.rast.series input=ndvi_monthly \
 
 # estimate percentage of missing data
 r.mapcalc \
- expression="ndvi_missing = ((36 - ndvi_count_valid) * 100.0)/36 "
+ expression="ndvi_missing = ((36 - ndvi_count_valid) * 100.0)/36"
 
 
 #
@@ -248,15 +248,15 @@ t.rast.mapcalc -n inputs=ndvi_monthly_patch output=month_min_ndvi \
   basename=month_min_ndvi
 
 # get the earliest month in which the maximum and minimum appeared
-t.rast.series input=month_max_ndvi method=minimum output=max_ndvi_date
+t.rast.series input=month_max_ndvi method=maximum output=max_ndvi_date
 t.rast.series input=month_min_ndvi method=minimum output=min_ndvi_date
 
 # remove month_max_lst strds 
 t.remove -rf inputs=month_max_ndvi,month_min_ndvi
-
+#associate max lst with max ndvi, max lst date with max ndvi date
 # time series of slopes
 t.rast.algebra \
- expression="slope_ndvi = (ndvi_monthly_patch[1] - ndvi_monthly_patch[0]) / 2.0" \
+ expression="slope_ndvi = (ndvi_monthly[1] - ndvi_monthly[0]) / 2.0" \
  basename=slope_ndvi
  
 # get max slope per year
@@ -268,7 +268,7 @@ t.rast.aggregate input=slope_ndvi output=ndvi_slope_yearly \
 g.extension extension=r.seasons
 
 # start, end and length of growing season
-r.seasons input=`t.rast.list input=ndvi_monthly_patch method=comma` \
+r.seasons input=`t.rast.list -u input=ndvi_monthly_patch method=comma` \
  prefix=ndvi_season n=3 \
  nout=ndvi_season threshold_value=3000 min_length=5
 
@@ -343,3 +343,8 @@ r.regression.series xseries=$xseries yseries=$yseries \
 
 
 
+r.seasons file=lista.txt \
+ prefix=ndvi_season n=3 \
+ nout=ndvi_season \
+ threshold_value=3000 \
+ min_length=5

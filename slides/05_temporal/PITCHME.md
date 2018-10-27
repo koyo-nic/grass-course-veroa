@@ -356,11 +356,11 @@ g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
 One solution could be...
 <br>
 ```bash
-t.rast.aggregate input=LST_Day_monthly_celsius output=month_maxLST_per_year \
-  basename=month_maxLST suffix=gran \
+t.rast.aggregate input=LST_Day_monthly_celsius output=month_max_LST_per_year \
+  basename=month_max_LST suffix=gran \
   method=max_raster granularity="1 year" 
 
-t.rast.series input=month_maxLST_per_year output=slope_month_maxLST \
+t.rast.series input=month_max_LST_per_year output=slope_month_max_LST \
   method=slope
 ```
 

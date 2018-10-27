@@ -262,7 +262,7 @@ d.vect map=nc_state type=boundary color=#4D4D4D width=2
 
 # Add raster legend
 d.legend -t raster=max_lst_date title="Month" \
-  label_num=6 title_fontsize=20 font=sans fontsize=18
+  labelnum=6 title_fontsize=20 font=sans fontsize=18
 
 # Add scale bar
 d.barscale length=200 units=kilometers segment=4 fontsize=14
