@@ -278,7 +278,7 @@ More derived information could be obtained from:
 
 ### Learn more about classification in GRASS GIS
 
-- [Topic classification](http://grass.osgeo.org/grass70/manuals/topic_classification.html) in GRASS GIS manual
+- [Topic classification](http://grass.osgeo.org/grass74/manuals/topic_classification.html) in GRASS GIS manual
 - [Image classification](http://grasswiki.osgeo.org/wiki/Image_classification) in the GRASS wiki
 - [Classification examples](http://training.gismentors.eu/grass-gis-irsae-winter-course-2018/units/28.html) at GRASS GIS course IRSAE 2018
 - [Classification with Random Forest](https://neteler.gitlab.io/grass-gis-analysis/03_grass-gis_ecad_randomforest/) at GRASS GIS presentation GEOSTAT 2018
