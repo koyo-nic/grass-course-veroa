@@ -150,6 +150,7 @@ To update, just open the "OSGeo4W Setup" and start again
 <br><br>
 **@size[64px](Super easy!)**
 
+<!---
 +++
 
 There's also the WINGRASS standalone installer, but...
@@ -165,6 +166,7 @@ bash.exe
 ```
 <br>
 Done!
+--->
 
 ---
 
