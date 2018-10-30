@@ -119,9 +119,18 @@ Install with `g.extension extension=name_of_addon`
 * [modis_lst mapset (2Mb)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/modis_lst.zip?inline=false): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
 * [modis_ndvi (15 Mb)](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/raw/master/data/modis_ndvi.zip?inline=false): download and unzip within the North Carolina location in `$HOME/grassdata/nc_spm_08_grass7`.
 
-## Author
+## The trainer
 
-* **Verónica Andreo**. [CONICET](http://www.conicet.gov.ar/) - [INMeT](https://www.argentina.gob.ar/salud/inmet). Puerto Iguazú, Argentina.
+**Verónica Andreo** is a researcher for [CONICET](http://www.conicet.gov.ar/?lan=en)
+working at the Institute of Tropical Medicine [(INMeT)](https://www.argentina.gob.ar/salud/inmet)
+in Puerto Iguazú, Argentina. Her main interests are remote sensing and GIS tools
+for disease ecology research fields and applications. 
+Vero is an [OSGeo](http://www.osgeo.org/) Charter member and a [FOSS4G](http://foss4g.org/) 
+enthusiast and advocate. 
+She is part of the [GRASS GIS Development team](https://grass.osgeo.org/home/credits/) 
+and she also teaches introductory and advanced courses and workshops, especially 
+on GRASS GIS [time series modules](https://grasswiki.osgeo.org/wiki/Temporal_data_processing)
+and their applications.
 
 ## Contributors
 
