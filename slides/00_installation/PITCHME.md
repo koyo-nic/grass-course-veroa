@@ -151,13 +151,10 @@ To update, just open the "OSGeo4W Setup" and start again
 **@size[64px](Super easy!)**
 
 <!---
-+++
 
 There's also the WINGRASS standalone installer, but...
 <br><br>
 **@color[#F26225](we strongly recommend installing GRASS GIS through the OSGeo4W package)**, since it allows to install all OSGeo software; esp. *msys* which will permit the use of loops, back ticks, autocomplete, history and other *@color[#F26225](nice bash shell features)*.
-
-+++
 
 To @color[#8EA33B](allow bash tricks in Windows), just open GRASS GIS and, in the black terminal, run:
 <br>
@@ -166,6 +163,7 @@ bash.exe
 ```
 <br>
 Done!
+
 --->
 
 ---
