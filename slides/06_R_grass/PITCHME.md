@@ -119,10 +119,6 @@ We'll now learn how to @color[#8EA33B](start GRASS from within R or Rstudio)
 
 <br>
 
-Open R or RStudio
-
-<br>
-
 > *Attention Windows users!* Start the the OSGeo4W Shell, change to a directory
 > with writing permission and **start R or RStudio**. To start RStudio run:
 > "C:/Program Files/RStudio/bin/rstudio.exe"
