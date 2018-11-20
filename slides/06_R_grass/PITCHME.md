@@ -115,11 +115,15 @@ GRASS> rstudio /path/to/project/folder/ &
 
 ---
 
-We'll now learn how to @color[#8EA33B](start GRASS within R or Rstudio)
+We'll now learn how to @color[#8EA33B](start GRASS from within R or Rstudio)
 
 <br>
 
-Open RStudio
+Open @fa[r-project] or RStudio
+
+<br>
+
+Attention! Windows users need to **start R or RStudio from the OSGeo4W Shell**
 
 +++?code=code/06_grass_R_code.r&lang=r
 
