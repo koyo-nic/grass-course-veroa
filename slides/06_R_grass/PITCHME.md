@@ -123,7 +123,9 @@ Open @fa[r-project] or RStudio
 
 <br>
 
-Attention! Windows users need to **start R or RStudio from the OSGeo4W Shell**
+> *Attention!* Windows users need to change to a directory with writing permission 
+> and **start R or RStudio from the OSGeo4W Shell**. To start RStudio run:
+> "C:/Program Files/RStudio/bin/rstudio.exe"
 
 +++?code=code/06_grass_R_code.r&lang=r
 
