@@ -103,12 +103,18 @@ r.univar map=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
 g.region -p vector=nc_state \
  align=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI
 
-# keep only NDVI most reliable pixels (one map)
+# keep only NDVI most reliable pixels (one map) - *nix
 PR=MOD13C2.A2015274.006.single_CMG_0.05_Deg_Monthly_pixel_reliability
 NDVI=MOD13C2.A2015274.006.single_CMG_0.05_Deg_Monthly_NDVI
 
 r.mapcalc \
  expression="${NDVI}_filt = if(${PR} != 0, null(), ${NDVI})"
+
+# keep only NDVI most reliable pixels (one map) - windows
+SET PR=MOD13C2.A2015274.006.single_CMG_0.05_Deg_Monthly_pixel_reliability
+SET NDVI=MOD13C2.A2015274.006.single_CMG_0.05_Deg_Monthly_NDVI
+
+r.mapcalc expression="%NDVI%_filt = if(%PR% != 0, null(), %NDVI%)"
 
 # for all NDVI maps
 
