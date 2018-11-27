@@ -116,7 +116,7 @@ SET NDVI=MOD13C2.A2015274.006.single_CMG_0.05_Deg_Monthly_NDVI
 
 r.mapcalc expression="%NDVI%_filt = if(%PR% != 0, null(), %NDVI%)"
 
-# for all NDVI maps
+# for all NDVI maps (Windows users run bash.exe and once done, exit)
 
 # list of maps
 PR=`g.list type=raster pattern="*_pixel_reliability" separator=" "`
@@ -190,6 +190,7 @@ r.mapcalc \
 # install extension
 g.extension extension=r.hants
 
+# *nix
 # list maps
 maplist=`t.rast.list input=ndvi_monthly method=comma`
 
@@ -203,7 +204,20 @@ NDVI_HANTS=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI_filt_hants
 r.patch input=${NDVI_ORIG},${NDVI_HANTS} \
  output=${NDVI_HANTS}_patch
 
-# patch original with filled (all maps)
+# Windows
+# list maps
+FOR /F %c IN ('t.rast.list "-u" "input=ndvi_monthly" "method=comma"') DO SET maplist=%c
+
+r.hants in=%maplist% range=-2000,10000 nf=5 fet=500 base_period=12
+
+# patch original with filled (one map)
+SET NDVI_ORIG=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI_filt
+SET NDVI_HANTS=MOD13C2.A2015001.006.single_CMG_0.05_Deg_Monthly_NDVI_filt_hants
+
+r.patch input=%NDVI_ORIG%,%NDVI_HANTS% \
+ output=%NDVI_HANTS%_patch
+
+# patch original with filled (all maps, Windows users run bash.exe, once done type exit)
 # list of maps
 ORIG=`g.list type=raster pattern="*_filt" separator=" "`
 FILL=`g.list type=raster pattern="*_hants" separator=" "`
@@ -273,10 +287,14 @@ t.rast.aggregate input=slope_ndvi output=ndvi_slope_yearly \
 # install extension
 g.extension extension=r.seasons
 
-# start, end and length of growing season
+# start, end and length of growing season - *nix
 r.seasons input=`t.rast.list -u input=ndvi_monthly_patch method=comma` \
  prefix=ndvi_season n=3 \
  nout=ndvi_season threshold_value=3000 min_length=5
+
+# start, end and length of growing season - Windows
+FOR /F %c IN ('t.rast.list "-u" "input=ndvi_monthly_patch" "separator=," "method=comma"') DO SET ndvi_list=%c
+r.seasons input=%ndvi_list% prefix=ndvi_season n=3 nout=ndvi_season threshold_value=3000 min_length=5
 
 # use threshold map: min ndvi + 0.1*ndvi
 r.mapcalc expression="threshold_ndvi = ndvi_min*1.1"
@@ -341,16 +359,17 @@ t.rast.series input=flood output=flood_freq method=sum
 # install extension
 g.extension extension=r.regression.series
 
+# use in *nix
 xseries=`t.rast.list input=ndvi_monthly_patch method=comma`
 yseries=`t.rast.list input=ndwi_monthly method=comma`
 
 r.regression.series xseries=$xseries yseries=$yseries \
  output=ndvi_ndwi_rsq method=rsq
 
+# use in Windows
+FOR /F %c IN ('t.rast.list "-u" "input=ndvi_monthly_patch" "method=comma"') DO SET xseries=%c
+FOR /F %c IN ('t.rast.list "-u" "input=ndwi_monthly" "method=comma"') DO SET yseries=%c
 
+r.regression.series xseries=%xseries% yseries=%yseries% \
+ output=ndvi_ndwi_rsq method=rsq
 
-r.seasons file=lista.txt \
- prefix=ndvi_season n=3 \
- nout=ndvi_season \
- threshold_value=3000 \
- min_length=5
