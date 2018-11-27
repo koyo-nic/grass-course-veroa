@@ -114,8 +114,9 @@ Use of reliability band
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Use of reliability band
 
 @[102-104](Set computational region)
-@[106-111](Keep only best quality pixels)
-@[113-127](Keep only best quality pixels - all maps)
+@[106-111](Keep only best quality pixels - UNIX)
+@[113-117](Keep only best quality pixels - Windows)
+@[119-133](Keep only best quality pixels - all maps)
 
 +++
 
@@ -123,12 +124,12 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Create time series
 
-@[135-139](Create the STRDS)
-@[141-142](Check STRDS was created)
-@[144-145](Create file with list of maps)
-@[147-150](Register maps)
-@[152-153](Print time series info)
-@[155-156](Print list of maps in STRDS)
+@[141-145](Create the STRDS)
+@[147-148](Check STRDS was created)
+@[150-151](Create file with list of maps)
+@[153-156](Register maps)
+@[158-159](Print time series info)
+@[161-162](Print list of maps in STRDS)
 
 +++
 
@@ -138,10 +139,10 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Missing data
 
-@[164-165](Set mask)
-@[167-168](Get time series stats)
-@[170-172](Count valid data)
-@[174-176](Estimate percentage of missing data)
+@[170-171](Set mask)
+@[173-174](Get time series stats)
+@[176-178](Count valid data)
+@[180-182](Estimate percentage of missing data)
 
 +++
 
@@ -158,9 +159,9 @@ Use of reliability band
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Temporal gap-filling: HANTS
 
-@[184-185](Install extension)
-@[187-188](List maps)
-@[190-191](Gap-fill: r.hants)
+@[190-191](Install extension)
+@[193-195](List maps)
+@[197-198](Gap-fill: r.hants)
 
 +++
 
@@ -168,11 +169,12 @@ Use of reliability band
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Temporal gap-filling: HANTS
 
-@[193-198](Patch original and gapfilled map)
-@[200-212](Patch original and gapfilled maps)
-@[214-218](Create time series with patched data)
-@[220-226](Register maps in time series)
-@[228-229](Print time series info)
+@[200-205](Patch original and gapfilled map)
+@[207-218](Gap-fill and patch maps in Windows)
+@[220-232](Patch original and gapfilled maps)
+@[234-238](Create time series with patched data)
+@[240-246](Register maps in time series)
+@[248-249](Print time series info)
 
 +++
 
@@ -190,10 +192,10 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
-@[237-239](Month of maximum and month of minimum)
-@[241-248](Replace STRDS values with 1 if they match overall min or max)
-@[250-252](Get the earliest month in which the maximum and minimum appeared)
-@[254-255](Remove intermediate time series)
+@[257-259](Month of maximum and month of minimum)
+@[261-268](Replace STRDS values with start_month if they match overall min or max)
+@[270-272](Get the earliest month in which the maximum and minimum appeared)
+@[274-275](Remove intermediate time series)
 
 +++
 
@@ -201,8 +203,8 @@ Use of reliability band
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
-@[257-260](Get time series of slopes among consequtive maps)
-@[262-265](Get maximum slope per year)
+@[278-281](Get time series of slopes among consequtive maps)
+@[283-286](Get maximum slope per year)
 
 +++
 
@@ -210,8 +212,9 @@ Use of reliability band
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
-@[267-268](Install extension)
-@[270-273](Determine start, end and length of growing season)
+@[288-289](Install extension)
+@[291-294](Determine start, end and length of growing season)
+@[296-299](Determine start, end and length of growing season - Windows)
 
 +++
 
@@ -219,7 +222,7 @@ Use of reliability band
 
 +++?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Phenology
 
-@[275-276](Create a threshold map to use in r.seasons)
+@[301-302](Create a threshold map to use in r.seasons)
 
 +++
 
@@ -227,11 +230,11 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Water index time series
 
-@[284-293](Create time series of NIR and MIR)
-@[295-297](List NIR and MIR files)
-@[299-306](Register maps)
-@[308-310](Print time series info)
-@[312-314](Estimate NDWI time series)
+@[310-319](Create time series of NIR and MIR)
+@[321-323](List NIR and MIR files)
+@[325-332](Register maps)
+@[334-336](Print time series info)
+@[338-340](Estimate NDWI time series)
 
 +++
 
@@ -239,8 +242,8 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Frequency of flooding
 
-@[322-324](Reclassify maps according to threshold)
-@[326-327](Get flooding frequency)
+@[348-350](Reclassify maps according to threshold)
+@[352-353](Get flooding frequency)
 
 +++
 
@@ -248,8 +251,9 @@ Use of reliability band
 
 ---?code=code/05_ndvi_time_series_code.sh&lang=bash&title=Regression analysis
 
-@[335-336](Install extension)
-@[338-342](Perform regression between NDVI and NDWI time series)
+@[361-362](Install extension)
+@[364-369](Perform regression between NDVI and NDWI time series)
+@[371-376](Perform regression between NDVI and NDWI time series - Windows)
 
 +++
 

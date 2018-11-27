@@ -274,6 +274,7 @@ t.rast.series input=month_min_ndvi method=minimum output=min_ndvi_date
 # remove month_max_lst strds 
 t.remove -rf inputs=month_max_ndvi,month_min_ndvi
 #associate max lst with max ndvi, max lst date with max ndvi date
+
 # time series of slopes
 t.rast.algebra \
  expression="slope_ndvi = (ndvi_monthly[1] - ndvi_monthly[0]) / 2.0" \
@@ -294,6 +295,7 @@ r.seasons input=`t.rast.list -u input=ndvi_monthly_patch method=comma` \
 
 # start, end and length of growing season - Windows
 FOR /F %c IN ('t.rast.list "-u" "input=ndvi_monthly_patch" "separator=," "method=comma"') DO SET ndvi_list=%c
+
 r.seasons input=%ndvi_list% prefix=ndvi_season n=3 nout=ndvi_season threshold_value=3000 min_length=5
 
 # use threshold map: min ndvi + 0.1*ndvi
