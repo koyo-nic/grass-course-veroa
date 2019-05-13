@@ -77,10 +77,10 @@
 <br>
 ```bash
 # set the nodata value
-r.nulls map=mapname setnull=-9999
+r.null map=mapname setnull=-9999
 
 # replace NULL by a number 
-r.nulls map=mapname null=256
+r.null map=mapname null=256
 ```
 
 ---
