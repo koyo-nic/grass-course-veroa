@@ -6,7 +6,14 @@ Data, code and slides for the post-graduate course that will be held in Rio Cuar
 
 ## Slides and exercises
 
-Slides:
+:exclamation: **Attention** :exclamation: 
+
+Given [gitpitch](https://gitpitch.com/) shutdown on March 1st, 2021, presentations 
+will no longer be online. Please see or download the pdf files from 
+[here](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/tree/master/pdf) 
+instead.
+
+### Slides:
 
 - [GRASS GIS intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab)
 - [Installation guide](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab)
@@ -16,7 +23,7 @@ Slides:
 - [Temporal data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
 - [GRASS and R interface](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab)
 
-Exercises:
+### Exercises:
 
 - [Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/)
 - [Create new location and import maps](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/02_create_new_location&grs=gitlab#/)
