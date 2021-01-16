@@ -36,35 +36,16 @@
 
 ---
 
-I ask you some questions... again @fa[smile-o fa-spin]
-
-<br>
-
-> - Location ?
-> - Mapset ? 
-> - Computational region ?
-
-<br>
-
-You can have a sneak peek at the [GRASS Intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab#/8) presentation
-
----
-
 @snap[north span-100]
 <h3>Data for this exercise</h3>
 @snapend
 
-@snap[west span-60]
-@ul[list-content-verbose](false)
+@snap[west span-100]
+@ul[](false)
 - Download the [raster](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/sample_rasters.zip) and [vector](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/blob/master/data/streets.gpkg) sample files
 - Create a folder in your `$HOME` directory (or Documents) and name it `gisdata`
 - Unzip/Move the files within `$HOME/gisdata`
 @ulend
-@snapend
-
-@snap[east span-40]
-<br><br>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-127.70507812500001%2C20.797201434307%2C-69.69726562500001%2C50.261253827584724&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/36.932/-98.701">View Larger Map</a></small>
 @snapend
 
 ---
@@ -415,4 +396,3 @@ Move on to:
 <a href="https://gitpitch.com/">
 <img src="assets/img/gitpitch_logo.png" width="20%"></a>
 @snapend
-
