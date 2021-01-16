@@ -67,3 +67,9 @@ slide-number : true
 #
 
 mathjax : TeX-MML-AM_HTMLorMML-full
+
+#
+# version
+#
+
+gitpitch : 3.0

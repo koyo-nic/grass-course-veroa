@@ -9,7 +9,7 @@
 
 @snap[south message-box-white]
 <br>Dra. Verónica Andreo<br>CONICET - INMeT<br><br>Río Cuarto, 2018<br>
-@snapen
+@snapend
 
 ---?image=template/img/grass.png&position=bottom&size=100% 30%
 
@@ -146,12 +146,6 @@ or `$HOME/.grass7/r.li/output/` (GNU/Linux).
 - [r.lake](https://grass.osgeo.org/grass74/manuals/r.lake.html): fills a lake to a target water level from a given start point or seed raster
 - [r.lake.series](https://grass.osgeo.org/grass7/manuals/addons/r.lake.series.html): addon which runs r.lake for different water levels
 - [r.stream.distance](https://grass.osgeo.org/grass7/manuals/addons/r.stream.distance.html): for computing the distance to streams or outlet, the relative elevation above streams
-
-<!---
-We will estimate inundation extent using Height Above Nearest Drainage methodology (A.D. Nobre, 2011). 
-We will compute HAND terrain model representing the differences in elevation between each grid cell 
-and the elevations of the flowpath-connected downslope grid cell where the flow enters the channel.
---->
 
 +++?code=code/03_raster_code.sh&lang=bash&title=Inundation extent using HAND methodology
 

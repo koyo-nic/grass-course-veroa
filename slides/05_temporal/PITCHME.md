@@ -33,12 +33,6 @@ data**, as well as the temporal relationships among time series.
 - Maps in a STDS can have different spatial and temporal extents
 @ulend
 
-<!---
-TGRASS uses an SQL database to store the temporal and spatial extension
-of STDS, as well as the topological relationships among maps and among
-STDS in each mapset.
---->
-
 +++
 
 ## Space-time datasets
@@ -166,25 +160,19 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 
 ---
 
-@snap[north span-100]
-<h3>Operations with temporal algebra</h3>
-@snapend
+### Operations with temporal algebra
 
-@snap[south list-content-verbose span-100]
 **[t.rast.algebra](https://grass.osgeo.org/grass74/manuals/t.rast.algebra.html)**
-<br><br>
-@ul[](false)
-- Performs a wide range of temporal and spatial map algebra operations based on map's temporal topology 
-@ul[](false)
+<br>
+- Wide range of temporal and spatial map algebra operations based on map's temporal topology 
   - Temporal operators: union, intersection, etc.
   - Temporal functions: *start_time()*, *start_doy()*, etc.
   - Spatial operators (subset of [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html))
   - Temporal neighbourhood modifier: *[x,y,t]*
-  - Other temporal functions like *tsnap()*, *buff_t()* or *tshift()*
-@ulend
-@ulend
-**@size[30px](they can be combined in complex expressions!!)**
-@snapend
+  - Other functions: *tsnap()*, *buff_t()* or *tshift()*
+<br><br>
+**they can be combined in complex expressions!!**
+
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=From K*50 to Celsius using the temporal calculator
 
@@ -211,11 +199,6 @@ grass74 $HOME/grassdata/nc_spm_08_grass7/modis_lst --gui
 - **[t.list](https://grass.osgeo.org/grass74/manuals/t.list.html)** for listing STDS and maps registered in the temporal database,
 - **[t.rast.list](https://grass.osgeo.org/grass74/manuals/t.rast.list.html)** for maps in raster time series, and
 - **[t.vect.list](https://grass.osgeo.org/grass74/manuals/t.vect.list.html)** for maps in vector time series.
-
-<!--- list of variables to use for query 
-id, name, creator, mapset, temporal_type, creation_time, start_time, end_time, north, south, west, east, nsres, ewres, cols, rows, number_of_cells, min, max
-id, name, layer, creator, mapset, temporal_type, creation_time, start_time, end_time, north, south, west, east, points, lines, boundaries, centroids, faces, kernels, primitives, nodes, areas, islands, holes, volumes
---->
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Listing examples
 
@@ -323,11 +306,6 @@ The supported internal variables for the current sample interval or instance:
 
 > **Task**: Compare the monthly and sesonal timelines with [g.gui.timeline](https://grass.osgeo.org/grass74/manuals/g.gui.timeline.html)
 
-<!---
-```bash
-g.gui.timeline inputs=LST_Day_monthly_celsius,LST_Day_mean_3month
-```
---->
 
 +++?code=code/05_temporal_code.sh&lang=bash&title=Display seasonal LST using frames in wx monitor
 
@@ -360,7 +338,8 @@ t.rast.aggregate input=LST_Day_monthly_celsius output=month_max_LST_per_year \
   basename=month_max_LST suffix=gran \
   method=max_raster granularity="1 year" 
 
-t.rast.series input=month_max_LST_per_year output=slope_month_max_LST \
+t.rast.series input=month_max_LST_per_year \
+  output=slope_month_max_LST \
   method=slope
 ```
 

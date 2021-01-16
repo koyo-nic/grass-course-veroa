@@ -60,3 +60,9 @@ layout : center
 
 transition : none
 slide-number : true 
+
+#
+# version
+#
+
+gitpitch : 3.0

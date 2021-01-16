@@ -297,18 +297,6 @@ always considered in their original extent.
 
 @size[18px](More details at the [Computational region wiki](https://grasswiki.osgeo.org/wiki/Computational_region))
 
-<!---
-## Mask
-
-If a mask is set, raster modules will operate only on data falling inside
-the masked area(s). Masks are set with 
-[r.mask](https://grass.osgeo.org/grass74/manuals/r.mask.html) 
-or creating a raster map called `MASK`.
-
-![MASK](assets/img/masks.png)
-<br>
-@size[18px](Examples of masking: b- Only the raster data inside the masked area are used for further analysis. c- Inverse mask.)
---->
 
 ---
 

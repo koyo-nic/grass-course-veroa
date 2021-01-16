@@ -34,8 +34,6 @@
 @olend
 @snapend
 
-<!--- atmospheric and topographic correction --->
-
 ---
 
 ### Basics of imagery processing in GRASS GIS
@@ -55,18 +53,18 @@ Satellite data is identical to raster data @fa[arrow-right] same rules apply
 <h3>Data</h3>
 @snapend
 
-@snap[west span-50]
+@snap[west span-60]
 Two Landsat 8 (OLI) scenes
 @ul[list-content-verbose](false)
 - Dates: 16 June 2016 and 18 July 2016
 - Path/Row: 015/035
 - CRS: UTM zone 18 N (EPSG:32618)
 @ulend
-<br><br>
+<br>
 @snapend
 
-@snap[east span-50]
-![L8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ldcm_2012_COL.png)
+@snap[east span-40]
+![L8](https://landsat.gsfc.nasa.gov/sites/landsat/files/2013/01/ldcm_2012_COL-300x168.png)
 <br><br>
 @snapend
 
@@ -78,7 +76,7 @@ Also download the file with the [code](https://gitlab.com/veroandreo/curso-grass
 
 +++
 
-![L8 vs L7 bands](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg)
+![L8 vs L7 bands](https://landsat.gsfc.nasa.gov/sites/landsat/files/2013/01/ETM+vOLI-TIRS-web_Feb20131.jpg)
 
 @size[24px](Spectral bands of Landsat 7 ETM+ and 8 OLI. Source: <https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/> and <a href="https://landsat.usgs.gov/what-are-band-designations-landsat-satellites">Landsat bands details</a>)
 
