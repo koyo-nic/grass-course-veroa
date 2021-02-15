@@ -45,7 +45,7 @@ Satellite data is identical to raster data @fa[arrow-right] same rules apply
 
 <br>
 
-@size[24px](For further details see: <a href="https://grass.osgeo.org/grass74/manuals/imageryintro.html">Imagery Intro</a> manual and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing</a> wiki)
+@size[24px](For further details see: <a href="https://grass.osgeo.org/grass-stable/manuals/imageryintro.html">Imagery Intro</a> manual and <a href="https://grasswiki.osgeo.org/wiki/Image_processing">Image Processing</a> wiki)
 
 ---
 
@@ -114,7 +114,7 @@ Directory option to import from the GUI
 
 > **Task:** 
 >
-> - Note that we are using [r.import](https://grass.osgeo.org/grass74/manuals/r.import.html) instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to import the data. Check the difference between the two of them and explain why we used r.import here?
+> - Note that we are using [r.import](https://grass.osgeo.org/grass-stable/manuals/r.import.html) instead of [r.in.gdal](https://grass.osgeo.org/grass74/manuals/r.in.gdal.html) to import the data. Check the difference between the two of them and explain why we used r.import here?
 > - Repeat the import step for the second scene "LC80150352016200LGN00"
 
 ---
@@ -122,8 +122,8 @@ Directory option to import from the GUI
 #### From Digital Number (DN) to Reflectance and Temperature
 
 - Landsat 8 OLI sensor provides 16-bit data with range between 0 and 65536.
-- [i.landsat.toar](https://grass.osgeo.org/grass74/manuals/i.landsat.toar.html) converts DN to TOA reflectance (and brightness temperature) for all Landsat sensors. It optionally provides surface reflectance after DOS atmospheric correction. 
-- [i.atcorr](https://grass.osgeo.org/grass74/manuals/i.atcorr.html) provides more complex atmospheric correction method for many sensors, i.e., S6.
+- [i.landsat.toar](https://grass.osgeo.org/grass-stable/manuals/i.landsat.toar.html) converts DN to TOA reflectance (and brightness temperature) for all Landsat sensors. It optionally provides surface reflectance after DOS atmospheric correction. 
+- [i.atcorr](https://grass.osgeo.org/grass-stable/manuals/i.atcorr.html) provides more complex atmospheric correction method for many sensors, i.e., S6.
 
 +++?code=code/04_L8_imagery_code.sh&lang=bash&title=DN to Reflectance and Temperature
 
