@@ -1,5 +1,7 @@
 # Procesamiento de series de tiempo en GRASS GIS: Aplicaciones en Ecologia y Ambiente.
 
+## Adopted for **Coding in Geo Mini Webinar Session** for demo and practice purposes
+
 Data, code and slides for the post-graduate course that will be held in Rio Cuarto (Cordoba, Argentina) in October, 2018
 
 ![Flyer course in Rio Cuarto](assets/img/image_flyer.png)
