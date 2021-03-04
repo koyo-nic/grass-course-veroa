@@ -6,31 +6,23 @@ Data, code and slides for the post-graduate course that will be held in Rio Cuar
 
 ## Slides and exercises
 
-:exclamation: **Attention** :exclamation: 
-
-Given [gitpitch](https://gitpitch.com/) shutdown on March 1st, 2021, presentations 
-will no longer be online. Please see or download the pdf files from 
-[here](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/tree/master/pdf) 
-instead.
-
 ### Slides:
 
-- [GRASS GIS intro](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/01_general_intro_grass&grs=gitlab)
-- [Installation guide](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab)
-- [GRASS GIS general capabilities](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/02_general_intro_capabilities&grs=gitlab)
-- [Raster data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/03_raster&grs=gitlab)
-- [Satellite imagery processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/04_imagery&grs=gitlab)
-- [Temporal data processing](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/05_temporal&grs=gitlab)
-- [GRASS and R interface](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/06_R_grass&grs=gitlab)
+- [GRASS GIS intro](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/01_general_intro_grass.pdf)
+- [GRASS GIS general capabilities](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/02_general_intro_capabilities.pdf)
+- [Raster data processing](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/03_raster.pdf)
+- [Satellite imagery processing](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/04_imagery.pdf)
+- [Temporal data processing](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/05_temporal.pdf)
+- [GRASS and R interface](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/06_R_grass.pdf)
 
 ### Exercises:
 
-- [Getting familiar with GRASS GIS](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/01_getting_familiar&grs=gitlab#/)
-- [Create new location and import maps](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/02_create_new_location&grs=gitlab#/)
-- [Landscape, hydrology and terrain analysis](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/03_raster_exercises&grs=gitlab#/)
-- [Working with Sentinel 2 images](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/04_processing_sentinel2&grs=gitlab#/)
-- [Hands-on to NDVI time series](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/05_ndvi_time_series&grs=gitlab#/)
-- [GRASS and R: Predicting species distribution](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=exercises/06_predicting_species_distribution&grs=gitlab#/)
+- [Getting familiar with GRASS GIS](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/01_exercise_getting_familiar.pdf)
+- [Create new location and import maps](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/02_exercise_create_new_location.pdf)
+- [Landscape, hydrology and terrain analysis](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/03_exercise_raster.pdf)
+- [Working with Sentinel 2 images](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/04_exercise_processing_sentinel2.pdf)
+- [Hands-on to NDVI time series](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/05_exercise_ndvi_time_series.pdf)
+- [GRASS and R: Predicting species distribution](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/06_exercise_predicting_spp_distributions.pdf)
 
 ## Software
 
@@ -79,7 +71,7 @@ The following are some Python libraries that are needed by add-ons that will be 
 - matplotlib
 - pygbif
 
-See the [Installation guide](https://gitpitch.com/veroandreo/curso-grass-gis-rioiv/master?p=slides/00_installation&grs=gitlab) presentation for details.
+See the [Installation guide](https://gitlab.com/veroandreo/curso-grass-gis-rioiv/-/blob/master/pdf/00_installation.pdf) presentation for details.
 
 ### OSGeo-live: 
 
