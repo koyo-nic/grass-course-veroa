@@ -1,6 +1,6 @@
 # Procesamiento de series de tiempo en GRASS GIS: Aplicaciones en Ecologia y Ambiente.
 
-## Edit: Adopted for **Coding in Geo Kenya Mini Webinar Session** for demo and practice purposes
+### Edit: Adopted for **Coding in Geo Kenya Mini Webinar Session** for demo and practice purposes 2021
 
 Data, code and slides for the post-graduate course that will be held in Rio Cuarto (Cordoba, Argentina) in October, 2018
 
@@ -28,7 +28,7 @@ Data, code and slides for the post-graduate course that will be held in Rio Cuar
 
 ## Software
 
-We will use **GRASS GIS 7.4.1** (current stable version). It can be installed either 
+We will use **GRASS GIS 7.8.5** (current stable version). It can be installed either 
 through standalone installers/binaries or through OSGeo-Live (which includes all
 OSGeo software and packages).
 
@@ -37,7 +37,7 @@ OSGeo software and packages).
 ##### MS Windows
 
 There are two different options:
-1. Standalone installer: [32-bit version](https://grass.osgeo.org/grass74/binary/mswindows/native/x86/WinGRASS-7.4.1-1-Setup-x86.exe) | [64-bit version](https://grass.osgeo.org/grass74/binary/mswindows/native/x86_64/WinGRASS-7.4.1-1-Setup-x86_64.exe) 
+1. Standalone installer: [32-bit version](https://grass.osgeo.org/grass78/binary/mswindows/native/x86/WinGRASS-7.8.5-1-Setup-x86.exe) | [64-bit version](https://grass.osgeo.org/grass78/binary/mswindows/native/x86_64/WinGRASS-7.8.5-2-Setup-x86_64.exe) 
 2. OSGeo4W package (network installer): [32-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe) | [64-bit version](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe) 
 
 For Windows users, **we strongly recommend installing GRASS GIS through the OSGeo4W package**, 
@@ -48,11 +48,13 @@ features.
 
 ##### Mac OS
 
-Download GRASS GIS 7.4.1 stable from: http://grassmac.wikidot.com/downloads and follow the instructions under *Installing GRASS for Mac*.
+Download GRASS GIS 7.8.5 stable from:http://grassmac.wikidot.com/downloads and follow the instructions under *Installing GRASS for Mac*.
 
 ##### Ubuntu Linux
 
-Install GRASS GIS 7.4.1 from the "unstable" package repository:
+Install GRASS GIS 7.8.5 from the "unstable" package repository:
+> **Note:** packaged with GDAL 3 or later
+> If you already have QGIS installed through [official docs](https://qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu) with ``qgis-grass-plugin`` then you probably have grass installed. QGIS :hearts: Grass GIS
 
 ```
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
@@ -62,7 +64,11 @@ sudo apt-get install grass
 
 ##### Fedora, openSuSe Linux
 
-For other Linux distributions including **Fedora** and **openSuSe**, simply install GRASS GIS with the respective package manager. See also [here](https://grass.osgeo.org/download/software/)
+For other Linux distributions including **Arch Linux**, **EPEL**, **Fedora** and **openSuSe**, simply install GRASS GIS with the respective package manager. See also [here](https://grass.osgeo.org/download/linux/)
+
+##### Docker users
+
+If you're comfortable with using Docker, check instructions [here](https://grass.osgeo.org/download/docker/)
 
 ##### Extra dependencies
 
@@ -141,6 +147,7 @@ this course. A special thanks to [Carol Garzon](https://gitlab.com/carolgarzon)
 who contributed the examples for r.li.* modules and the workflow for species 
 distribution modeling in R that were further adapted for this course.
 
+Post questions or discussions [here](https://github.com/koyo-nic/grass-course-veroa/discussions)
 ## License
 
 All the course material:
